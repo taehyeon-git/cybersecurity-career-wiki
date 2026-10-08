@@ -2,6 +2,8 @@
 
 한국어로 보안 직무, 핵심 지식, 학습 경로, 직무 간 차이를 탐색하는 공개 위키입니다. 고전 위키의 폴더 탐색기처럼 왼쪽 문서 트리나 첫 화면의 폴더를 펼쳐 글을 찾을 수 있습니다. 직무 이름과 도구 이름을 구분하고, 공식 프레임워크와 확인 가능한 국내 채용공고를 근거로 설명합니다. 경로와 요구 역량은 참고용이며 채용 요건을 보증하지 않습니다.
 
+**공개 사이트:** [사이버보안 커리어 위키 바로 열기](https://taehyeon-git.github.io/cybersecurity-career-wiki/)
+
 ## 실행
 
 Node.js와 npm을 준비한 뒤 저장소 루트에서 실행합니다.
@@ -38,7 +40,7 @@ npm run build
 
 ## 배포 설정
 
-GitHub Pages 프로젝트 사이트라면 `NEXT_PUBLIC_BASE_PATH=/저장소명`, `NEXT_PUBLIC_SITE_URL=https://계정.github.io/저장소명`을 빌드 환경에 지정합니다. 루트 도메인 사이트는 base path를 비웁니다. 사이트 URL은 하위 경로까지 포함한 공개 기준 주소입니다. 설정 절차와 배포 전 확인 항목은 [배포 안내](docs/DEPLOYMENT.md)에 있습니다. 이 저장소의 배포 완료 여부는 이 문서가 보증하지 않습니다.
+`main` 브랜치에 변경 사항을 푸시하면 GitHub Actions가 검사와 정적 빌드를 거쳐 GitHub Pages에 배포합니다. 다른 GitHub Pages 프로젝트 사이트라면 `NEXT_PUBLIC_BASE_PATH=/저장소명`, `NEXT_PUBLIC_SITE_URL=https://계정.github.io/저장소명`을 빌드 환경에 지정합니다. 루트 도메인 사이트는 base path를 비웁니다. 사이트 URL은 하위 경로까지 포함한 공개 기준 주소입니다. 설정 절차와 배포 전 확인 항목은 [배포 안내](docs/DEPLOYMENT.md)에 있습니다.
 
 ## 참여와 라이선스
 
