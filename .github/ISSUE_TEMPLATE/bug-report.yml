@@ -1,0 +1,37 @@
+name: 기능 오류
+description: 화면, 검색, 링크 또는 배포 결과의 오류를 알립니다.
+title: "[버그] "
+body:
+  - type: input
+    id: url
+    attributes:
+      label: 발생 위치
+      description: 공개 URL 또는 저장소 파일 경로
+      placeholder: "예: /careers/security-analyst/"
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 재현 방법
+      description: 처음부터 따라 할 수 있게 단계별로 적어 주세요.
+      placeholder: "1. ...\n2. ..."
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: 실제 결과
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 기대한 결과
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: 확인 환경
+      description: 브라우저·운영체제 또는 로컬 빌드 명령과 오류 로그 요약

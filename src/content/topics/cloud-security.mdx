@@ -1,0 +1,56 @@
+---
+id: "cloud-security"
+slug: "cloud-security"
+titleKo: "클라우드 보안"
+titleEn: "Cloud Security"
+aliases: ["AWS 보안", "Azure 보안", "GCP 보안"]
+summary: "클라우드의 책임 분담, 신원, 네트워크, 데이터, 로깅과 구성 위험을 다룬다."
+category: "cloud"
+prerequisiteTopicIds: ["networking", "iam"]
+relatedTopicIds: ["container-security", "kubernetes-security", "zero-trust"]
+relatedRoleIds: ["cloud-security-engineer", "security-architect", "devsecops-engineer"]
+sourceIds: ["aws-security", "microsoft-security", "google-cloud-security", "nist-csf"]
+reviewedAt: "2026-10-09"
+publicationStatus: "published"
+---
+
+# 클라우드 보안
+
+## 정의와 범위 · 먼저 이해하기
+
+클라우드의 책임 분담, 신원, 네트워크, 데이터, 로깅과 구성 위험을 다룬다. 이 문서의 주제는 여러 직무에서 함께 사용하는 지식이며, 특정 채용 직무 하나와 동일하지 않다.
+
+## 왜 필요한가
+
+클라우드에서는 리소스를 빠르게 만들 수 있는 만큼 노출과 권한 변경도 빠르다. 공급자가 관리하는 부분과 고객이 구성·운영하는 부분을 서비스별로 확인해야 한다.
+
+## 핵심 개념과 구성 요소
+
+계정·프로젝트 경계, IAM 정책, 네트워크 접근, 암호화 키, 구성 평가, 감사 로그, 백업을 구분한다. 제공자의 보안 기능이 켜져 있다는 사실만으로 전체 위험이 해결되지는 않는다.
+
+## 기본 작동 원리
+
+서비스 배포 전에 데이터 흐름과 신원을 정하고 최소 권한을 부여한다. 관리 활동·데이터 접근 로그를 보존하고 잘못된 설정을 발견하면 변경 원인까지 조사한다.
+
+## 작은 예시
+
+실습 계정의 객체 저장소를 기본 비공개로 만들고 특정 서비스 계정에만 읽기 권한을 준다. 공개 접근과 과도한 정책이 없는지 자동 검사 결과와 실제 접근 테스트를 함께 확인한다.
+
+## 위험과 한계
+
+클라우드 설정은 제공자와 서비스에 따라 빠르게 바뀐다. 여러 계정·리전의 재고가 불완전하면 대시보드상 정상이어도 관리되지 않은 자산이 남는다.
+
+## 실제 보안 업무에서의 활용
+
+클라우드 보안 엔지니어는 구성 기준과 탐지를 만들고 아키텍트는 신뢰 경계를 설계한다. DevSecOps는 배포 단계에서 정책을 검증한다.
+
+## 선행 학습과 관련 기술
+
+선행 주제: **네트워크 기초, 신원 및 접근 관리**. 관련 주제: **컨테이너 보안, 쿠버네티스 보안, 제로 트러스트 아키텍처**. 이 연결은 학습을 위한 제안이며, 회사마다 직무의 업무 범위는 달라질 수 있다.
+
+## 공식 참고자료
+
+- [AWS Security Documentation](https://docs.aws.amazon.com/security/)
+- [Microsoft Security Documentation](https://learn.microsoft.com/security/)
+- [Google Cloud Security Documentation](https://cloud.google.com/security)
+- [NIST Cybersecurity Framework 2.0](https://www.nist.gov/cyberframework)

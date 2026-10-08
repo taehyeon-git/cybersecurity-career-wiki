@@ -1,0 +1,81 @@
+---
+id: incident-responder
+slug: incident-responder
+titleKo: 침해사고 대응 담당자
+titleEn: Incident Responder
+aliases: [사고 대응 분석가, 침해 대응 담당자, Cyber Incident Responder]
+summary: 확인된 보안 사고의 범위를 파악하고 피해를 억제·근절한 뒤 안전한 복구와 재발 방지에 필요한 증거를 남긴다.
+category: defensive
+domainIds: [incident-response, logging-siem, mitre-attack, vulnerability-management]
+responsibilities: [사건 범위 확인, 증거 보존, 격리·근절 조정, 복구 검증과 회고]
+typicalTasks: [사고 타임라인 작성, 영향 자산 식별, 격리 방안 협의, 재발 방지 과제 추적]
+keyDeliverables: [사고 기록, 증거 목록, 격리·복구 계획, 사후 분석 보고서]
+prerequisiteTopicIds: [networking, linux, logging-siem]
+coreSkillIds: [incident-response, mitre-attack, vulnerability-management]
+toolIds: [case-management, endpoint-telemetry, log-archive]
+relatedRoleIds: [soc-analyst, digital-forensics-specialist, malware-analyst]
+roadmapIds: [security-operations]
+sourceIds: [nist-nice, enisa-ecsf, nist-csf, mitre-attack]
+reviewStatus: reviewed
+reviewedAt: '2026-10-09'
+publicationStatus: published
+---
+
+## 왜 필요한가
+
+침해가 의심되는 순간부터 서비스 운영, 법무·개인정보, 고객 지원의 결정이 서로 영향을 준다. 대응 담당자는 확인된 사실과 미확인 가설을 구분하고 피해 억제, 원인 제거, 안전한 복구를 조정한다. NIST CSF 2.0의 Respond와 Recover 결과가 이 업무의 조직적 맥락을 제공한다.
+
+## 실제 수행 업무
+
+- **입력:** SOC 승격 티켓, 자산 목록, 로그·엔드포인트 증거, 서비스 운영 제약, 비상 연락 체계.
+- **과정:** 사건 지휘·역할을 정하고 범위를 추적한다. 증거 보존과 사업 영향 사이에서 격리 순서를 결정하며, 원인 제거 뒤 재침해 징후를 감시한다.
+- **출력:** 시간순 사실 기록, 결정 근거, 영향 자산·데이터 범위, 복구 검증표, 미완료 개선 과제.
+
+## 가상 실무 시나리오
+
+**가상 시나리오:** 서버 한 대에서 비정상 프로세스가 발견된다. 대응팀은 서비스 담당자와 격리 가능 시간을 협의하고 휘발성 증거를 보존한다. 인증·네트워크 로그로 연관 호스트를 조사하고 노출된 계정을 교체한다. 복구 뒤 동일 행위가 다시 나타나는지 확인하며, 포렌식 담당자에게 원본 이미지 분석을 의뢰한다.
+
+## 기반 지식
+
+OS 프로세스·서비스와 네트워크 흐름을 알아야 격리의 효과와 부작용을 예측할 수 있다. 로그 수집·시간대 처리 지식은 사건 순서를 바로잡는다. 백업·복구와 자산 중요도 지식은 서비스를 안전하게 되돌리는 판단에 필요하다.
+
+## 핵심 역량과 도구
+
+케이스 관리 도구는 결정과 담당자를 기록하고, 엔드포인트 텔레메트리는 확산 범위를 찾으며, 변경 불가능한 로그 보관본은 사후 검증을 돕는다. ATT&CK은 관찰 행동을 공통 언어로 설명할 때 사용한다. 대응 담당자는 조사에 필요한 데이터와 운영팀의 복구 절차를 함께 조율해야 한다.
+
+## 신입 준비
+
+‘침해사고 대응’, ‘DFIR’, ‘보안관제 고도화’라는 명칭은 공고마다 범위가 다르다. 합성 사건에서 사실·가설·결정을 분리한 타임라인과 격리의 운영 영향을 설명하는 보고서를 준비한다. 자격증은 실제 공고의 요구와 교육 범위를 확인하고 선택한다.
+
+## 학습 순서
+
+1. 로그와 자산 관계를 읽는다 — 사건의 최초 관측 지점을 설명하면 완료.
+2. 대응 절차와 증거 보존을 익힌다 — 격리 전 확인 목록을 만들면 완료.
+3. 가상 사고를 처리한다 — 범위·결정·복구 검증을 기록하면 완료.
+4. 사후 회고를 한다 — 재발 방지 과제와 담당자·기한을 연결하면 완료.
+
+## 실습 프로젝트
+
+### 프로젝트 1: 계정 탈취 의심 사고
+
+- **목표·선수 지식·환경:** 합성 인증 로그로 영향 범위와 격리 순서를 정한다. 인증·SIEM 기초가 필요하다.
+- **작업·검증:** 로그인 타임라인, 접근 자산, 정상 점검 반례를 대조하고 계정 차단·세션 종료 결정을 문서화한다.
+- **산출물·완료 기준·포트폴리오:** 증거 목록과 결정표를 제출한다. 제3자가 동일 자료로 범위를 재현하면 완료다.
+
+### 프로젝트 2: 복구와 사후 회고
+
+- **목표·선수 지식·환경:** 첫 프로젝트의 사고 이후 안전한 서비스 재개를 설계한다. 백업·로그 기초가 필요하다.
+- **작업·검증:** 복구 전후 체크리스트와 재침해 감시 조건을 만들고 모의 로그로 검증한다.
+- **산출물·완료 기준·포트폴리오:** 복구 승인 기준, 잔여 위험, 개선 과제를 공개한다. 각 결정의 책임자와 증거가 명시되면 완료다.
+
+## 관련 자격증
+
+[GIAC GCIH](https://www.giac.org/certifications/certified-incident-handler-gcih)는 사고 탐지·대응·해결 영역을 다룬다. 초기 학습에서는 사고 타임라인과 격리·복구 판단을 재현하는 실습이 우선이다. 자격증은 조직별 채용 조건과 본인의 경험 수준에 맞춰 선택한다.
+
+## 관련 직무 차이
+
+SOC 분석가는 경보의 초동 분류가 중심이다. 포렌식 전문가는 증거 수집의 무결성과 상세 분석을 깊게 담당한다. 사고 대응 담당자는 여러 팀을 연결해 피해를 줄이고 운영을 복구하는 전체 흐름을 책임진다.
+
+## 근거 및 검토 상태
+
+2026-10-09 검토. [ENISA Cyber Incident Responder 프로필](https://www.enisa.europa.eu/publications/european-cybersecurity-skills-framework-role-profiles), [NIST CSF 2.0](https://www.nist.gov/cyberframework), [MITRE ATT&CK](https://attack.mitre.org/)을 확인했다. 사고 신고 의무와 법정 기한은 국가·업종별로 달라 이 문서에서 단정하지 않는다.

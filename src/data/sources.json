@@ -1,0 +1,272 @@
+[
+  {
+    "id": "nist-nice",
+    "title": "NICE Framework: Current Versions",
+    "organization": "NIST NICE",
+    "url": "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/nice-framework-current-versions",
+    "version": "Components 2.2.0 (2026-04-28)",
+    "checkedAt": "2026-10-09",
+    "kind": "workforce-framework",
+    "notes": "Components contain Work Role Categories, Work Roles, Competency Areas, and TKS statements. The page's parenthetical year says 2025; the release notice and change log confirm 2026."
+  },
+  {
+    "id": "nist-nice-base",
+    "title": "NIST SP 800-181 Rev. 1: Workforce Framework for Cybersecurity",
+    "organization": "NIST",
+    "url": "https://csrc.nist.gov/pubs/sp/800/181/r1/final",
+    "version": "Revision 1 (2020-11)",
+    "checkedAt": "2026-10-09",
+    "kind": "workforce-framework",
+    "notes": "Defines the framework structure; component releases are maintained separately."
+  },
+  {
+    "id": "nist-nice-changelog",
+    "title": "NICE Framework Change Logs",
+    "organization": "NIST NICE",
+    "url": "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/current-version/change-logs",
+    "version": "2.2.0 change record (2026-04-28)",
+    "checkedAt": "2026-10-09",
+    "kind": "change-log",
+    "notes": "Records the new Cybersecurity Supply Chain Risk Management Work Role and changes to Cryptography and DevSecOps Competency Areas."
+  },
+  {
+    "id": "nist-nice-getting-started",
+    "title": "Getting Started with the NICE Framework",
+    "organization": "NIST NICE",
+    "url": "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/getting-started",
+    "version": "living guidance; checked 2026-10-09",
+    "checkedAt": "2026-10-09",
+    "kind": "guidance",
+    "notes": "Explains the five current Work Role Categories and the 42 Work Roles shown at review time."
+  },
+  {
+    "id": "nist-jobs-vs-roles",
+    "title": "Occupations, Jobs, and Work Roles",
+    "organization": "NIST NICE",
+    "url": "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/resources/occupations-jobs-and-work",
+    "version": "living guidance; checked 2026-10-09",
+    "checkedAt": "2026-10-09",
+    "kind": "guidance",
+    "notes": "Distinguishes a framework Work Role from an employer's specific job."
+  },
+  {
+    "id": "enisa-ecsf",
+    "title": "European Cybersecurity Skills Framework (ECSF)",
+    "organization": "ENISA",
+    "url": "https://www.enisa.europa.eu/topics/skills-and-competences/skills-development/european-cybersecurity-skills-framework-ecsf",
+    "version": "2022 framework; revision in progress at review time",
+    "checkedAt": "2026-10-09",
+    "kind": "workforce-framework",
+    "notes": "Overview of 12 representative professional profiles; ENISA states that the ECSF is being revised."
+  },
+  {
+    "id": "enisa-ecsf-roles",
+    "title": "European Cybersecurity Skills Framework Role Profiles",
+    "organization": "ENISA",
+    "url": "https://www.enisa.europa.eu/publications/european-cybersecurity-skills-framework-role-profiles",
+    "version": "2022-09",
+    "checkedAt": "2026-10-09",
+    "kind": "workforce-framework",
+    "notes": "Primary role-profile publication covering missions, tasks, knowledge, skills, and alternative titles."
+  },
+  {
+    "id": "cisa-pathways",
+    "title": "Cyber Career Pathways Tool",
+    "organization": "CISA / NICCS",
+    "url": "https://niccs.cisa.gov/tools/cyber-career-pathways-tool",
+    "version": "tool data: NICE Components 2.0.0 (stated on page)",
+    "checkedAt": "2026-10-09",
+    "kind": "career-tool",
+    "notes": "Useful for comparing Work Roles and related TKS. Tool data lags the current NICE 2.2.0 Components; some visits returned HTTP 403."
+  },
+  {
+    "id": "nist-csf",
+    "title": "NIST Cybersecurity Framework",
+    "organization": "NIST",
+    "url": "https://www.nist.gov/cyberframework",
+    "version": "CSF 2.0 (2024)",
+    "checkedAt": "2026-10-09",
+    "kind": "framework",
+    "notes": "Risk management outcomes and six functions; this is not a job-title taxonomy."
+  },
+  {
+    "id": "nist-ssdf",
+    "title": "Secure Software Development Framework",
+    "organization": "NIST",
+    "url": "https://csrc.nist.gov/pubs/sp/800/218/final",
+    "version": "SP 800-218, SSDF 1.1 (2022-02)",
+    "checkedAt": "2026-10-09",
+    "kind": "standard",
+    "notes": "Reference for secure software development practices and software supply chain work."
+  },
+  {
+    "id": "nist-zero-trust",
+    "title": "Zero Trust Architecture",
+    "organization": "NIST",
+    "url": "https://csrc.nist.gov/pubs/sp/800/207/final",
+    "version": "SP 800-207 (2020-08)",
+    "checkedAt": "2026-10-09",
+    "kind": "standard",
+    "notes": "Architecture and access-control approach, not a standalone product category."
+  },
+  {
+    "id": "owasp-top10",
+    "title": "OWASP Top 10:2025",
+    "organization": "OWASP",
+    "url": "https://top10.owasp.org/2025/",
+    "version": "2025",
+    "checkedAt": "2026-10-09",
+    "kind": "reference",
+    "notes": "Web application security risk awareness document; apply to appropriate technology context."
+  },
+  {
+    "id": "owasp-api",
+    "title": "OWASP API Security Top 10",
+    "organization": "OWASP",
+    "url": "https://api-security.owasp.org/editions/2023/en/0x11-t10/",
+    "version": "2023",
+    "checkedAt": "2026-10-09",
+    "kind": "reference",
+    "notes": "API-specific security risk list."
+  },
+  {
+    "id": "owasp-cheatsheets",
+    "title": "OWASP Cheat Sheet Series",
+    "organization": "OWASP",
+    "url": "https://cheatsheetseries.owasp.org/",
+    "version": "living documentation; checked 2026-10-09",
+    "checkedAt": "2026-10-09",
+    "kind": "guidance",
+    "notes": "Topic-specific secure implementation guidance; cite the individual cheat sheet where possible."
+  },
+  {
+    "id": "mitre-attack",
+    "title": "MITRE ATT&CK",
+    "organization": "MITRE",
+    "url": "https://attack.mitre.org/",
+    "version": "living knowledge base; checked 2026-10-09",
+    "checkedAt": "2026-10-09",
+    "kind": "knowledge-base",
+    "notes": "Adversary tactics and techniques; cite specific techniques for technical claims."
+  },
+  {
+    "id": "mitre-cwe",
+    "title": "Common Weakness Enumeration",
+    "organization": "MITRE",
+    "url": "https://cwe.mitre.org/",
+    "version": "living catalog; checked 2026-10-09",
+    "checkedAt": "2026-10-09",
+    "kind": "knowledge-base",
+    "notes": "Software and hardware weakness taxonomy; distinguish weakness from a specific CVE."
+  },
+  {
+    "id": "nist-nvd",
+    "title": "National Vulnerability Database",
+    "organization": "NIST",
+    "url": "https://nvd.nist.gov/",
+    "version": "living database; checked 2026-10-09",
+    "checkedAt": "2026-10-09",
+    "kind": "database",
+    "notes": "Vulnerability records and enrichment; the home page loaded but automated text extraction returned no body, so no database totals are asserted."
+  },
+  {
+    "id": "cncf",
+    "title": "Cloud Native Computing Foundation",
+    "organization": "CNCF",
+    "url": "https://www.cncf.io/",
+    "version": "living project directory; checked 2026-10-09",
+    "checkedAt": "2026-10-09",
+    "kind": "documentation",
+    "notes": "Entry point for cloud native projects; cite a project or specification page for technical claims."
+  },
+  {
+    "id": "kubernetes",
+    "title": "Kubernetes Documentation",
+    "organization": "Kubernetes project",
+    "url": "https://kubernetes.io/docs/",
+    "version": "living documentation; checked 2026-10-09",
+    "checkedAt": "2026-10-09",
+    "kind": "documentation",
+    "notes": "Official platform documentation; individual pages should be checked against the version selector."
+  },
+  {
+    "id": "aws-security",
+    "title": "AWS Security Documentation",
+    "organization": "Amazon Web Services",
+    "url": "https://docs.aws.amazon.com/security/",
+    "version": "living documentation; checked 2026-10-09",
+    "checkedAt": "2026-10-09",
+    "kind": "documentation",
+    "notes": "AWS security documentation hub; cite service-level docs for product behavior."
+  },
+  {
+    "id": "microsoft-security",
+    "title": "Microsoft Security documentation",
+    "organization": "Microsoft",
+    "url": "https://learn.microsoft.com/security/",
+    "version": "living documentation; checked 2026-10-09",
+    "checkedAt": "2026-10-09",
+    "kind": "documentation",
+    "notes": "Security documentation hub, including Microsoft security products and identity resources."
+  },
+  {
+    "id": "google-cloud-security",
+    "title": "Google Cloud Security",
+    "organization": "Google Cloud",
+    "url": "https://cloud.google.com/security",
+    "version": "living hub; checked 2026-10-09",
+    "checkedAt": "2026-10-09",
+    "kind": "documentation",
+    "notes": "Official security overview; use Google Cloud product documentation for precise technical details."
+  },
+  {
+    "id": "owasp-genai",
+    "title": "OWASP Gen AI Security Project",
+    "organization": "OWASP",
+    "url": "https://genai.owasp.org/",
+    "version": "living project; checked 2026-10-09",
+    "checkedAt": "2026-10-09",
+    "kind": "reference",
+    "notes": "Entry point for generative AI and LLM application security resources."
+  },
+  {
+    "id": "kisia-job-market-2025",
+    "title": "2025년 정보보호 채용시장 조사·분석 보고서",
+    "organization": "한국정보보호산업협회 정보보호 ISC",
+    "url": "https://www.kisia.or.kr/ks/kboard_view.php?PN=71&no=1028&page=1",
+    "version": "2025 study; KISIA listing dated 2026-08-04",
+    "checkedAt": "2026-10-09",
+    "kind": "market-report",
+    "notes": "Official report listing verified. Search-indexed PDF says postings were collected April–October 2025 and cautions against generalizing to the whole market; PDF download was not reliably retrievable in this session."
+  },
+  {
+    "id": "kisia-workforce-2025",
+    "title": "2025년 정보보호 산업인력현황 조사·분석 보고서",
+    "organization": "한국정보보호산업협회 정보보호 ISC",
+    "url": "https://www.kisia.or.kr/ks/kboard_view.php?PN=71&no=1023&page=1",
+    "version": "2025 study; KISIA listing dated 2026-08-04",
+    "checkedAt": "2026-10-09",
+    "kind": "market-report",
+    "notes": "Official publication listing; the alternate legacy listing records a July 2025 distribution date, so chronology is unclear. Do not infer current vacancy counts from this report."
+  },
+  {
+    "id": "kisa-training-2025",
+    "title": "KISA 사이버보안 교육 추진 안내",
+    "organization": "한국인터넷진흥원",
+    "url": "https://www.kisa.or.kr/402/form?page=11&postSeq=2484",
+    "version": "2025-02-17 announcement",
+    "checkedAt": "2026-10-09",
+    "kind": "training-reference",
+    "notes": "Lists Security Gym, K-Shield, K-Shield Junior, and AI security monitoring training; training names are not proof of hiring demand."
+  },
+  {
+    "id": "kisia-security-academy",
+    "title": "KISIA 시큐리티 아카데미 교육과정",
+    "organization": "한국정보보호산업협회",
+    "url": "https://kice.kisia.or.kr/home/kor/education/security/view.do?idx2=303&menuPos=12&pageIndex=1&tabPos=A",
+    "version": "course listing; checked 2026-10-09",
+    "checkedAt": "2026-10-09",
+    "kind": "training-reference",
+    "notes": "Provides Korean practice and training labels such as monitoring, incident response, penetration testing, malware analysis, and consulting."
+  }
+]

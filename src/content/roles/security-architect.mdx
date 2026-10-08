@@ -1,0 +1,81 @@
+---
+id: security-architect
+slug: security-architect
+titleKo: 보안 아키텍트
+titleEn: Security Architect
+aliases: [보안 설계자, Cybersecurity Architect, 보안 아키텍처 담당자]
+summary: 사업 요구·위협·운영 제약을 통합해 여러 시스템에 일관된 보안 구조와 설계 결정을 제시한다.
+category: engineering
+domainIds: [threat-modeling, zero-trust, iam, cloud-security, secure-sdlc]
+responsibilities: [보안 원칙·목표 구조 정의, 신뢰 경계 설계, 통제 간 선택 조정, 설계 예외 검토]
+typicalTasks: [시스템 흐름도 리뷰, 위험 시나리오 검토, 참조 아키텍처 작성, 구현 검증 기준 합의]
+keyDeliverables: [보안 참조 아키텍처, 설계 결정 기록, 위협 모델, 검증 요구사항]
+prerequisiteTopicIds: [networking, authentication-authorization, cybersecurity-fundamentals]
+coreSkillIds: [threat-modeling, zero-trust, cloud-security, iam]
+toolIds: [architecture-diagram, threat-model-board, decision-log]
+relatedRoleIds: [cloud-security-engineer, network-security-engineer, security-consultant]
+roadmapIds: [cloud-security, grc-security-management]
+sourceIds: [enisa-ecsf, nist-csf, nist-zero-trust, nist-ssdf]
+reviewStatus: reviewed
+reviewedAt: '2026-10-09'
+publicationStatus: published
+---
+
+## 왜 필요한가
+
+개별 팀의 통제가 각각 합리적이어도 연결 지점에 빈틈이 남을 수 있다. 보안 아키텍트는 데이터 흐름, 신원, 네트워크, 개발·운영 경계를 함께 검토해 목표 구조와 선택 이유를 남긴다. ENISA ECSF에는 Cybersecurity Architect 프로필이 있다.
+
+## 실제 수행 업무
+
+- **입력:** 사업·규제 요구, 현재 시스템 구조, 자산·데이터 분류, 위협 모델, 예산·운영 제약.
+- **과정:** 보호 목표와 신뢰 경계를 정의하고 여러 통제 대안을 비교한다. 구현팀과 배포·장애·관측 가능성을 확인하고 예외 승인 기준을 정한다.
+- **출력:** 참조 아키텍처, 설계 결정의 근거·가정, 구현 검증 항목, 잔여 위험과 소유자.
+
+## 가상 실무 시나리오
+
+**가상 시나리오:** 여러 팀의 API를 외부 파트너에게 제공한다. 아키텍트는 파트너 신원, API 인증, 서비스별 인가, 데이터 경계, 로그 요구를 묶어 설계한다. IAM·네트워크·AppSec 엔지니어와 각 통제의 책임 지점을 합의한다. 단일 게이트웨이만으로 서비스 내부 권한이 보장된다고 가정하지 않고 각 서비스의 검증 기준을 남긴다.
+
+## 기반 지식
+
+네트워크와 클라우드 구조를 알아야 통제 위치와 장애 영향을 판단할 수 있다. 인증·인가와 암호화 기초는 데이터 접근 설계에 필요하다. 개발 수명주기 지식은 설계가 코드와 배포 과정에서 어떻게 유지되는지 확인하는 데 중요하다.
+
+## 핵심 역량과 도구
+
+아키텍처 다이어그램은 데이터·권한 흐름을 공유하고, 위협 모델 보드는 남은 질문을 추적하며, 결정 기록은 시간이 지나도 선택 이유를 보존한다. 도구보다 가정·대안·검증 방법의 명료성이 중요하다. [NIST SP 800-207](https://csrc.nist.gov/pubs/sp/800/207/final)은 자원 중심 접근의 참조 구조를 제공한다.
+
+## 신입 준비
+
+‘보안 아키텍트’는 대체로 여러 기술·조직을 연결하는 역할이므로 입문자는 네트워크·클라우드·AppSec 중 한 영역의 구현 경험을 쌓아 설계 근거를 축적할 수 있다. 특정 경력 연수나 자격증을 보편적 조건으로 단정하지 않는다. 포트폴리오는 다이어그램만이 아니라 선택·기각 대안과 검증 결과를 포함해야 한다.
+
+## 학습 순서
+
+1. 한 시스템의 자산·데이터 흐름을 그린다 — 신뢰 경계를 표시하면 완료.
+2. 위협과 통제를 연결한다 — 위험별 대안을 두 가지 이상 비교하면 완료.
+3. 목표 구조를 제안한다 — 운영·비용·복구 제약을 명시하면 완료.
+4. 구현을 검증한다 — 설계 조건이 실제 테스트로 확인되면 완료.
+
+## 실습 프로젝트
+
+### 프로젝트 1: 다중 서비스 접근 설계
+
+- **목표·선수 지식·환경:** 사용자·서비스 신원과 데이터 경계를 설계한다. IAM·네트워크 기초와 가상 시스템 요구사항이 필요하다.
+- **작업·검증:** 현재·목표 구조를 그리고 권한 거부·서비스 장애 시나리오를 검토한다.
+- **산출물·완료 기준·포트폴리오:** 결정 기록과 검증 항목을 낸다. 다른 사람이 통제 책임을 구분할 수 있으면 완료다.
+
+### 프로젝트 2: 설계 예외 심사
+
+- **목표·선수 지식·환경:** 통제 적용이 어려운 레거시 서비스의 대안을 평가한다. 위협 모델 기초가 필요하다.
+- **작업·검증:** 즉시 수정·보완 통제·기한 있는 예외를 비교하고 모의 테스트로 각각의 한계를 확인한다.
+- **산출물·완료 기준·포트폴리오:** 선택 이유, 잔여 위험, 재검토 조건을 제출한다. 승인자가 위험을 이해하고 결정할 수 있으면 완료다.
+
+## 관련 자격증
+
+[ISC2 CISSP](https://www.isc2.org/certifications/cissp)는 폭넓은 보안 지식 체계를 정리하는 심화 선택지다. 자격의 경험 요건과 별개로 설계 결정의 타당성은 구현 검증과 운영 피드백으로 입증해야 한다. 입문자는 한 기술 영역의 실무 설계부터 시작한다.
+
+## 관련 직무 차이
+
+클라우드·네트워크 보안 엔지니어는 특정 환경의 통제를 구현·운영한다. 보안 아키텍트는 여러 통제를 묶어 목표 구조와 경계를 결정한다. 컨설턴트는 고객 과제에 맞춰 진단과 대안을 제안하며, 아키텍트는 지속적인 내부 설계 책임을 맡을 수 있다.
+
+## 근거 및 검토 상태
+
+2026-10-09 검토. [ENISA Cybersecurity Architect 프로필](https://www.enisa.europa.eu/publications/european-cybersecurity-skills-framework-role-profiles), [NIST CSF 2.0](https://www.nist.gov/cyberframework), [NIST SP 800-207](https://csrc.nist.gov/pubs/sp/800/207/final), [NIST SSDF 1.1](https://csrc.nist.gov/pubs/sp/800/218/final)을 확인했다. 조직 규모에 따라 설계와 구현 역할이 한 사람에게 합쳐질 수 있다.

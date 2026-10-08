@@ -1,0 +1,81 @@
+---
+id: product-security-engineer
+slug: product-security-engineer
+titleKo: 제품 보안 엔지니어
+titleEn: Product Security Engineer
+aliases: [프로덕트 보안 엔지니어, 제품 보안 담당자, Product Security Specialist]
+summary: 제품의 설계부터 출시·운영·취약점 처리까지 보안 책임을 연결하고 고객에게 전달되는 제품 위험을 관리한다.
+category: engineering
+domainIds: [threat-modeling, secure-sdlc, vulnerability-management, sbom]
+responsibilities: [제품 보안 요구 정의, 출시 위험 검토, 취약점 접수·조정, 고객 영향 설명]
+typicalTasks: [기능별 위협 모델 검토, 구성요소 현황 확인, 수정 우선순위 협의, 보안 공지 준비]
+keyDeliverables: [제품 위협 모델, 출시 보안 기준, 취약점 처리 기록, 고객 영향 설명]
+prerequisiteTopicIds: [programming-scripting, web-http, secure-sdlc]
+coreSkillIds: [threat-modeling, vulnerability-management, sbom, secure-coding]
+toolIds: [issue-tracker, sbom-generator, code-review-platform]
+relatedRoleIds: [application-security-engineer, devsecops-engineer, vulnerability-researcher]
+roadmapIds: [application-security, devsecops]
+sourceIds: [nist-ssdf, mitre-cwe, nist-nvd, owasp-cheatsheets]
+reviewStatus: reviewed
+reviewedAt: '2026-10-09'
+publicationStatus: published
+---
+
+## 왜 필요한가
+
+제품의 취약점은 내부 서비스뿐 아니라 배포된 고객 환경에도 영향을 줄 수 있다. 제품 보안 엔지니어는 기능 설계, 구성요소, 릴리스, 외부 제보, 수정 버전 안내를 연결한다. 조직에 따라 앱 보안과 같은 팀일 수 있으므로 ‘제품 보안’은 이 위키의 실무 초점 구분이다.
+
+## 실제 수행 업무
+
+- **입력:** 제품 로드맵, 아키텍처, 구성요소 목록, 제보·고객 문의, 릴리스 일정.
+- **과정:** 제품의 신뢰 경계와 고객 배포 형태를 확인하고 위험을 설계·테스트에 반영한다. 제보의 재현성·영향 버전을 검증하고 개발·지원팀과 수정 및 커뮤니케이션을 조정한다.
+- **출력:** 출시 보안 결정 기록, 영향 버전 표, 수정·완화 안내, 취약점 재발 방지 과제.
+
+## 가상 실무 시나리오
+
+**가상 시나리오:** 고객이 제공한 로그에서 제품의 오래된 의존성 사용 가능성이 제기된다. 엔지니어는 SBOM과 실제 빌드 결과를 비교하고 해당 취약 코드가 호출되는지 확인한다. 영향이 확인되면 수정 릴리스와 임시 완화책을 협의하고 지원팀이 고객에게 전달할 버전별 안내를 만든다. 공개 취약점 점수만으로 고객 영향을 단정하지 않는다.
+
+## 기반 지식
+
+소프트웨어 구조와 빌드·배포 방식은 고객에게 전달된 실제 코드를 판단하는 데 필요하다. 위협 모델링과 안전한 개발은 설계 결함을 줄인다. 패키지·SBOM·버전 관리 지식은 영향 버전과 수정 경로를 설명한다.
+
+## 핵심 역량과 도구
+
+이슈 추적 도구는 제보·분류·수정·공지를 이어주고, SBOM 생성기는 구성요소 식별의 출발점이 된다. 그러나 SBOM에 이름이 있다는 사실만으로 실제 악용 가능성이 확정되지는 않는다. 코드 리뷰는 도달성과 수정의 부작용을 확인한다. [NIST SSDF](https://csrc.nist.gov/pubs/sp/800/218/final)의 개발·취약점 대응 관행을 참고한다.
+
+## 신입 준비
+
+국내 공고에서 ‘제품 보안’, ‘서비스 보안’, ‘AppSec’으로 표현될 수 있으며 고객 공지까지 담당하는지는 확인해야 한다. 자신이 만든 작은 제품의 릴리스·의존성·제보 처리 흐름을 문서화하면 제품 수명주기 이해를 보여줄 수 있다. 자격증을 제품 보안 역량의 대체물로 보지 않는다.
+
+## 학습 순서
+
+1. 작은 제품을 개발·배포한다 — 버전과 의존성을 추적하면 완료.
+2. 제품 신뢰 경계를 그린다 — 고객·운영자·서비스 권한을 분리하면 완료.
+3. 취약점 처리 흐름을 만든다 — 접수에서 수정 검증까지 기록하면 완료.
+4. 고객 영향 설명을 연습한다 — 확인 사실·완화책·미확인 범위를 구분하면 완료.
+
+## 실습 프로젝트
+
+### 프로젝트 1: 제품 릴리스 보안 기준
+
+- **목표·선수 지식·환경:** 자체 제작 서비스의 출시 보안 조건을 만든다. 개발·테스트 기초와 로컬 저장소가 필요하다.
+- **작업·검증:** 위협 모델, 구성요소 목록, 권한 테스트를 릴리스 체크에 연결한다.
+- **산출물·완료 기준·포트폴리오:** 출시 결정표와 차단 사례를 낸다. 의도적 위험 변경을 체크가 잡아내면 완료다.
+
+### 프로젝트 2: 가상 취약점 접수와 공지
+
+- **목표·선수 지식·환경:** 제보에서 수정 안내까지 연습한다. 버전 관리·SBOM 기초가 필요하다.
+- **작업·검증:** 자체 코드 결함을 재현하고 영향 버전·수정 버전을 검증한다.
+- **산출물·완료 기준·포트폴리오:** 공개 가능한 모의 공지와 회귀 테스트를 제출한다. 불확실한 영향은 명시적으로 남기면 완료다.
+
+## 관련 자격증
+
+[ISC2 CSSLP](https://www.isc2.org/certifications/csslp/csslp-certification-exam-outline)의 안전한 소프트웨어 수명주기 범위는 제품 보안의 한 부분과 맞닿는다. 고객 제보 처리와 영향 버전 판단까지 대신 증명하지는 않으므로 실제 릴리스·수정 기록이 우선이다.
+
+## 관련 직무 차이
+
+앱 보안 엔지니어는 코드·설계 리뷰의 깊이에 집중할 수 있다. 제품 보안 엔지니어는 출시 후 제보와 고객 영향까지 제품 수명주기를 연결한다. DevSecOps 엔지니어는 여러 제품팀이 공유하는 자동화 통제를 구축한다.
+
+## 근거 및 검토 상태
+
+2026-10-09 검토. [NIST SSDF 1.1](https://csrc.nist.gov/pubs/sp/800/218/final), [NVD](https://nvd.nist.gov/), [MITRE CWE](https://cwe.mitre.org/)를 확인했다. ‘Product Security Engineer’는 조직별 범위가 넓고 특정 NICE Work Role과 일대일로 대응하지 않으므로 실제 공고별 확인이 필요하다.

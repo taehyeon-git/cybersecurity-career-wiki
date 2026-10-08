@@ -1,0 +1,54 @@
+---
+id: "detection-engineering"
+slug: "detection-engineering"
+titleKo: "탐지 엔지니어링"
+titleEn: "Detection Engineering"
+aliases: ["탐지 규칙", "Detection-as-Code"]
+summary: "위협 가설을 관측 가능한 이벤트와 검증 가능한 규칙으로 바꾸는 활동."
+category: "operations"
+prerequisiteTopicIds: ["logging-siem", "mitre-attack"]
+relatedTopicIds: ["incident-response", "threat-intelligence"]
+relatedRoleIds: ["detection-engineer", "soc-analyst", "threat-hunter"]
+sourceIds: ["mitre-attack", "nist-csf"]
+reviewedAt: "2026-10-09"
+publicationStatus: "published"
+---
+
+# 탐지 엔지니어링
+
+## 정의와 범위 · 먼저 이해하기
+
+위협 가설을 관측 가능한 이벤트와 검증 가능한 규칙으로 바꾸는 활동. 이 문서의 주제는 여러 직무에서 함께 사용하는 지식이며, 특정 채용 직무 하나와 동일하지 않다.
+
+## 왜 필요한가
+
+제품 기본 경보만으로 조직의 업무와 기술 환경에 맞는 공격 신호를 모두 찾기 어렵다. 탐지는 가설, 필요한 로그, 규칙, 검증 데이터가 연결되어야 한다.
+
+## 핵심 개념과 구성 요소
+
+행동 기반 가설, 데이터 소스, 필드 품질, 규칙 조건, 오탐 사례, 탐지 지연, 조사 절차를 구분한다. MITRE ATT&CK은 행동을 설명하는 공통 언어이지 규칙의 정확도를 보증하지 않는다.
+
+## 기본 작동 원리
+
+탐지하려는 행위를 정의하고 정상·악성 시험 데이터를 만든다. 규칙을 실행해 탐지율과 오탐을 점검한 뒤 운영 피드백으로 조건을 조정한다.
+
+## 작은 예시
+
+관리자 권한 부여 이벤트가 드물게 발생한다면 승인 티켓과 변경 주체를 함께 조사하도록 경보를 만든다. 승인된 변경 샘플이 경보를 어떻게 통과하는지도 확인한다.
+
+## 위험과 한계
+
+로그가 수집되지 않는 환경에서 규칙이 있어도 탐지는 불가능하다. 공격자가 행동을 바꾸거나 정상 작업과 겹칠 때는 맥락 정보가 필요하다.
+
+## 실제 보안 업무에서의 활용
+
+탐지 엔지니어는 규칙과 시험을 유지하고 SOC는 경보의 실제 조사 비용을 되돌려준다. 위협 헌터는 미탐 가설을 실험해 새 탐지 후보를 만든다.
+
+## 선행 학습과 관련 기술
+
+선행 주제: **보안 로그와 SIEM, MITRE ATT&CK 활용**. 관련 주제: **보안 사고 대응, 사이버 위협 인텔리전스**. 이 연결은 학습을 위한 제안이며, 회사마다 직무의 업무 범위는 달라질 수 있다.
+
+## 공식 참고자료
+
+- [MITRE ATT&CK](https://attack.mitre.org/)
+- [NIST Cybersecurity Framework 2.0](https://www.nist.gov/cyberframework)

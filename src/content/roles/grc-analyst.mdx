@@ -1,0 +1,81 @@
+---
+id: grc-analyst
+slug: grc-analyst
+titleKo: 보안 거버넌스·위험·컴플라이언스 분석가
+titleEn: GRC Analyst
+aliases: [보안 정책 담당자, 정보보호 관리체계 담당자, Governance Risk and Compliance Analyst]
+summary: 조직의 보안 정책·위험·통제 증거를 연결해 우선순위와 책임이 유지되도록 관리한다.
+category: governance
+domainIds: [cybersecurity-fundamentals, vulnerability-management, iam]
+responsibilities: [위험 등록부 관리, 정책·통제 매핑, 증거 수집 조정, 예외·개선 추적]
+typicalTasks: [위험 평가, 통제 소유자 확인, 증거 유효성 점검, 경영 보고]
+keyDeliverables: [위험 등록부, 통제 매핑표, 정책 개정안, 예외·시정조치 기록]
+prerequisiteTopicIds: [cybersecurity-fundamentals, networking, authentication-authorization]
+coreSkillIds: [vulnerability-management, iam, incident-response]
+toolIds: [risk-register, control-matrix, evidence-register]
+relatedRoleIds: [security-auditor, security-consultant, security-architect]
+roadmapIds: [grc-security-management]
+sourceIds: [nist-csf, enisa-ecsf, nist-nice]
+reviewStatus: reviewed
+reviewedAt: '2026-10-09'
+publicationStatus: published
+---
+
+## 왜 필요한가
+
+보안 통제가 실제 운영되어도 책임자·위험 수용 결정·증거가 연결되지 않으면 조직은 무엇이 관리되고 있는지 설명하기 어렵다. GRC 분석가는 정책, 위험, 통제, 증거, 예외를 같은 흐름으로 관리한다. NIST CSF 2.0의 Govern 기능은 전략·역할·정책·감독 결과를 다룬다.
+
+## 실제 수행 업무
+
+- **입력:** 사업 목표, 자산·위험 정보, 통제 운영 기록, 감사 지적, 정책·계약 요구.
+- **과정:** 위험의 가능성과 영향을 조직 기준에 따라 평가하고 통제 소유자와 증거를 연결한다. 예외에는 근거·승인·만료·재검토 조건을 기록한다.
+- **출력:** 현재 위험 상태, 개선 우선순위, 누락 증거, 경영진이 결정할 수 있는 요약 자료.
+
+## 가상 실무 시나리오
+
+**가상 시나리오:** 여러 팀의 관리자 계정에 MFA 적용이 불완전하다. GRC 분석가는 계정 범위와 통제 소유자를 확인하고 실제 설정 증거를 요청한다. 시스템 제약으로 즉시 적용하지 못하는 계정은 잔여 위험과 보완 통제, 종료 시점을 기록한다. IAM 엔지니어의 구현 결과를 다시 받아 위험 등록부와 증거를 갱신한다.
+
+## 기반 지식
+
+네트워크·IAM·사고 대응의 기초를 알아야 기술팀 증거가 통제 목적을 충족하는지 질문할 수 있다. 위험 평가, 정책 수명주기, 증거의 시점·범위 개념이 중요하다. 법규와 인증 기준은 국가·업종·버전별로 달라 적용 범위를 검증해야 한다.
+
+## 핵심 역량과 도구
+
+위험 등록부에는 위험·소유자·대응·기한을, 통제 매핑표에는 목표와 운영 책임을, 증거 대장에는 출처·확인일·유효 기간을 남긴다. 문서의 존재와 통제의 실제 작동을 구분해야 한다. [NIST CSF 2.0](https://www.nist.gov/cyberframework)의 조직 프로필을 현재·목표 상태 비교에 참고할 수 있다.
+
+## 신입 준비
+
+‘정보보호 관리체계’, ‘보안 정책’, ‘GRC’, ‘위험관리’ 공고는 인증 준비와 상시 위험 운영의 비중이 다르다. 가상 조직의 위험 등록부와 증거 추적표를 만들되 국내 법적 적합성을 검증했다고 주장하지 않는다. 특정 자격증의 의무 여부는 실제 공고와 적용 제도에서 확인한다.
+
+## 학습 순서
+
+1. 기술 통제의 목적을 이해한다 — MFA·백업·로그의 위험 감소 경로를 설명하면 완료.
+2. 위험 평가 기준을 세운다 — 영향·가능성·불확실성 근거를 쓰면 완료.
+3. 통제와 증거를 연결한다 — 소유자·기간·범위가 추적되면 완료.
+4. 개선과 예외를 관리한다 — 만료·재검토가 누락되지 않으면 완료.
+
+## 실습 프로젝트
+
+### 프로젝트 1: 가상 조직 위험 등록부
+
+- **목표·선수 지식·환경:** 기술 위험을 사업 결정으로 연결한다. 보안 기초와 합성 자산·사고 자료가 필요하다.
+- **작업·검증:** 위험 시나리오, 통제, 소유자, 잔여 위험을 작성하고 반례를 검토한다.
+- **산출물·완료 기준·포트폴리오:** 우선순위표와 평가 근거를 제출한다. 다른 사람이 같은 기준으로 재평가 가능하면 완료다.
+
+### 프로젝트 2: 통제 증거 추적
+
+- **목표·선수 지식·환경:** 정책 문장과 실제 운영 증거를 연결한다. IAM·로그 기초가 필요하다.
+- **작업·검증:** 합성 MFA 설정·접근 로그를 모아 적용 범위와 기간을 확인한다.
+- **산출물·완료 기준·포트폴리오:** 통제 매핑·미확인 목록·기한 있는 예외를 낸다. 증거가 없는 통제를 ‘운영 중’으로 표시하지 않으면 완료다.
+
+## 관련 자격증
+
+[ISACA CRISC](https://www.isaca.org/credentialing/crisc)는 정보시스템 위험과 통제의 심화 학습과 관련된다. 입문 단계에서는 위험 등록부와 통제 증거를 정확히 연결하는 연습을 우선하고, 응시·인증 경험 요건은 발급기관에서 확인한다.
+
+## 관련 직무 차이
+
+보안 감사자는 정해진 기준에 따라 통제를 독립적으로 평가한다. GRC 분석가는 위험·정책·개선의 지속 운영을 맡는다. 컨설턴트는 특정 의뢰 과제에서 현황과 개선안을 제안할 수 있다. 독립성 요구는 감사 맥락에서 별도로 고려한다.
+
+## 근거 및 검토 상태
+
+2026-10-09 검토. [NIST CSF 2.0](https://www.nist.gov/cyberframework)과 [ENISA ECSF의 위험관리·정책 관련 프로필](https://www.enisa.europa.eu/publications/european-cybersecurity-skills-framework-role-profiles), [NICE Components 2.2.0](https://www.nist.gov/news-events/news/2026/04/nice-releases-nice-framework-components-v220)을 참고했다. 국내 법률·인증의 세부 의무는 본문에 단정하지 않았다.

@@ -1,0 +1,81 @@
+---
+id: web-penetration-tester
+slug: web-penetration-tester
+titleKo: 웹 모의침투 테스터
+titleEn: Web Penetration Tester
+aliases: [웹 모의해킹 담당자, 웹 취약점 진단원, Web Pentester]
+summary: 허가받은 웹 서비스 범위에서 공격 가능성을 재현하고, 개발자가 수정할 수 있는 증거와 재검증 결과를 제공한다.
+category: offensive
+domainIds: [web-http, web-application-security, api-security, authentication-authorization]
+responsibilities: [진단 범위와 안전 규칙 합의, 웹·API 취약점 검증, 영향도와 수정 방법 보고, 수정 후 재검증]
+typicalTasks: [인증·권한 흐름 확인, 요청·응답 분석, 수동 재현과 오탐 제거, 증거 최소화]
+keyDeliverables: [범위 정의서, 취약점 재현 보고서, 수정 권고, 재검증 기록]
+prerequisiteTopicIds: [networking, web-http, programming-scripting]
+coreSkillIds: [web-application-security, api-security, authentication-authorization]
+toolIds: [http-proxy, browser-developer-tools, test-accounts]
+relatedRoleIds: [red-team-operator, application-security-engineer, vulnerability-researcher]
+roadmapIds: [penetration-testing, application-security]
+sourceIds: [nist-nice, enisa-ecsf, owasp-top10, owasp-api, owasp-cheatsheets]
+reviewStatus: reviewed
+reviewedAt: '2026-10-09'
+publicationStatus: published
+---
+
+## 왜 필요한가
+
+자동 스캐너는 비즈니스 규칙과 사용자별 권한 차이를 모두 이해하지 못한다. 웹 모의침투 테스터는 **명시적으로 허가받은 범위**에서 실제 요청 흐름을 따라 결함의 재현 가능성과 영향을 검증한다. OWASP Top 10과 API Security Top 10은 점검 주제를 정리하는 참고 목록이며, 개별 서비스의 위험 평가를 대신하지 않는다.
+
+## 실제 수행 업무
+
+- **입력:** 자산·계정 목록, 테스트 범위와 금지 행위, API 명세, 서비스 구조, 기존 이슈.
+- **과정:** 정상 사용 흐름을 기록하고 권한별 요청을 비교한다. 이상 징후는 최소 권한 계정과 안전한 테스트 데이터로 재현한 뒤, 선행 조건과 영향 범위를 개발자와 확인한다.
+- **출력:** 재현 단계, 요청·응답 증거, 영향, 우선순위 근거, 수정 제안과 재검증 결과를 갖춘 보고서. 고객 데이터 원문은 산출물에 싣지 않는다.
+
+## 가상 실무 시나리오
+
+**가상 시나리오:** 신규 주문 API 출시 전, 일반 사용자 계정이 다른 사용자의 주문 ID를 넣어 조회할 수 있는지 의심된다. 테스터는 테스트용 계정 두 개와 주문 두 개를 발급받아 요청을 비교하고, 서버의 객체별 권한 검사 누락을 확인한다. 개발자는 해당 API에 객체 소유권 검사를 추가하고, 테스터는 허용·거부 사례를 다시 실행해 재검증표를 낸다. 실제 시스템에서는 테스트 허가와 데이터 처리 규칙이 우선이다.
+
+## 기반 지식
+
+HTTP 메서드·상태 코드·쿠키를 알아야 요청의 의미를 해석할 수 있다. 인증과 인가를 분리해 이해해야 로그인 성공과 권한 허용을 혼동하지 않는다. SQL, 스크립트, 서버 프레임워크의 기초는 입력이 어디에서 처리되는지 추적하는 데 필요하다.
+
+## 핵심 역량과 도구
+
+브라우저 개발자도구는 화면과 네트워크 요청의 관계를, HTTP 프록시는 요청 변경과 반복 재현을, 테스트 계정은 역할별 권한 차이를 확인하는 데 쓴다. 도구 출력은 가설일 뿐이며 수동 검증과 서비스 맥락 해석이 핵심이다. [OWASP Authorization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html)를 권한 테스트 기준으로 참고할 수 있다.
+
+## 신입 준비
+
+국내에서는 ‘웹 모의해킹’, ‘취약점 진단’, ‘침투테스트’ 등으로 불릴 수 있으나 공고마다 범위가 다르므로 실제 채용 요건은 개별 확인해야 한다. 안전한 실습 환경에서 요청 분석, 재현 단계 작성, 오탐 설명, 수정 후 확인을 보여주는 포트폴리오가 적합하다. 자격증은 채용 보증 수단으로 취급하지 않는다.
+
+## 학습 순서
+
+1. HTTP와 세션을 설명한다 — 브라우저 요청 한 건의 쿠키·헤더·상태 코드를 주석으로 해설할 수 있으면 완료.
+2. 인증·인가와 주요 웹 위험을 익힌다 — 사용자 역할별 접근 표를 만들면 완료.
+3. 로컬 취약 앱을 진단한다 — 재현 가능한 보고서와 수정 제안을 제출하면 완료.
+4. 수정 버전을 재검증한다 — 정상 기능을 깨지 않고 취약 경로가 막혔음을 보이면 완료.
+
+## 실습 프로젝트
+
+### 프로젝트 1: 역할별 API 접근 검증
+
+- **목표·선수 지식·환경:** 객체 수준 권한 검사를 평가한다. HTTP·인증 기초를 익힌 뒤 로컬 API와 테스트 계정 두 개를 사용한다.
+- **작업·검증:** 소유자·비소유자 요청 행렬을 작성하고 응답을 비교한다. 서버 수정 전후에 동일 요청을 반복한다.
+- **산출물·완료 기준·포트폴리오:** 민감정보를 제거한 요청 증거, 원인 설명, 회귀 테스트를 제출한다. 비소유자 요청이 거부되고 소유자 요청이 유지되면 완료다.
+
+### 프로젝트 2: 웹 진단 보고서와 재검증
+
+- **목표·선수 지식·환경:** 허가 범위 내 취약점 보고 과정을 연습한다. 웹 기초와 로컬 연습 앱이 필요하다.
+- **작업·검증:** 범위·금지 행위를 먼저 기록하고 후보 이슈를 수동 확인한 다음 수정 브랜치를 재점검한다.
+- **산출물·완료 기준·포트폴리오:** 재현 순서, 영향 범위, 수정 전후 증거, 남은 한계를 한 문서로 낸다. 제3자가 동일 환경에서 검증할 수 있으면 완료다.
+
+## 관련 자격증
+
+[OffSec OSWE](https://help.offsec.com/hc/en-us/articles/360046869951-WEB-300-Advanced-Web-Attacks-and-Exploitation-OSWE-Exam-Guide)는 심화 웹 코드 분석과 공격 재현을 공부할 때 참고할 수 있다. 입문 단계에서는 자격 취득보다 허가된 실습의 재현·수정 보고서를 우선한다. 시험 범위와 비용은 공식 안내에서 다시 확인한다.
+
+## 관련 직무 차이
+
+레드팀 운영자는 조직의 탐지·대응 능력까지 포함한 목표형 훈련을 설계한다. 앱 보안 엔지니어는 제품 개발 과정에 방어 통제를 지속적으로 통합한다. 웹 모의침투 테스터의 중심 산출물은 **합의된 범위의 재현 가능한 취약점 검증**이다.
+
+## 근거 및 검토 상태
+
+2026-10-09 검토. 직무 정의는 [NICE Framework Components 2.2.0](https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/nice-framework-current-versions)과 [ENISA ECSF 역할 프로필](https://www.enisa.europa.eu/publications/european-cybersecurity-skills-framework-role-profiles)을 참고했다. 기술 위험은 [OWASP API Security Top 10 2023](https://api-security.owasp.org/editions/2023/en/0x03-introduction/)을 확인했다. 특정 국내 채용 공고, 연봉, 수요는 이 문서에서 검증하지 않았다.

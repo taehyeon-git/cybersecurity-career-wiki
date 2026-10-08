@@ -1,0 +1,81 @@
+---
+id: cyber-threat-intelligence-analyst
+slug: cyber-threat-intelligence-analyst
+titleKo: 사이버 위협 인텔리전스 분석가
+titleEn: Cyber Threat Intelligence Analyst
+aliases: [CTI 분석가, 위협정보 분석가, Cyber Threat Intelligence Specialist]
+summary: 위협 정보를 출처와 신뢰도에 따라 평가하고 조직의 노출·우선순위·탐지 결정으로 연결한다.
+category: specialized
+domainIds: [threat-intelligence, mitre-attack, vulnerability-management]
+responsibilities: [정보 요구사항 정의, 출처 평가, 위협·자산 연관 분석, 이해관계자별 보고]
+typicalTasks: [보고서 교차 검증, 지표 만료 확인, 전술·기술 매핑, 우선순위 조정]
+keyDeliverables: [위협 브리핑, 정보 출처·신뢰도 기록, 탐지·패치 우선순위 제안]
+prerequisiteTopicIds: [cybersecurity-fundamentals, networking, web-http]
+coreSkillIds: [threat-intelligence, mitre-attack, vulnerability-management]
+toolIds: [source-tracker, indicator-store, asset-inventory]
+relatedRoleIds: [threat-hunter, vulnerability-researcher, security-architect]
+roadmapIds: [security-operations]
+sourceIds: [enisa-ecsf, nist-nice, mitre-attack, nist-nvd]
+reviewStatus: reviewed
+reviewedAt: '2026-10-09'
+publicationStatus: published
+---
+
+## 왜 필요한가
+
+외부 위협 보고서를 그대로 전달하면 조직에 없는 제품이나 이미 만료된 지표에 자원이 쓰일 수 있다. CTI 분석가는 누가 어떤 결정을 내려야 하는지 먼저 정의하고, 위협 주장과 조직의 실제 자산·노출을 연결한다. ENISA ECSF에는 Cyber Threat Intelligence Specialist 프로필이 있다.
+
+## 실제 수행 업무
+
+- **입력:** 내부 질문, 자산·기술 스택, 공개 보고서, 취약점 공지, 내부 탐지 결과.
+- **과정:** 출처의 원문·날짜·근거를 확인하고 중복·추측을 제거한다. 행동, 피해 대상, 공격 조건을 분리해 조직의 노출과 관련성을 판단한다.
+- **출력:** 운영팀에는 조치 가능한 지표·행동, 의사결정자에게는 불확실성과 우선순위가 담긴 브리핑.
+
+## 가상 실무 시나리오
+
+**가상 시나리오:** 특정 서버 제품 악용 보고가 발표된다. 분석가는 원문 공지와 NVD 정보를 확인하고, 자산팀에서 해당 제품·버전·인터넷 노출 여부를 받는다. 공격 지표의 유효성과 관측 가능한 로그를 탐지팀에 전달하고, 패치팀에는 실제 노출 자산만 우선순위로 제안한다. 버전 정보가 불명확한 자산은 ‘영향 없음’으로 분류하지 않는다.
+
+## 기반 지식
+
+네트워크·웹·운영체제 기초는 보고서의 기술 주장을 해석하는 데 필요하다. 취약점과 약점, 침해 지표와 공격 행동의 차이를 알아야 잘못된 우선순위를 피한다. 출처 평가와 불확실성 표현은 기술 지식만큼 중요하다.
+
+## 핵심 역량과 도구
+
+출처 추적표에 원문 URL·발행일·확인일·주장의 근거를 남긴다. 자산 목록은 조직 관련성을, 지표 저장소는 유효 기간과 사용처를 관리한다. ATT&CK은 행동 설명에, NVD는 공개 취약점 정보 확인에 쓰되 공격 발생의 증거로 오해하지 않는다.
+
+## 신입 준비
+
+‘CTI’, ‘위협정보 분석’, ‘보안 리서치’ 공고의 산출물은 다를 수 있다. 공개 보고서 한 건을 근거·가설·조치로 분리하고, 자산 조건에 따라 우선순위가 바뀌는 사례를 제시한다. 자격증보다 출처 검증과 명료한 요약의 품질을 보여준다.
+
+## 학습 순서
+
+1. 네트워크·취약점 용어를 익힌다 — 원문 보고서의 핵심 조건을 설명하면 완료.
+2. 정보 요구사항을 쓴다 — 수신자의 결정 질문을 명시하면 완료.
+3. 출처를 교차 검증한다 — 확인·추정·미확인을 구분하면 완료.
+4. 조치를 제안한다 — 자산 노출과 연결한 우선순위를 설명하면 완료.
+
+## 실습 프로젝트
+
+### 프로젝트 1: 공개 취약점 브리핑
+
+- **목표·선수 지식·환경:** 공개 권고를 조직 맥락에 맞춘다. NVD·자산 관리 기초와 합성 자산 목록이 필요하다.
+- **작업·검증:** 원문 공지, 영향 버전, 자산 버전을 교차 확인해 우선순위를 정한다.
+- **산출물·완료 기준·포트폴리오:** 출처표와 1쪽 브리핑을 낸다. 영향 판단의 근거와 불확실성이 드러나면 완료다.
+
+### 프로젝트 2: 위협 지표 수명 관리
+
+- **목표·선수 지식·환경:** 오래된 지표가 탐지를 왜곡하지 않게 한다. 로그·ATT&CK 기초가 필요하다.
+- **작업·검증:** 공개 지표의 출처·최초 관측일·만료 기준을 기록하고 행동 기반 대안과 비교한다.
+- **산출물·완료 기준·포트폴리오:** 유지·폐기 이유와 탐지팀 전달 메모를 제출한다. 제3자가 같은 기준으로 결론을 재현하면 완료다.
+
+## 관련 자격증
+
+[GIAC GCTI](https://www.giac.org/certifications/cyber-threat-intelligence-gcti)는 전략·운영·전술 수준의 위협 인텔리전스 분석을 다룬다. 입문자는 원문 출처 검증과 조직 자산에 맞춘 브리핑을 먼저 연습한다. 자격증을 정보의 정확성 자체에 대한 보증으로 보지 않는다.
+
+## 관련 직무 차이
+
+위협 헌터는 내부 데이터에서 가설을 직접 탐색한다. CTI 분석가는 내부·외부 정보를 검증해 조치 우선순위를 만든다. 취약점 연구원은 개별 결함의 기술 원인을 깊게 밝힌다. 세 직무는 자료를 주고받지만 산출물과 주요 질문이 다르다.
+
+## 근거 및 검토 상태
+
+2026-10-09 검토. [ENISA ECSF 역할 프로필](https://www.enisa.europa.eu/publications/european-cybersecurity-skills-framework-role-profiles), [MITRE ATT&CK](https://attack.mitre.org/), [NVD](https://nvd.nist.gov/)를 확인했다. 위협 행위자 귀속은 높은 증거 기준이 필요하므로 가상 시나리오에서 특정 집단을 지목하지 않았다.

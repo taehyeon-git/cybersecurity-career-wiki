@@ -1,0 +1,76 @@
+---
+id: "security-operations"
+slug: "security-operations"
+titleKo: "보안 운영·SOC 로드맵"
+titleEn: "Security Operations Roadmap"
+summary: "로그 수집부터 경보 분류, 탐지 검증과 초동 대응으로 이어지는 운영 경로."
+roleIds: ["soc-analyst", "detection-engineer", "incident-responder", "threat-hunter"]
+topicIds: ["cybersecurity-fundamentals", "networking", "linux", "logging-siem", "mitre-attack", "detection-engineering", "incident-response"]
+sourceIds: ["nist-csf", "mitre-attack", "nist-nice"]
+reviewedAt: "2026-10-09"
+publicationStatus: "published"
+---
+
+# 보안 운영·SOC 로드맵
+
+로그 수집부터 경보 분류, 탐지 검증과 초동 대응으로 이어지는 운영 경로.
+
+학습 속도는 배경지식과 실습 환경에 따라 달라진다. 각 단계의 완료 기준을 충족했는지 확인하고 다음 단계로 이동한다.
+
+## 1단계 · 정상 상태와 기록 이해
+
+**선수 조건:** 사이버보안 기초
+
+**학습 목표와 필수 개념:** 네트워크와 호스트의 정상 연결, 계정과 프로세스, 로그 시각과 필드를 이해한다.
+
+**권장 실습:** 시험 로그인과 웹 요청을 만들고 원천 로그에서 찾아본다.
+
+**검증 방법과 완료 기준:** 이벤트의 주체·행위·대상·결과를 원본 기록으로 설명한다.
+
+**다음 단계:** 상관 분석으로 이동한다.
+
+## 2단계 · 경보 조사하기
+
+**선수 조건:** 1단계의 로그 해석
+
+**학습 목표와 필수 개념:** SIEM 검색, 시간선, ATT&CK 매핑과 오탐 검토를 배운다. 매핑 이름보다 관측 증거를 먼저 적는다.
+
+**권장 실습:** 정상 관리자 변경과 의심 변경 샘플을 비교해 조사 체크리스트를 작성한다.
+
+**검증 방법과 완료 기준:** 경보가 사실인지, 보류인지, 확대해야 하는지 근거를 남긴다.
+
+**다음 단계:** 탐지·대응으로 이동한다.
+
+## 3단계 · 탐지와 초동 대응
+
+**선수 조건:** 2단계의 경보 분류
+
+**학습 목표와 필수 개념:** 행동 가설, 테스트 로그, 규칙, 대응 의사결정을 연결한다. 증거 보존과 업무 영향의 균형을 연습한다.
+
+**권장 실습:** 시험 로그에 새 탐지 규칙을 적용하고 대응 타임라인을 만든다.
+
+**검증 방법과 완료 기준:** 정상·악성 시험 데이터 결과와 격리·복구 기준을 제시한다.
+
+**다음 단계:** 탐지 엔지니어링 또는 사고 대응으로 전문화한다.
+
+## 포트폴리오 프로젝트
+
+### 프로젝트 1 · 로그 품질 점검표
+
+세 시스템의 로그 필드, 보존, 시각 동기화, 누락 시험을 정리한다.
+
+**완료 기준:** 시험 이벤트를 원천과 SIEM 양쪽에서 찾고 차이를 설명한다.
+
+### 프로젝트 2 · 탐지 규칙과 사건 기록
+
+교육용 이벤트로 규칙을 만들고 모의 사건을 조사한다.
+
+**완료 기준:** 정상·의심 샘플, 경보 근거, 대응 타임라인, 사후 개선 2개를 포함한다.
+
+## 관련 기술 문서와 공식 자료
+
+관련 기술: 사이버보안 기초, 네트워크 기초, 리눅스와 시스템 기초, 보안 로그와 SIEM, MITRE ATT&CK 활용, 탐지 엔지니어링, 보안 사고 대응.
+
+- [NIST Cybersecurity Framework 2.0](https://www.nist.gov/cyberframework)
+- [MITRE ATT&CK](https://attack.mitre.org/)
+- [NIST NICE Framework](https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/nice-framework-current-versions)

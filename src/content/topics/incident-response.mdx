@@ -1,0 +1,54 @@
+---
+id: "incident-response"
+slug: "incident-response"
+titleKo: "보안 사고 대응"
+titleEn: "Incident Response"
+aliases: ["IR", "침해사고 대응"]
+summary: "의심 사건을 확인하고 범위를 파악해 확산을 막고 서비스를 복구하며 재발 방지로 연결한다."
+category: "operations"
+prerequisiteTopicIds: ["logging-siem", "cybersecurity-fundamentals"]
+relatedTopicIds: ["detection-engineering", "threat-intelligence", "vulnerability-management"]
+relatedRoleIds: ["incident-responder", "soc-analyst", "digital-forensics-specialist"]
+sourceIds: ["nist-csf", "mitre-attack"]
+reviewedAt: "2026-10-09"
+publicationStatus: "published"
+---
+
+# 보안 사고 대응
+
+## 정의와 범위 · 먼저 이해하기
+
+의심 사건을 확인하고 범위를 파악해 확산을 막고 서비스를 복구하며 재발 방지로 연결한다. 이 문서의 주제는 여러 직무에서 함께 사용하는 지식이며, 특정 채용 직무 하나와 동일하지 않다.
+
+## 왜 필요한가
+
+경보가 실제 사고라면 늦은 판단은 피해를 키우고 성급한 조치는 증거와 서비스를 손상할 수 있다. 역할, 의사결정 경로, 연락망을 미리 정해야 한다.
+
+## 핵심 개념과 구성 요소
+
+분류, 조사, 범위 확인, 격리·완화, 복구, 사후 학습을 구분한다. 증거의 출처·시각·수집자를 기록하면 사건 타임라인의 신뢰성이 높아진다.
+
+## 기본 작동 원리
+
+관측 지표로 사건을 확인하고 영향을 받는 계정·호스트·데이터를 추적한다. 필요한 경우 격리와 자격증명 회전을 수행하고 복구 후 같은 경로가 다시 열리지 않았는지 검증한다.
+
+## 작은 예시
+
+교육용 환경에서 테스트 계정의 이상 로그인 후 권한 변경을 재현한다. 원천 로그를 보존하고 계정 비활성화, 영향 범위, 정상 서비스 재개 기준을 짧은 보고서로 남긴다.
+
+## 위험과 한계
+
+로그 공백과 불완전한 가시성 때문에 피해 범위를 단정할 수 없다. 실제 사고의 법적·규제적 통지는 조직 절차와 관할 요건을 확인해야 한다.
+
+## 실제 보안 업무에서의 활용
+
+SOC는 초기 경보를 분류하고 대응자는 조사·억제·복구를 조율한다. 포렌식 전문가는 증거의 보존과 해석을 지원한다.
+
+## 선행 학습과 관련 기술
+
+선행 주제: **보안 로그와 SIEM, 사이버보안 기초**. 관련 주제: **탐지 엔지니어링, 사이버 위협 인텔리전스, 취약점 관리**. 이 연결은 학습을 위한 제안이며, 회사마다 직무의 업무 범위는 달라질 수 있다.
+
+## 공식 참고자료
+
+- [NIST Cybersecurity Framework 2.0](https://www.nist.gov/cyberframework)
+- [MITRE ATT&CK](https://attack.mitre.org/)

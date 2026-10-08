@@ -1,0 +1,81 @@
+---
+id: security-consultant
+slug: security-consultant
+titleKo: 보안 컨설턴트
+titleEn: Security Consultant
+aliases: [정보보안 컨설턴트, Cybersecurity Consultant, 보안 자문 담당자]
+summary: 의뢰 조직의 목표와 현재 보안 상태를 근거로 평가해 실행 가능한 개선안과 우선순위를 제시한다.
+category: governance
+domainIds: [cybersecurity-fundamentals, threat-modeling, vulnerability-management]
+responsibilities: [과제 범위 합의, 현황·증거 조사, 개선안 설계, 이해관계자 설명]
+typicalTasks: [인터뷰·문서 검토, 통제 차이 분석, 우선순위 워크숍, 이행 계획 작성]
+keyDeliverables: [진단 범위서, 현재 상태 평가, 개선 로드맵, 의사결정용 보고서]
+prerequisiteTopicIds: [cybersecurity-fundamentals, networking, secure-sdlc]
+coreSkillIds: [threat-modeling, vulnerability-management, cloud-security]
+toolIds: [assessment-checklist, evidence-register, risk-workshop]
+relatedRoleIds: [security-architect, grc-analyst, security-auditor]
+roadmapIds: [grc-security-management, cybersecurity-fundamentals]
+sourceIds: [enisa-ecsf, nist-csf, nist-nice]
+reviewStatus: reviewed
+reviewedAt: '2026-10-09'
+publicationStatus: published
+---
+
+## 왜 필요한가
+
+조직은 보안 문제를 알고 있어도 어디에 먼저 투자하고 누가 실행해야 하는지 정하기 어려울 수 있다. 보안 컨설턴트는 명확한 의뢰 범위 안에서 증거를 수집하고 현재 상태와 목표의 차이를 정리해 의사결정을 돕는다. 컨설팅은 직무 기능이 넓은 실무 명칭이며 특정 NICE Work Role 하나와 동일하지 않다.
+
+## 실제 수행 업무
+
+- **입력:** 의뢰 목적, 조직·서비스 범위, 정책·아키텍처 문서, 인터뷰, 기술 점검 결과.
+- **과정:** 평가 기준과 증거의 충분성을 합의한다. 기술·운영·인력 제약을 함께 보고 개선 대안의 효과와 실행 난도를 비교한다.
+- **출력:** 근거별 현재 상태, 우선순위가 있는 권고, 담당 조직과 단계별 이행 계획, 미확인 항목.
+
+## 가상 실무 시나리오
+
+**가상 시나리오:** 중소 규모 조직이 클라우드 이전 전 보안 준비 상태를 점검받는다. 컨설턴트는 자산·데이터 분류, 계정 관리, 백업·로그 운영을 인터뷰와 설정 증거로 확인한다. NIST CSF 2.0의 결과 항목을 참조해 조직에 필요한 목표 상태를 제안하고, 클라우드 엔지니어가 실행할 수 있도록 우선순위와 책임자를 지정한다. 확인하지 못한 통제는 ‘부재’가 아니라 ‘증거 미확인’으로 남긴다.
+
+## 기반 지식
+
+네트워크·시스템·개발·클라우드의 기초는 진단 결과를 오해하지 않는 데 필요하다. 위험과 통제의 차이, 사업 영향, 증거 평가 방법을 알아야 권고가 조직의 목표에 맞는다. 인터뷰와 보고 글쓰기 역량은 기술 사실을 실행 결정으로 바꾸는 데 중요하다.
+
+## 핵심 역량과 도구
+
+평가표는 기준과 발견을 연결하고, 증거 대장은 출처·날짜·소유자를 추적하며, 워크숍은 위험 수용과 실행 순서를 합의한다. [NIST CSF 2.0](https://www.nist.gov/cyberframework)은 결과 중심의 공통 언어로 사용할 수 있으나 단순 체크리스트 통과가 곧 안전을 의미하지 않는다.
+
+## 신입 준비
+
+‘보안 컨설팅’ 공고는 기술 진단, 클라우드 설계, 개인정보, GRC 등으로 세분화된다. 관심 분야를 명시하고 작은 조직의 가상 요구사항에 맞는 증거 기반 평가를 작성한다. 국내 법규·인증을 다루는 공고라면 현재 효력과 적용 범위를 별도로 검증해야 하며, 자격증을 역량 전체의 대체물로 여기지 않는다.
+
+## 학습 순서
+
+1. 한 기술 영역을 구현해 본다 — 운영 제약까지 설명하면 완료.
+2. 평가 범위·기준을 정의한다 — 의뢰 질문과 제외 범위가 명시되면 완료.
+3. 증거를 수집·평가한다 — 사실·미확인·권고를 분리하면 완료.
+4. 실행 계획을 만든다 — 소유자·우선순위·검증 방법을 제시하면 완료.
+
+## 실습 프로젝트
+
+### 프로젝트 1: 가상 조직 보안 상태 평가
+
+- **목표·선수 지식·환경:** 제한된 자료로 개선 우선순위를 도출한다. 보안 기초와 합성 정책·설정 자료가 필요하다.
+- **작업·검증:** 평가 질문을 작성하고 각 발견에 증거·반례·미확인 사항을 연결한다.
+- **산출물·완료 기준·포트폴리오:** 현재·목표 상태표를 낸다. 주장마다 근거가 추적되면 완료다.
+
+### 프로젝트 2: 개선 로드맵 워크숍
+
+- **목표·선수 지식·환경:** 첫 프로젝트의 권고를 실행 순서로 바꾼다. 위험 우선순위 기초가 필요하다.
+- **작업·검증:** 예산·인력 제약을 가정하고 대안별 효과·의존성·검증 지표를 비교한다.
+- **산출물·완료 기준·포트폴리오:** 단계별 로드맵과 의사결정 기록을 제출한다. 실행 담당자가 다음 조치를 알 수 있으면 완료다.
+
+## 관련 자격증
+
+폭넓은 보안 영역의 지식은 [ISC2 CISSP](https://www.isc2.org/certifications/cissp) 학습 범위와 연결된다. 컨설턴트에게 모든 영역 자격이 필요한 것은 아니며, 입문자는 선택한 전문 분야의 증거 기반 평가와 보고 역량을 먼저 보여준다.
+
+## 관련 직무 차이
+
+보안 아키텍트는 설계 구조와 기술 선택의 지속적 책임을 질 수 있다. GRC 분석가는 정책·위험 등록부·통제 운영을 지속 관리한다. 보안 컨설턴트는 합의된 고객 과제를 평가하고 제안하는 프로젝트형 산출물에 초점이 있다. 조직에 따라 역할이 겹친다.
+
+## 근거 및 검토 상태
+
+2026-10-09 검토. [NIST CSF 2.0](https://www.nist.gov/cyberframework)의 결과·프로필 접근과 [ENISA ECSF 역할 프로필](https://www.enisa.europa.eu/publications/european-cybersecurity-skills-framework-role-profiles)을 참고했다. 컨설턴트는 편집상 묶은 실무 직함으로 공식 프레임워크의 단일 역할이라고 주장하지 않는다. 특정 국내 공고·법정 자격은 확인하지 않았다.

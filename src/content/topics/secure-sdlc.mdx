@@ -1,0 +1,53 @@
+---
+id: "secure-sdlc"
+slug: "secure-sdlc"
+titleKo: "안전한 개발 수명주기"
+titleEn: "Secure Software Development Lifecycle"
+aliases: ["SSDLC", "Secure SDLC"]
+summary: "요구·설계·구현·검증·출시·운영의 각 단계에 보안 활동을 배치한다."
+category: "software"
+prerequisiteTopicIds: ["cybersecurity-fundamentals", "programming-scripting"]
+relatedTopicIds: ["threat-modeling", "sast", "sca", "cicd-security"]
+relatedRoleIds: ["application-security-engineer", "product-security-engineer", "devsecops-engineer"]
+sourceIds: ["nist-ssdf"]
+reviewedAt: "2026-10-09"
+publicationStatus: "published"
+---
+
+# 안전한 개발 수명주기
+
+## 정의와 범위 · 먼저 이해하기
+
+요구·설계·구현·검증·출시·운영의 각 단계에 보안 활동을 배치한다. 이 문서의 주제는 여러 직무에서 함께 사용하는 지식이며, 특정 채용 직무 하나와 동일하지 않다.
+
+## 왜 필요한가
+
+출시 직전 검사에만 의존하면 설계 변경 비용이 커지고 운영 중 발견한 결함의 학습이 다음 릴리스에 반영되지 않는다.
+
+## 핵심 개념과 구성 요소
+
+NIST SSDF 1.1은 조직 준비, 소프트웨어 보호, 안전한 소프트웨어 생산, 취약점 대응의 실천 영역을 제시한다. 이는 특정 개발 방식이나 단일 도구 제품이 아니다.
+
+## 기본 작동 원리
+
+요구사항에 보안 목표를 넣고 설계 위협을 검토한다. 구현 중에는 안전한 코드 기준과 의존성을 확인하고, 출시 후 제보·수정·회귀 시험까지 연결한다.
+
+## 작은 예시
+
+새 API 기능에 대해 데이터 분류와 권한 행렬을 먼저 적고, PR에는 테스트와 SAST·SCA 결과를 첨부한다. 배포 후 발견한 권한 버그는 테스트로 재현해 다음 변경에서 다시 막는다.
+
+## 위험과 한계
+
+검사 통과는 안전성의 증명이 아니다. 차단 기준이 지나치게 넓으면 예외가 늘고, 너무 좁으면 위험이 남으므로 실제 결과를 검토해야 한다.
+
+## 실제 보안 업무에서의 활용
+
+제품 보안은 제품 전체의 위험을 소유하고 AppSec은 설계·코드·테스트를 지원하며 DevSecOps는 반복 가능한 파이프라인을 구축한다.
+
+## 선행 학습과 관련 기술
+
+선행 주제: **사이버보안 기초, 프로그래밍과 스크립팅**. 관련 주제: **위협 모델링, 정적 애플리케이션 보안 테스트, 소프트웨어 구성요소 분석, CI/CD 보안**. 이 연결은 학습을 위한 제안이며, 회사마다 직무의 업무 범위는 달라질 수 있다.
+
+## 공식 참고자료
+
+- [NIST SP 800-218 SSDF 1.1](https://csrc.nist.gov/pubs/sp/800/218/final)

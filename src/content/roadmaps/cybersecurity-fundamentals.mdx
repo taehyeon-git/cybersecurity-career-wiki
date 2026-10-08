@@ -1,0 +1,76 @@
+---
+id: "cybersecurity-fundamentals"
+slug: "cybersecurity-fundamentals"
+titleKo: "사이버보안 기초 로드맵"
+titleEn: "Cybersecurity Fundamentals Roadmap"
+summary: "자산·위험의 언어에서 시작해 시스템 관측과 작은 보안 개선 프로젝트로 이어지는 공통 입문 경로."
+roleIds: ["soc-analyst", "application-security-engineer", "grc-analyst"]
+topicIds: ["cybersecurity-fundamentals", "networking", "linux", "web-http", "programming-scripting", "authentication-authorization", "logging-siem"]
+sourceIds: ["nist-csf", "nist-nice", "enisa-ecsf"]
+reviewedAt: "2026-10-09"
+publicationStatus: "published"
+---
+
+# 사이버보안 기초 로드맵
+
+자산·위험의 언어에서 시작해 시스템 관측과 작은 보안 개선 프로젝트로 이어지는 공통 입문 경로.
+
+학습 속도는 배경지식과 실습 환경에 따라 달라진다. 각 단계의 완료 기준을 충족했는지 확인하고 다음 단계로 이동한다.
+
+## 1단계 · 보안 문제를 설명하기
+
+**선수 조건:** 선수 조건 없음
+
+**학습 목표와 필수 개념:** 자산, 기밀성·무결성·가용성, 위험, 통제와 잔여 위험을 학습한다. CSF 2.0의 기능을 특정 제품이 아닌 위험 관리 언어로 사용한다.
+
+**권장 실습:** 개인 실습 서비스의 자산 5개와 위협 시나리오 3개를 표로 정리한다.
+
+**검증 방법과 완료 기준:** 각 시나리오에 영향, 예방, 탐지, 복구 방법과 확인할 증거를 하나씩 적는다.
+
+**다음 단계:** 운영체제와 네트워크로 이동한다.
+
+## 2단계 · 통신과 시스템 읽기
+
+**선수 조건:** 1단계의 자산·위협 구분
+
+**학습 목표와 필수 개념:** IP·DNS·HTTP와 리눅스 계정·프로세스·로그를 학습한다. 오류와 공격 징후를 단일 이벤트로 단정하지 않는다.
+
+**권장 실습:** 로컬 가상 머신에서 웹 요청과 DNS 조회, 인증 로그를 같은 시각선에 놓는다.
+
+**검증 방법과 완료 기준:** 요청 한 건의 이름 조회, 연결, 응답, 로그 위치를 다른 사람에게 설명할 수 있다.
+
+**다음 단계:** 작은 자동화와 접근 제어를 학습한다.
+
+## 3단계 · 통제 검증과 기록
+
+**선수 조건:** 2단계의 통신·로그 이해
+
+**학습 목표와 필수 개념:** 인증과 인가의 차이를 이해하고 스크립트로 로그를 요약한다. 실패 사례를 재현해 수정 후 재검증한다.
+
+**권장 실습:** 시험 계정 두 개로 서로의 리소스 접근을 시험하고 간단한 로그 집계기를 작성한다.
+
+**검증 방법과 완료 기준:** 권한 위반은 차단되고 그 사실을 로그와 테스트 결과로 보일 수 있다.
+
+**다음 단계:** 관심 직무별 로드맵으로 분기한다.
+
+## 포트폴리오 프로젝트
+
+### 프로젝트 1 · 보안 자산 지도
+
+로컬 서비스의 데이터 흐름도, 자산표, 위험 우선순위와 통제를 작성한다.
+
+**완료 기준:** 다른 사람이 같은 환경에서 자산과 통제의 존재를 확인할 수 있게 화면·설정·로그를 첨부한다.
+
+### 프로젝트 2 · 인증 로그 미니 분석기
+
+샘플 JSON 로그를 읽어 계정별 실패와 성공 시각을 집계한다.
+
+**완료 기준:** 정상 입력, 누락 필드, 시간 오류 테스트를 통과하고 원본 로그의 민감 값은 결과에 복사하지 않는다.
+
+## 관련 기술 문서와 공식 자료
+
+관련 기술: 사이버보안 기초, 네트워크 기초, 리눅스와 시스템 기초, 웹과 HTTP 기초, 프로그래밍과 스크립팅, 인증과 인가, 보안 로그와 SIEM.
+
+- [NIST Cybersecurity Framework 2.0](https://www.nist.gov/cyberframework)
+- [NIST NICE Framework](https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/nice-framework-current-versions)
+- [ENISA ECSF Role Profiles](https://www.enisa.europa.eu/publications/european-cybersecurity-skills-framework-role-profiles)

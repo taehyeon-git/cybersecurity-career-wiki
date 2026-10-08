@@ -1,0 +1,632 @@
+[
+  {
+    "term": "자산",
+    "english": "Asset",
+    "definition": "조직이 업무 수행에 사용하거나 보호해야 하는 데이터, 시스템, 서비스 등 가치 있는 대상.",
+    "topicId": "cybersecurity-fundamentals",
+    "sourceIds": [
+      "nist-csf"
+    ]
+  },
+  {
+    "term": "위험",
+    "english": "Risk",
+    "definition": "불확실한 사건이 조직의 목표에 미칠 수 있는 영향과 그 가능성을 함께 고려한 판단.",
+    "topicId": "cybersecurity-fundamentals",
+    "sourceIds": [
+      "nist-csf"
+    ]
+  },
+  {
+    "term": "위협",
+    "english": "Threat",
+    "definition": "자산에 해를 끼칠 수 있는 행위자, 사건 또는 조건.",
+    "topicId": "cybersecurity-fundamentals",
+    "sourceIds": [
+      "nist-csf"
+    ]
+  },
+  {
+    "term": "취약점",
+    "english": "Vulnerability",
+    "definition": "악용되면 보안 목적을 해칠 수 있는 시스템, 절차 또는 구성의 약점.",
+    "topicId": "vulnerability-management",
+    "sourceIds": [
+      "nist-nvd",
+      "mitre-cwe"
+    ]
+  },
+  {
+    "term": "보안 통제",
+    "english": "Security Control",
+    "definition": "위험을 예방, 탐지, 대응 또는 복구하기 위해 적용하는 기술·관리·물리적 조치.",
+    "topicId": "cybersecurity-fundamentals",
+    "sourceIds": [
+      "nist-csf"
+    ]
+  },
+  {
+    "term": "잔여 위험",
+    "english": "Residual Risk",
+    "definition": "선택한 통제를 적용한 뒤에도 남는 위험.",
+    "topicId": "cybersecurity-fundamentals",
+    "sourceIds": [
+      "nist-csf"
+    ]
+  },
+  {
+    "term": "기밀성",
+    "english": "Confidentiality",
+    "definition": "허가받지 않은 주체에게 정보가 노출되지 않게 하는 보안 속성.",
+    "topicId": "cybersecurity-fundamentals",
+    "sourceIds": [
+      "nist-csf"
+    ]
+  },
+  {
+    "term": "무결성",
+    "english": "Integrity",
+    "definition": "정보와 시스템이 허가되지 않은 방식으로 변경되지 않도록 하는 속성.",
+    "topicId": "cybersecurity-fundamentals",
+    "sourceIds": [
+      "nist-csf"
+    ]
+  },
+  {
+    "term": "가용성",
+    "english": "Availability",
+    "definition": "필요할 때 허가된 사용자가 시스템과 정보에 접근할 수 있는 속성.",
+    "topicId": "cybersecurity-fundamentals",
+    "sourceIds": [
+      "nist-csf"
+    ]
+  },
+  {
+    "term": "NIST CSF 2.0",
+    "english": "NIST Cybersecurity Framework 2.0",
+    "definition": "조직이 사이버 위험을 이해하고 관리하는 데 쓰는 NIST의 결과 중심 프레임워크.",
+    "topicId": "cybersecurity-fundamentals",
+    "sourceIds": [
+      "nist-csf"
+    ]
+  },
+  {
+    "term": "공격면",
+    "english": "Attack Surface",
+    "definition": "공격자가 접근하거나 상호작용할 수 있는 시스템의 경로와 구성 요소.",
+    "topicId": "threat-modeling",
+    "sourceIds": [
+      "owasp-cheatsheets"
+    ]
+  },
+  {
+    "term": "신뢰 경계",
+    "english": "Trust Boundary",
+    "definition": "데이터 또는 요청이 서로 다른 신뢰 수준이나 통제 책임 사이를 넘는 지점.",
+    "topicId": "threat-modeling",
+    "sourceIds": [
+      "owasp-cheatsheets"
+    ]
+  },
+  {
+    "term": "인증",
+    "english": "Authentication",
+    "definition": "사용자 또는 서비스가 주장하는 신원을 확인하는 과정.",
+    "topicId": "authentication-authorization",
+    "sourceIds": [
+      "owasp-cheatsheets",
+      "nist-zero-trust"
+    ]
+  },
+  {
+    "term": "인가",
+    "english": "Authorization",
+    "definition": "확인된 주체가 대상 자원에 특정 작업을 수행해도 되는지 결정하는 과정.",
+    "topicId": "authentication-authorization",
+    "sourceIds": [
+      "owasp-api",
+      "owasp-cheatsheets"
+    ]
+  },
+  {
+    "term": "최소 권한",
+    "english": "Least Privilege",
+    "definition": "업무 수행에 필요한 범위와 기간만 접근 권한을 부여하는 원칙.",
+    "topicId": "iam",
+    "sourceIds": [
+      "nist-zero-trust"
+    ]
+  },
+  {
+    "term": "다중 인증",
+    "english": "Multi-Factor Authentication",
+    "definition": "서로 다른 종류의 인증 요소를 둘 이상 사용해 신원을 확인하는 방식.",
+    "topicId": "iam",
+    "sourceIds": [
+      "nist-zero-trust"
+    ]
+  },
+  {
+    "term": "역할 기반 접근 제어",
+    "english": "Role-Based Access Control",
+    "definition": "역할에 권한을 연결하고 사용자에게 역할을 부여하는 접근 제어 방식.",
+    "topicId": "iam",
+    "sourceIds": [
+      "kubernetes",
+      "nist-zero-trust"
+    ]
+  },
+  {
+    "term": "서비스 계정",
+    "english": "Service Account",
+    "definition": "사람이 아닌 애플리케이션이나 작업이 자원에 접근할 때 쓰는 신원.",
+    "topicId": "iam",
+    "sourceIds": [
+      "kubernetes"
+    ]
+  },
+  {
+    "term": "특권 계정",
+    "english": "Privileged Account",
+    "definition": "관리나 중요한 변경 권한을 가진 계정.",
+    "topicId": "iam",
+    "sourceIds": [
+      "nist-zero-trust"
+    ]
+  },
+  {
+    "term": "세션",
+    "english": "Session",
+    "definition": "여러 요청에 걸쳐 사용자의 인증 상태와 관련 맥락을 유지하는 논리적 상호작용.",
+    "topicId": "web-http",
+    "sourceIds": [
+      "owasp-cheatsheets"
+    ]
+  },
+  {
+    "term": "쿠키",
+    "english": "Cookie",
+    "definition": "브라우저가 저장하고 조건에 맞는 요청에 보내는 작은 데이터. 세션 식별자 저장에 쓰일 수 있다.",
+    "topicId": "web-http",
+    "sourceIds": [
+      "owasp-cheatsheets"
+    ]
+  },
+  {
+    "term": "HTTP",
+    "english": "Hypertext Transfer Protocol",
+    "definition": "웹 클라이언트와 서버가 요청과 응답을 주고받는 응용 계층 프로토콜.",
+    "topicId": "web-http",
+    "sourceIds": [
+      "owasp-cheatsheets"
+    ]
+  },
+  {
+    "term": "TLS",
+    "english": "Transport Layer Security",
+    "definition": "통신 상대 인증과 전송 구간 보호에 사용되는 암호 프로토콜.",
+    "topicId": "cryptography",
+    "sourceIds": [
+      "owasp-cheatsheets"
+    ]
+  },
+  {
+    "term": "DNS",
+    "english": "Domain Name System",
+    "definition": "도메인 이름을 주소 등 DNS 레코드와 연결하는 분산 이름 시스템.",
+    "topicId": "networking",
+    "sourceIds": [
+      "nist-csf"
+    ]
+  },
+  {
+    "term": "API",
+    "english": "Application Programming Interface",
+    "definition": "소프트웨어가 다른 소프트웨어의 기능이나 데이터에 정해진 방식으로 접근하는 인터페이스.",
+    "topicId": "api-security",
+    "sourceIds": [
+      "owasp-api"
+    ]
+  },
+  {
+    "term": "BOLA",
+    "english": "Broken Object Level Authorization",
+    "definition": "사용자에게 허용되지 않은 객체에 접근할 수 있게 되는 API 객체 수준 인가 실패.",
+    "topicId": "api-security",
+    "sourceIds": [
+      "owasp-api"
+    ]
+  },
+  {
+    "term": "SSRF",
+    "english": "Server-Side Request Forgery",
+    "definition": "서버가 공격자가 조작한 대상에 요청을 보내도록 유도되는 취약점 유형.",
+    "topicId": "api-security",
+    "sourceIds": [
+      "owasp-api"
+    ]
+  },
+  {
+    "term": "인젝션",
+    "english": "Injection",
+    "definition": "신뢰할 수 없는 입력이 명령이나 질의의 구조로 해석되면서 의도하지 않은 동작이 생기는 문제.",
+    "topicId": "web-application-security",
+    "sourceIds": [
+      "owasp-top10",
+      "mitre-cwe"
+    ]
+  },
+  {
+    "term": "SQL 인젝션",
+    "english": "SQL Injection",
+    "definition": "입력이 SQL 질의 구조를 바꾸어 데이터 접근이나 변경을 유발하는 인젝션 유형.",
+    "topicId": "secure-coding",
+    "sourceIds": [
+      "owasp-cheatsheets",
+      "mitre-cwe"
+    ]
+  },
+  {
+    "term": "출력 인코딩",
+    "english": "Output Encoding",
+    "definition": "데이터를 표시되는 문맥에 맞게 변환해 코드나 마크업으로 해석되지 않도록 하는 방법.",
+    "topicId": "secure-coding",
+    "sourceIds": [
+      "owasp-cheatsheets"
+    ]
+  },
+  {
+    "term": "입력 검증",
+    "english": "Input Validation",
+    "definition": "외부 입력이 기대하는 형식, 범위와 의미 조건을 만족하는지 확인하는 절차.",
+    "topicId": "secure-coding",
+    "sourceIds": [
+      "owasp-cheatsheets"
+    ]
+  },
+  {
+    "term": "위협 모델링",
+    "english": "Threat Modeling",
+    "definition": "시스템의 자산, 경계와 오용 경로를 분석해 설계 단계의 보안 요구를 도출하는 활동.",
+    "topicId": "threat-modeling",
+    "sourceIds": [
+      "nist-ssdf",
+      "owasp-cheatsheets"
+    ]
+  },
+  {
+    "term": "안전한 개발 수명주기",
+    "english": "Secure SDLC",
+    "definition": "개발의 요구·설계·구현·검증·운영 전반에 보안 활동을 포함하는 접근.",
+    "topicId": "secure-sdlc",
+    "sourceIds": [
+      "nist-ssdf"
+    ]
+  },
+  {
+    "term": "SSDF",
+    "english": "Secure Software Development Framework",
+    "definition": "안전한 소프트웨어 개발 관행을 기존 개발 과정에 통합하도록 제시한 NIST SP 800-218의 틀.",
+    "topicId": "secure-sdlc",
+    "sourceIds": [
+      "nist-ssdf"
+    ]
+  },
+  {
+    "term": "SAST",
+    "english": "Static Application Security Testing",
+    "definition": "프로그램을 실행하지 않고 코드나 중간 표현을 분석해 잠재 약점을 찾는 방식.",
+    "topicId": "sast",
+    "sourceIds": [
+      "nist-ssdf"
+    ]
+  },
+  {
+    "term": "DAST",
+    "english": "Dynamic Application Security Testing",
+    "definition": "실행 중인 애플리케이션에 요청을 보내 관측 가능한 보안 문제를 찾는 방식.",
+    "topicId": "dast",
+    "sourceIds": [
+      "nist-ssdf"
+    ]
+  },
+  {
+    "term": "SCA",
+    "english": "Software Composition Analysis",
+    "definition": "소프트웨어 의존 구성요소의 버전과 알려진 취약점 등을 분석하는 활동.",
+    "topicId": "sca",
+    "sourceIds": [
+      "nist-ssdf",
+      "nist-nvd"
+    ]
+  },
+  {
+    "term": "SBOM",
+    "english": "Software Bill of Materials",
+    "definition": "소프트웨어에 포함된 구성요소와 관계를 기록한 명세.",
+    "topicId": "sbom",
+    "sourceIds": [
+      "nist-ssdf"
+    ]
+  },
+  {
+    "term": "CWE",
+    "english": "Common Weakness Enumeration",
+    "definition": "소프트웨어와 하드웨어 약점 유형을 분류하는 MITRE의 공통 어휘.",
+    "topicId": "vulnerability-management",
+    "sourceIds": [
+      "mitre-cwe"
+    ]
+  },
+  {
+    "term": "CVE",
+    "english": "Common Vulnerabilities and Exposures",
+    "definition": "공개된 개별 취약점에 부여되는 식별 체계.",
+    "topicId": "vulnerability-management",
+    "sourceIds": [
+      "nist-nvd"
+    ]
+  },
+  {
+    "term": "NVD",
+    "english": "National Vulnerability Database",
+    "definition": "공개 취약점에 대한 NIST의 메타데이터 저장소.",
+    "topicId": "vulnerability-management",
+    "sourceIds": [
+      "nist-nvd"
+    ]
+  },
+  {
+    "term": "오탐",
+    "english": "False Positive",
+    "definition": "실제 문제가 아닌데 검사나 탐지에서 문제라고 보고하는 결과.",
+    "topicId": "sast",
+    "sourceIds": [
+      "nist-ssdf"
+    ]
+  },
+  {
+    "term": "미탐",
+    "english": "False Negative",
+    "definition": "문제가 실제로 존재하지만 검사나 탐지가 놓친 결과.",
+    "topicId": "detection-engineering",
+    "sourceIds": [
+      "nist-csf"
+    ]
+  },
+  {
+    "term": "CI/CD",
+    "english": "Continuous Integration and Continuous Delivery",
+    "definition": "코드 통합과 검증·배포 과정을 반복 가능하게 자동화하는 개발 관행.",
+    "topicId": "cicd-security",
+    "sourceIds": [
+      "nist-ssdf"
+    ]
+  },
+  {
+    "term": "빌드 산출물",
+    "english": "Build Artifact",
+    "definition": "빌드 과정에서 생성되어 시험 또는 배포 대상으로 쓰이는 파일이나 이미지.",
+    "topicId": "cicd-security",
+    "sourceIds": [
+      "nist-ssdf"
+    ]
+  },
+  {
+    "term": "소프트웨어 공급망",
+    "english": "Software Supply Chain",
+    "definition": "코드·의존성·빌드·배포에 관여하는 사람, 도구, 서비스와 산출물의 연결.",
+    "topicId": "cicd-security",
+    "sourceIds": [
+      "nist-ssdf",
+      "owasp-top10"
+    ]
+  },
+  {
+    "term": "컨테이너 이미지",
+    "english": "Container Image",
+    "definition": "컨테이너 실행에 필요한 파일시스템과 구성 정보를 담은 배포 단위.",
+    "topicId": "container-security",
+    "sourceIds": [
+      "kubernetes"
+    ]
+  },
+  {
+    "term": "Pod",
+    "english": "Pod",
+    "definition": "Kubernetes에서 함께 스케줄되고 네트워크 등 일부 실행 맥락을 공유하는 기본 워크로드 단위.",
+    "topicId": "kubernetes-security",
+    "sourceIds": [
+      "kubernetes"
+    ]
+  },
+  {
+    "term": "Kubernetes RBAC",
+    "english": "Kubernetes Role-Based Access Control",
+    "definition": "Kubernetes API 작업 권한을 역할과 바인딩으로 표현하는 접근 제어 기능.",
+    "topicId": "kubernetes-security",
+    "sourceIds": [
+      "kubernetes"
+    ]
+  },
+  {
+    "term": "NetworkPolicy",
+    "english": "Kubernetes NetworkPolicy",
+    "definition": "선택한 Pod 사이의 허용 네트워크 트래픽을 정의하는 Kubernetes 리소스.",
+    "topicId": "kubernetes-security",
+    "sourceIds": [
+      "kubernetes"
+    ]
+  },
+  {
+    "term": "제로 트러스트",
+    "english": "Zero Trust",
+    "definition": "네트워크 위치만으로 암묵적 신뢰를 주지 않고 접근을 평가하는 보안 개념.",
+    "topicId": "zero-trust",
+    "sourceIds": [
+      "nist-zero-trust"
+    ]
+  },
+  {
+    "term": "정책 결정 지점",
+    "english": "Policy Decision Point",
+    "definition": "접근 정책을 평가해 허용 여부를 결정하는 제로 트러스트 구성 개념.",
+    "topicId": "zero-trust",
+    "sourceIds": [
+      "nist-zero-trust"
+    ]
+  },
+  {
+    "term": "SIEM",
+    "english": "Security Information and Event Management",
+    "definition": "여러 로그와 이벤트를 모아 검색·상관 분석·경보에 쓰는 보안 운영 기술 범주.",
+    "topicId": "logging-siem",
+    "sourceIds": [
+      "nist-csf"
+    ]
+  },
+  {
+    "term": "이벤트 정규화",
+    "english": "Event Normalization",
+    "definition": "서로 다른 원천의 로그 필드를 공통 형식으로 매핑하는 처리.",
+    "topicId": "logging-siem",
+    "sourceIds": [
+      "nist-csf"
+    ]
+  },
+  {
+    "term": "탐지 규칙",
+    "english": "Detection Rule",
+    "definition": "관측 이벤트에서 조사할 행동 패턴을 찾도록 정의한 조건.",
+    "topicId": "detection-engineering",
+    "sourceIds": [
+      "mitre-attack"
+    ]
+  },
+  {
+    "term": "IOC",
+    "english": "Indicator of Compromise",
+    "definition": "침해와 관련될 수 있는 관측 가능한 흔적. 단독 일치는 침해 확정이 아니다.",
+    "topicId": "threat-intelligence",
+    "sourceIds": [
+      "mitre-attack"
+    ]
+  },
+  {
+    "term": "TTP",
+    "english": "Tactics, Techniques, and Procedures",
+    "definition": "행위자의 목적과 실행 방식, 구체적 절차를 함께 가리키는 표현.",
+    "topicId": "mitre-attack",
+    "sourceIds": [
+      "mitre-attack"
+    ]
+  },
+  {
+    "term": "전술",
+    "english": "Tactic",
+    "definition": "MITRE ATT&CK에서 공격자가 달성하려는 고수준 목표.",
+    "topicId": "mitre-attack",
+    "sourceIds": [
+      "mitre-attack"
+    ]
+  },
+  {
+    "term": "기술",
+    "english": "Technique",
+    "definition": "MITRE ATT&CK에서 전술 목표를 달성하는 관측 가능한 방식.",
+    "topicId": "mitre-attack",
+    "sourceIds": [
+      "mitre-attack"
+    ]
+  },
+  {
+    "term": "위협 헌팅",
+    "english": "Threat Hunting",
+    "definition": "기존 경보를 기다리지 않고 내부 데이터에서 위협 가설을 능동적으로 시험하는 활동.",
+    "topicId": "detection-engineering",
+    "sourceIds": [
+      "mitre-attack",
+      "nist-nice"
+    ]
+  },
+  {
+    "term": "경보 분류",
+    "english": "Alert Triage",
+    "definition": "들어온 경보의 맥락과 근거를 검토해 조사·이관·종결 방향을 정하는 과정.",
+    "topicId": "logging-siem",
+    "sourceIds": [
+      "nist-csf"
+    ]
+  },
+  {
+    "term": "사고 대응",
+    "english": "Incident Response",
+    "definition": "확인된 보안 사건을 조사하고 확산을 막아 복구와 재발 방지로 연결하는 활동.",
+    "topicId": "incident-response",
+    "sourceIds": [
+      "nist-csf"
+    ]
+  },
+  {
+    "term": "격리",
+    "english": "Containment",
+    "definition": "사고가 더 확산되지 않도록 영향을 받은 계정·호스트·연결 등을 제한하는 조치.",
+    "topicId": "incident-response",
+    "sourceIds": [
+      "nist-csf"
+    ]
+  },
+  {
+    "term": "사건 타임라인",
+    "english": "Incident Timeline",
+    "definition": "조사된 행위를 시간 순서대로 정리하고 각 항목의 출처와 확신을 기록한 자료.",
+    "topicId": "incident-response",
+    "sourceIds": [
+      "nist-csf"
+    ]
+  },
+  {
+    "term": "사이버 위협 인텔리전스",
+    "english": "Cyber Threat Intelligence",
+    "definition": "위협 관련 정보를 분석해 특정 수신자의 보안 의사결정을 돕는 결과물과 활동.",
+    "topicId": "threat-intelligence",
+    "sourceIds": [
+      "mitre-attack",
+      "enisa-ecsf"
+    ]
+  },
+  {
+    "term": "GRC",
+    "english": "Governance, Risk, and Compliance",
+    "definition": "보안의 책임 구조, 위험 의사결정과 요구사항 준수를 함께 다루는 업무 영역.",
+    "sourceIds": [
+      "nist-csf",
+      "enisa-ecsf"
+    ]
+  },
+  {
+    "term": "감사 증거",
+    "english": "Audit Evidence",
+    "definition": "통제가 설계되고 실제 운영되었는지 판단하는 데 쓰는 기록, 설정, 관찰과 인터뷰 자료.",
+    "sourceIds": [
+      "nist-csf",
+      "enisa-ecsf"
+    ]
+  },
+  {
+    "term": "위험 수용",
+    "english": "Risk Acceptance",
+    "definition": "위험을 이해한 책임자가 정해진 절차와 기간 안에서 잔여 위험을 받아들이는 결정.",
+    "sourceIds": [
+      "nist-csf"
+    ]
+  },
+  {
+    "term": "예외 만료",
+    "english": "Exception Expiry",
+    "definition": "정책 또는 통제 예외를 무기한 두지 않고 재검토해야 하는 시점.",
+    "sourceIds": [
+      "nist-csf"
+    ]
+  }
+]

@@ -1,0 +1,54 @@
+---
+id: "programming-scripting"
+slug: "programming-scripting"
+titleKo: "프로그래밍과 스크립팅"
+titleEn: "Programming and Scripting"
+aliases: ["Python", "Shell", "스크립팅"]
+summary: "작은 프로그램을 읽고 작성해 보안 데이터를 처리하고 반복 업무를 검증하는 역량."
+category: "fundamentals"
+prerequisiteTopicIds: ["cybersecurity-fundamentals"]
+relatedTopicIds: ["secure-coding", "sast", "detection-engineering"]
+relatedRoleIds: ["application-security-engineer", "detection-engineer", "devsecops-engineer"]
+sourceIds: ["nist-ssdf", "owasp-cheatsheets"]
+reviewedAt: "2026-10-09"
+publicationStatus: "published"
+---
+
+# 프로그래밍과 스크립팅
+
+## 정의와 범위 · 먼저 이해하기
+
+작은 프로그램을 읽고 작성해 보안 데이터를 처리하고 반복 업무를 검증하는 역량. 이 문서의 주제는 여러 직무에서 함께 사용하는 지식이며, 특정 채용 직무 하나와 동일하지 않다.
+
+## 왜 필요한가
+
+규칙, 로그, 빌드 과정과 API 응답은 코드로 표현된다. 보안 전문가는 코드가 입력을 어떻게 신뢰하는지 이해하고 검토 결과를 반복 가능하게 만들어야 한다.
+
+## 핵심 개념과 구성 요소
+
+자료형, 조건, 반복, 함수, 예외 처리, 파일·JSON 파싱, 버전 관리가 기초다. 외부 입력은 검증하고 비밀정보는 코드나 로그에 남기지 않는다.
+
+## 기본 작동 원리
+
+작은 단위의 함수를 작성하고 정상·오류 입력을 시험한다. 자동화는 입력 수집, 변환, 판단, 기록을 분리하면 오류를 찾기 쉽다.
+
+## 작은 예시
+
+샘플 인증 로그 JSON을 읽어 실패 횟수를 집계하는 스크립트를 만든다. 누락된 필드와 잘못된 시각 형식을 테스트 케이스로 넣어 안전하게 실패하는지 확인한다.
+
+## 위험과 한계
+
+스크립트의 결과는 입력 품질만큼만 정확하다. 권한이 큰 자동화 계정과 하드코딩된 토큰은 새로운 공격 경로가 된다.
+
+## 실제 보안 업무에서의 활용
+
+탐지 엔지니어는 규칙 시험 데이터를 만들고, AppSec은 취약 코드의 원인을 읽고, DevSecOps는 빌드 검사를 자동화한다.
+
+## 선행 학습과 관련 기술
+
+선행 주제: **사이버보안 기초**. 관련 주제: **안전한 코딩, 정적 애플리케이션 보안 테스트, 탐지 엔지니어링**. 이 연결은 학습을 위한 제안이며, 회사마다 직무의 업무 범위는 달라질 수 있다.
+
+## 공식 참고자료
+
+- [NIST SP 800-218 SSDF 1.1](https://csrc.nist.gov/pubs/sp/800/218/final)
+- [OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/)

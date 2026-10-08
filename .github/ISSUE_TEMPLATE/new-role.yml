@@ -1,0 +1,43 @@
+name: 새 직무·분류 제안
+description: 직무 페이지 추가 또는 기존 분류의 변경을 제안합니다.
+title: "[직무 제안] "
+body:
+  - type: input
+    id: name
+    attributes:
+      label: 제안 이름과 별칭
+      placeholder: "한국어 명칭 / 영어 명칭 / 채용 직함"
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: 실제 업무와 산출물
+      description: 기술이나 도구 목록보다 맡는 업무를 중심으로 적어 주세요.
+    validations:
+      required: true
+  - type: textarea
+    id: distinction
+    attributes:
+      label: 기존 직무와의 차이
+      description: 분리·통합이 필요한 이유와 겹치는 부분을 함께 적어 주세요.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 근거 URL과 확인일
+      description: NICE/ECSF 등 공식 분류와 원문 채용공고를 구분해 적어 주세요.
+    validations:
+      required: true
+  - type: dropdown
+    id: proposal
+    attributes:
+      label: 제안 형태
+      options:
+        - 새 직무 페이지
+        - 기존 직무의 별칭 추가
+        - 기존 직무와 통합 또는 분리
+        - 조사 보류
+    validations:
+      required: true

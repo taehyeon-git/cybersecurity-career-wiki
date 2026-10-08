@@ -1,0 +1,78 @@
+---
+id: "application-security"
+slug: "application-security"
+titleKo: "애플리케이션 보안 로드맵"
+titleEn: "Application Security Roadmap"
+summary: "설계의 신뢰 경계에서 시작해 안전한 코드·검사·수정 검증까지 연결한다."
+roleIds: ["application-security-engineer", "product-security-engineer"]
+topicIds: ["web-http", "authentication-authorization", "threat-modeling", "web-application-security", "api-security", "secure-coding", "sast", "dast"]
+sourceIds: ["nist-ssdf", "owasp-top10", "owasp-api", "owasp-cheatsheets", "mitre-cwe"]
+reviewedAt: "2026-10-09"
+publicationStatus: "published"
+---
+
+# 애플리케이션 보안 로드맵
+
+설계의 신뢰 경계에서 시작해 안전한 코드·검사·수정 검증까지 연결한다.
+
+학습 속도는 배경지식과 실습 환경에 따라 달라진다. 각 단계의 완료 기준을 충족했는지 확인하고 다음 단계로 이동한다.
+
+## 1단계 · 서비스 구조 이해
+
+**선수 조건:** 프로그래밍·웹 기초
+
+**학습 목표와 필수 개념:** 요청·응답, 데이터 흐름, 인증과 객체 수준 권한을 학습한다. 기능 요구사항과 보안 요구사항을 함께 적는다.
+
+**권장 실습:** 작은 웹 앱의 데이터 흐름과 사용자별 권한 행렬을 그린다.
+
+**검증 방법과 완료 기준:** 민감 데이터가 이동하는 경계와 필요한 권한 검사를 설명한다.
+
+**다음 단계:** 설계 위험을 검토한다.
+
+## 2단계 · 설계와 코드 검토
+
+**선수 조건:** 1단계의 흐름·권한 이해
+
+**학습 목표와 필수 개념:** 위협 모델링, 안전한 코딩, OWASP 위험 유형과 CWE 약점 유형을 연결한다.
+
+**권장 실습:** 기능 하나의 오용 사례와 방어 테스트를 작성하고 입력 처리 코드를 리뷰한다.
+
+**검증 방법과 완료 기준:** 위험별 원인 코드, 대응 요구사항과 테스트 위치가 연결된다.
+
+**다음 단계:** 자동·수동 검사로 이동한다.
+
+## 3단계 · 검사와 수정 검증
+
+**선수 조건:** 2단계의 설계 리뷰
+
+**학습 목표와 필수 개념:** SAST는 코드 경로, DAST는 실행 중 동작을 본다는 차이를 이해한다. 결과를 재현하고 수정 뒤 회귀 시험한다.
+
+**권장 실습:** 로컬 앱에 정적 분석과 API 테스트를 적용해 동일 결함을 서로 다른 관점에서 조사한다.
+
+**검증 방법과 완료 기준:** 오탐과 실제 결함을 구분하고 수정 전후의 테스트 증거를 남긴다.
+
+**다음 단계:** 제품 보안·공급망으로 확장한다.
+
+## 포트폴리오 프로젝트
+
+### 프로젝트 1 · 권한 모델과 회귀 테스트
+
+두 계정·두 자원으로 객체·함수 권한 행렬을 만든다.
+
+**완료 기준:** 허용·거부 테스트가 모두 통과하고 서버 측 판단 위치를 설명한다.
+
+### 프로젝트 2 · 취약 코드 개선 사례
+
+교육용 앱의 입력 처리 결함을 분석하고 안전한 API로 교체한다.
+
+**완료 기준:** 재현 요청, 원인, 코드 변경, SAST·DAST 재검증을 기록한다.
+
+## 관련 기술 문서와 공식 자료
+
+관련 기술: 웹과 HTTP 기초, 인증과 인가, 위협 모델링, 웹 애플리케이션 보안, API 보안, 안전한 코딩, 정적 애플리케이션 보안 테스트, 동적 애플리케이션 보안 테스트.
+
+- [NIST SP 800-218 SSDF 1.1](https://csrc.nist.gov/pubs/sp/800/218/final)
+- [OWASP Top 10:2025](https://top10.owasp.org/2025/)
+- [OWASP API Security Top 10:2023](https://api-security.owasp.org/editions/2023/en/0x11-t10/)
+- [OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/)
+- [MITRE CWE](https://cwe.mitre.org/)

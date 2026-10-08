@@ -1,0 +1,81 @@
+---
+id: application-security-engineer
+slug: application-security-engineer
+titleKo: 애플리케이션 보안 엔지니어
+titleEn: Application Security Engineer
+aliases: [앱섹, 앱 보안 엔지니어, AppSec Engineer, 소프트웨어 보안 엔지니어]
+summary: 개발 수명주기에 위협 모델링·안전한 설계·코드 검토·검증을 통합해 반복 취약점을 줄인다.
+category: engineering
+domainIds: [secure-sdlc, threat-modeling, secure-coding, web-application-security, api-security]
+responsibilities: [설계 보안 검토, 개발 가이드 제공, 취약점 원인 개선, 보안 테스트 설계]
+typicalTasks: [위협 모델 워크숍, 코드·API 검토, 개발자와 수정 협의, 보안 회귀 테스트]
+keyDeliverables: [위협 모델, 코드 검토 의견, 보안 요구사항, 회귀 테스트]
+prerequisiteTopicIds: [programming-scripting, web-http, authentication-authorization]
+coreSkillIds: [secure-sdlc, threat-modeling, secure-coding, web-application-security]
+toolIds: [code-review-platform, sast, dast, test-harness]
+relatedRoleIds: [product-security-engineer, devsecops-engineer, web-penetration-tester]
+roadmapIds: [application-security, devsecops]
+sourceIds: [nist-ssdf, owasp-top10, owasp-api, owasp-cheatsheets, mitre-cwe]
+reviewStatus: reviewed
+reviewedAt: '2026-10-09'
+publicationStatus: published
+---
+
+## 왜 필요한가
+
+출시 직전 진단만으로는 설계 단계의 신뢰 경계 오류와 반복되는 코드 패턴을 충분히 줄이기 어렵다. 앱 보안 엔지니어는 개발팀과 함께 보안 요구사항을 코드와 테스트에 반영한다. NIST SSDF 1.1은 개발 수명주기에 통합할 수 있는 높은 수준의 안전한 개발 관행을 제공한다.
+
+## 실제 수행 업무
+
+- **입력:** 기능 요구사항, 데이터 흐름, 코드 변경, 테스트 결과, 운영 사고·취약점 피드백.
+- **과정:** 자산과 신뢰 경계를 그려 위협을 식별하고, 개발자가 구현 가능한 통제를 합의한다. 정적·동적 분석 결과를 확인하며 실제 코드 경로와 영향도를 검증한다.
+- **출력:** 우선순위가 있는 설계·코드 의견, 재현 가능한 회귀 테스트, 개발 가이드와 예외 결정 기록.
+
+## 가상 실무 시나리오
+
+**가상 시나리오:** 새 문서 공유 기능의 설계 리뷰에서 공유 링크가 다른 조직에 노출될 수 있다는 우려가 나온다. 엔지니어는 사용자·조직·문서의 권한 관계를 그린 뒤 링크 생성·조회·해지 경로에 서버 측 검사를 제안한다. 개발자와 권한 행렬 테스트를 추가하고 출시 전 정상·거부 사례를 함께 확인한다.
+
+## 기반 지식
+
+프로그래밍과 프레임워크의 요청 처리 흐름을 알아야 수정 위치를 제안할 수 있다. HTTP·API와 인증·인가 지식은 웹 서비스의 핵심 신뢰 경계를 설명한다. 데이터베이스·클라우드 배포 기초는 코드 밖 설정과 비밀 관리 위험을 찾는 데 필요하다.
+
+## 핵심 역량과 도구
+
+코드 리뷰 도구는 변경 맥락을, SAST는 반복 가능한 코드 패턴을, DAST는 실행 중 동작을 확인하는 데 쓴다. 두 분석 도구 모두 결과 검증이 필요하다. [OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/)의 권한·입력 처리 가이드를 개발 대안에 연결한다.
+
+## 신입 준비
+
+‘AppSec’, ‘서비스 보안’, ‘개발 보안’ 공고는 제품 리뷰와 플랫폼 운영 비율이 다르다. 실제 코드를 수정해 보안 테스트가 실패에서 성공으로 바뀌는 과정을 보여주면 좋다. 자격증보다 개발자에게 전달할 수 있는 수정 제안의 구체성이 중요하다.
+
+## 학습 순서
+
+1. 웹 앱을 만든다 — 인증·인가·데이터 흐름을 설명하면 완료.
+2. 주요 약점과 위협 모델링을 배운다 — 신뢰 경계별 위험과 통제를 쓰면 완료.
+3. 코드·테스트를 개선한다 — 취약 사례를 자동 회귀 테스트로 막으면 완료.
+4. 개발 흐름에 통합한다 — 리뷰 기준과 예외 처리 절차를 문서화하면 완료.
+
+## 실습 프로젝트
+
+### 프로젝트 1: 객체 권한 설계 리뷰
+
+- **목표·선수 지식·환경:** 다중 사용자 웹 앱의 객체별 접근 통제를 설계한다. 웹 개발 기초와 로컬 테스트 앱이 필요하다.
+- **작업·검증:** 데이터 흐름·권한 행렬을 만들고 비소유자 요청의 거부 테스트를 작성한다.
+- **산출물·완료 기준·포트폴리오:** 위협 모델, 수정 커밋, 전후 테스트 결과를 낸다. 정상 기능과 거부 조건을 모두 통과하면 완료다.
+
+### 프로젝트 2: 보안 코드 리뷰 가이드
+
+- **목표·선수 지식·환경:** 반복되는 입력·권한 오류를 리뷰 기준으로 바꾼다. 코드 리뷰와 CWE 기초가 필요하다.
+- **작업·검증:** 자체 작성 예제의 결함과 안전한 대안을 비교하고 리뷰 체크리스트를 동료에게 적용해 본다.
+- **산출물·완료 기준·포트폴리오:** 오탐 사례와 수정 이유를 포함한 가이드를 제출한다. 제3자가 동일 이슈를 찾으면 완료다.
+
+## 관련 자격증
+
+[ISC2 CSSLP](https://www.isc2.org/certifications/csslp/csslp-certification-exam-outline)은 설계부터 배포까지 안전한 소프트웨어 수명주기를 다룬다. 경험 요건이 있는 심화 선택지이므로 입문자는 코드 수정·테스트·위협 모델 포트폴리오를 먼저 준비한다.
+
+## 관련 직무 차이
+
+웹 모의침투 테스터는 지정된 시점에 취약점을 재현한다. DevSecOps 엔지니어는 여러 팀이 사용하는 빌드·배포 보안 자동화를 다룬다. 앱 보안 엔지니어는 개별 애플리케이션의 설계와 코드 수정에 더 깊게 참여한다.
+
+## 근거 및 검토 상태
+
+2026-10-09 검토. [NIST SSDF 1.1](https://csrc.nist.gov/pubs/sp/800/218/final), [OWASP API Security Top 10 2023](https://api-security.owasp.org/editions/2023/en/0x03-introduction/), [MITRE CWE](https://cwe.mitre.org/)를 확인했다. 실무 명칭은 프레임워크 직무와 일대일 대응하지 않는 위키 분류다.

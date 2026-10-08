@@ -1,0 +1,54 @@
+---
+id: "cryptography"
+slug: "cryptography"
+titleKo: "암호기술 기초"
+titleEn: "Cryptography Fundamentals"
+aliases: ["암호화", "해시", "전자서명"]
+summary: "암호화, 해시, 서명과 키 관리가 각각 무엇을 보장하는지 구분한다."
+category: "fundamentals"
+prerequisiteTopicIds: ["cybersecurity-fundamentals"]
+relatedTopicIds: ["web-http", "authentication-authorization", "cloud-security"]
+relatedRoleIds: ["security-architect", "application-security-engineer", "cloud-security-engineer"]
+sourceIds: ["owasp-top10", "owasp-cheatsheets"]
+reviewedAt: "2026-10-09"
+publicationStatus: "published"
+---
+
+# 암호기술 기초
+
+## 정의와 범위 · 먼저 이해하기
+
+암호화, 해시, 서명과 키 관리가 각각 무엇을 보장하는지 구분한다. 이 문서의 주제는 여러 직무에서 함께 사용하는 지식이며, 특정 채용 직무 하나와 동일하지 않다.
+
+## 왜 필요한가
+
+데이터를 보호하려면 기밀성뿐 아니라 변조 탐지와 신원 확인이 필요한 경우가 많다. 요구 속성을 구분하지 않으면 암호화만으로 모든 문제가 해결된다고 오해한다.
+
+## 핵심 개념과 구성 요소
+
+대칭키 암호는 같은 비밀키를 공유하고, 공개키 기술은 키 쌍을 사용한다. 해시는 원문 복원이 목적이 아니며, 서명은 작성자와 무결성을 검증하는 데 쓰인다.
+
+## 기본 작동 원리
+
+TLS는 서버 인증과 세션 키 합의 후 전송 데이터를 보호한다. 저장 데이터는 별도의 키 보관·회전·접근 통제가 필요하다.
+
+## 작은 예시
+
+파일의 해시를 배포 전후에 비교하면 변경 여부를 알 수 있다. 그러나 비교 기준 해시 자체가 신뢰할 수 없는 곳에서 왔다면 진위는 보장되지 않는다.
+
+## 위험과 한계
+
+알고리즘 선택보다 키 유출과 잘못된 사용이 더 직접적인 문제가 될 수 있다. 암호문을 저장해도 복호화 키에 누구나 접근할 수 있다면 보호 효과가 제한된다.
+
+## 실제 보안 업무에서의 활용
+
+보안 아키텍트는 데이터 흐름마다 필요한 보호 속성을 정하고 AppSec과 클라우드 보안은 라이브러리 사용 및 키 접근 정책을 검토한다.
+
+## 선행 학습과 관련 기술
+
+선행 주제: **사이버보안 기초**. 관련 주제: **웹과 HTTP 기초, 인증과 인가, 클라우드 보안**. 이 연결은 학습을 위한 제안이며, 회사마다 직무의 업무 범위는 달라질 수 있다.
+
+## 공식 참고자료
+
+- [OWASP Top 10:2025](https://top10.owasp.org/2025/)
+- [OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/)

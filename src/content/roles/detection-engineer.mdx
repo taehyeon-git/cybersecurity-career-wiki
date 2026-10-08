@@ -1,0 +1,81 @@
+---
+id: detection-engineer
+slug: detection-engineer
+titleKo: 보안 탐지 엔지니어
+titleEn: Detection Engineer
+aliases: [탐지 규칙 엔지니어, 보안 분석 콘텐츠 엔지니어, Detection Content Engineer]
+summary: 공격 행동을 관측 가능한 데이터와 연결하고 탐지 규칙의 정확도·운영성을 지속적으로 개선한다.
+category: defensive
+domainIds: [detection-engineering, logging-siem, mitre-attack, incident-response]
+responsibilities: [탐지 요구 정의, 로그 품질 확인, 규칙 개발·검증, 오탐·누락 개선]
+typicalTasks: [데이터 출처 매핑, 탐지 쿼리 작성, 과거 로그 재생, 변경 영향 점검]
+keyDeliverables: [탐지 규칙, 테스트 사례, 데이터 의존성 문서, 성능·오탐 검토 기록]
+prerequisiteTopicIds: [networking, linux, programming-scripting, logging-siem]
+coreSkillIds: [detection-engineering, mitre-attack, incident-response]
+toolIds: [siem, rule-repository, log-replay-harness]
+relatedRoleIds: [soc-analyst, threat-hunter, red-team-operator]
+roadmapIds: [security-operations]
+sourceIds: [nist-nice, mitre-attack, nist-csf]
+reviewStatus: reviewed
+reviewedAt: '2026-10-09'
+publicationStatus: published
+---
+
+## 왜 필요한가
+
+로그가 있어도 필요한 필드가 없거나 규칙이 너무 넓으면 의미 있는 경보가 나오지 않는다. 탐지 엔지니어는 공격 행동을 데이터 요구사항, 탐지 로직, 검증 사례로 바꾸고 운영 중 품질을 측정한다. ATT&CK 매핑은 탐지 범위를 설명하는 수단이지 모든 기술을 규칙 하나씩으로 덮었다는 보증은 아니다.
+
+## 실제 수행 업무
+
+- **입력:** 사고·헌팅 결과, ATT&CK 기반 가설, 사용 가능한 로그 스키마, SOC의 오탐 피드백.
+- **과정:** 필요한 필드가 수집되는지 확인하고 규칙을 작성한다. 정상 관리 작업과 모의 공격 데이터에 재생해 탐지·오탐을 비교하고, 변경 관리 절차로 배포한다.
+- **출력:** 규칙 코드, 의존 로그, 테스트 데이터, 한계, 튜닝 기준, 폐기 조건을 포함한 탐지 패키지.
+
+## 가상 실무 시나리오
+
+**가상 시나리오:** SOC가 비정상 원격 실행을 놓친 사례를 공유한다. 엔지니어는 프로세스 생성 로그의 부모 프로세스와 명령줄 필드가 수집되는지 확인한다. 테스트 로그에서 규칙은 탐지되지만 정상 자동화 작업에도 경보가 난다. 예외를 특정 서명된 작업 계정·경로로 좁히고, 운영팀과 배포 후 성능을 관찰한다.
+
+## 기반 지식
+
+프로세스·네트워크·인증 로그의 생성 원리를 알아야 탐지 가능한 행동을 고를 수 있다. 쿼리와 스크립팅 지식은 규칙 작성과 테스트 자동화에 필요하다. 사고 대응 흐름을 알아야 경보에 적절한 우선순위와 조치 지침을 붙인다.
+
+## 핵심 역량과 도구
+
+SIEM에서 데이터 품질과 쿼리 비용을 확인한다. 버전 관리 저장소는 규칙 변경 이력을, 로그 재생 환경은 회귀 테스트를 남긴다. 규칙에는 필요한 필드, 탐지 의도, 예상 오탐, SOC 조사 시작점을 문서화한다. [MITRE ATT&CK 기술 목록](https://attack.mitre.org/techniques/)을 행동 가설에 참고한다.
+
+## 신입 준비
+
+‘탐지 엔지니어’, ‘보안 콘텐츠 개발’, ‘SIEM 운영’은 범위가 겹칠 수 있다. 단순히 쿼리를 제시하기보다 합성 악성·정상 로그를 함께 마련해 탐지율과 오탐을 설명한다. 제품별 문법은 달라지므로 데이터 모델과 검증 방법을 우선 학습한다.
+
+## 학습 순서
+
+1. 로그 스키마를 해석한다 — 주요 필드의 출처와 누락 가능성을 설명하면 완료.
+2. 행동 가설을 쓴다 — ATT&CK 기술과 필요한 관측 데이터를 연결하면 완료.
+3. 규칙·테스트를 작성한다 — 악성·정상 사례를 함께 통과하면 완료.
+4. 운영 피드백을 반영한다 — 변경 전후 오탐과 성능을 기록하면 완료.
+
+## 실습 프로젝트
+
+### 프로젝트 1: 인증 이상 탐지 규칙
+
+- **목표·선수 지식·환경:** 이상 로그인 가설을 규칙으로 만든다. 로그 쿼리 기초와 합성 인증 로그가 필요하다.
+- **작업·검증:** 필요한 필드를 정의하고 시간 창·계정별 집계를 구현해 정상 배치 작업과 대조한다.
+- **산출물·완료 기준·포트폴리오:** 규칙, 테스트 데이터, 기대 결과, 오탐 분석을 제출한다. 데이터 재생 시 기대 결과가 재현되면 완료다.
+
+### 프로젝트 2: 탐지 회귀 테스트 묶음
+
+- **목표·선수 지식·환경:** 규칙 변경이 기존 탐지를 깨지 않게 한다. 첫 프로젝트의 규칙과 버전 관리가 필요하다.
+- **작업·검증:** 필드 누락·형식 변경·허용 작업 사례를 추가하고 변경 전후 결과를 자동 비교한다.
+- **산출물·완료 기준·포트폴리오:** 테스트 실행 절차와 실패 로그를 공개한다. 의도적 규칙 오류를 테스트가 잡아내면 완료다.
+
+## 관련 자격증
+
+[GIAC GCDA](https://www.giac.org/certifications/certified-detection-analyst-gcda)는 SIEM 데이터 수집·분석·탐지 학습과 직접 맞닿는다. 자격 취득보다 악성·정상 로그를 모두 포함한 규칙 회귀 테스트를 먼저 만들고, 실제 공고에서 요구 여부를 확인한다.
+
+## 관련 직무 차이
+
+SOC 분석가는 이미 발생한 경보를 조사한다. 위협 헌터는 경보가 없는 상황에서 가설을 세워 탐색한다. 탐지 엔지니어는 이 두 활동의 결과를 반복 가능한 데이터 수집과 규칙으로 전환한다.
+
+## 근거 및 검토 상태
+
+2026-10-09 검토. [MITRE ATT&CK](https://attack.mitre.org/), [NIST CSF 2.0](https://www.nist.gov/cyberframework)과 [NICE Framework Components 2.2.0](https://www.nist.gov/news-events/news/2026/04/nice-releases-nice-framework-components-v220)을 근거로 했다. ‘Detection Engineer’는 위키의 실무 세분화 명칭이며 특정 NICE Work Role과 일대일로 동일하지 않다.

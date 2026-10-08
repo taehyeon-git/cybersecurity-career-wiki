@@ -1,0 +1,35 @@
+name: 내용·출처 수정
+description: 잘못되거나 오래된 설명, 링크, 근거를 신고합니다.
+title: "[내용] "
+body:
+  - type: input
+    id: page
+    attributes:
+      label: 대상 페이지 또는 파일
+      placeholder: "예: src/content/roles/example.mdx"
+    validations:
+      required: true
+  - type: textarea
+    id: statement
+    attributes:
+      label: 수정할 문장 또는 연결
+      description: 해당 부분을 짧게 인용하거나 제목을 적어 주세요.
+    validations:
+      required: true
+  - type: textarea
+    id: reason
+    attributes:
+      label: 수정 이유와 제안
+      description: 무엇이 달라졌고 어떻게 고쳐야 하는지 적어 주세요.
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: 확인 가능한 원문 URL
+      description: 공식 문서나 원 채용공고가 있으면 연결해 주세요.
+  - type: input
+    id: checked
+    attributes:
+      label: 확인일 또는 문서 버전
+      placeholder: "YYYY-MM-DD / 버전"

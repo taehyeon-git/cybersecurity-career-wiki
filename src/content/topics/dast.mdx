@@ -1,0 +1,55 @@
+---
+id: "dast"
+slug: "dast"
+titleKo: "동적 애플리케이션 보안 테스트"
+titleEn: "Dynamic Application Security Testing"
+aliases: ["DAST", "동적 분석"]
+summary: "실행 중인 애플리케이션에 요청을 보내 관측 가능한 보안 문제를 찾는다."
+category: "software"
+prerequisiteTopicIds: ["web-http", "web-application-security"]
+relatedTopicIds: ["sast", "api-security", "cicd-security"]
+relatedRoleIds: ["web-penetration-tester", "application-security-engineer", "devsecops-engineer"]
+sourceIds: ["nist-ssdf", "owasp-top10", "owasp-api"]
+reviewedAt: "2026-10-09"
+publicationStatus: "published"
+---
+
+# 동적 애플리케이션 보안 테스트
+
+## 정의와 범위 · 먼저 이해하기
+
+실행 중인 애플리케이션에 요청을 보내 관측 가능한 보안 문제를 찾는다. 이 문서의 주제는 여러 직무에서 함께 사용하는 지식이며, 특정 채용 직무 하나와 동일하지 않다.
+
+## 왜 필요한가
+
+동작 중인 서비스의 응답은 코드 분석만으로 알기 어려운 배포 구성과 통합 경로를 보여 준다. 다만 DAST는 도달하지 못한 경로나 내부 원인을 자동으로 설명하지 못한다.
+
+## 핵심 개념과 구성 요소
+
+스캐너는 URL과 요청 흐름을 발견하고 입력을 바꾸어 응답 차이를 관측한다. 인증 상태, 테스트 데이터, 스캔 범위를 설정해야 의미 있는 결과를 얻는다.
+
+## 기본 작동 원리
+
+격리된 테스트 환경을 준비하고 허용된 엔드포인트만 스캔한다. 경고를 재현한 뒤 서버 로그와 코드 경로를 확인하고 수정 후 같은 요청으로 회귀 검증한다.
+
+## 작은 예시
+
+교육용 API의 오류 응답에 내부 스택 정보가 노출되는지 확인한다. 발견했다면 외부 응답을 정리하되 내부 로그에는 조사에 필요한 식별자를 남긴다.
+
+## 위험과 한계
+
+스캔은 데이터를 수정하거나 부하를 줄 수 있어 생산 환경에서는 승인이 필요하다. 인증이 끊기면 일부 경로가 검사되지 않아도 보고서가 완료처럼 보일 수 있다.
+
+## 실제 보안 업무에서의 활용
+
+침투 테스터는 수동 검증으로 악용 조건을 구체화하고 AppSec은 원인과 수정을 연결한다. DevSecOps는 허가된 환경에서 반복 실행되도록 구성한다.
+
+## 선행 학습과 관련 기술
+
+선행 주제: **웹과 HTTP 기초, 웹 애플리케이션 보안**. 관련 주제: **정적 애플리케이션 보안 테스트, API 보안, CI/CD 보안**. 이 연결은 학습을 위한 제안이며, 회사마다 직무의 업무 범위는 달라질 수 있다.
+
+## 공식 참고자료
+
+- [NIST SP 800-218 SSDF 1.1](https://csrc.nist.gov/pubs/sp/800/218/final)
+- [OWASP Top 10:2025](https://top10.owasp.org/2025/)
+- [OWASP API Security Top 10:2023](https://api-security.owasp.org/editions/2023/en/0x11-t10/)

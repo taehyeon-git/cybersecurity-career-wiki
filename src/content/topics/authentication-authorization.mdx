@@ -1,0 +1,56 @@
+---
+id: "authentication-authorization"
+slug: "authentication-authorization"
+titleKo: "인증과 인가"
+titleEn: "Authentication and Authorization"
+aliases: ["AuthN", "AuthZ", "접근 제어"]
+summary: "주체가 누구인지 확인하는 인증과 어떤 자원에 접근할 수 있는지 결정하는 인가를 구분한다."
+category: "identity"
+prerequisiteTopicIds: ["web-http"]
+relatedTopicIds: ["iam", "api-security", "zero-trust"]
+relatedRoleIds: ["iam-engineer", "application-security-engineer", "web-penetration-tester"]
+sourceIds: ["owasp-top10", "owasp-api", "owasp-cheatsheets", "nist-zero-trust"]
+reviewedAt: "2026-10-09"
+publicationStatus: "published"
+---
+
+# 인증과 인가
+
+## 정의와 범위 · 먼저 이해하기
+
+주체가 누구인지 확인하는 인증과 어떤 자원에 접근할 수 있는지 결정하는 인가를 구분한다. 이 문서의 주제는 여러 직무에서 함께 사용하는 지식이며, 특정 채용 직무 하나와 동일하지 않다.
+
+## 왜 필요한가
+
+로그인에 성공했어도 모든 데이터에 접근할 수 있어서는 안 된다. OWASP Top 10:2025와 API Security Top 10:2023 모두 접근 제어와 인증 실패를 별도 위험으로 다룬다.
+
+## 핵심 개념과 구성 요소
+
+인증은 사용자·서비스의 신원을 확인하고 인가는 작업·객체·속성 단위의 허용 여부를 판단한다. 세션, 토큰, 역할, 정책은 구현 수단이며 서로 같은 층위가 아니다.
+
+## 기본 작동 원리
+
+요청마다 신원과 대상 자원을 식별하고 서버 측 정책으로 허용 여부를 평가한다. 화면에서 버튼을 숨기는 것은 사용자 경험일 뿐 서버의 인가 검사를 대체하지 않는다.
+
+## 작은 예시
+
+사용자 A와 B로 각각 로그인해 A의 문서 ID를 B 계정의 요청에 넣는다. 서버는 객체 소유권이나 명시적 공유 정책을 다시 확인해야 한다.
+
+## 위험과 한계
+
+역할만으로 예외 권한을 설명하기 어려울 수 있다. 캐시, 백그라운드 작업, 서비스 계정에도 동일한 권한 모델이 적용되는지 점검한다.
+
+## 실제 보안 업무에서의 활용
+
+IAM 엔지니어는 권한 수명주기를 관리하고 AppSec은 객체·함수 수준 인가 테스트를 설계한다. 침투 테스트는 승인된 범위에서 권한 경계가 실제로 지켜지는지 확인한다.
+
+## 선행 학습과 관련 기술
+
+선행 주제: **웹과 HTTP 기초**. 관련 주제: **신원 및 접근 관리, API 보안, 제로 트러스트 아키텍처**. 이 연결은 학습을 위한 제안이며, 회사마다 직무의 업무 범위는 달라질 수 있다.
+
+## 공식 참고자료
+
+- [OWASP Top 10:2025](https://top10.owasp.org/2025/)
+- [OWASP API Security Top 10:2023](https://api-security.owasp.org/editions/2023/en/0x11-t10/)
+- [OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/)
+- [NIST SP 800-207 Zero Trust Architecture](https://csrc.nist.gov/pubs/sp/800/207/final)

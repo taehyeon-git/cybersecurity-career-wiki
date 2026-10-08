@@ -1,0 +1,53 @@
+---
+id: "mitre-attack"
+slug: "mitre-attack"
+titleKo: "MITRE ATT&CK 활용"
+titleEn: "Using MITRE ATT&CK"
+aliases: ["ATT&CK", "TTP"]
+summary: "관측된 공격자 행동을 전술·기술·하위 기술의 공통 어휘로 정리한다."
+category: "intelligence"
+prerequisiteTopicIds: ["cybersecurity-fundamentals"]
+relatedTopicIds: ["detection-engineering", "threat-intelligence", "incident-response"]
+relatedRoleIds: ["detection-engineer", "threat-hunter", "cyber-threat-intelligence-analyst"]
+sourceIds: ["mitre-attack"]
+reviewedAt: "2026-10-09"
+publicationStatus: "published"
+---
+
+# MITRE ATT&CK 활용
+
+## 정의와 범위 · 먼저 이해하기
+
+관측된 공격자 행동을 전술·기술·하위 기술의 공통 어휘로 정리한다. 이 문서의 주제는 여러 직무에서 함께 사용하는 지식이며, 특정 채용 직무 하나와 동일하지 않다.
+
+## 왜 필요한가
+
+분석가마다 같은 행동을 다른 이름으로 부르면 탐지 범위와 사고 보고를 비교하기 어렵다. ATT&CK은 실제 관측된 적대적 행동을 지식 기반으로 정리한다.
+
+## 핵심 개념과 구성 요소
+
+전술은 공격자의 목적, 기술은 이를 이루는 방식, 하위 기술은 더 구체적인 행동이다. 데이터 소스와 탐지 분석은 별도로 연결해야 한다.
+
+## 기본 작동 원리
+
+사건 기록에서 행동 증거를 먼저 확인하고 관련 기술을 매핑한다. 이어 해당 행동을 관측할 로그와 기존 탐지 규칙을 비교해 공백을 찾는다.
+
+## 작은 예시
+
+의심스러운 예약 작업이 발견되면 단순히 ATT&CK 기술명을 붙이지 말고 생성 주체, 실행 파일, 시각과 목적을 기록한다. 이 증거가 있어야 탐지 규칙을 설계할 수 있다.
+
+## 위험과 한계
+
+기술 매핑 수가 많다고 방어 수준이 높은 것은 아니다. 한 이벤트가 여러 기술에 대응할 수 있고 기술이 실제로 사용되었다는 증거 강도도 다르다.
+
+## 실제 보안 업무에서의 활용
+
+탐지 엔지니어는 커버리지 계획에, CTI는 보고의 공통 언어로, 대응자는 사건 타임라인 설명에 사용한다.
+
+## 선행 학습과 관련 기술
+
+선행 주제: **사이버보안 기초**. 관련 주제: **탐지 엔지니어링, 사이버 위협 인텔리전스, 보안 사고 대응**. 이 연결은 학습을 위한 제안이며, 회사마다 직무의 업무 범위는 달라질 수 있다.
+
+## 공식 참고자료
+
+- [MITRE ATT&CK](https://attack.mitre.org/)

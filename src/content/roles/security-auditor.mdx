@@ -1,0 +1,81 @@
+---
+id: security-auditor
+slug: security-auditor
+titleKo: 보안 감사자
+titleEn: Security Auditor
+aliases: [정보보안 감사 담당자, Cybersecurity Auditor, 보안 통제 감사자]
+summary: 합의된 기준과 범위에 따라 보안 통제의 설계·운영 증거를 독립적으로 평가하고 발견 사항을 보고한다.
+category: governance
+domainIds: [cybersecurity-fundamentals, iam, logging-siem, vulnerability-management]
+responsibilities: [감사 기준·범위 정의, 증거 표본 검토, 발견 사항 검증, 시정조치 추적]
+typicalTasks: [정책·설정·로그 대조, 통제 소유자 인터뷰, 표본 기록, 반론 확인]
+keyDeliverables: [감사 계획, 증거 작업지, 발견 사항, 시정조치 검증 결과]
+prerequisiteTopicIds: [cybersecurity-fundamentals, networking, authentication-authorization]
+coreSkillIds: [iam, logging-siem, vulnerability-management]
+toolIds: [audit-workpaper, evidence-register, control-matrix]
+relatedRoleIds: [grc-analyst, security-consultant, security-architect]
+roadmapIds: [grc-security-management]
+sourceIds: [enisa-ecsf, nist-csf, nist-nice]
+reviewStatus: reviewed
+reviewedAt: '2026-10-09'
+publicationStatus: published
+---
+
+## 왜 필요한가
+
+통제 담당자의 자체 설명만으로 통제가 설계대로 운영되는지 확인하기 어렵다. 보안 감사자는 평가 기준, 대상 기간, 표본 방법을 먼저 정하고 독립적인 증거로 결론을 뒷받침한다. ENISA ECSF에는 Cybersecurity Auditor 프로필이 있다. 내부·외부 감사의 법적 권한과 독립성 요건은 조직·제도에 따라 다르다.
+
+## 실제 수행 업무
+
+- **입력:** 감사 목적·범위·기간, 적용 기준, 정책·설정·로그·승인 기록.
+- **과정:** 통제의 설계가 목적에 맞는지 확인하고, 기간 중 운영 증거를 표본으로 점검한다. 발견 초안을 통제 소유자와 사실 확인한 뒤 결론과 한계를 분리한다.
+- **출력:** 평가 절차와 표본이 추적되는 작업지, 발견 사항의 근거·영향·개선 권고, 시정조치 재검증 결과.
+
+## 가상 실무 시나리오
+
+**가상 시나리오:** 관리자 계정의 정기 접근 검토 통제를 감사한다. 감사자는 대상 계정 모집단을 확인하고 기간 내 표본을 선정해 검토 승인·권한 변경·퇴사자 회수 기록을 대조한다. 일부 기록이 누락되면 통제 소유자에게 추가 증거를 요청하고, 제출되지 않은 항목만 근거를 붙여 발견 사항으로 기록한다. IAM 엔지니어가 시정한 뒤 재시험한다.
+
+## 기반 지식
+
+IAM·로그·네트워크의 기초를 알아야 제출된 증거가 실제 통제 운영을 나타내는지 판단할 수 있다. 표본과 모집단, 기간 적합성, 증거 신뢰도 개념이 중요하다. 정책 문구와 실제 설정·행동을 구분해야 한다.
+
+## 핵심 역량과 도구
+
+감사 작업지는 기준·절차·표본·결론을 묶고, 증거 대장은 원본 위치·수집일·담당자를 기록한다. 통제 매핑표는 중복 또는 누락 평가를 줄인다. [NIST CSF 2.0](https://www.nist.gov/cyberframework)은 위험관리 결과를 공통 언어로 제공하지만 그 자체가 모든 감사의 인증 기준은 아니다.
+
+## 신입 준비
+
+‘정보보안 감사’, ‘IT 감사’, ‘컴플라이언스 점검’의 범위와 독립성 요건은 공고마다 다르다. 합성 자료로 모집단 정의, 표본 선정, 증거와 결론 연결을 보여주는 작업지가 좋은 출발점이다. 특정 감사 자격증이 모든 직무에 필수라고 단정하지 않는다.
+
+## 학습 순서
+
+1. 통제 목적을 이해한다 — 왜 필요한지와 실패 사례를 설명하면 완료.
+2. 감사 기준·범위를 정한다 — 대상 기간과 제외 항목이 명시되면 완료.
+3. 증거를 표본 검토한다 — 모집단·표본·결론을 추적하면 완료.
+4. 시정조치를 재검증한다 — 발견의 원인이 해소되었음을 새 증거로 확인하면 완료.
+
+## 실습 프로젝트
+
+### 프로젝트 1: 접근 검토 통제 감사
+
+- **목표·선수 지식·환경:** 관리자 권한 검토의 운영 여부를 확인한다. IAM 기초와 합성 계정·승인 기록이 필요하다.
+- **작업·검증:** 모집단을 확정하고 표본을 선정해 승인·회수·예외 증거를 대조한다.
+- **산출물·완료 기준·포트폴리오:** 작업지와 발견 초안을 낸다. 다른 사람이 같은 자료로 결론을 재현하면 완료다.
+
+### 프로젝트 2: 발견 사항 시정 재검증
+
+- **목표·선수 지식·환경:** 첫 프로젝트에서 누락된 통제의 개선을 평가한다. 작업지 작성 경험이 필요하다.
+- **작업·검증:** 수정된 절차뿐 아니라 새 기간의 실제 운영 기록을 확인한다.
+- **산출물·완료 기준·포트폴리오:** 전후 증거, 남은 예외, 결론의 범위를 기록한다. 증거가 부족하면 미완료라고 명시할 수 있으면 완료다.
+
+## 관련 자격증
+
+[ISACA CISA](https://www.isaca.org/credentialing/cisa/get-cisa-certified)는 정보시스템 감사와 통제 평가에 관련된다. 시험 응시와 정식 인증은 구분해야 하며, 발급기관은 인증에 실무 경험 요건을 둔다. 입문자는 감사 작업지와 증거 평가를 먼저 연습한다.
+
+## 관련 직무 차이
+
+GRC 분석가는 통제와 위험을 상시 운영한다. 감사자는 합의된 기준에 맞춰 기간과 표본을 정해 평가하고 독립적인 결론을 낸다. 컨설턴트는 개선안을 설계할 수 있으나 같은 통제를 설계하고 독립 감사까지 수행하는 구조는 이해상충 검토가 필요하다.
+
+## 근거 및 검토 상태
+
+2026-10-09 검토. [ENISA Cybersecurity Auditor 역할 프로필](https://www.enisa.europa.eu/publications/european-cybersecurity-skills-framework-role-profiles), [NIST CSF 2.0](https://www.nist.gov/cyberframework), [NICE Components 2.2.0](https://www.nist.gov/news-events/news/2026/04/nice-releases-nice-framework-components-v220)을 참고했다. 국가별 법정 감사 권한과 인증 요건은 별도 검증이 필요하다.

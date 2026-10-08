@@ -1,0 +1,7 @@
+node_modules/
+.next/
+out/
+coverage/
+*.tsbuildinfo
+public/search-index.json
+.env.local
