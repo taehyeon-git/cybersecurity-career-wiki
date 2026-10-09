@@ -5,16 +5,12 @@ titleKo: 애플리케이션 보안 엔지니어
 titleEn: Application Security Engineer
 aliases: [앱섹, 앱 보안 엔지니어, AppSec Engineer, 소프트웨어 보안 엔지니어]
 summary: 개발 수명주기에 위협 모델링·안전한 설계·코드 검토·검증을 통합해 반복 취약점을 줄인다.
-category: engineering
-domainIds: [secure-sdlc, threat-modeling, secure-coding, web-application-security, api-security]
+category: development
 responsibilities: [설계 보안 검토, 개발 가이드 제공, 취약점 원인 개선, 보안 테스트 설계]
 typicalTasks: [위협 모델 워크숍, 코드·API 검토, 개발자와 수정 협의, 보안 회귀 테스트]
 keyDeliverables: [위협 모델, 코드 검토 의견, 보안 요구사항, 회귀 테스트]
-prerequisiteTopicIds: [programming-scripting, web-http, authentication-authorization]
-coreSkillIds: [secure-sdlc, threat-modeling, secure-coding, web-application-security]
-toolIds: [code-review-platform, sast, dast, test-harness]
 relatedRoleIds: [product-security-engineer, devsecops-engineer, web-penetration-tester]
-roadmapIds: [application-security, devsecops]
+roadmapIds: [application-security, devsecops, ai-security-career, cybersecurity-fundamentals]
 sourceIds: [nist-ssdf, owasp-top10, owasp-api, owasp-cheatsheets, mitre-cwe]
 reviewStatus: reviewed
 reviewedAt: '2026-10-09'
@@ -35,11 +31,7 @@ publicationStatus: published
 
 **가상 시나리오:** 새 문서 공유 기능의 설계 리뷰에서 공유 링크가 다른 조직에 노출될 수 있다는 우려가 나온다. 엔지니어는 사용자·조직·문서의 권한 관계를 그린 뒤 링크 생성·조회·해지 경로에 서버 측 검사를 제안한다. 개발자와 권한 행렬 테스트를 추가하고 출시 전 정상·거부 사례를 함께 확인한다.
 
-## 기반 지식
-
-프로그래밍과 프레임워크의 요청 처리 흐름을 알아야 수정 위치를 제안할 수 있다. HTTP·API와 인증·인가 지식은 웹 서비스의 핵심 신뢰 경계를 설명한다. 데이터베이스·클라우드 배포 기초는 코드 밖 설정과 비밀 관리 위험을 찾는 데 필요하다.
-
-## 핵심 역량과 도구
+## 업무에서 쓰는 역량과 도구
 
 코드 리뷰 도구는 변경 맥락을, SAST는 반복 가능한 코드 패턴을, DAST는 실행 중 동작을 확인하는 데 쓴다. 두 분석 도구 모두 결과 검증이 필요하다. [OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/)의 권한·입력 처리 가이드를 개발 대안에 연결한다.
 
@@ -47,14 +39,7 @@ publicationStatus: published
 
 ‘AppSec’, ‘서비스 보안’, ‘개발 보안’ 공고는 제품 리뷰와 플랫폼 운영 비율이 다르다. 실제 코드를 수정해 보안 테스트가 실패에서 성공으로 바뀌는 과정을 보여주면 좋다. 자격증보다 개발자에게 전달할 수 있는 수정 제안의 구체성이 중요하다.
 
-## 학습 순서
-
-1. 웹 앱을 만든다 — 인증·인가·데이터 흐름을 설명하면 완료.
-2. 주요 약점과 위협 모델링을 배운다 — 신뢰 경계별 위험과 통제를 쓰면 완료.
-3. 코드·테스트를 개선한다 — 취약 사례를 자동 회귀 테스트로 막으면 완료.
-4. 개발 흐름에 통합한다 — 리뷰 기준과 예외 처리 절차를 문서화하면 완료.
-
-## 실습 프로젝트
+## 포트폴리오 작업 예시
 
 ### 프로젝트 1: 객체 권한 설계 리뷰
 
@@ -68,14 +53,31 @@ publicationStatus: published
 - **작업·검증:** 자체 작성 예제의 결함과 안전한 대안을 비교하고 리뷰 체크리스트를 동료에게 적용해 본다.
 - **산출물·완료 기준·포트폴리오:** 오탐 사례와 수정 이유를 포함한 가이드를 제출한다. 제3자가 동일 이슈를 찾으면 완료다.
 
-## 관련 자격증
+## 한 주의 업무는 어떻게 흘러가는가
 
-[ISC2 CSSLP](https://www.isc2.org/certifications/csslp/csslp-certification-exam-outline)은 설계부터 배포까지 안전한 소프트웨어 수명주기를 다룬다. 경험 요건이 있는 심화 선택지이므로 입문자는 코드 수정·테스트·위협 모델 포트폴리오를 먼저 준비한다.
+새 기능의 설계가 올라오면 데이터 흐름과 권한 변경 범위를 먼저 확인하고 개발팀과 검토 시점을 잡는다. 배포 직전에는 발견된 문제의 재현 조건, 악용 가능한 사용자 범위, 수정 책임자를 기록한다. 모든 이슈를 동일한 긴급도로 처리하지 않는다. 사용 중인 기능인지, 외부 노출이 있는지, 보완 통제가 있는지를 제품 담당자와 확인한 뒤 출시 차단·기한 있는 수정·위험 수용 중 무엇을 제안할지 정한다. 수정 뒤에는 같은 조건에서 문제가 사라졌는지 다시 확인하고 회귀 가능성을 남긴다.
 
-## 관련 직무 차이
+## 문서와 협업의 수준
 
-웹 모의침투 테스터는 지정된 시점에 취약점을 재현한다. DevSecOps 엔지니어는 여러 팀이 사용하는 빌드·배포 보안 자동화를 다룬다. 앱 보안 엔지니어는 개별 애플리케이션의 설계와 코드 수정에 더 깊게 참여한다.
+좋은 검토 결과물은 취약점 이름만 적은 목록이 아니다. 예를 들어 권한 검토 기록에는 대상 기능과 두 사용자 역할, 기대한 접근 결과, 실제 관찰, 영향받는 데이터, 수정 담당자와 재검증일을 분리한다. 개발자는 어떤 동작을 바꿔야 하는지 알아야 하고 제품 책임자는 출시 판단에 필요한 잔여 위험을 알아야 한다. 보안 담당자는 재현 정보를 제한된 사람에게 공유하고 고객 데이터가 포트폴리오나 회의 자료로 새지 않게 관리한다.
 
-## 근거 및 검토 상태
+## 국내 채용에서 확인한 업무 범위
 
-2026-10-09 검토. [NIST SSDF 1.1](https://csrc.nist.gov/pubs/sp/800/218/final), [OWASP API Security Top 10 2023](https://api-security.owasp.org/editions/2023/en/0x03-introduction/), [MITRE CWE](https://cwe.mitre.org/)를 확인했다. 실무 명칭은 프레임워크 직무와 일대일 대응하지 않는 위키 분류다.
+2026-10-09 확인한 토스의 [Security Researcher (모의해킹/취약점 분석)](https://toss.im/career/job-detail?job_id=4076085003)은 웹·모바일·API·내부 시스템 진단과 출시 전 평가, 위협 모델링, 수정 권고를 한 포지션의 업무로 제시했다. 위키의 '애플리케이션 보안 엔지니어'와 업무가 겹치지만 공고의 실제 직함은 다르다. [Security Researcher (모바일보안)](https://toss.im/career/job-detail?job_id=7780944003)은 모바일 점검과 배포 과정의 보안 통합까지 요구했다. 두 공고의 환경과 요구 경력을 모든 AppSec 채용에 일반화하지 않는다.
+
+## 입직과 전환을 위한 증거
+
+신입이라면 허가된 샘플 서비스에서 출시 전 보안 검토를 한 건 끝까지 수행한 기록이 유용하다. 요구사항, 문제의 업무 영향, 개발팀이 선택한 수정안, 재검증 결과를 한 묶음으로 제시한다. 개발 경험에서 전환한다면 자신이 직접 수정한 결함을 이용해 코드 리뷰와 팀 설득 과정을 설명할 수 있다. 면접에서는 '어떤 취약점을 찾았나'에 더해 '왜 그 시점에 그 문제를 우선했고 수정 이후 무엇을 확인했나'를 질문받을 수 있으므로 판단 근거와 놓친 가정을 준비한다.
+
+## 지원 전에 확인할 질문
+
+- 신기능 설계 검토와 배포 직전 진단 중 어느 업무가 정기적인가?
+- 개발자가 수정할 권한과 일정은 어느 팀이 결정하며 보안팀은 출시를 막을 수 있는가?
+- 외부 제보나 고객 취약점 문의를 직접 처리하는가, 별도의 제품 보안 조직이 맡는가?
+- 평가 대상이 웹·모바일·API 중 어디까지이며, 원격 조직과 협업하는 비율은 어느 정도인가?
+
+공고에 'AppSec'라고만 적혀 있다면 위 질문으로 실제 책임을 좁혀야 한다. 면접에서 본인의 강점이 설계 리뷰인지 코드 분석인지, 개발팀과 수정 과정을 끝까지 추적한 경험인지 연결해 설명하면 직함보다 일의 적합성이 잘 드러난다.
+
+## 근거와 확인 범위
+
+역할의 일반적 책임은 이 문서의 공식 출처와 위 국내 공고의 확인된 업무를 함께 참고했다. 실제 채용에서는 보안 평가, 개발 지원, 제품 설계 중 어느 비중이 큰지 팀별로 다르며, 공고 종료나 수정 후에는 요구사항을 다시 확인해야 한다.

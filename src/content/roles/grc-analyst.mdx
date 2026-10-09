@@ -5,16 +5,12 @@ titleKo: 보안 거버넌스·위험·컴플라이언스 분석가
 titleEn: GRC Analyst
 aliases: [보안 정책 담당자, 정보보호 관리체계 담당자, Governance Risk and Compliance Analyst]
 summary: 조직의 보안 정책·위험·통제 증거를 연결해 우선순위와 책임이 유지되도록 관리한다.
-category: governance
-domainIds: [cybersecurity-fundamentals, vulnerability-management, iam]
+category: management
 responsibilities: [위험 등록부 관리, 정책·통제 매핑, 증거 수집 조정, 예외·개선 추적]
 typicalTasks: [위험 평가, 통제 소유자 확인, 증거 유효성 점검, 경영 보고]
 keyDeliverables: [위험 등록부, 통제 매핑표, 정책 개정안, 예외·시정조치 기록]
-prerequisiteTopicIds: [cybersecurity-fundamentals, networking, authentication-authorization]
-coreSkillIds: [vulnerability-management, iam, incident-response]
-toolIds: [risk-register, control-matrix, evidence-register]
 relatedRoleIds: [security-auditor, security-consultant, security-architect]
-roadmapIds: [grc-security-management]
+roadmapIds: [grc-security-management, privacy-security-leadership, cybersecurity-fundamentals]
 sourceIds: [nist-csf, enisa-ecsf, nist-nice]
 reviewStatus: reviewed
 reviewedAt: '2026-10-09'
@@ -35,11 +31,7 @@ publicationStatus: published
 
 **가상 시나리오:** 여러 팀의 관리자 계정에 MFA 적용이 불완전하다. GRC 분석가는 계정 범위와 통제 소유자를 확인하고 실제 설정 증거를 요청한다. 시스템 제약으로 즉시 적용하지 못하는 계정은 잔여 위험과 보완 통제, 종료 시점을 기록한다. IAM 엔지니어의 구현 결과를 다시 받아 위험 등록부와 증거를 갱신한다.
 
-## 기반 지식
-
-네트워크·IAM·사고 대응의 기초를 알아야 기술팀 증거가 통제 목적을 충족하는지 질문할 수 있다. 위험 평가, 정책 수명주기, 증거의 시점·범위 개념이 중요하다. 법규와 인증 기준은 국가·업종·버전별로 달라 적용 범위를 검증해야 한다.
-
-## 핵심 역량과 도구
+## 업무에서 쓰는 역량과 도구
 
 위험 등록부에는 위험·소유자·대응·기한을, 통제 매핑표에는 목표와 운영 책임을, 증거 대장에는 출처·확인일·유효 기간을 남긴다. 문서의 존재와 통제의 실제 작동을 구분해야 한다. [NIST CSF 2.0](https://www.nist.gov/cyberframework)의 조직 프로필을 현재·목표 상태 비교에 참고할 수 있다.
 
@@ -47,14 +39,7 @@ publicationStatus: published
 
 ‘정보보호 관리체계’, ‘보안 정책’, ‘GRC’, ‘위험관리’ 공고는 인증 준비와 상시 위험 운영의 비중이 다르다. 가상 조직의 위험 등록부와 증거 추적표를 만들되 국내 법적 적합성을 검증했다고 주장하지 않는다. 특정 자격증의 의무 여부는 실제 공고와 적용 제도에서 확인한다.
 
-## 학습 순서
-
-1. 기술 통제의 목적을 이해한다 — MFA·백업·로그의 위험 감소 경로를 설명하면 완료.
-2. 위험 평가 기준을 세운다 — 영향·가능성·불확실성 근거를 쓰면 완료.
-3. 통제와 증거를 연결한다 — 소유자·기간·범위가 추적되면 완료.
-4. 개선과 예외를 관리한다 — 만료·재검토가 누락되지 않으면 완료.
-
-## 실습 프로젝트
+## 포트폴리오 작업 예시
 
 ### 프로젝트 1: 가상 조직 위험 등록부
 
@@ -68,14 +53,33 @@ publicationStatus: published
 - **작업·검증:** 합성 MFA 설정·접근 로그를 모아 적용 범위와 기간을 확인한다.
 - **산출물·완료 기준·포트폴리오:** 통제 매핑·미확인 목록·기한 있는 예외를 낸다. 증거가 없는 통제를 ‘운영 중’으로 표시하지 않으면 완료다.
 
-## 관련 자격증
+## 계속 돌아가는 관리 업무
 
-[ISACA CRISC](https://www.isaca.org/credentialing/crisc)는 정보시스템 위험과 통제의 심화 학습과 관련된다. 입문 단계에서는 위험 등록부와 통제 증거를 정확히 연결하는 연습을 우선하고, 응시·인증 경험 요건은 발급기관에서 확인한다.
+GRC는 인증 심사 직전에만 문서를 모으는 일이 아니다. 정책 개정 요청과 신규 서비스의 위험 검토가 들어오면 적용 범위, 통제 책임자, 현재 증거가 맞는 시점을 확인한다. 통제 운영팀의 답변이 늦어지면 경영 보고 일정과 위험 수용 기한을 조정한다. 분기 말에는 만료된 예외와 미완료 개선조치를 다시 열고, 실제 조치가 되었는지 증거로 확인한다. 감사 대응과 일상 위험 관리를 같은 표에서 추적하되 독립 감사의 판단을 대신하지 않는다.
 
-## 관련 직무 차이
+## 관리 문서의 예시
 
-보안 감사자는 정해진 기준에 따라 통제를 독립적으로 평가한다. GRC 분석가는 위험·정책·개선의 지속 운영을 맡는다. 컨설턴트는 특정 의뢰 과제에서 현황과 개선안을 제안할 수 있다. 독립성 요구는 감사 맥락에서 별도로 고려한다.
+위험 등록부 한 행에는 위험 시나리오, 영향을 받는 서비스, 사업 영향, 기존 통제, 소유자, 잔여 위험, 승인권자, 다음 검토일이 필요하다. 통제 증거 목록에는 문서명만 쓰지 말고 생성 시점·대상 범위·검증 담당자를 기록한다. 예외 승인에는 종료 조건이 있어야 한다. 이를 지키면 정책 문구와 실제 운영 사이에 간격이 생겨도 누구에게 어떤 결정을 요청해야 하는지 분명해진다.
 
-## 근거 및 검토 상태
+## 국내 채용에서 확인한 업무
 
-2026-10-09 검토. [NIST CSF 2.0](https://www.nist.gov/cyberframework)과 [ENISA ECSF의 위험관리·정책 관련 프로필](https://www.enisa.europa.eu/publications/european-cybersecurity-skills-framework-role-profiles), [NICE Components 2.2.0](https://www.nist.gov/news-events/news/2026/04/nice-releases-nice-framework-components-v220)을 참고했다. 국내 법률·인증의 세부 의무는 본문에 단정하지 않았다.
+2026-10-09 확인한 토스의 [Information Security Manager (보안정책)](https://toss.im/career/job-detail?job_id=7711619003)은 금융·개인정보 규제를 내부 정책과 통제로 해석하고 인증·점검 증적과 개선을 관리하는 업무를 적었다. LINE studio의 [Senior Security Professional (게임서비스 분야)](https://careers.linecorp.com/ko/jobs/3111/)은 2026-09-11 게시 공고에서 관리체계·개인정보·외부 SOC 조율을 한 직무에 결합했으며 7년 이상을 요구했다. 두 사례는 조직별 범위 차이를 보여주며 GRC 전체의 공통 경력 조건을 뜻하지 않는다.
+
+## 입직과 전환을 준비하는 방법
+
+입문 포트폴리오로는 가상 서비스의 위험 등록부, 통제 소유자 표, 증거 요청 목록, 개선조치 회의록을 연결한 자료가 적합하다. 면접에서는 '법 조항을 외운다'보다 서비스팀이 제출한 불완전한 증거를 어떻게 판정하고 누가 결정을 내려야 하는지 설명한다. 운영·개발·감사 지원 경험에서 전환한다면 자신이 보았던 통제 실패와 후속 조치를 구체적으로 말한다. 특정 법규 적용 여부는 사업·관할·시점에 따라 달라지므로 확인되지 않은 법적 의무를 일반화하지 않는다.
+
+## 지원 전에 확인할 질문
+
+- 관리체계를 새로 구축하는가, 이미 운영 중인 통제의 증거와 개선을 맡는가?
+- 위험 수용과 예외 승인권은 경영진·사업부·보안 조직 중 어디에 있는가?
+- 특정 산업 인증 대응이 대부분인지 전사 위험 관리가 상시 업무인지 확인한다.
+- 개인정보, 협력사 위험, 클라우드 검토까지 한 사람에게 묶여 있는가?
+
+'정책 담당'이라는 채용명에도 문서 작성만 기대하는 팀과 실제 사업 결정을 조정하는 팀이 있다. 면접에서는 법규 목록보다 소유자가 없는 통제를 어떻게 발견하고 누가 조치하도록 설득했는지를 사례로 보여준다.
+
+작은 조직에서는 실무자가 정책 작성과 증거 수집을 함께 맡기도 한다. 이 경우에도 위험을 받아들이는 결정권자가 누구인지는 분명히 해야 하며, 한 사람이 모든 책임을 진다고 해석해서는 안 된다.
+
+## 근거와 확인 범위
+
+공식 프레임워크는 위험·정책·감독의 일반 책임을 뒷받침한다. 국내 공고는 확인 시점의 사례이며 하나의 채용명이 GRC의 모든 역할을 대표하지 않는다.

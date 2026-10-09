@@ -5,8 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint src scripts tests next.config.ts postcss.config.mjs",
+    "lint": "eslint src scripts tests next.config.ts playwright.config.ts postcss.config.mjs",
     "test": "node --import tsx --test tests/*.test.ts",
+    "test:e2e": "playwright test",
     "content:check": "tsx scripts/check-content.ts",
     "search:build": "tsx scripts/build-search.ts",
     "export:fix-rsc": "tsx scripts/fix-rsc-export.ts",
@@ -25,6 +26,7 @@
     "zod": "^4.6.5"
   },
   "devDependencies": {
+    "@playwright/test": "^1.64.0",
     "@tailwindcss/postcss": "^4.3.3",
     "@types/node": "^24.0.0",
     "@types/react": "^19.0.0",

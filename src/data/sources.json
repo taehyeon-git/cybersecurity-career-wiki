@@ -1,13 +1,23 @@
 [
   {
+    "id": "ncs-sqf",
+    "title": "정보보호 분야 SQF 직무역량체계도",
+    "organization": "국가직무능력표준(NCS)",
+    "url": "https://www.ncs.go.kr/sqf/sqf01/sqf10100201p1.do?iscCd=20&iscNm=%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8",
+    "version": "웹 공개 직무역량체계",
+    "checkedAt": "2026-10-09",
+    "kind": "workforce-framework",
+    "notes": "정보보호 분야의 5개 하위산업분야와 15개 직무를 제시한다. 위키의 세부 직함은 채용 공고와 다른 공식 직무 프로필을 함께 고려해 확장했다."
+  },
+  {
     "id": "nist-nice",
     "title": "NICE Framework: Current Versions",
     "organization": "NIST NICE",
     "url": "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/nice-framework-current-versions",
-    "version": "Components 2.2.0 (2026-04-28)",
+    "version": "Components 2.2.0",
     "checkedAt": "2026-10-09",
     "kind": "workforce-framework",
-    "notes": "Components contain Work Role Categories, Work Roles, Competency Areas, and TKS statements. The page's parenthetical year says 2025; the release notice and change log confirm 2026."
+    "notes": "Components contain Work Role Categories, Work Roles, Competency Areas, and TKS statements. Official pages have inconsistent date labels, so the component release date is not asserted here."
   },
   {
     "id": "nist-nice-base",
@@ -268,5 +278,65 @@
     "checkedAt": "2026-10-09",
     "kind": "training-reference",
     "notes": "Provides Korean practice and training labels such as monitoring, incident response, penetration testing, malware analysis, and consulting."
+  },
+  {
+    "id": "nist-scrm-800161",
+    "title": "NIST SP 800-161 Rev. 1: Cybersecurity Supply Chain Risk Management Practices for Systems and Organizations",
+    "organization": "NIST",
+    "url": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final",
+    "version": "Revision 1, updated 2024-11-01",
+    "checkedAt": "2026-10-09",
+    "kind": "guidance",
+    "notes": "Official C-SCRM guidance on strategies, policies, plans, and product/service risk assessments; it does not set hiring requirements."
+  },
+  {
+    "id": "nist-scrm-due-diligence",
+    "title": "NIST SP 1326: C-SCRM Due Diligence Assessment Quick-Start Guide",
+    "organization": "NIST",
+    "url": "https://csrc.nist.gov/pubs/sp/1326/final",
+    "version": "Final, 2026-07",
+    "checkedAt": "2026-10-09",
+    "kind": "guidance",
+    "notes": "Describes due diligence for ICT suppliers and products. The scope is guidance for assessment work, not a job taxonomy."
+  },
+  {
+    "id": "sierra-vendor-security-role",
+    "title": "Vendor Security Manager",
+    "organization": "Sierra",
+    "url": "https://jobs.ashbyhq.com/Sierra/6a4d8e28-3e97-41fc-a5b8-dadd8040c34d",
+    "version": "company job posting; checked 2026-10-09",
+    "checkedAt": "2026-10-09",
+    "kind": "job-posting",
+    "notes": "Employer ATS search-indexed posting covers vendor assessments, risk tiering, monitoring, decision records, and collaboration. Direct HTML requires JavaScript; no publication date was verified."
+  },
+  {
+    "id": "openssf-osps-baseline",
+    "title": "Open Source Project Security Baseline",
+    "organization": "OpenSSF",
+    "url": "https://baseline.openssf.org/",
+    "version": "v2026.08.28 current at review",
+    "checkedAt": "2026-10-09",
+    "kind": "guidance",
+    "notes": "Project security controls by maturity and category for maintainers; not evidence of the number of dedicated jobs."
+  },
+  {
+    "id": "openssf-cvd-guide",
+    "title": "Guide to implementing a coordinated vulnerability disclosure process for open source projects",
+    "organization": "OpenSSF Vulnerability Disclosure Working Group",
+    "url": "https://oss-vulnerability-guide.openssf.org/maintainer-guide.html",
+    "version": "living guide; checked 2026-10-09",
+    "checkedAt": "2026-10-09",
+    "kind": "guidance",
+    "notes": "Explains private report intake, coordination, remediation, and communication for OSS project maintainers; projects may adapt its advice."
+  },
+  {
+    "id": "openhome-oss-security-role",
+    "title": "Security Engineer (Home Assistant)",
+    "organization": "Open Home Foundation",
+    "url": "https://jobs.ashbyhq.com/openhomefoundation/c3089fc1-31ef-4cee-9ab0-68a94b1dfdb6",
+    "version": "company job posting; checked 2026-10-09",
+    "checkedAt": "2026-10-09",
+    "kind": "job-posting",
+    "notes": "Employer ATS search-indexed posting covers private report intake, maintainer coordination, release security, and open-source community collaboration. Direct HTML requires JavaScript; no publication date was verified."
   }
 ]

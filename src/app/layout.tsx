@@ -9,9 +9,9 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: { default: "Cybersecurity Career Wiki | 보안 직무와 기술의 연결 지도", template: "%s | Cybersecurity Career Wiki" },
-  description: "사이버보안 직무부터 기술과 학습 로드맵까지, 복잡한 보안 분야를 하나의 지식 지도로 연결합니다.",
-  openGraph: { title: "Cybersecurity Career Wiki", description: "보안 직무·기술·학습을 연결하는 한국어 공개 위키", type: "website", locale: "ko_KR" },
+  title: { default: "Cybersecurity Career Wiki | 보안 직무 커리어", template: "%s | Cybersecurity Career Wiki" },
+  description: "사이버보안 직무의 실제 업무, 산출물, 채용 사례와 커리어 준비 경로를 정리한 한국어 위키입니다.",
+  openGraph: { title: "Cybersecurity Career Wiki", description: "보안 직무와 커리어 준비를 위한 한국어 공개 위키", type: "website", locale: "ko_KR" },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

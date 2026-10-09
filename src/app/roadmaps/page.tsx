@@ -3,7 +3,7 @@ import { WikiFileRow, WikiFolder } from "@/components/wiki/Directory";
 import { publishedRoadmaps } from "@/lib/content";
 import { routeFor } from "@/lib/site-data";
 
-export const metadata: Metadata = { title: "학습 로드맵", description: "보안 분야 기초와 직무별 학습 경로를 단계와 실습 기준으로 확인합니다.", alternates: { canonical: "/roadmaps/" } };
+export const metadata: Metadata = { title: "커리어 경로", description: "보안 직무 선택부터 업무 포트폴리오와 지원 준비까지 이어지는 경로입니다.", alternates: { canonical: "/roadmaps/" } };
 
 export default function RoadmapsPage() {
   const roadmaps = publishedRoadmaps();
@@ -11,14 +11,14 @@ export default function RoadmapsPage() {
   const specialized = roadmaps.filter((item) => item.id !== "cybersecurity-fundamentals");
   return <main className="wiki-page">
     <header className="wiki-page-header">
-      <div className="wiki-page-kicker">위키 / 학습 로드맵</div>
-      <h1 className="wiki-page-title">학습 로드맵</h1>
-      <p className="wiki-page-intro">기초부터 작은 실습까지 차례로 따라갈 수 있는 학습 경로입니다. 각 단계의 완료 기준을 확인하며 진행하세요.</p>
-      <div className="wiki-page-meta"><span>학습 경로 {roadmaps.length}개</span><span>처음이라면 기초 폴더부터</span></div>
+      <div className="wiki-page-kicker">위키 / 커리어 경로</div>
+      <h1 className="wiki-page-title">커리어 경로</h1>
+      <p className="wiki-page-intro">관심 직무를 고르고, 공고를 읽고, 업무 결과물로 역량을 보여주기까지의 준비 순서입니다.</p>
+      <div className="wiki-page-meta"><span>경로 {roadmaps.length}개</span><span>처음이라면 입문 경로부터</span></div>
     </header>
     <div className="wiki-folder-list">
-      <WikiFolder name="처음 시작하는 경로" description="Foundation" count={`${foundation.length}개 문서`} defaultOpen>{foundation.map((item) => <WikiFileRow key={item.id} href={routeFor.roadmap(item.slug)} title={item.titleKo} subtitle={item.titleEn} description={item.summary} meta={`${item.topicIds.length}개 기술`} />)}</WikiFolder>
-      <WikiFolder name="분야별 학습 경로" description="Specializations" count={`${specialized.length}개 문서`}>{specialized.map((item) => <WikiFileRow key={item.id} href={routeFor.roadmap(item.slug)} title={item.titleKo} subtitle={item.titleEn} description={item.summary} meta={`${item.topicIds.length}개 기술`} />)}</WikiFolder>
+      <WikiFolder name="처음 시작하는 경로" description="직무 선택과 공고 읽기" count={`${foundation.length}개 문서`} defaultOpen>{foundation.map((item) => <WikiFileRow key={item.id} href={routeFor.roadmap(item.slug)} title={item.titleKo} subtitle={item.titleEn} description={item.summary} meta={`${item.roleIds.length}개 관련 직무`} />)}</WikiFolder>
+      <WikiFolder name="분야별 준비 경로" description="업무 사례와 포트폴리오" count={`${specialized.length}개 문서`}>{specialized.map((item) => <WikiFileRow key={item.id} href={routeFor.roadmap(item.slug)} title={item.titleKo} subtitle={item.titleEn} description={item.summary} meta={`${item.roleIds.length}개 관련 직무`} />)}</WikiFolder>
     </div>
   </main>;
 }

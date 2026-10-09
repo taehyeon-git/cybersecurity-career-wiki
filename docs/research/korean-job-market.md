@@ -27,7 +27,7 @@
 | P19 | 토스증권 — [Security Engineer (보안 인프라)](https://toss.im/career/job-detail?job_id=8011230003) | 확인 10-09 / 정규직, 상세 연수 미확인 | 온프레미스·클라우드 위험, 계정·워크로드 기준, 네트워크 분할과 아키텍처 수준 개선. | AWS/Azure/GCP, Kubernetes, Micro segmentation, ZTNA/SSE 등을 공고가 언급. Zero Trust는 설계 접근 맥락이다. |
 | P20 | 시큐아이 — [경력사원 모집_개발 (Windows 응용 개발)](https://secui-recruit.recruiter.co.kr/app/jobnotice/view?jobnoticeSn=257255&systemKindCode=MRS2) | 2026-06-17 / Windows 개발 6년 이상 | SSL VPN·단말 점검 등 보안 제품 에이전트 개발·유지보수; C/C++, Windows 내부 구조·네트워크·파일시스템 이해. | 커널/드라이버, Endpoint 보안 제품, 취약점 분석 경험을 우대. **보안 제품 개발자** 사례이며 SOC/보안운영 직무와 구분한다. |
 | P21 | 토스증권 — [Security Engineer (이벤트 분석/사고 대응)](https://toss.im/career/job-detail?job_id=4299403003) | 확인 10-09 / 정규직, 상세 연수 미확인 | SIEM 기반 자체 관제 체계, 로그 수집·상관 규칙, 침해사고 분석·대응과 자동화. | Splunk, ELK, Kafka, Public Cloud/Kubernetes 경험을 공고가 명시. |
-| P22 | 토스플레이스 — [Security Engineer (이벤트 분석/사고 대응)](https://toss.im/career/job-detail?job_id=7719336003) | 확인 10-09 / 정규직, 상세 연수 미확인 | 클라우드 SIEM 로그, 탐지 규칙, 이상행위·침해사고 대응, CTI를 활용한 헌팅. | AWS 등 클라우드 탐지·대응 경험을 요구. 탐지·IR·헌팅이 한 공고에 결합된다. |
+| P22 | 토스플레이스 — [Security Engineer (이벤트 분석/사고 대응)](https://toss.im/career/job-detail?job_id=7719336003) | 확인 10-09 / 정규직, 보안 관제·침해사고 분석 및 대응 경력 5년 이상 | 클라우드 SIEM 로그, 탐지 규칙, 이상행위·침해사고 대응, CTI를 활용한 헌팅. | AWS 등 클라우드 탐지·대응 경험을 요구. 탐지·IR·헌팅이 한 공고에 결합된다. |
 | P23 | NAVER Cloud — [Cloud Native Security 플랫폼 BE 엔지니어 (경력)](https://recruit.navercloudcorp.com/rcrt/list.do) | 2026-09-29 / 경력 | 공식 목록에서 제목·기간·Security 직군 확인. | 목록 키워드는 BE, Cloud Native Security, Developer Tools. **상세 제한**: 기업 원문 상세를 검증하지 못했으므로 제3자 재게시글의 기술 요건을 옮기지 않았다. |
 
 ## 표본 해석

@@ -1,41 +1,54 @@
 # 콘텐츠 모델
 
-콘텐츠는 `src/content/{roles,topics,roadmaps,comparisons}/`의 `.mdx` 파일입니다. `src/lib/content.ts`가 YAML frontmatter를 Zod로 검사합니다. 파일명은 `slug.mdx`로 맞추는 것을 권장하지만 현재 검사기는 파일명과 `slug`의 일치를 강제하지 않습니다.
+공개 본문은 `src/content/roles/`와 `src/content/roadmaps/`의 MDX, 용어집은 `src/content/glossary/terms.json`으로 관리합니다. `src/lib/content.ts`가 YAML frontmatter와 JSON 구조를 검사합니다. 현재 게시 콘텐츠는 **직무 46개, 커리어 경로 11개, 용어 69개**입니다.
 
-## 공통 필드
+## MDX 공통 필드
 
 | 필드 | 형식과 의미 |
 | --- | --- |
-| `id`, `slug` | 소문자 영문·숫자·하이픈으로 된 고유 식별자와 URL 조각 |
-| `titleKo`, `titleEn` | 한국어·영어 제목, 각각 두 글자 이상 |
-| `aliases` | 검색 별칭 배열; 생략 시 빈 배열 |
-| `summary` | 20자 이상의 요약 |
-| `sourceIds` | `src/data/sources.json`에 등록한 출처 ID 배열, 최소 1개 |
-| `reviewedAt` | 검토일 문자열; `YYYY-MM-DD` 형식 권장 |
+| `id`, `slug` | 소문자 영문·숫자·하이픈 식별자와 URL 조각 |
+| `titleKo`, `titleEn` | 한국어·영어 제목; 각각 최소 2자 |
+| `aliases` | 검색 별칭 배열; 생략하면 빈 배열 |
+| `summary` | 최소 20자의 요약 |
+| `sourceIds` | `src/data/sources.json`에 등록된 출처 ID 배열; 최소 1개 |
+| `reviewedAt` | 문서가 마지막으로 갱신되거나 검토된 날짜 문자열. 편집 검토 완료 여부는 `reviewStatus`로 구분 |
 | `publicationStatus` | `draft`, `needs-review`, `published`, `outdated` 중 하나 |
 
-현재 검사는 `reviewedAt`의 날짜 형식이나 출처 URL 접속 가능 여부까지 검증하지 않습니다. `published` 문서는 MDX 본문 길이가 최소 450자여야 합니다. 다른 상태의 문서도 스키마 검사는 받지만 공개 목록과 검색 색인에는 나타나지 않습니다.
+`published` 문서만 목록·상세·검색에 포함됩니다. 게시된 직무·경로 MDX 본문은 frontmatter를 제외하고 최소 1,800자여야 합니다. 현재 검사는 `reviewedAt`의 날짜 형식, 파일명과 `slug`의 일치, 링크의 실제 접속 가능성은 강제하지 않습니다. 다른 게시 상태의 문서도 frontmatter 스키마 검사를 받지만 목록과 검색에는 나타나지 않습니다.
 
-## 종류별 필드
+## 직무 필드
 
-| 종류 | 필수 추가 필드 | 선택 필드와 연결 |
-| --- | --- | --- |
-| `roles` | `category` (`offensive`, `defensive`, `engineering`, `governance`, `specialized`), `responsibilities`, `typicalTasks`, `keyDeliverables` (각각 비어 있지 않은 문자열 배열) | `domainIds`, `prerequisiteTopicIds`, `coreSkillIds`, `toolIds`, `relatedRoleIds`, `roadmapIds`, `reviewStatus` (`reviewed` 또는 `needs-review`) |
-| `topics` | `category` (문자열) | `prerequisiteTopicIds`, `relatedTopicIds`, `relatedRoleIds` |
-| `roadmaps` | 공통 필드만 | `roleIds`, `topicIds` |
-| `comparisons` | `roleIds` (정확히 두 역할 ID) | 공통 필드 외 별도 연결 없음 |
+| 필드 | 형식과 의미 |
+| --- | --- |
+| `category` | `management`, `development`, `operations`, `assessment`, `response`, `customer` 중 하나 |
+| `responsibilities` | 지속해서 책임지는 업무; 비어 있지 않은 문자열 배열 |
+| `typicalTasks` | 반복적인 실제 작업; 비어 있지 않은 문자열 배열 |
+| `keyDeliverables` | 다른 팀이 사용할 산출물; 비어 있지 않은 문자열 배열 |
+| `relatedRoleIds` | 함께 일하거나 이동 경로로 연결되는 직무 ID; 기본값 빈 배열 |
+| `roadmapIds` | 해당 직무와 관련된 커리어 경로 ID; 기본값 빈 배열 |
+| `reviewStatus` | `reviewed` 또는 `needs-review`; 기본값 `needs-review` |
 
-선택 배열은 생략하면 빈 배열로 처리합니다. `reviewStatus`의 기본값은 `needs-review`입니다. `publicationStatus`와 `reviewStatus`는 다릅니다. 게시 여부와 사람의 내용 검토 상태를 각각 표현합니다.
+여섯 `category`의 표시명과 순서는 `src/lib/site-data.ts`가 정의합니다. 이는 국내 SQF와 실제 공고를 참고한 위키의 업무 분류입니다. NICE Work Role이나 회사의 부서·직함과 일대일로 같다는 뜻은 아닙니다. `publicationStatus`는 공개 여부, `reviewStatus`는 편집 검토 상태입니다. 게시된 글에도 조사 공백이 있으면 본문과 `reviewStatus`로 표시합니다.
 
-## 연결 규칙
+`reviewedAt`은 마지막 내용 갱신 또는 검토 날짜이며, 날짜만으로 편집 검토 완료를 뜻하지 않습니다. 직무 문서는 `reviewStatus: reviewed`일 때 공개 화면에 “최종 검토”, `needs-review`일 때 “내용 갱신”과 “편집 검토 대기”를 표시합니다. 경로 문서에는 `reviewStatus` 필드가 없으므로 “내용 갱신” 날짜를 표시합니다.
 
-- 게시 문서의 `sourceIds`는 등록된 출처를 가리켜야 합니다.
-- 게시 문서가 참조하는 역할·토픽 ID는 해당 컬렉션에 존재해야 합니다. 역할의 `domainIds`, `prerequisiteTopicIds`, `coreSkillIds`는 현재 검사기에서 모두 토픽 ID로 확인합니다.
-- 역할의 `roadmapIds`는 로드맵 ID를 가리켜야 합니다. 이 검사는 게시 상태와 무관하게 적용됩니다.
-- 동일 컬렉션 안의 `slug` 중복은 허용하지 않습니다. 출처 ID도 중복할 수 없습니다.
-- `sourceIds`는 근거 링크이고, 분류 ID는 콘텐츠 간 관계입니다. 기술명이나 도구명을 역할 ID로 대신 넣지 않습니다.
+## 커리어 경로와 용어집
 
-## 최소 작성 예시
+경로 MDX에는 공통 필드와 `roleIds` 배열이 있습니다. `roleIds`는 관련 직무 ID를 가리키며 생략하면 빈 배열입니다. 경로 본문에는 학습 기술 자체를 강의하지 않고, 목표 직무·준비 활동·작업 결과물·자기 점검 기준을 작성합니다.
+
+용어집 JSON의 각 항목은 `term`(한국어), `english`(영문명), `definition`(최소 10자 설명), `sourceIds`(최소 1개)를 가집니다. 한국어 용어와 영문명은 각각 중복할 수 없고, 영문명은 A–Z로 시작해야 합니다. 모든 출처 ID는 등록되어 있어야 합니다. 용어는 독립 기술 강의 페이지로 연결되지 않으며 용어집 안에서 출처와 함께 표시됩니다.
+
+## 참조·출처 검사
+
+- 같은 종류의 MDX 안에서 `id`와 `slug` 중복을 허용하지 않습니다.
+- 게시 직무·경로의 `sourceIds`와 `relatedRoleIds`는 실제 출처·직무를 가리켜야 합니다. `roadmapIds`는 모든 직무에서 존재하는 경로 ID를 가리켜야 합니다.
+- 용어집의 출처, 한국어·영어 중복, 영문 첫 글자를 검사합니다.
+- MDX 본문에 남은 옛 `/knowledge/`, `/comparisons/`, `/knowledge-map/` 링크를 검사합니다.
+- 검사기는 공고가 현재 모집 중인지, 문장의 해석이 올바른지, 외부 링크가 살아 있는지는 자동으로 판단하지 못합니다.
+
+`src/data/sources.json`의 항목은 `id`, `title`, `organization`, `url`, `checkedAt`, `kind`를 포함하고 `version`, `notes`를 선택적으로 가집니다. `checkedAt`은 확인일이지 공고 게시일이 아닙니다.
+
+## 최소 직무 예시
 
 ```mdx
 ---
@@ -43,19 +56,23 @@ id: example-security-role
 slug: example-security-role
 titleKo: 예시 보안 직무
 titleEn: Example Security Role
-summary: 직무 문서를 시작하기 위한 임시 요약이며 검토 후 실제 업무 범위를 구체화합니다.
-sourceIds: [nist-nice]
-reviewedAt: 2026-10-09
-publicationStatus: draft
-category: defensive
-responsibilities: [보안 업무 범위 확인]
-typicalTasks: [공식 자료와 공고를 대조해 업무 정리]
+aliases: [Example Role]
+summary: 실제 업무 책임과 대표 산출물을 구체화하기 전 사용하는 임시 요약입니다.
+category: operations
+responsibilities: [보안 운영 범위 확인]
+typicalTasks: [공식 직무 자료와 실제 공고의 업무를 대조]
 keyDeliverables: [근거가 연결된 직무 설명]
+relatedRoleIds: []
+roadmapIds: []
+sourceIds: [ncs-sqf]
+reviewStatus: needs-review
+reviewedAt: '2026-10-09'
+publicationStatus: draft
 ---
 
-## 개요
+## 맡는 일
 
-초안을 작성한 뒤 근거와 본문을 충분히 보강합니다.
+공고 원문과 직무 자료를 확인한 뒤 본문을 채웁니다.
 ```
 
-출처 항목은 `{id,title,organization,url,version,checkedAt,kind,notes}` 형식의 JSON 객체입니다. `version`, `notes`는 선택이며 `url`은 유효한 URL이어야 합니다. 공식 명칭·버전·확인일을 기록하되, 확인일이 원문 발행일을 뜻하지 않음을 유의합니다.
+새 문서를 게시하기 전 [작성 지침](CONTENT_GUIDELINES.md)과 [검증 안내](TESTING.md)를 따릅니다.

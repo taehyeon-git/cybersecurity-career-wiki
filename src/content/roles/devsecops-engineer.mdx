@@ -5,14 +5,10 @@ titleKo: 데브섹옵스 엔지니어
 titleEn: DevSecOps Engineer
 aliases: [DevSecOps 담당자, 개발 보안 자동화 엔지니어, CI/CD 보안 엔지니어]
 summary: 개발·배포 파이프라인에 재현 가능한 보안 검사를 통합하고 결과의 소유자·예외·수정 흐름을 운영한다.
-category: engineering
-domainIds: [cicd-security, sast, sca, sbom, container-security]
+category: development
 responsibilities: [파이프라인 보안 설계, 검사 통합, 빌드 자격증명 관리, 예외·품질 운영]
 typicalTasks: [SAST·SCA 실행 조건 설정, 이미지 검사, 비밀 유출 방지, 실패 기준 조정]
 keyDeliverables: [보안 CI/CD 작업, 검사 결과 흐름, 예외 정책, 파이프라인 운영 문서]
-prerequisiteTopicIds: [programming-scripting, linux, secure-sdlc]
-coreSkillIds: [cicd-security, sast, sca, sbom, container-security]
-toolIds: [ci-platform, sast, sca, container-scanner]
 relatedRoleIds: [application-security-engineer, product-security-engineer, cloud-security-engineer]
 roadmapIds: [devsecops, application-security]
 sourceIds: [nist-ssdf, nist-nice, kubernetes]
@@ -35,11 +31,7 @@ publicationStatus: published
 
 **가상 시나리오:** 새 서비스의 배포 파이프라인에서 의존성 경고가 수백 건 발생한다. 엔지니어는 실제 배포 아티팩트와 SBOM을 비교해 잘못 인식된 개발 전용 패키지를 분리한다. 고위험·도달 가능 경로의 이슈는 소유자에게 배정하고 나머지는 기한 있는 예외로 관리한다. AppSec 담당자와 함께 차단 기준을 검증한다.
 
-## 기반 지식
-
-Git·빌드 시스템·패키지 관리자는 검사 결과가 어떤 코드에 해당하는지 연결하는 데 필요하다. 컨테이너와 클라우드 IAM은 빌드 실행 권한과 배포 권한을 나누는 데 중요하다. 취약점 분석 기초가 있어야 점수만 보고 파이프라인을 차단하지 않는다.
-
-## 핵심 역량과 도구
+## 업무에서 쓰는 역량과 도구
 
 CI 플랫폼은 검사를 반복 실행하고, SAST는 코드 패턴, SCA는 구성요소, 컨테이너 검사는 이미지 내용을 살핀다. 각 도구의 입력 범위와 결과 한계를 문서화한다. [NIST SSDF 1.1](https://csrc.nist.gov/pubs/sp/800/218/final)과 [Kubernetes 보안 문서](https://kubernetes.io/docs/concepts/security/)를 연결해 코드에서 배포까지 이어지는 통제를 설계한다.
 
@@ -47,14 +39,7 @@ CI 플랫폼은 검사를 반복 실행하고, SAST는 코드 패턴, SCA는 구
 
 ‘DevSecOps’, ‘플랫폼 보안’, ‘개발 보안 자동화’는 조직마다 비중이 다르다. 작은 저장소의 빌드 파이프라인에 검사·예외·실패 기준을 구현하고 잘못된 경보를 어떻게 처리했는지 설명한다. 특정 CI 제품 숙련도를 보편적 필수 조건으로 일반화하지 않는다.
 
-## 학습 순서
-
-1. 애플리케이션을 CI로 빌드한다 — 같은 커밋에서 같은 결과를 재현하면 완료.
-2. SAST·SCA를 통합한다 — 검사 범위와 오탐 사례를 기록하면 완료.
-3. 비밀·권한을 분리한다 — 빌드와 배포 자격증명의 최소 권한을 검증하면 완료.
-4. 예외와 수정 흐름을 운영한다 — 승인·만료·재검토가 추적되면 완료.
-
-## 실습 프로젝트
+## 포트폴리오 작업 예시
 
 ### 프로젝트 1: 보안 검사 파이프라인
 
@@ -68,14 +53,33 @@ CI 플랫폼은 검사를 반복 실행하고, SAST는 코드 패턴, SCA는 구
 - **작업·검증:** 이미지 검사와 비루트 실행 조건을 설정하고 예외 만료 사례를 테스트한다.
 - **산출물·완료 기준·포트폴리오:** 정책·SBOM·검증표를 공개한다. 허용·거부 사례가 모두 재현되면 완료다.
 
-## 관련 자격증
+## 일주일의 업무와 책임 범위
 
-Kubernetes 운영 보안이 업무에 포함된다면 [Linux Foundation CKS](https://training.linuxfoundation.org/certification/certified-kubernetes-security-specialist/)의 범위를 살펴볼 수 있다. CI/CD 검사와 예외 운영을 모두 다루는 자격은 아니므로 파이프라인 실습을 먼저 보여주고 시험 선수 요건은 공식 안내에서 확인한다.
+보안 점검이 개발 흐름을 멈추는지, 실제 위험을 줄이는지 양쪽을 살핀다. 새 서비스가 배포 파이프라인에 들어오면 검사 결과의 소유 팀과 차단 기준을 합의한다. 반복 경고는 개발자가 수정 가능한 정보가 빠졌는지, 예외가 만료 없이 쌓이는지 확인한다. 빌드나 배포가 실패했을 때는 도구 문제와 실제 보안 이슈를 분리해 신속히 복구하고 원인을 기록한다. 보안 통제의 주인은 보안팀 혼자일 수 없으므로 개발·플랫폼·제품 책임자와 일상적으로 조율한다.
 
-## 관련 직무 차이
+## 남기는 산출물
 
-AppSec은 개별 기능의 설계·코드 안전성을 깊게 본다. DevSecOps는 여러 개발팀이 반복 사용하는 빌드·배포 안전 장치를 구축한다. 클라우드 보안 엔지니어는 배포 후 계정·네트워크·워크로드 구성까지 책임질 수 있다.
+파이프라인 변경 기록에는 대상 서비스, 검사 목적, 차단 조건, 예외 승인자, 실패 시 연락 경로, 테스트 결과를 넣는다. 경고 처리 표에는 발견 시점과 담당자, 실제 배포에 포함되는지, 수정 또는 수용 결정, 재검토일을 구분한다. 자동화가 성공해도 개발자가 의미를 이해하지 못하면 같은 예외가 반복된다. 운영 지표는 '검사 횟수'보다 확인 가능한 수정률, 처리 시간, 만료된 예외의 재검토 여부에 가깝다.
 
-## 근거 및 검토 상태
+## 확인된 채용 신호
 
-2026-10-09 검토. [NIST SSDF 1.1](https://csrc.nist.gov/pubs/sp/800/218/final), [NICE Components 2.2.0](https://www.nist.gov/news-events/news/2026/04/nice-releases-nice-framework-components-v220), [Kubernetes 보안 문서](https://kubernetes.io/docs/concepts/security/)를 확인했다. DevSecOps는 NICE의 Competency Area와 실무 직함을 구분해 서술했다.
+LINE Plus의 [Senior Cloud Security Engineer](https://careers.linecorp.com/ko/jobs/3052/)는 2026-08-07 게시 공고에서 개발·SRE와 DevSecOps 협업을 요구했다. 토스의 [Security Researcher (모바일보안)](https://toss.im/career/job-detail?job_id=7780944003)은 2026-10-09 확인 시 모바일 점검을 CI/CD에 통합하는 업무를 적었다. 둘 다 DevSecOps 활동을 보여주지만 독립 'DevSecOps Engineer' 직함 공고는 아니다. NICE에서도 DevSecOps는 역량 영역으로 다뤄지므로 이를 공식 단일 역할이라고 부르지 않는다.
+
+## 진입과 포트폴리오
+
+개발자나 플랫폼 운영자에게는 자신이 겪은 배포 병목을 보안 통제와 함께 개선한 경험이 좋은 출발점이다. 작은 예제 저장소에서 검사 알림을 넣고, 일부 경고를 고의로 발생시켜 담당자 배정부터 수정 확인까지의 흐름을 문서화한다. 면접 자료에는 검사 도구 목록보다 차단 기준을 선택한 이유, 오탐 처리, 개발자 피드백을 반영한 변경 이력이 있어야 한다. 자동화만 강조하면 협의와 소유권이라는 실제 업무가 보이지 않으므로 회의 결정과 예외 승인 기록도 함께 제시한다.
+
+## 지원 전에 확인할 질문
+
+- 보안팀이 검사 정책을 설계하는가, 플랫폼팀이 파이프라인 구현까지 소유하는가?
+- 실패한 검사가 출시를 막을 때 예외 승인과 장애 복구의 책임자는 누구인가?
+- 적용 대상이 자체 개발 서비스인지 고객에게 제공하는 보안 제품인지 확인한다.
+- 발견 건수 외에 개발팀의 실제 수정과 예외 만료를 어떤 지표로 보는가?
+
+같은 DevSecOps 명칭에도 개발 문화 개선, 보안 자동화 운영, 클라우드 통제 구현이 섞일 수 있다. 지원 경험은 자신이 만든 자동화보다 그 규칙을 누가 사용할 수 있었는지와 운영 부담을 어떻게 줄였는지까지 연결해야 한다.
+
+작은 팀에서는 개발 플랫폼 담당자가 보안 검사를 겸할 수 있다. 이때도 누가 경고를 읽고 수정하며 예외를 승인하는지가 결정되지 않으면 자동화는 단순 알림으로 남는다.
+
+## 근거와 확인 범위
+
+공식 자료와 인접 국내 공고가 다루는 업무를 결합해 설명했다. 조직에 따라 이 일은 AppSec, 플랫폼, 클라우드 보안팀에 분산되므로 단일한 직무 명칭이나 경력 기준을 전제하지 않는다.

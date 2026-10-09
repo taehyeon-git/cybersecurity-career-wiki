@@ -1,28 +1,50 @@
 # 분류 결정 기록
 
-기준일: **2026-10-09**. 결정은 위키의 편집 판단이다. NICE/ECSF가 동일한 이름으로 직무를 정의했다는 주장과 구분한다. 공식 매핑과 국내 공고 근거는 [`taxonomy-research.md`](taxonomy-research.md), [`role-inventory.md`](role-inventory.md), [`korean-job-market.md`](korean-job-market.md)를 참조한다.
+기준일: **2026-10-09**. 이 문서의 범주와 직무 경계는 공개 위키의 편집 결정입니다. [NCS 정보보호 SQF](https://www.ncs.go.kr/sqf/sqf01/sqf10100201p1.do?iscCd=20&iscNm=%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8)의 국내 직무역량 영역을 우선 참고하고, [NIST NICE](https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/nice-framework-current-versions)와 [ENISA ECSF](https://www.enisa.europa.eu/publications/european-cybersecurity-skills-framework-role-profiles)로 업무 범위를 검토했습니다. 여섯 범주의 명칭과 46개 페이지는 세 체계의 공식 목록을 그대로 복제한 것이 아닙니다. 국내 직함 근거는 [채용공고 표본](korean-job-market.md), 실제 공개 목록은 [직무 인벤토리](role-inventory.md)를 참조합니다.
 
-| ID | 대상 | 결정 | 근거와 유지 조건 |
-| --- | --- | --- | --- |
-| D01 | 직무·기술·도구 | **별도 엔터티로 분리** | [NICE의 Work Role/TKS/Competency 구분](https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/nice-framework-current-versions)에 따라 직무, 업무, 역량을 섞지 않는다. 도구와 기술은 여러 직무에 연결한다. |
-| D02 | 웹/인프라 모의해킹 | **Penetration Testing 아래 전문 분야로 묶되, 콘텐츠 페이지는 분리 가능** | [ECSF Penetration Tester](https://www.enisa.europa.eu/publications/european-cybersecurity-skills-framework-role-profiles)는 포괄 프로필이다. 국내 공고 P13/P14는 대상 환경과 기법이 달라 학습 경로를 구별할 가치가 있다. |
-| D03 | Penetration Testing / Red Teaming | **분리** | 전자는 합의된 대상의 취약점·공격 경로를 검증해 수정 권고를 내는 데 초점을 두고, 후자는 목표 기반의 다단계 공격 시나리오로 탐지·대응까지 시험한다. [토스 P13/P14](korean-job-market.md)는 일부 업무가 겹침을 보여주므로 경계는 절대적이지 않다. |
-| D04 | Vulnerability Research / 취약점 진단 | **분리** | 새로운 결함의 원인·악용 조건을 찾는 연구와, 알려진 기준에 따라 자산을 평가하는 진단은 산출물이 다르다. NICE의 Technology Research and Development 및 Vulnerability Analysis가 각각 인접하지만 한국 공고 표본이 부족해 상세 경력 서술은 보류한다. |
-| D05 | Application Security / Product Security | **분리하되 강한 교차 연결** | AppSec는 애플리케이션의 설계·코드·API·테스트에, Product Security는 제품 생명주기와 플랫폼·기본 보호 체계에 더 넓게 초점을 두도록 편집한다. 공식 프레임워크의 엄격한 경계가 아니라 [`NIST SSDF`](https://csrc.nist.gov/pubs/sp/800/218/final)와 토스 P15 업무를 종합한 **편집상 구분**이다. 실제 조직에서 합쳐질 수 있다. |
-| D06 | DevSecOps / Cloud Security | **분리하고 다대다로 연결** | DevSecOps는 개발·빌드·배포·운영 흐름에 보안을 넣는 실무 방식이며, 클라우드는 적용 환경의 하나다. NICE v2.2.0은 DevSecOps를 **Competency Area**로 갱신했다([변경 기록](https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/current-version/change-logs)). 독립 Work Role로 오인하지 않는다. |
-| D07 | Security Engineer / SOC Analyst / Detection Engineer / Incident Responder | **업무 기준으로 분리** | 경보 분류·에스컬레이션, 탐지 규칙·데이터 개선, 실제 사고의 조사·격리·복구는 주 책임이 다르다. 단일 공고에 결합될 수 있으며 LINE P06, 토스 P11/P21/P22가 그런 사례다. 채용명만으로 하나로 합치지 않는다. |
-| D08 | Threat Hunting / Threat Intelligence | **분리** | 헌팅은 내부 환경의 침해 가설을 데이터로 검증하고, CTI는 외부·내부 위협 자료를 평가·분석·전파한다. [NICE Threat Analysis/Defensive Cybersecurity](https://niccs.cisa.gov/tools/cyber-career-pathways-tool)와 [MITRE ATT&CK](https://attack.mitre.org/)를 비교해 연결한다. 국내 독립 헌팅 공고 표본은 추가 필요. |
-| D09 | Malware Analysis / Digital Forensics | **분리** | 악성코드의 동작·구현 분석과 증거의 수집·보존·사건 재구성은 산출물과 절차가 다르다. NICE의 Digital Forensics, Digital Evidence Analysis, Threat Analysis 및 ECSF Digital Forensics Investigator를 함께 참고한다. |
-| D10 | GRC / Security Audit / Consulting | **분리** | GRC는 정책·통제·위험을 운영하고, 감사는 기준에 대한 증거를 평가하며, 컨설팅은 고객 과업에 따라 진단 또는 자문을 제공한다. [ECSF](https://www.enisa.europa.eu/publications/european-cybersecurity-skills-framework-role-profiles)의 Auditor, Risk Manager, Legal/Policy/Compliance 프로필을 혼합하지 않는다. |
-| D11 | Security Researcher / Security Consultant | **단일 상세 업무를 추정하지 않음** | 토스 P13–P15는 `Security Researcher` 아래 서로 다른 전문 분야를 둔다. 안랩 P05의 `보안 컨설팅`도 기술·관리 업무가 섞일 수 있다. 검색 별칭으로 보존하고 업무 태그로 구체화한다. |
-| D12 | OT/ICS와 AI/LLM Security | **기술 도메인이면서 전문 직무도 허용** | NICE에는 OT Cybersecurity Engineering Work Role, AI Security Competency Area가 있고, NAVER Cloud P01은 AI 관련 세부 직무를 모집한다. 도메인 이름을 모든 회사의 직함으로 가정하지 않는다. |
-| D13 | Software Supply Chain Security / Third-Party Risk | **분리하되 공급망 도메인으로 연결** | 전자는 개발 산출물·의존성·빌드 무결성의 엔지니어링에, 후자는 공급업체·서비스 의존성의 계약·위험 관리에 가깝다. NICE v2.2.0의 C-SCRM Work Role 신설은 관리 역할의 최신 근거이며 기술 역할 전체와 동일하지 않다. |
-| D14 | Zero Trust, SAST/DAST/SCA | **직무에서 제외하고 지식 항목으로 유지** | [NIST SP 800-207](https://csrc.nist.gov/pubs/sp/800/207/final)은 Zero Trust를 아키텍처로 다룬다. SAST/DAST/SCA는 분석 접근·도구 범주이며 채용 직함이라고 단정할 근거가 없다. |
-| D15 | 학습·경력 경로 | **역할 분류와 별도 그래프** | [NICCS 진로 도구](https://niccs.cisa.gov/tools/cyber-career-pathways-tool)는 Work Role 관계를 보여주지만 현재 NICE v2.2.0보다 오래된 v2.0.0 데이터를 사용한다. 경로는 고정 승진 사다리가 아닌 예시로 제시한다. |
+## 공개 정보 구조
 
-## 통합·보류 상태
+| 구분 | 결정 | 판단 기준 |
+| --- | --- | --- |
+| 직무 | `/careers/` 아래 46개 | 사람·팀이 지속적으로 맡는 주 책임, 업무 흐름, 산출물과 협업 상대를 설명할 수 있을 때 독립 페이지로 둡니다. 채용 공고의 직함과 1:1 대응한다고 가정하지 않습니다. |
+| 커리어 준비 경로 | `/roadmaps/` 아래 11개 | 입문과 전환의 준비 순서를 예시로 보여줍니다. 공식 승진 사다리, 필수 자격 목록, 취업 보증으로 표현하지 않습니다. |
+| 용어집 | `/glossary/` | 채용공고·직무 설명을 읽는 데 필요한 보안 용어를 짧게 풉니다. 독립 기술 강의나 구현 절차를 싣지 않습니다. |
+| 검색 | 직무·경로·용어 | 각 공개 엔터티의 제목, 별칭, 요약과 본문 맥락을 찾습니다. |
+| 제거된 공개 영역 | `/knowledge/`, `/comparisons/`, `/knowledge-map/` | 직무 커리어 중심이라는 목적에 맞춰 기술 지식 문서, 직무 비교, 지식 지도를 공개 구조에서 제외했습니다. 옛 링크의 잔존은 빌드에서 검사합니다. |
 
-- **통합:** `Malware Analyst`와 `Reverse Engineer`는 초기에는 하나의 입문 탐색 페이지로 묶는다. 역공학은 악성코드 외 분야에도 쓰이므로 기술 지식 항목은 별도로 둔다.
-- **통합:** `IAM Engineer`와 `PAM Engineer`는 초기에는 하나의 직무 페이지로 시작하고 특권 접근을 보조 태그로 둔다. 국내 독립 직함 표본이 쌓이면 분리 검토한다.
-- **보류:** `Exploit Developer`, 독립 `Threat Hunter`, `Third-Party Risk Specialist`, `AI/LLM Security Engineer`의 상세 채용시장 설명은 최근 국내 공고 표본이 부족하다. 개념 페이지 또는 제한을 명시한 직무 페이지부터 작성한다.
-- **보류:** `Product Security Engineer`의 국내 직함 빈도와 AppSec와의 조직 경계는 검증되지 않았다. 현재 구분은 학습을 위한 편집 판단으로 표시한다.
+## 여섯 실무 범주
+
+| 코드 | 표시 이름 | 주로 포함하는 책임 | 페이지 수 |
+| --- | --- | --- | ---: |
+| `management` | 보안 전략·관리 | 조직 전략, 정책, 거버넌스, 개인정보, 교육, 프로그램 조정, 공급망·제3자 위험 | 7 |
+| `development` | 보안 설계·개발 | 제품·서비스와 오픈소스 프로젝트의 설계·개발·공개 과정에서의 보안 책임 | 12 |
+| `operations` | 보안 구축·운영 | 인프라·플랫폼·솔루션의 배치, 설정, 유지와 보호 운영 | 10 |
+| `assessment` | 보안 진단·평가 | 승인된 진단, 평가, 감사, 연구와 결과 보고 | 7 |
+| `response` | 보안 관제·사고 대응 | 신호 분석, 탐지, 위협 조사, 사고 대응과 증거 분석 | 8 |
+| `customer` | 보안 기술영업·고객지원 | 보안 제품의 고객 제안과 도입·운영 지원 | 2 |
+
+각 역할의 기본 범주는 하나지만 실제 공고에서는 여러 범주의 일이 결합됩니다. 예를 들어 [LINE Plus P06](korean-job-market.md)는 SOC와 CSIRT를 함께, [토스 P11](korean-job-market.md)은 탐지와 사고 대응을 함께, [LINE studio P08](korean-job-market.md)은 관리체계와 기술 감독을 함께 다룹니다. 별칭·연관 직무 링크로 교차성을 보여주되 목록에서는 주 책임 기준으로 한 번만 셉니다.
+
+## 역할 경계와 유지 조건
+
+| ID | 범위 | 결정과 이유 |
+| --- | --- | --- |
+| D01 | 직무와 기술 | 도구·프레임워크·공격 기법은 직무 페이지의 채용·업무 맥락이나 용어집에서만 다룹니다. 독립 기술 지식 페이지를 다시 만들지 않습니다. NICE도 Work Role과 Task/Knowledge/Skill을 구분합니다. |
+| D02 | 넓은 채용 직함 | `Security Engineer`, `Security Researcher`, `보안 컨설팅`처럼 폭넓은 제목은 본문 업무를 읽어 연결합니다. P13–P15는 같은 연구원 직함 아래 서로 다른 과업을 둡니다. |
+| D03 | AppSec·제품·모바일·AI 보안 | 설계·개발 범주 안에서 보호 대상과 책임 산출물이 다를 때 별도 페이지로 둡니다. AppSec은 애플리케이션 평가와 개발 지원, 제품 보안은 제품 생명주기의 보안 판단, 모바일은 모바일 제품 맥락, AI 보안은 AI 제품·서비스 맥락입니다. 회사 안에서 통합될 수 있고 독립 직함 빈도는 표본으로 확인하지 못했습니다. |
+| D04 | 아키텍트·제품 개발·제품 관리·QA | 아키텍트는 설계 원칙, 개발자는 제품 기능 구현, 제품 관리자는 고객 요구·우선순위, QA는 품질 검증의 책임이 중심입니다. P20은 보안 제품 개발 사례입니다. 제품 관리·QA의 국내 직접 공고 표본은 없습니다. |
+| D05 | DevSecOps·클라우드·IAM | DevSecOps는 개발·배포 과정, 클라우드는 운영 환경, IAM은 신원·권한이라는 책임 축으로 구분합니다. NICE의 DevSecOps 관련 역량 영역을 독립 Work Role로 오인하지 않습니다. P07·P12·P15·P17은 인접 업무의 근거이지 모든 독립 직함의 증거는 아닙니다. |
+| D06 | 인프라·네트워크·엔드포인트·솔루션·SIEM | 운영 책임과 산출물로 구분합니다. 특히 SIEM 플랫폼 운영(P10)은 경보를 조사하는 SOC 분석과 다른 소유권을 갖습니다. P02·P04는 제목·목록 중심 확인이라 세부 운영 형태를 확정하지 않습니다. |
+| D07 | OT·차량·영상정보 | 각각 다른 규제·안전·운영 환경에서 담당 범위가 형성될 수 있어 직무 페이지를 둡니다. 이번 국내 공고 표본에 직접 채용 근거가 없으므로 수요나 진입 요건을 단정하지 않습니다. |
+| D08 | 웹 모의침투·레드팀·취약점 연구·취약점 관리 | 승인된 범위의 서비스 검증, 목표형 방어 검증, 새로운 결함 연구, 발견된 취약점의 조치 추적은 주 산출물이 다릅니다. P13·P14가 일부를 보여주지만 레드팀·취약점 연구·관리의 독립 직함을 모두 증명하지는 않습니다. |
+| D09 | 감사·인증 평가·컨설팅 | 감사는 통제 증거에 대한 독립 판단, 제품 인증 평가는 정해진 기준에 따른 제품 평가, 컨설팅은 고객 과업의 진단·자문을 중심으로 둡니다. P05는 제목만 확인했고 P08은 감사 대응 업무입니다. 두 공고로 세 직무의 상세 요건을 일반화하지 않습니다. |
+| D10 | SOC·탐지·사고 대응·헌팅·CTI | SOC은 경보 분류, 탐지는 탐지 체계 품질, 사고 대응은 실제 사건 조정, 헌팅은 가설 기반 탐색, CTI는 위협 정보 평가·전파가 중심입니다. P06·P11·P21·P22처럼 한 공고에서 결합될 수 있습니다. |
+| D11 | 악성코드·포렌식·내부자 위협 | 악성코드 분석은 프로그램 행위 분석, 포렌식은 증거 보존과 사건 재구성, 내부자 위협은 조직 내부 위험의 적법한 조사·조정에 초점을 둡니다. P03은 포렌식 직함만 확인한 자료이며 나머지 독립 직함의 국내 표본은 없습니다. |
+| D12 | 프리세일즈·기술지원 | 고객 요구를 도입 전 제안으로 바꾸는 일과 도입 후 제품 문제를 해결하는 일은 책임 단계가 달라 고객 범주에 두 페이지로 둡니다. 이번 표본에서 직접 공고를 확보하지 못했습니다. |
+| D13 | 공급망·제3자 위험과 오픈소스 프로젝트 보안 | 공급망 위험 담당자는 외부 공급업체·서비스의 도입과 계약 기간 중 위험 평가·재평가를, 오픈소스 보안 엔지니어는 공개 프로젝트의 제보·수정·릴리스 조정을 중심으로 둡니다. NICE의 C-SCRM 역할과 OpenSSF 지침, 각 문서의 해외 공식 공고를 참고했으며 이번 국내 표본에서 두 독립 직함의 직접 공고는 확보하지 못했습니다. |
+
+## 근거 수준과 갱신
+
+현재 국내 표본은 **23건의 편의 표본**이며 본문 확인 17건, 상세 제한 6건, 토스 계열 12건입니다. 이 수치로 국내 채용시장 전체, 직무별 수요 순위, 특정 직무의 신입 가능성을 추정하지 않습니다. 공고가 직무의 존재와 업무 예시를 보여줄 수는 있어도 모든 회사의 책임 범위나 필수 자격을 증명하지는 않습니다.
+
+새 역할을 추가하거나 범주를 옮기기 전에는 공식 업무 체계, 최근 국내 공고의 **본문**, 기존 페이지와 다른 책임·산출물, 독자가 실제로 구분할 필요를 함께 확인합니다. 제목만 확인된 공고는 별도 표시합니다. 변경 시 `src/lib/site-data.ts`의 표시 범주, `src/lib/content.ts`의 스키마, 실제 직무 MDX, [직무 인벤토리](role-inventory.md), 검색 별칭과 커리어 경로 참조를 함께 검토합니다.

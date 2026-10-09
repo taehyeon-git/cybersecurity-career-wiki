@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { DocumentShell } from "@/components/layout/DocumentShell";
-import { loadSources, publishedRoadmaps, publishedTopics } from "@/lib/content";
+import { loadSources, publishedRoadmaps, publishedRoles } from "@/lib/content";
 import { routeFor } from "@/lib/site-data";
 import { canonicalUrl } from "@/lib/urls";
 
@@ -15,10 +15,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function RoadmapPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const roadmaps = publishedRoadmaps(); const topics = publishedTopics();
+  const roadmaps = publishedRoadmaps(); const roles = publishedRoles();
   const item = roadmaps.find((entry) => entry.slug === slug);
   if (!item) notFound();
   const index = roadmaps.findIndex((entry) => entry.id === item.id);
-  const related = item.topicIds.map((id) => topics.find((topic) => topic.id === id)).filter((topic) => !!topic).slice(0, 6).map((topic) => ({ label: topic.titleKo, href: routeFor.topic(topic.slug), eyebrow: "학습 기술" }));
-  return <DocumentShell section="학습 로드맵" sectionHref="/roadmaps/" title={item.titleKo} english={item.titleEn} summary={item.summary} body={item.body} reviewedAt={item.reviewedAt} sourceIds={item.sourceIds} sources={loadSources()} navItems={roadmaps.map((entry) => ({ label: entry.titleKo, href: routeFor.roadmap(entry.slug) }))} currentHref={routeFor.roadmap(slug)} related={related} previous={roadmaps[index - 1] ? { label: roadmaps[index - 1].titleKo, href: routeFor.roadmap(roadmaps[index - 1].slug) } : undefined} next={roadmaps[index + 1] ? { label: roadmaps[index + 1].titleKo, href: routeFor.roadmap(roadmaps[index + 1].slug) } : undefined} filePath={item.filePath} badge="단계별 학습" />;
+  const related = item.roleIds.map((id) => roles.find((role) => role.id === id)).filter((role) => !!role).slice(0, 6).map((role) => ({ label: role.titleKo, href: routeFor.role(role.slug), eyebrow: "관련 직무" }));
+  return <DocumentShell section="커리어 경로" sectionHref="/roadmaps/" title={item.titleKo} english={item.titleEn} summary={item.summary} body={item.body} reviewedAt={item.reviewedAt} sourceIds={item.sourceIds} sources={loadSources()} navItems={roadmaps.map((entry) => ({ label: entry.titleKo, href: routeFor.roadmap(entry.slug) }))} currentHref={routeFor.roadmap(slug)} related={related} previous={roadmaps[index - 1] ? { label: roadmaps[index - 1].titleKo, href: routeFor.roadmap(roadmaps[index - 1].slug) } : undefined} next={roadmaps[index + 1] ? { label: roadmaps[index + 1].titleKo, href: routeFor.roadmap(roadmaps[index + 1].slug) } : undefined} filePath={item.filePath} badge="직무 준비 경로" />;
 }

@@ -6,9 +6,9 @@ import { WikiFileRow, WikiFolder } from "@/components/wiki/Directory";
 import { normalizeSearchText } from "@/lib/search";
 import { roleCategories, routeFor } from "@/lib/site-data";
 
-type RoleSummary = { id: string; slug: string; titleKo: string; titleEn: string; summary: string; category: string; aliases: string[]; domainIds: string[] };
+type RoleSummary = { id: string; slug: string; titleKo: string; titleEn: string; summary: string; category: string; aliases: string[]; keyDeliverables: string[] };
 
-export function RoleExplorer({ roles, topicNames }: { roles: RoleSummary[]; topicNames: Record<string, string> }) {
+export function RoleExplorer({ roles }: { roles: RoleSummary[] }) {
   const [category, setCategory] = useState("all");
   const [query, setQuery] = useState("");
   useEffect(() => {
@@ -35,7 +35,7 @@ export function RoleExplorer({ roles, topicNames }: { roles: RoleSummary[]; topi
       <span className="wiki-toolbar-count">{count}개 문서</span>
     </div>
     <div className="wiki-folder-list">{groups.map((group, index) => <WikiFolder key={`${group.id}-${query ? "search" : "browse"}`} name={group.ko} description={group.description} count={`${group.entries.length}개 문서`} defaultOpen={Boolean(query) || category !== "all" || index === 0}>
-      {group.entries.map((role) => <WikiFileRow key={role.id} href={routeFor.role(role.slug)} title={role.titleKo} subtitle={role.titleEn} description={role.summary} meta={role.domainIds.slice(0, 2).map((id) => topicNames[id] ?? id).join(" · ")} />)}
+      {group.entries.map((role) => <WikiFileRow key={role.id} href={routeFor.role(role.slug)} title={role.titleKo} subtitle={role.titleEn} description={role.summary} meta={role.keyDeliverables[0]} />)}
     </WikiFolder>)}</div>
     {count === 0 && <div className="wiki-empty">조건에 맞는 문서가 없습니다. 다른 검색어 또는 분야를 선택해 보세요.</div>}
   </section>;

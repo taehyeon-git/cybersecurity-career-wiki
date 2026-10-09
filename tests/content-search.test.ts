@@ -1,11 +1,10 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { publishedRoles, publishedTopics } from "../src/lib/content";
+import { publishedRoles } from "../src/lib/content";
 import { searchDocuments, type SearchDocument } from "../src/lib/search";
 
 const documents: SearchDocument[] = [
   ...publishedRoles().map((item) => ({ id: item.id, type: "role" as const, title: item.titleKo, english: item.titleEn, aliases: item.aliases, summary: item.summary, body: item.body, href: `/careers/${item.slug}/` })),
-  ...publishedTopics().map((item) => ({ id: item.id, type: "topic" as const, title: item.titleKo, english: item.titleEn, aliases: item.aliases, summary: item.summary, body: item.body, href: `/knowledge/${item.slug}/` })),
 ];
 
 test("common Korean and English career terms find a real published page", () => {
