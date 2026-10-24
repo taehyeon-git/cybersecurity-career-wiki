@@ -57,6 +57,11 @@ test("a body-only match has a short, visible explanation", () => {
   assert.equal(searchMatchContext("AI", ["다른 직무"], "supply chain risk"), undefined);
 });
 
+test("a body snippet is shown when Korean spacing differs from the query", () => {
+  const body = "조직의 AI 보안 거버넌스를 설계하고 담당 부서의 승인을 조율한다.";
+  assert.match(searchMatchContext("AI보안", ["전략 담당자"], body) ?? "", /AI 보안 거버넌스/);
+});
+
 test("folder filters share word and abbreviation matching rules", () => {
   assert.equal(matchesAllTerms("보안관제/SIEM", ["보안관제 분석가", "SIEM과 탐지"]), true);
   assert.equal(matchesAllTerms("AI Security", ["Cybersecurity Supply Chain Risk Manager"]), false);

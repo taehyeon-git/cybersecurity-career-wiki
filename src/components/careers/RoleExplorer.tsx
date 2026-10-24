@@ -28,10 +28,18 @@ export function RoleExplorer({ roles }: { roles: RoleSummary[] }) {
     .filter((item) => item.entries.length > 0), [roles, category, query]);
   const count = groups.reduce((sum, item) => sum + item.entries.length, 0);
 
+  function changeCategory(value: string) {
+    setCategory(value);
+    const url = new URL(window.location.href);
+    if (value === "all") url.searchParams.delete("category");
+    else url.searchParams.set("category", value);
+    window.history.replaceState(window.history.state, "", `${url.pathname}${url.search}${url.hash}`);
+  }
+
   return <section className="wiki-index" aria-label="직무 문서 목록">
     <div className="wiki-toolbar">
       <label className="wiki-search"><Search size={17} aria-hidden="true" /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="직무명이나 키워드로 찾기" aria-label="직무 검색" /></label>
-      <label className="wiki-filter">분야 <select value={category} onChange={(event) => setCategory(event.target.value)}><option value="all">전체 분야</option>{roleCategories.map((item) => <option key={item.id} value={item.id}>{item.ko}</option>)}</select></label>
+      <label className="wiki-filter">분야 <select value={category} onChange={(event) => changeCategory(event.target.value)}><option value="all">전체 분야</option>{roleCategories.map((item) => <option key={item.id} value={item.id}>{item.ko}</option>)}</select></label>
       <span className="wiki-toolbar-count" role="status" aria-live="polite" aria-atomic="true">{count}개 문서</span>
     </div>
     <div className="wiki-folder-list">{groups.map((group, index) => <WikiFolder key={`${group.id}-${category}-${query}`} name={group.ko} description={group.description} count={`${group.entries.length}개 문서`} defaultOpen={Boolean(query) || category !== "all" || index === 0}>

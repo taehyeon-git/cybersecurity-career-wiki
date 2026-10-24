@@ -29,7 +29,7 @@ export default function StartPage() {
       <h2>이 순서로 읽으면 됩니다</h2>
       <div className="wiki-folder-list"><WikiFolder name="커리어 탐색 경로" description="직무를 고르고 지원 준비까지" count="3개 문서" defaultOpen>
         <WikiFileRow href="/careers/" title="01. 업무 범주에서 직무 찾기" description="맡는 일과 대표 산출물로 관심 직무를 좁힙니다." />
-        <WikiFileRow href="/roadmaps/" title="02. 준비 경로 정하기" description="채용 공고와 포트폴리오를 연결해 지원 계획을 세웁니다." />
+        <WikiFileRow href="/roadmaps/cybersecurity-fundamentals/" title="02. 입문 경로 읽기" description="채용 공고와 포트폴리오를 연결해 첫 지원 계획을 세웁니다." />
         <WikiFileRow href="/glossary/" title="03. 공고 용어 확인하기" description="낯선 약어만 짧게 확인하고 직무 글로 돌아옵니다." />
       </WikiFolder></div>
     </section>

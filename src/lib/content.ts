@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 import { z } from "zod";
-import { validateGlossaryReferences, validateReferences, type ReferenceDocument } from "./validation";
+import { validateCitationSourceIds, validateCitationUrls, validateGlossaryAnchors, validateGlossaryReferences, validateReferences, type ReferenceDocument } from "./validation";
 
 const slug = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
 const baseSchema = z.object({
@@ -97,6 +97,9 @@ export function validateContent(): string[] {
   for (const source of sources) if (sources.filter((item) => item.id === source.id).length > 1) errors.push(`duplicate source id: ${source.id}`);
   const terms = z.array(z.object({ term: z.string().min(1), english: z.string().min(1), definition: z.string().min(10), sourceIds: z.array(slug).min(1) }).strict()).parse(JSON.parse(fs.readFileSync(path.join(process.cwd(), "src", "content", "glossary", "terms.json"), "utf8")));
   errors.push(...validateGlossaryReferences(terms, sourceIds));
+  errors.push(...validateGlossaryAnchors([...roles, ...roadmaps], terms));
+  errors.push(...validateCitationUrls([...roles, ...roadmaps], sources));
+  errors.push(...validateCitationSourceIds([...roles, ...roadmaps], sources));
   for (const item of [...roles, ...roadmaps]) if (/\/(?:knowledge|comparisons|knowledge-map)\//.test(item.body)) errors.push(`${item.id}: removed section link in body`);
   return [...new Set(errors)];
 }

@@ -82,9 +82,9 @@
   {
     "term": "API",
     "english": "Application Programming Interface",
-    "definition": "소프트웨어가 다른 소프트웨어의 기능이나 데이터에 정해진 방식으로 접근하는 인터페이스.",
+    "definition": "소프트웨어가 다른 소프트웨어의 기능을 정해진 방식으로 호출하는 인터페이스.",
     "sourceIds": [
-      "owasp-api"
+      "nist-csrc-api"
     ]
   },
   {
@@ -109,7 +109,7 @@
     "english": "Static Application Security Testing",
     "definition": "프로그램을 실행하지 않고 코드나 중간 표현을 분석해 잠재 약점을 찾는 방식.",
     "sourceIds": [
-      "nist-ssdf"
+      "owasp-devguide-sast"
     ]
   },
   {
@@ -117,8 +117,7 @@
     "english": "Software Composition Analysis",
     "definition": "소프트웨어 의존 구성요소의 버전과 알려진 취약점 등을 분석하는 활동.",
     "sourceIds": [
-      "nist-ssdf",
-      "nist-nvd"
+      "owasp-component-analysis-sca"
     ]
   },
   {
@@ -155,10 +154,10 @@
   },
   {
     "term": "CI/CD",
-    "english": "Continuous Integration and Continuous Delivery",
+    "english": "Continuous Integration and Continuous Delivery/Deployment",
     "definition": "코드 통합과 검증·배포 과정을 반복 가능하게 자동화하는 개발 관행.",
     "sourceIds": [
-      "nist-ssdf"
+      "nist-sp-800-204c-cicd"
     ]
   },
   {
@@ -176,6 +175,22 @@
     "definition": "보안관제·탐지 담당자가 여러 시스템의 사건 기록을 모아 조사와 경보 판단에 사용하는 도구 범주.",
     "sourceIds": [
       "nist-csrc-siem"
+    ]
+  },
+  {
+    "term": "OT",
+    "english": "Operational Technology",
+    "definition": "설비나 물리적 공정을 감시·제어하며 실제 환경과 상호작용하는 운영기술 시스템과 장치.",
+    "sourceIds": [
+      "nist-csrc-ot"
+    ]
+  },
+  {
+    "term": "CSIRT",
+    "english": "Computer Security Incident Response Team",
+    "definition": "보안 사건의 확산 차단·제거·복구를 위한 대응을 조정하는 조직이나 팀.",
+    "sourceIds": [
+      "nist-csrc-csirt"
     ]
   },
   {
@@ -405,6 +420,15 @@
     "definition": "도입 전에 제품이나 제안이 고객의 정해진 사용 사례에 맞는지 제한된 범위에서 확인하는 개념검증. 목표와 결과를 누가 승인하는지 확인해야 한다.",
     "sourceIds": [
       "outtake-sales-engineer-poc"
+    ]
+  },
+  {
+    "term": "FDS",
+    "english": "Fraud Detection System",
+    "definition": "금융거래의 이상 징후를 탐지·차단해 금융사고를 예방하는 시스템. 관련 채용은 금융사기·거래 위험 관리 업무를 다루며, 기업의 일반 보안관제(SOC)와는 담당 대상과 조직이 다를 수 있다.",
+    "sourceIds": [
+      "fsec-fds",
+      "kakaopaysec-fds-2026"
     ]
   }
 ]

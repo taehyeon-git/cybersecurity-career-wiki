@@ -5,6 +5,7 @@ import { execFileSync } from "node:child_process";
 import test from "node:test";
 import { publishedRoles, publishedRoadmaps, loadSources } from "../src/lib/content";
 import { roleCategories, mainNav } from "../src/lib/site-data";
+import { validateCitationUrls } from "../src/lib/validation";
 import terms from "../src/content/glossary/terms.json";
 
 test("career directory represents six work areas and 47 distinct roles", () => {
@@ -51,6 +52,11 @@ test("glossary terms retain valid sources without deleted topic links", () => {
     for (const id of term.sourceIds) assert.ok(ids.has(id), `${term.term} has missing source ${id}`);
     assert.equal("topicId" in term, false, `${term.term} still links to a topic`);
   }
+});
+
+test("every public article's external citation has a registered source", () => {
+  const articles = [...publishedRoles(), ...publishedRoadmaps()];
+  assert.deepEqual(validateCitationUrls(articles, loadSources()), []);
 });
 
 test("generated search index contains only career pages and glossary", () => {

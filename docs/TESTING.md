@@ -1,17 +1,17 @@
 # 검증 안내
 
-저장소 루트에서 `npm ci` 후 실행합니다. 이 저장소의 공개 콘텐츠는 직무 47개, 커리어 경로 11개, 용어 49개입니다. 개수는 작성 시점(2026-10-25)의 스냅샷이며 파일 상태가 바뀌면 다시 집계합니다.
+저장소 루트에서 `npm ci` 후 실행합니다. 이 저장소의 공개 콘텐츠는 직무 47개, 커리어 경로 11개, 용어 52개입니다. 개수는 작성 시점(2026-10-25)의 스냅샷이며 파일 상태가 바뀌면 다시 집계합니다.
 
 | 명령 | 실제 확인 범위 |
 | --- | --- |
 | `npm run typecheck` | TypeScript 정적 검사 |
 | `npm run lint` | ESLint 검사 |
 | `npm test` | `tests/*.test.ts`의 URL·검색·콘텐츠 범위 등 코드 검사 |
-| `npm run content:check` | MDX frontmatter 스키마, 게시 본문 길이, 출처·직무·경로 참조, 중복 ID·슬러그, 용어 데이터, 제거된 경로 링크 |
+| `npm run content:check` | MDX frontmatter 스키마, 게시 본문 길이, 출처·직무·경로 참조, 본문 외부 인용의 출처 장부·문서별 연결, 용어집 앵커, 중복 ID·슬러그, 제거된 경로 링크 |
 | `npm run search:build` | 게시된 직무·커리어 경로와 용어에서 `public/search-index.json` 생성 |
 | `npm run build` | 콘텐츠 검사 → 검색 색인 생성 → Next.js 정적 내보내기 → RSC 별칭 생성 → 출력 확인 |
 | `npm run build:verify` | `out/` 필수 파일, 게시 직무·경로 HTML, 제거된 경로의 출력·검색 색인 잔존 여부 확인 |
-| `npm run test:e2e` | Playwright Chromium으로 빌드된 `out/`을 서빙해 홈·직무 이동, 검색과 초점 복귀, 모바일 탐색기, 제거된 경로의 404, 용어 출처를 확인 |
+| `npm run test:e2e` | Playwright Chromium으로 빌드된 `out/`을 서빙해 홈·직무 이동, 검색과 초점 복귀, 분야 필터 URL 유지, 모바일 탐색기, 제거된 경로의 404, 용어 링크와 출처를 확인 |
 
 `search:build`는 유효한 콘텐츠를, `build:verify`는 이미 생성된 `out/`을 필요로 합니다. `public/search-index.json`과 `out/`은 생성물입니다. 직접 수정한 뒤 검증 결과로 취급하지 말고 빌드를 다시 실행합니다.
 

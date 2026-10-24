@@ -55,6 +55,8 @@ test("global search combines terms from different parts of a career article", as
   await expect(result.locator(".search-result-context")).toContainText("SIEM");
   await expect(result.locator("mark").filter({ hasText: "보안관제" })).toBeVisible();
   await expect(result.locator("mark").filter({ hasText: "SIEM" })).toBeVisible();
+  await dialog.getByRole("textbox", { name: "검색어" }).fill("AI보안");
+  await expect(dialog.locator('a.search-result[href*="/careers/ai-security-engineer/"] strong mark')).toContainText("AI 보안");
 });
 
 test("global search reports the full result count and indexes late article sections", async ({ page }) => {
@@ -81,6 +83,18 @@ test("career index finds a role by its day-to-day responsibility", async ({ page
   await page.goto("./careers/");
   await page.getByRole("textbox", { name: "직무 검색" }).fill("사건 승격");
   await expect(page.locator('.wiki-index a[href*="/careers/soc-analyst/"]')).toBeVisible();
+});
+
+test("career category selection persists in the page URL", async ({ page }) => {
+  await page.goto("./careers/");
+  const filter = page.getByRole("combobox", { name: "분야" });
+  await filter.selectOption("response");
+  await expect(page).toHaveURL(/\/careers\/\?category=response$/);
+  await page.reload();
+  await expect(filter).toHaveValue("response");
+  await expect(page.locator('.wiki-index a[href*="/careers/soc-analyst/"]')).toBeVisible();
+  await filter.selectOption("all");
+  await expect(page).toHaveURL(/\/careers\/$/);
 });
 
 test("career index explains a body-only search term and announces the result count", async ({ page }) => {
@@ -186,6 +200,13 @@ test("search opens a glossary term inside its folder", async ({ page }) => {
   const term = page.locator("#securityinformationandeventmanagement");
   await expect(term).toBeVisible();
   await expect(term.locator("h2")).toContainText("SIEM");
+});
+
+test("a career article opens its linked glossary term inside a folder", async ({ page }) => {
+  await page.goto("./careers/ot-security-engineer/");
+  await page.locator('.article-prose a[href*="/glossary/#operationaltechnology"]').click();
+  await expect(page).toHaveURL(/\/glossary\/#operationaltechnology$/);
+  await expect(page.locator("#operationaltechnology")).toBeVisible();
 });
 
 test("references heading remains below the sticky header after TOC navigation", async ({ page }) => {

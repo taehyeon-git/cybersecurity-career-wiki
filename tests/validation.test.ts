@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { validateGlossaryReferences, validateReferences, type ReferenceDocument } from "../src/lib/validation";
+import { validateCitationSourceIds, validateCitationUrls, validateGlossaryAnchors, validateGlossaryReferences, validateReferences, type ReferenceDocument } from "../src/lib/validation";
 
 const role: ReferenceDocument = {
   kind: "role", id: "soc-analyst", slug: "soc-analyst", publicationStatus: "published",
@@ -37,4 +37,28 @@ test("duplicate IDs within a collection are rejected even with distinct slugs", 
   const duplicate = { ...role, slug: "soc-operations" };
   const errors = validateReferences([role, duplicate], new Set(["nist-nice"]));
   assert.ok(errors.some((error) => error.includes("duplicate id: role/soc-analyst")));
+});
+
+test("external article citations must appear in the source registry", () => {
+  const docs = [{ id: "iam-engineer", body: "[공고](https://example.org/jobs/42?b=2&a=1)와 [다른 공고](https://example.org/jobs/43)" }];
+  const sources = [{ id: "job-42", url: "https://example.org/jobs/42/?a=1&b=2" }];
+  assert.deepEqual(validateCitationUrls(docs, sources), ["iam-engineer: unregistered citation URL https://example.org/jobs/43"]);
+});
+
+test("citation audit reports a repeated missing URL once per article", () => {
+  const docs = [{ id: "soc-analyst", body: "[첫 인용](https://example.org/job) [반복](https://example.org/job)" }];
+  assert.deepEqual(validateCitationUrls(docs, []), ["soc-analyst: unregistered citation URL https://example.org/job"]);
+});
+
+test("article glossary links must point to a term that exists", () => {
+  const docs = [{ id: "soc-analyst", body: "[CSIRT](/glossary/#computersecurityincidentresponseteam) [unknown](/glossary/#missingterm)" }];
+  const terms = [{ english: "Computer Security Incident Response Team" }];
+  assert.deepEqual(validateGlossaryAnchors(docs, terms), ["soc-analyst: unknown glossary anchor missingterm"]);
+});
+
+test("a linked official source also appears in that article's references", () => {
+  const docs = [{ id: "soc-analyst", body: "[채용 사례](https://example.org/jobs/42)", sourceIds: [] }];
+  const sources = [{ id: "example-job", url: "https://example.org/jobs/42" }];
+  assert.deepEqual(validateCitationSourceIds(docs, sources), ["soc-analyst: cited source example-job missing from sourceIds"]);
+  assert.deepEqual(validateCitationSourceIds([{ ...docs[0], sourceIds: ["example-job"] }], sources), []);
 });

@@ -1,6 +1,6 @@
 # 콘텐츠 모델
 
-공개 본문은 `src/content/roles/`와 `src/content/roadmaps/`의 MDX, 용어집은 `src/content/glossary/terms.json`으로 관리합니다. `src/lib/content.ts`가 YAML frontmatter와 JSON 구조를 검사합니다. 현재 게시 콘텐츠는 **직무 47개, 커리어 경로 11개, 용어 49개**입니다.
+공개 본문은 `src/content/roles/`와 `src/content/roadmaps/`의 MDX, 용어집은 `src/content/glossary/terms.json`으로 관리합니다. `src/lib/content.ts`가 YAML frontmatter와 JSON 구조를 검사합니다. 현재 게시 콘텐츠는 **직무 47개, 커리어 경로 11개, 용어 52개**입니다.
 
 ## MDX 공통 필드
 
@@ -30,7 +30,7 @@
 
 여섯 `category`의 표시명과 순서는 `src/lib/site-data.ts`가 정의합니다. 이는 국내 SQF와 실제 공고를 참고한 위키의 업무 분류입니다. NICE Work Role이나 회사의 부서·직함과 일대일로 같다는 뜻은 아닙니다. `publicationStatus`는 공개 여부, `reviewStatus`는 편집 검토 상태입니다. 게시된 글에도 조사 공백이 있으면 본문과 `reviewStatus`로 표시합니다.
 
-`reviewedAt`은 마지막 내용 갱신 또는 검토 날짜이며, 날짜만으로 편집 검토 완료를 뜻하지 않습니다. 직무 문서는 `reviewStatus: reviewed`일 때 공개 화면에 “최종 검토”, `needs-review`일 때 “내용 갱신”과 “편집 검토 대기”를 표시합니다. 경로 문서에는 `reviewStatus` 필드가 없으므로 “내용 갱신” 날짜를 표시합니다.
+`reviewedAt`은 마지막 내용 갱신 또는 검토 날짜이며, 날짜만으로 편집 검토 완료를 뜻하지 않습니다. 직무 문서는 `reviewStatus: reviewed`일 때 공개 화면에 “마지막 내용 검토”, `needs-review`일 때 “내용 갱신”과 “근거·범위 검토 중”을 표시합니다. 경로 문서에는 `reviewStatus` 필드가 없으므로 “내용 갱신” 날짜를 표시합니다.
 
 ## 커리어 경로와 용어집
 
@@ -43,6 +43,8 @@
 - 같은 종류의 MDX 안에서 `id`와 `slug` 중복을 허용하지 않습니다.
 - 게시 직무·경로의 `sourceIds`와 `relatedRoleIds`는 실제 출처·직무를 가리켜야 합니다. `roadmapIds`는 모든 직무에서 존재하는 경로 ID를 가리켜야 합니다.
 - 용어집의 출처, 한국어·영어 중복, 영문 첫 글자를 검사합니다.
+- MDX 본문의 외부 인용 URL이 출처 장부에 등록되고 해당 문서의 `sourceIds`에도 포함되는지 확인합니다.
+- MDX의 용어집 앵커가 실제 영문 용어 항목을 가리키는지 확인합니다.
 - MDX 본문에 남은 옛 `/knowledge/`, `/comparisons/`, `/knowledge-map/` 링크를 검사합니다.
 - 검사기는 공고가 현재 모집 중인지, 문장의 해석이 올바른지, 외부 링크가 살아 있는지는 자동으로 판단하지 못합니다.
 

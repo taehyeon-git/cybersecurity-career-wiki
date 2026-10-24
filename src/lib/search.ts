@@ -37,17 +37,42 @@ export function matchesAllTerms(query: string, fields: string[]): boolean {
   return terms.every((term) => containsTerm(text, normalizedText, term));
 }
 
+function originalRangeForNormalizedTerm(body: string, term: string): { start: number; end: number } | undefined {
+  let normalized = "";
+  const starts: number[] = [];
+  const ends: number[] = [];
+  let offset = 0;
+  for (const character of body) {
+    const part = normalizeSearchText(character);
+    normalized += part;
+    for (let index = 0; index < part.length; index++) {
+      starts.push(offset);
+      ends.push(offset + character.length);
+    }
+    offset += character.length;
+  }
+  let position = normalized.indexOf(term);
+  while (position >= 0) {
+    const start = starts[position];
+    const end = ends[position + term.length - 1];
+    if (!/^[a-z0-9]{1,3}$/.test(term) || (!/[a-z0-9]/i.test(body[start - 1] ?? "") && !/[a-z0-9]/i.test(body[end] ?? ""))) {
+      return { start, end };
+    }
+    position = normalized.indexOf(term, position + 1);
+  }
+  return undefined;
+}
+
 export function searchMatchContext(query: string, visibleFields: string[], body: string): string | undefined {
   const visible = visibleFields.join(" ");
   const normalizedVisible = normalizeSearchText(visible);
   const normalizedBody = normalizeSearchText(body);
-  const lowerBody = body.toLocaleLowerCase();
   for (const term of searchTerms(query)) {
     if (containsTerm(visible, normalizedVisible, term) || !containsTerm(body, normalizedBody, term)) continue;
-    const index = lowerBody.indexOf(term);
-    if (index < 0) continue;
-    const start = Math.max(0, index - 45);
-    const end = Math.min(body.length, index + term.length + 75);
+    const range = originalRangeForNormalizedTerm(body, term);
+    if (!range) continue;
+    const start = Math.max(0, range.start - 45);
+    const end = Math.min(body.length, range.end + 75);
     return `${start ? "…" : ""}${body.slice(start, end).trim()}${end < body.length ? "…" : ""}`;
   }
   return undefined;
