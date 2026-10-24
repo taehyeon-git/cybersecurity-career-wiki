@@ -20,7 +20,7 @@
 
 | 필드 | 형식과 의미 |
 | --- | --- |
-| `category` | `management`, `development`, `operations`, `assessment`, `response`, `customer` 중 하나 |
+| `category` | `management`, `development`, `product`, `operations`, `assessment`, `response`, `customer` 중 하나 |
 | `responsibilities` | 지속해서 책임지는 업무; 비어 있지 않은 문자열 배열 |
 | `typicalTasks` | 반복적인 실제 작업; 비어 있지 않은 문자열 배열 |
 | `keyDeliverables` | 다른 팀이 사용할 산출물; 비어 있지 않은 문자열 배열 |
@@ -28,7 +28,7 @@
 | `roadmapIds` | 해당 직무와 관련된 커리어 경로 ID; 기본값 빈 배열 |
 | `reviewStatus` | `reviewed` 또는 `needs-review`; 기본값 `needs-review` |
 
-여섯 `category`의 표시명과 순서는 `src/lib/site-data.ts`가 정의합니다. 이는 국내 SQF와 실제 공고를 참고한 위키의 업무 분류입니다. NICE Work Role이나 회사의 부서·직함과 일대일로 같다는 뜻은 아닙니다. `publicationStatus`는 공개 여부, `reviewStatus`는 편집 검토 상태입니다. 게시된 글에도 조사 공백이 있으면 본문과 `reviewStatus`로 표시합니다.
+7개 `category`의 표시명과 순서는 `src/lib/site-data.ts`가 정의합니다. `product`에는 보안제품 기획자·개발자·품질 검증 담당자·기술문서 작성자가 속합니다. 이는 국내 SQF와 실제 공고를 참고해 만든 위키의 탐색 분류이며, NCS의 공식 일곱 번째 하위산업분야나 단일 직무를 뜻하지 않습니다. NICE Work Role이나 회사의 부서·직함과도 일대일로 같지 않습니다. `publicationStatus`는 공개 여부, `reviewStatus`는 편집 검토 상태입니다. 게시된 글에도 조사 공백이 있으면 본문과 `reviewStatus`로 표시합니다.
 
 `reviewedAt`은 마지막 내용 갱신 또는 검토 날짜이며, 날짜만으로 편집 검토 완료를 뜻하지 않습니다. 직무 문서는 `reviewStatus: reviewed`일 때 공개 화면에 “마지막 내용 검토”, `needs-review`일 때 “내용 갱신”과 “근거·범위 검토 중”을 표시합니다. 경로 문서에는 `reviewStatus` 필드가 없으므로 “내용 갱신” 날짜를 표시합니다.
 

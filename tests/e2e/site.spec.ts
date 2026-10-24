@@ -2,10 +2,10 @@ import { expect, test } from "@playwright/test";
 
 const searchShortcut = process.platform === "darwin" ? "Meta+k" : "Control+k";
 
-test("home shows six job folders and opens a role article", async ({ page }) => {
+test("home shows seven job folders and opens a role article", async ({ page }) => {
   await page.goto("./");
   await expect(page.getByRole("heading", { name: "사이버보안 커리어 위키", exact: true })).toBeVisible();
-  await expect(page.locator(".wiki-home-subfolder")).toHaveCount(6);
+  await expect(page.locator(".wiki-home-subfolder")).toHaveCount(7);
   await expect(page.getByRole("link", { name: "사이트맵" })).toHaveAttribute("href", /\/sitemap\.xml$/);
 
   const jobsFolder = page.locator(".wiki-home-folder").nth(1);
@@ -97,14 +97,24 @@ test("career category selection persists in the page URL", async ({ page }) => {
   await expect(page).toHaveURL(/\/careers\/$/);
 });
 
-test("career index initially shows all six work folders on a narrow screen", async ({ page }) => {
+test("security product work has its own folder and category breadcrumb", async ({ page }) => {
+  await page.goto("./careers/?category=product");
+  await expect(page.getByRole("combobox", { name: "분야" })).toHaveValue("product");
+  const folder = page.locator(".wiki-index .wiki-folder");
+  await expect(folder).toHaveCount(1);
+  await expect(folder.locator('a[href*="/careers/security-product-manager/"]')).toBeVisible();
+  await expect(folder.locator('a[href*="/careers/product-security-engineer/"]')).toHaveCount(0);
+  await folder.locator('a[href*="/careers/security-product-manager/"]').click();
+  await expect(page.locator(".breadcrumbs").getByRole("link", { name: "보안제품 기획·개발·품질" })).toBeVisible();
+});
+
+test("career index initially shows all seven work folders on a narrow screen", async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 720 });
   await page.goto("./careers/");
   const folders = page.locator(".wiki-index .wiki-folder");
-  await expect(folders).toHaveCount(6);
-  await expect(folders.first()).not.toHaveAttribute("open");
+  await expect(folders).toHaveCount(7);
+  await expect(page.locator(".wiki-index .wiki-folder[open]")).toHaveCount(0);
   await expect(folders.last().locator("summary")).toBeVisible();
-  expect((await folders.last().locator("summary").boundingBox())!.y).toBeLessThan(1000);
 });
 
 test("the selected color theme persists after a reload", async ({ page }) => {

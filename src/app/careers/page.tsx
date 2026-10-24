@@ -12,7 +12,7 @@ export default function CareersPage() {
     <header className="wiki-page-header">
       <div className="wiki-page-kicker">위키 / 보안 직무</div>
       <h1 className="wiki-page-title">보안 직무</h1>
-      <p className="wiki-page-intro">전략·개발·운영·진단·대응·고객지원의 실제 업무 영역에서 직무를 찾고, 책임과 산출물, 채용 근거를 확인하세요.</p>
+      <p className="wiki-page-intro">전략·보안 설계·보안제품·운영·진단·대응·고객지원의 실제 업무 영역에서 직무를 찾고, 책임과 산출물, 채용 근거를 확인하세요.</p>
       <div className="wiki-page-meta"><span>직무 {roles.length}개</span><span>업무 범주별 폴더</span><Link href="/start/">분류 기준</Link></div>
     </header>
     <RoleExplorer roles={roles.map(({ id, slug, titleKo, titleEn, summary, category, aliases, responsibilities, typicalTasks, keyDeliverables, body }) => ({ id, slug, titleKo, titleEn, summary, category, aliases, responsibilities, typicalTasks, keyDeliverables, body: textOnlySearchBody(body) }))} />

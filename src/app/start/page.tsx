@@ -15,7 +15,7 @@ export default function StartPage() {
 
     <section className="wiki-start-section">
       <h2>업무 범주를 먼저 고르세요</h2>
-      <p>직무 폴더는 국내 <a href="https://www.ncs.go.kr/sqf/sqf01/sqf10100201p1.do?iscCd=20&amp;iscNm=%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8" target="_blank" rel="noopener noreferrer">NCS 정보보호 SQF</a>의 업무 분야를 참고했습니다. SQF의 하위 분야는 다섯 개이며, 이 위키는 그중 운영·관리를 전략·관리와 구축·운영으로 나눠 여섯 개 폴더로 정리했습니다. 조직마다 직함이 다르고 한 공고가 여러 분야의 일을 합칠 수 있으므로 폴더명과 함께 각 글의 책임을 확인하세요.</p>
+      <p>직무 폴더는 국내 <a href="https://www.ncs.go.kr/sqf/sqf01/sqf10100201p1.do?iscCd=20&amp;iscNm=%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8" target="_blank" rel="noopener noreferrer">NCS 정보보호 SQF</a>의 다섯 하위산업 분야와 세부 직무를 참고해, 주 책임에 따라 위키의 일곱 폴더로 재구성했습니다. 보안제품 기획·개발·품질은 제품 조직의 일을 찾기 위한 위키 분류이며 SQF의 별도 공식 분야명은 아닙니다. 조직마다 직함이 다르고 한 공고가 여러 분야의 일을 합칠 수 있으므로 폴더명과 함께 각 글의 책임을 확인하세요.</p>
       <div className="wiki-start-definition"><strong>직무 글에서 볼 것</strong><ul><li><b>책임</b> — 어떤 결정을 내리고 어디까지 책임지는가</li><li><b>산출물</b> — 업무 결과를 누가 받아 어떤 결정을 하는가</li><li><b>채용 근거</b> — 어떤 공고에서 실제로 확인했으며 무엇이 미확인인가</li><li><b>진입 경로</b> — 지금 가진 경험으로 무엇을 보여줄 수 있는가</li></ul></div>
     </section>
 

@@ -17,7 +17,7 @@ const baseSchema = z.object({
   publicationStatus: z.enum(["draft", "needs-review", "published", "outdated"]),
 });
 const roleSchema = baseSchema.extend({
-  category: z.enum(["management", "development", "operations", "assessment", "response", "customer"]),
+  category: z.enum(["management", "development", "product", "operations", "assessment", "response", "customer"]),
   responsibilities: z.array(z.string()).min(1),
   typicalTasks: z.array(z.string()).min(1),
   keyDeliverables: z.array(z.string()).min(1),

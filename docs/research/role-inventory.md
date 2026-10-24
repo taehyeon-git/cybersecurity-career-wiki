@@ -1,6 +1,6 @@
 # 직무 인벤토리
 
-기준일: **2026-10-25**. 공개 직무 페이지 **47개**를 실제 `src/content/roles/` 파일과 대조한 목록입니다. 이는 [NCS 정보보호 SQF](https://www.ncs.go.kr/sqf/sqf01/sqf10100201p1.do?iscCd=20&iscNm=%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8)의 실무 영역을 참고해 여섯 탐색 범주로 구성한 위키의 안내 체계입니다. NCS의 **5개 하위산업분야**와 위키의 **6개 폴더**는 같은 단위가 아닙니다. NCS의 공식 직종 목록을 그대로 복제하거나 각 위키 직무가 독립 채용 직함으로 널리 쓰인다고 주장하지 않습니다. [NICE](https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/nice-framework-current-versions)와 [ENISA ECSF](https://www.enisa.europa.eu/publications/european-cybersecurity-skills-framework-role-profiles)는 업무 범위를 검토하는 보조 근거입니다.
+기준일: **2026-10-25**. 공개 직무 페이지 **47개**를 실제 `src/content/roles/` 파일과 대조한 목록입니다. 이는 [NCS 정보보호 SQF](https://www.ncs.go.kr/sqf/sqf01/sqf10100201p1.do?iscCd=20&iscNm=%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8)의 실무 영역을 참고해 **7개 탐색 범주**로 구성한 위키의 안내 체계입니다. NCS의 **5개 하위산업분야**와 위키의 **7개 폴더**는 같은 단위가 아닙니다. 특히 `product`는 보안제품 기획·개발·품질·기술문서를 함께 찾기 위한 편집상 묶음으로, NCS의 새 공식 분야가 아닙니다. NCS의 공식 직종 목록을 그대로 복제하거나 각 위키 직무가 독립 채용 직함으로 널리 쓰인다고 주장하지 않습니다. [NICE](https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/nice-framework-current-versions)와 [ENISA ECSF](https://www.enisa.europa.eu/publications/european-cybersecurity-skills-framework-role-profiles)는 업무 범위를 검토하는 보조 근거입니다.
 
 표의 P번호는 [국내 채용공고 표본](korean-job-market.md)에 연결됩니다. **본문**은 공식 공고 또는 회사 명의 채용 페이지에서 관련 업무를 확인했다는 뜻이며 독립 직함 확인을 뜻하지 않습니다. **제목만**은 공식 목록·제목만 확인하고 상세 직무 요건은 검증하지 못했다는 뜻입니다. **인접**은 한 공고 속 관련 업무를 찾았으나 해당 직무 전체를 대표하지 않는다는 뜻입니다. **표본 없음**은 이번 78개 식별자 조사에서 직접 근거를 확보하지 못했다는 뜻이지 직무가 없거나 수요가 낮다는 뜻이 아닙니다. P01·P19·P21의 상세 원문은 현재 다시 열 수 없고 P43은 상세 확인을 보류했습니다. P19·P21과 비슷한 업무의 새 원문 P28·P29를 별도로 기록했습니다. P60·P61은 공식 본문을 확인했지만 별도 Chrome 세션에서 접근 제한이 재현됐고, P77은 회사 명의 원티드 채용 페이지다.
 
@@ -16,7 +16,7 @@
 | `security-program-manager` · 보안 프로그램 관리자 | 여러 보안 과제의 범위·일정·의존성·보고 조정 | P08 인접 |
 | `security-supply-chain-risk-manager` · 보안 공급망·제3자 위험 관리자 | 외부 공급업체·기술 서비스의 도입·운영 위험 평가와 재평가 | P61 쿠팡 Staff Security Engineer의 Vendor Security Assurance 직접 업무 사례. P64는 사내 소프트웨어 구성요소 공급망으로 별개 |
 
-## 보안 설계·개발 · 13개
+## 보안 설계·개발 · 9개
 
 | 직무 페이지 | 주 책임 | 국내 표본 |
 | --- | --- | --- |
@@ -29,6 +29,11 @@
 | `open-source-security-engineer` · 오픈소스 보안 엔지니어 | 공개 프로젝트의 제보·수정·릴리스와 기여자 협업 조율 | 공개 프로젝트 보안의 직접 표본 없음. P73은 사내 OSS 구성요소 관리로 다른 책임, OpenSSF로 이 역할의 범위를 설명 |
 | `product-security-engineer` · 제품 보안 엔지니어 | 제품 생명주기 전반의 보안 설계와 출시 판단 지원 | P13·P15 인접, P76은 AI로 제품 SW·펌웨어 취약점을 연구하는 인접 업무. 독립 제품 보안 직함 표본은 없음 |
 | `security-architect` · 보안 아키텍트 | 서비스·플랫폼의 보안 요구를 설계 원칙과 검토 기준으로 전환 | P58 SK inc.(AX) 직접 보안 아키텍트 직함·과거 공고 본문. P59는 네트워크·단말 결합 아키텍트 |
+
+## 보안제품 기획·개발·품질 · 4개
+
+| 직무 페이지 | 주 책임 | 국내 표본 |
+| --- | --- | --- |
 | `security-product-developer` · 보안 제품 개발자 | 보안 제품 기능 개발·유지보수와 결함 개선 | P20 본문, P23 제목만 |
 | `security-product-manager` · 보안 제품 관리자 | 보안 제품의 고객 문제·요구사항·출시 우선순위 관리 | P40 이스트시큐리티 제품·서비스 기획 직접 공고 본문. P34는 보안 서비스 사업개발로 별개 |
 | `security-product-qa` · 보안 제품 품질 검증 담당자 | 보안 제품 기능·품질 기준과 출시 전 검증 책임 | P44 차량 보안 기업의 소프트웨어 테스트·품질검증 공고 본문과 NCS 보안품질관리 역할. P44가 취약점 진단을 요구한 것은 아님 |
