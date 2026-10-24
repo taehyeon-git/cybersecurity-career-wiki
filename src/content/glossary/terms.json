@@ -4,7 +4,7 @@
     "english": "Asset",
     "definition": "조직이 업무 수행에 사용하거나 보호해야 하는 데이터, 시스템, 서비스 등 가치 있는 대상.",
     "sourceIds": [
-      "nist-csf"
+      "nist-csrc-asset"
     ]
   },
   {
@@ -12,15 +12,15 @@
     "english": "Risk",
     "definition": "불확실한 사건이 조직의 목표에 미칠 수 있는 영향과 그 가능성을 함께 고려한 판단.",
     "sourceIds": [
-      "nist-csf"
+      "nist-csrc-risk"
     ]
   },
   {
     "term": "위협",
     "english": "Threat",
-    "definition": "자산에 해를 끼칠 수 있는 행위자, 사건 또는 조건.",
+    "definition": "조직과 자산에 부정적 영향을 줄 수 있는 상황이나 사건.",
     "sourceIds": [
-      "nist-csf"
+      "nist-csrc-threat"
     ]
   },
   {
@@ -28,16 +28,15 @@
     "english": "Vulnerability",
     "definition": "악용되면 보안 목적을 해칠 수 있는 시스템, 절차 또는 구성의 약점.",
     "sourceIds": [
-      "nist-nvd",
-      "mitre-cwe"
+      "nist-csrc-vulnerability"
     ]
   },
   {
     "term": "보안 통제",
     "english": "Security Control",
-    "definition": "위험을 예방, 탐지, 대응 또는 복구하기 위해 적용하는 기술·관리·물리적 조치.",
+    "definition": "조직이나 시스템의 보안 요구를 충족하고 정보를 보호하기 위해 적용하는 기술·관리·물리적 조치.",
     "sourceIds": [
-      "nist-csf"
+      "nist-csrc-security-control"
     ]
   },
   {
@@ -45,7 +44,7 @@
     "english": "Residual Risk",
     "definition": "선택한 통제를 적용한 뒤에도 남는 위험.",
     "sourceIds": [
-      "nist-csf"
+      "nist-csrc-residual-risk"
     ]
   },
   {
@@ -61,8 +60,7 @@
     "english": "Authentication",
     "definition": "사용자 또는 서비스가 주장하는 신원을 확인하는 과정.",
     "sourceIds": [
-      "owasp-cheatsheets",
-      "nist-zero-trust"
+      "nist-csrc-authentication"
     ]
   },
   {
@@ -70,16 +68,7 @@
     "english": "Authorization",
     "definition": "확인된 주체가 대상 자원에 특정 작업을 수행해도 되는지 결정하는 과정.",
     "sourceIds": [
-      "owasp-api",
-      "owasp-cheatsheets"
-    ]
-  },
-  {
-    "term": "최소 권한",
-    "english": "Least Privilege",
-    "definition": "업무 수행에 필요한 범위와 기간만 접근 권한을 부여하는 원칙.",
-    "sourceIds": [
-      "nist-zero-trust"
+      "nist-csrc-authorization"
     ]
   },
   {
@@ -124,28 +113,12 @@
     ]
   },
   {
-    "term": "DAST",
-    "english": "Dynamic Application Security Testing",
-    "definition": "실행 중인 애플리케이션에 요청을 보내 관측 가능한 보안 문제를 찾는 방식.",
-    "sourceIds": [
-      "nist-ssdf"
-    ]
-  },
-  {
     "term": "SCA",
     "english": "Software Composition Analysis",
     "definition": "소프트웨어 의존 구성요소의 버전과 알려진 취약점 등을 분석하는 활동.",
     "sourceIds": [
       "nist-ssdf",
       "nist-nvd"
-    ]
-  },
-  {
-    "term": "SBOM",
-    "english": "Software Bill of Materials",
-    "definition": "소프트웨어에 포함된 구성요소와 관계를 기록한 명세.",
-    "sourceIds": [
-      "nist-ssdf"
     ]
   },
   {
@@ -210,7 +183,7 @@
     "english": "Detection Rule",
     "definition": "관측 이벤트에서 조사할 행동 패턴을 찾도록 정의한 조건.",
     "sourceIds": [
-      "mitre-attack"
+      "sigma-detection-rules"
     ]
   },
   {
@@ -218,32 +191,24 @@
     "english": "Threat Hunting",
     "definition": "기존 경보를 기다리지 않고 내부 데이터에서 위협 가설을 능동적으로 시험하는 활동.",
     "sourceIds": [
-      "mitre-attack",
-      "nist-nice"
+      "cisa-fbi-threat-hunting-2021"
     ]
   },
   {
     "term": "사고 대응",
     "english": "Incident Response",
-    "definition": "확인된 보안 사건을 조사하고 확산을 막아 복구와 재발 방지로 연결하는 활동.",
+    "definition": "보안 사건을 발견·분석하고 확산을 막아 복구와 사후 개선으로 연결하는 조직의 대응 활동.",
     "sourceIds": [
-      "nist-csf"
+      "nist-csrc-incident-response",
+      "nist-sp-800-61r3"
     ]
   },
   {
     "term": "격리",
     "english": "Containment",
-    "definition": "사고가 더 확산되지 않도록 영향을 받은 계정·호스트·연결 등을 제한하는 조치.",
+    "definition": "보안 사건이 더 확산되지 않도록 영향을 받은 시스템의 연결을 분리하는 등의 대응 조치.",
     "sourceIds": [
-      "nist-csf"
-    ]
-  },
-  {
-    "term": "사건 타임라인",
-    "english": "Incident Timeline",
-    "definition": "조사된 행위를 시간 순서대로 정리하고 각 항목의 출처와 확신을 기록한 자료.",
-    "sourceIds": [
-      "nist-csf"
+      "nist-sp-800-61r3"
     ]
   },
   {
@@ -251,8 +216,7 @@
     "english": "Cyber Threat Intelligence",
     "definition": "위협 관련 정보를 분석해 특정 수신자의 보안 의사결정을 돕는 결과물과 활동.",
     "sourceIds": [
-      "mitre-attack",
-      "enisa-ecsf"
+      "enisa-cti-definition-2017"
     ]
   },
   {
@@ -260,6 +224,7 @@
     "english": "Governance, Risk, and Compliance",
     "definition": "보안의 책임 구조, 위험 의사결정과 요구사항 준수를 함께 다루는 업무 영역.",
     "sourceIds": [
+      "nist-csrc-grc",
       "nist-csf",
       "enisa-ecsf"
     ]
@@ -267,26 +232,26 @@
   {
     "term": "증적",
     "english": "Audit Evidence",
-    "definition": "점검·감사에서 정책이 실제로 적용됐는지 확인하는 기록이나 자료. 대상과 기간이 맞는지도 함께 봐야 한다.",
+    "definition": "점검·감사에서 기준을 충족하는지 판단하려고 수집·평가하는 기록이나 자료.",
     "sourceIds": [
-      "ncs-sqf",
-      "nist-csf"
+      "nist-csrc-audit",
+      "nist-csrc-evidence"
     ]
   },
   {
     "term": "위험 수용",
     "english": "Risk Acceptance",
-    "definition": "위험을 이해한 책임자가 정해진 절차와 기간 안에서 잔여 위험을 받아들이는 결정.",
+    "definition": "위험을 줄이거나 이전하는 대신 잔여 위험을 받아들이는 대응 선택지. 승인과 재검토 방식은 조직 절차에 따른다.",
     "sourceIds": [
-      "nist-csf"
+      "nist-csrc-risk-response"
     ]
   },
   {
     "term": "예외 만료",
     "english": "Exception Expiry",
-    "definition": "정책 또는 통제 예외를 무기한 두지 않고 재검토해야 하는 시점.",
+    "definition": "정책·통제의 일시적 예외를 다시 검토하거나 종료해야 하는 시점. 위키의 업무상 풀이이며 실제 만료 방식은 조직·제품에 따라 다르다.",
     "sourceIds": [
-      "nist-csf"
+      "microsoft-security-exception-duration"
     ]
   },
   {
@@ -344,7 +309,8 @@
     "english": "Pre-Sales",
     "definition": "계약 전에 고객 요구와 운영 조건을 확인하고 제안의 적합성을 설명하는 기술영업 활동.",
     "sourceIds": [
-      "ncs-sqf"
+      "megazone-presales-2026",
+      "megazone-presales-interview"
     ]
   },
   {

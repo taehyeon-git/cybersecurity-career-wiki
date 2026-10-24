@@ -7,11 +7,11 @@ import { publishedRoles, publishedRoadmaps, loadSources } from "../src/lib/conte
 import { roleCategories, mainNav } from "../src/lib/site-data";
 import terms from "../src/content/glossary/terms.json";
 
-test("career directory represents six work areas and 46 distinct roles", () => {
+test("career directory represents six work areas and 47 distinct roles", () => {
   assert.deepEqual(roleCategories.map((item) => item.id), ["management", "development", "operations", "assessment", "response", "customer"]);
   const roles = publishedRoles();
-  assert.equal(roles.length, 46);
-  assert.equal(new Set(roles.map((role) => role.slug)).size, 46);
+  assert.equal(roles.length, 47);
+  assert.equal(new Set(roles.map((role) => role.slug)).size, 47);
   for (const category of roleCategories) {
     assert.ok(roles.some((role) => role.category === category.id), `missing ${category.id} roles`);
   }
@@ -56,7 +56,7 @@ test("glossary terms retain valid sources without deleted topic links", () => {
 test("generated search index contains only career pages and glossary", () => {
   execFileSync(process.execPath, ["--import", "tsx", "scripts/build-search.ts"], { cwd: process.cwd() });
   const documents = JSON.parse(fs.readFileSync(path.join(process.cwd(), "public", "search-index.json"), "utf8")) as Array<{ type: string; href: string }>;
-  assert.ok(documents.length >= 46);
+  assert.ok(documents.length >= 47);
   for (const item of documents) {
     assert.ok(["role", "roadmap", "glossary"].includes(item.type), `unexpected search type: ${item.type}`);
     assert.doesNotMatch(item.href, /^\/(?:knowledge|comparisons|knowledge-map)\//);

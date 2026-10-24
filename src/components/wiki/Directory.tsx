@@ -20,16 +20,17 @@ export function WikiFolder({ name, description, count, children, defaultOpen = f
   </details>;
 }
 
-export function WikiFileRow({ href, title, subtitle, description, meta }: {
+export function WikiFileRow({ href, title, subtitle, description, context, meta }: {
   href: string;
   title: string;
   subtitle?: string;
   description?: string;
+  context?: string;
   meta?: string;
 }) {
   return <Link className="wiki-file" href={href}>
     <FileText className="wiki-file-icon" size={17} aria-hidden="true" />
-    <span className="wiki-file-main"><span className="wiki-file-title">{title}</span>{subtitle && <span className="wiki-file-subtitle">{subtitle}</span>}{description && <span className="wiki-file-description">{description}</span>}</span>
+    <span className="wiki-file-main"><span className="wiki-file-title">{title}</span>{subtitle && <span className="wiki-file-subtitle">{subtitle}</span>}{description && <span className="wiki-file-description">{description}</span>}{context && <span className="wiki-file-context">본문: {context}</span>}</span>
     {meta && <span className="wiki-file-meta">{meta}</span>}
     <ArrowRight className="wiki-file-arrow" size={15} aria-hidden="true" />
   </Link>;

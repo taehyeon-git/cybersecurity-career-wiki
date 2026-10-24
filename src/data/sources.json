@@ -264,10 +264,10 @@
     "title": "Vendor Security Manager",
     "organization": "Sierra",
     "url": "https://jobs.ashbyhq.com/Sierra/6a4d8e28-3e97-41fc-a5b8-dadd8040c34d",
-    "version": "company job posting; checked 2026-10-09",
-    "checkedAt": "2026-10-09",
-    "kind": "job-posting",
-    "notes": "Employer ATS search-indexed posting covers vendor assessments, risk tiering, monitoring, decision records, and collaboration. Direct HTML requires JavaScript; no publication date was verified."
+    "version": "2026-10-09 당시 확인, 현재 원문 접근 불가",
+    "checkedAt": "2026-10-25",
+    "kind": "historical-job-posting",
+    "notes": "Employer ATS formerly described vendor assessments and risk decisions. On 2026-10-25 the rendered page says Job not found despite HTTP 200, so it must not serve as a currently readable hiring source."
   },
   {
     "id": "openssf-osps-baseline",
@@ -294,10 +294,10 @@
     "title": "Security Engineer (Home Assistant)",
     "organization": "Open Home Foundation",
     "url": "https://jobs.ashbyhq.com/openhomefoundation/c3089fc1-31ef-4cee-9ab0-68a94b1dfdb6",
-    "version": "company job posting; checked 2026-10-09",
-    "checkedAt": "2026-10-09",
-    "kind": "job-posting",
-    "notes": "Employer ATS search-indexed posting covers private report intake, maintainer coordination, release security, and open-source community collaboration. Direct HTML requires JavaScript; no publication date was verified."
+    "version": "2026-10-09 당시 확인, 현재 원문 접근 불가",
+    "checkedAt": "2026-10-25",
+    "kind": "historical-job-posting",
+    "notes": "Employer ATS formerly described private report intake and maintainer coordination. On 2026-10-25 the rendered page says Job not found despite HTTP 200, so it must not serve as a currently readable hiring source."
   },
   {
     "id": "ahnlab-rnd-junior-2025",
@@ -448,5 +448,545 @@
     "checkedAt": "2026-10-25",
     "kind": "job-posting",
     "notes": "Current employer posting on SIEM monitoring, log correlation, incident analysis/response and automation. Separate posting ID from the former P21 URL, which now returns 404."
+  },
+  {
+    "id": "sk-ax-ot-2026",
+    "title": "OT보안 전문가 영입",
+    "organization": "SK inc.(AX)",
+    "url": "https://www.skcareers.com/Recruit/Detail/R262093",
+    "version": "2026-09-29~2026-11-03 모집 예정",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Customer OT monitoring, operations, initial response and reporting. Three or more years in the recruitment field are required; OT/ICS site experience is preferred, not required."
+  },
+  {
+    "id": "hyundai-vehicle-security-2026",
+    "title": "차량 사이버보안 기술",
+    "organization": "현대자동차",
+    "url": "https://talent.hyundai.com/apply/applyView.hc?recuYy=2026&recuType=N2&recuCls=231",
+    "version": "2026-06-15 시작, 채용 시 마감",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Employer UI shows vehicle security research, production specifications and assessment support; three years of security experience and a related bachelor's degree are specified. Text crawlers may not expose the job body."
+  },
+  {
+    "id": "samsung-hospital-it-security-2025",
+    "title": "IT 보안담당",
+    "organization": "삼성서울병원",
+    "url": "https://www.samsunghospital.com/home/recruit/recruitInfo/recruitNoticeView.do?RECRUIT_CD=2025AAH0039&ST=ALL&cPage=1",
+    "version": "2025-07-08~2025-07-22 모집 종료",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Historical hospital role combining security checks, audit, privacy systems and cloud review; five years of relevant experience were required. An old countdown badge is not evidence that it is open."
+  },
+  {
+    "id": "megazone-presales-2026",
+    "title": "보안 프리세일즈",
+    "organization": "메가존클라우드",
+    "url": "https://career.megazone.com/job_posting/bu4TAG33",
+    "version": "게시일 미표기, 채용 시 마감",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Direct presales posting covers customer discovery, solution proposals, documents and presentations. Header says up to five years of experience while position details say new hire to five years; the posting does not mention a PoC."
+  },
+  {
+    "id": "megazone-offering-bd-2026",
+    "title": "보안 Offering Development (BD)",
+    "organization": "메가존클라우드",
+    "url": "https://career.megazone.com/job_posting/NDQy7PKY",
+    "version": "게시일 미표기, 채용 시 마감",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Security service offering and business-development role, including customer needs, sales assets, events and marketing channels; not a software product manager posting."
+  },
+  {
+    "id": "toss-securities-audit-security-2026",
+    "title": "Security Audit Manager (정보보호관리체계 및 기술 담당)",
+    "organization": "토스증권",
+    "url": "https://toss.im/career/job-detail?job_id=6554000003",
+    "version": "게시일 미표기; 2026-10-25 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Independent internal audit of security management systems and technology, with annual planning and improvement recommendations; no numeric years of experience stated."
+  },
+  {
+    "id": "toss-securities-audit-privacy-2026",
+    "title": "Security Audit Manager (개인정보 및 데이터관리 담당)",
+    "organization": "토스증권",
+    "url": "https://toss.im/career/job-detail?job_id=6554016003",
+    "version": "게시일 미표기; 2026-10-25 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Independent internal audit of privacy and data management; distinct specialist posting from the information-security audit opening."
+  },
+  {
+    "id": "self-reliance-security-2026",
+    "title": "2026년 제3차 한국자활복지개발원 직원 채용공고",
+    "organization": "한국자활복지개발원 / JOB-ALIO",
+    "url": "https://job.alio.go.kr/recruitview.do?idx=303024",
+    "version": "2026-07-23~2026-08-07 모집 종료",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Multiple employment tracks in one posting. The permanent information-security role required three years; a separate fixed-term privacy/security-management role required six years."
+  },
+  {
+    "id": "youth-policy-security-2026",
+    "title": "정보보안 및 정보시스템 운영 휴직대체",
+    "organization": "한국청소년정책연구원 / JOB-ALIO",
+    "url": "https://job.alio.go.kr/recruitview.do?idx=305840",
+    "version": "2026-10-08~2026-10-19 모집 종료",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Official public notice confirms title and qualification alternatives, but the attached HWP job description has not been verified; do not infer detailed duties."
+  },
+  {
+    "id": "sk-airplus-ot-2025",
+    "title": "OT·정보보안 경력 채용",
+    "organization": "SK에어플러스",
+    "url": "https://www.skcareers.com/Recruit/Detail/R252455",
+    "version": "2025-11-24~2025-12-08 조기 종료",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Historical OT and information-security role also includes OT education and awareness; this is a combined role, not evidence of a dedicated security educator opening."
+  },
+  {
+    "id": "estsecurity-product-planner-2026",
+    "title": "제품 및 서비스 기획자",
+    "organization": "이스트시큐리티",
+    "url": "https://estfamily.career.greetinghr.com/ko/o/172861",
+    "version": "게시일 미표기, 채용 시 마감",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Official product-planning team posting for endpoint/data-security products and a SaaS platform, with software/service planning experience of at least five years. Do not infer headcount from the page's zero-person field."
+  },
+  {
+    "id": "estsecurity-presales-2026",
+    "title": "보안 솔루션 Pre-Sales 및 컨설팅",
+    "organization": "이스트시큐리티",
+    "url": "https://estfamily.career.greetinghr.com/ko/o/233416",
+    "version": "게시일 미표기, 채용 시 마감",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Employer posting requires three or more years of related presales/consulting experience and describes customer discovery, proposal and delivery design; no PoC duty is specified."
+  },
+  {
+    "id": "secui-qa-interview",
+    "title": "보안제품 QA 직무 현직자 인터뷰",
+    "organization": "시큐아이",
+    "url": "https://secui-recruit.recruiter.co.kr/appsite/company/callSubPage?code1=1000&code2=1200",
+    "version": "과거 직무 인터뷰, 현재 원문 접근 불가",
+    "checkedAt": "2026-10-25",
+    "kind": "historical-employer-interview",
+    "notes": "The old ATS URL redirects to the recruiting home as of 2026-10-25, so its prior detailed interview content cannot be verified by a reader. Do not use it as direct current evidence of duties or hiring qualifications."
+  },
+  {
+    "id": "megazone-presales-interview",
+    "title": "보안 프리세일즈 직무 인터뷰",
+    "organization": "메가존클라우드",
+    "url": "https://career.megazone.com/halointerview3",
+    "version": "공식 직무 인터뷰; 2026-10-25 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "employer-role-interview",
+    "notes": "Explains discovery, matching specialist teams, proposal writing and junior work expectations. Complements but does not replace the separate job posting."
+  },
+  {
+    "id": "samsung-hospital-cloud-security-2026",
+    "title": "클라우드 보안담당",
+    "organization": "삼성서울병원",
+    "url": "https://samsunghospital.com/home/recruit/recruitInfo/recruitNoticeView.do?RECRUIT_CD=2026AAH0080&cPage=1",
+    "version": "2026-09-23~2026-10-06 모집 종료",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Historical hospital cloud-security specialist posting covering multi-cloud checks, process standardization, architecture review and incident coordination. Related bachelor's degree and three years after graduation apply only to this opening."
+  },
+  {
+    "id": "samsung-hospital-ai-security-2026",
+    "title": "AI 보안담당",
+    "organization": "삼성서울병원",
+    "url": "https://www.samsunghospital.com/home/recruit/recruitInfo/recruitNoticeView.do?CAREER=Y&RECRUIT_CD=2026AAH0068&ST=ALL&cPage=1",
+    "version": "과거 모집 정보, 현재 공식 상세 오류 화면",
+    "checkedAt": "2026-10-25",
+    "kind": "unverified-historical-posting",
+    "notes": "A previous observation reported an AI-security posting, but the official URL renders Page not found on independent 2026-10-25 recheck. The detailed duties and requirements require a surviving official source before use."
+  },
+  {
+    "id": "autocrypt-qa-2026",
+    "title": "소프트웨어 테스트 엔지니어 [경력]",
+    "organization": "아우토크립트",
+    "url": "https://autocrypt.career.greetinghr.com/ko/o/131385",
+    "version": "2026-11-30 마감 예정",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Vehicle-security company's software QA role: requirements, test cases, coverage and defect reporting, with three years of related experience. It does not explicitly advertise vulnerability assessment."
+  },
+  {
+    "id": "kisa-security-disclosure-educator-2026",
+    "title": "정보보호 공시 교육 강사 공개 모집",
+    "organization": "한국인터넷진흥원(KISA)",
+    "url": "https://isds.kisa.or.kr/kr/bbs/view.do?bbsId=B0000000&menuNo=204947&nttId=171&pageIndex=1",
+    "version": "2026-03-10 공고, 2026-03-17 접수 종료",
+    "checkedAt": "2026-10-25",
+    "kind": "educator-selection-notice",
+    "notes": "Selection of four external instructors for information-security disclosure training, including curriculum and teaching materials and online/offline sessions. It is a paid instructor selection, not a regular employee job posting."
+  },
+  {
+    "id": "coupang-email-security-oncall-2026",
+    "title": "Senior ~ Staff, Security Engineer (Email Security)",
+    "organization": "쿠팡",
+    "url": "https://www.coupang.jobs/kr/jobs/8206704/senior-staff-security-engineer-email-security/",
+    "version": "2026-10-02 갱신, 모집 완료 시 조기 종료",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Employer posting includes after-hours on-call response for email-security incidents. One 2026-10-25 browser review reached the body while another received a Cloudflare 403 challenge; reader access may vary. This single senior posting does not establish a universal work condition."
+  },
+  {
+    "id": "estsecurity-product-support-2026",
+    "title": "보안 솔루션 S/W PM 및 기술지원",
+    "organization": "이스트시큐리티",
+    "url": "https://estfamily.career.greetinghr.com/ko/o/227776",
+    "version": "게시일 미표기, 채용 시 마감",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Customer support for a document security product by phone, email, remote and on-site work, plus customer training, partner support and project management. Five years of related experience in this combined role."
+  },
+  {
+    "id": "sk-intellix-iot-security-2025",
+    "title": "IoT 제품 보안 운영",
+    "organization": "SK intellix",
+    "url": "https://www.skcareers.com/Recruit/Detail/R251590",
+    "version": "2025-07-29~2025-10-13 모집 종료",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Historical IoT product-security posting includes firmware and OTA security as part of a broader role. Related bachelor's degree and four years of relevant experience apply only to this opening."
+  },
+  {
+    "id": "skt-cryptography-junior-2025",
+    "title": "2025 Junior Talent 채용 - 보안 직군 (Cryptography Engineer 분야)",
+    "organization": "SK텔레콤",
+    "url": "https://www.skcareers.com/Recruit/Detail/R252048",
+    "version": "2025-10-01~2025-10-22 모집 종료",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Historical new-hire cryptography role, covering design and verification and HSM/KMS integration. Eligible applicants were 2025 master's graduates or expected February 2026 master's graduates; the degree restriction is specific to this posting."
+  },
+  {
+    "id": "nist-nice-insider-threat-role",
+    "title": "NICE Framework Components v1.0.0 Summary of Changes",
+    "organization": "NIST NICE",
+    "url": "https://www.nist.gov/system/files/documents/2024/03/04/NICE%20Framework%20Components%20v1.0.0_Summary%20of%20Changes_March2024.pdf",
+    "version": "2024-03 change summary",
+    "checkedAt": "2026-10-25",
+    "kind": "workforce-framework",
+    "notes": "Official change record adds Insider Threat Analysis (PD-WRL-005) as a Work Role. This does not establish the prevalence of a separate Korean job title."
+  },
+  {
+    "id": "nist-csrc-asset",
+    "title": "NIST CSRC Glossary: Asset",
+    "organization": "NIST Computer Security Resource Center",
+    "url": "https://csrc.nist.gov/glossary/term/asset",
+    "version": "공식 용어 정의; 2026-10-25 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "glossary",
+    "notes": "Direct definitions of organizational assets and their value."
+  },
+  {
+    "id": "nist-csrc-risk",
+    "title": "NIST CSRC Glossary: Risk",
+    "organization": "NIST Computer Security Resource Center",
+    "url": "https://csrc.nist.gov/glossary/term/risk",
+    "version": "공식 용어 정의; 2026-10-25 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "glossary",
+    "notes": "Direct definition relates uncertainty, adverse impact and likelihood."
+  },
+  {
+    "id": "nist-csrc-threat",
+    "title": "NIST CSRC Glossary: Threat",
+    "organization": "NIST Computer Security Resource Center",
+    "url": "https://csrc.nist.gov/glossary/term/threat",
+    "version": "공식 용어 정의; 2026-10-25 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "glossary",
+    "notes": "Direct definitions describe circumstances or events with potential adverse impact."
+  },
+  {
+    "id": "nist-csrc-vulnerability",
+    "title": "NIST CSRC Glossary: Vulnerability",
+    "organization": "NIST Computer Security Resource Center",
+    "url": "https://csrc.nist.gov/glossary/term/vulnerability",
+    "version": "공식 용어 정의; 2026-10-25 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "glossary",
+    "notes": "Direct definitions of a weakness exploitable or triggerable by a threat."
+  },
+  {
+    "id": "nist-csrc-security-control",
+    "title": "NIST CSRC Glossary: Security Control",
+    "organization": "NIST Computer Security Resource Center",
+    "url": "https://csrc.nist.gov/glossary/term/security_control",
+    "version": "공식 용어 정의; 2026-10-25 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "glossary",
+    "notes": "Direct definition of safeguards or countermeasures for systems or organizations."
+  },
+  {
+    "id": "nist-csrc-residual-risk",
+    "title": "NIST CSRC Glossary: Residual Risk",
+    "organization": "NIST Computer Security Resource Center",
+    "url": "https://csrc.nist.gov/glossary/term/residual_risk",
+    "version": "공식 용어 정의; 2026-10-25 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "glossary",
+    "notes": "Direct definition of risk remaining after controls are applied."
+  },
+  {
+    "id": "nist-csrc-authentication",
+    "title": "NIST CSRC Glossary: Authentication",
+    "organization": "NIST Computer Security Resource Center",
+    "url": "https://csrc.nist.gov/glossary/term/authentication",
+    "version": "공식 용어 정의; 2026-10-25 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "glossary",
+    "notes": "Direct definition of verifying the identity of a user, process or device."
+  },
+  {
+    "id": "nist-csrc-authorization",
+    "title": "NIST CSRC Glossary: Authorization",
+    "organization": "NIST Computer Security Resource Center",
+    "url": "https://csrc.nist.gov/glossary/term/authorization",
+    "version": "공식 용어 정의; 2026-10-25 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "glossary",
+    "notes": "Use the glossary's access-rights sense, not authorization to operate a system."
+  },
+  {
+    "id": "sigma-detection-rules",
+    "title": "Sigma Rules",
+    "organization": "SigmaHQ",
+    "url": "https://sigmahq.io/docs/basics/rules.html",
+    "version": "공식 규칙 설명; 2026-10-25 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "glossary",
+    "notes": "Direct explanation that detection rules specify event patterns; this wiki only uses it to explain a job deliverable, not a how-to."
+  },
+  {
+    "id": "microsoft-security-exception-duration",
+    "title": "Manage exceptions in Microsoft Defender Vulnerability Management",
+    "organization": "Microsoft Learn",
+    "url": "https://learn.microsoft.com/en-us/defender-vulnerability-management/tvm-exception",
+    "version": "제품별 예외 기간 설명; 2026-10-25 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "documentation",
+    "notes": "Official product documentation says an exception has a duration and expires; a new exception is needed to continue. It illustrates the career glossary's editorial term rather than setting a universal workflow."
+  },
+  {
+    "id": "nist-csrc-risk-response",
+    "title": "NIST CSRC Glossary: Risk Response",
+    "organization": "NIST Computer Security Resource Center",
+    "url": "https://csrc.nist.gov/glossary/term/risk_response",
+    "version": "공식 용어 정의; 2026-10-25 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "glossary",
+    "notes": "Direct definition of risk response choices; risk acceptance is one response, not an absence of decision."
+  },
+  {
+    "id": "nist-csrc-audit",
+    "title": "NIST CSRC Glossary: Audit",
+    "organization": "NIST Computer Security Resource Center",
+    "url": "https://csrc.nist.gov/glossary/term/audit",
+    "version": "공식 용어 정의; 2026-10-25 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "glossary",
+    "notes": "Direct audit definition for a career glossary entry about review work and evidence."
+  },
+  {
+    "id": "nist-csrc-evidence",
+    "title": "NIST CSRC Glossary: Evidence",
+    "organization": "NIST Computer Security Resource Center",
+    "url": "https://csrc.nist.gov/glossary/term/evidence",
+    "version": "공식 용어 정의; 2026-10-25 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "glossary",
+    "notes": "Direct evidence definition; use alongside audit context rather than as a universal list of required documents."
+  },
+  {
+    "id": "nist-csrc-incident-response",
+    "title": "NIST CSRC Glossary: Incident Response",
+    "organization": "NIST Computer Security Resource Center",
+    "url": "https://csrc.nist.gov/glossary/term/incident_response",
+    "version": "공식 용어 정의; 2026-10-25 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "glossary",
+    "notes": "Direct definition of organized response to a security incident."
+  },
+  {
+    "id": "nist-sp-800-61r3",
+    "title": "Incident Response Recommendations and Considerations for Cybersecurity Risk Management",
+    "organization": "NIST",
+    "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r3.pdf",
+    "version": "NIST SP 800-61 Rev. 3, April 2025",
+    "checkedAt": "2026-10-25",
+    "kind": "documentation",
+    "notes": "Official final incident-response guidance; page 40 discusses containment in the broader response workflow."
+  },
+  {
+    "id": "kisa-entry-recruitment-2026",
+    "title": "2026년 하반기 한국인터넷진흥원 일반직·일반계약직 채용공고",
+    "organization": "한국인터넷진흥원",
+    "url": "https://www.kisa.or.kr/404/form?page=1&postSeq=1397",
+    "version": "2026-09-22 공고; 2026-10-06 접수 종료",
+    "checkedAt": "2026-10-25",
+    "kind": "historical-job-posting",
+    "notes": "19명 전체: 일반직 7명(경영·정책 나주 4, 기술 나주 3), 무기계약직 일반계약직 12명(기술 나주 9, 서울 3). 암호기술·사이버보안 인재 양성은 나주 기술 9명 묶음 안의 업무 분야이며 별도 인원 수는 제시되지 않음."
+  },
+  {
+    "id": "kisa-entry-alio-2026",
+    "title": "2026년 하반기 한국인터넷진흥원 일반직·일반계약직 채용 JOB-ALIO",
+    "organization": "JOB-ALIO / 한국인터넷진흥원",
+    "url": "https://job.alio.go.kr/recruitview.do?idx=305199",
+    "version": "2026-09-22 공고; 2026-10-06 접수 종료",
+    "checkedAt": "2026-10-25",
+    "kind": "historical-job-posting",
+    "notes": "Public-sector listing confirms 19 total, 신입 tag, mixed regular and indefinite-contract employment; class-specific placement and duties must be read in KISA's full notice."
+  },
+  {
+    "id": "kiat-security-recruitment-2026",
+    "title": "2026년 하반기 한국산업기술진흥원 전문분야 신규직원 공개채용",
+    "organization": "JOB-ALIO / 한국산업기술진흥원",
+    "url": "https://job.alio.go.kr/recruitview.do?idx=306258",
+    "version": "2026-10-22 공고; 2026-11-06 접수 마감 예정",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "AI정보화와 정보보안을 포함한 공고 전체 2명, 신입+경력, 정규직. 직무기술서 첨부 접근이 제한되어 분야별 배정 인원과 상세 업무는 미확인."
+  },
+  {
+    "id": "kotsa-vehicle-security-2026",
+    "title": "2026년 제4차 한국교통안전공단 자율주행본부 기간제근로자 채용",
+    "organization": "JOB-ALIO / 한국교통안전공단",
+    "url": "https://job.alio.go.kr/recruitview.do?idx=304607",
+    "version": "2026-09-07 공고; 2026-09-22 접수 종료",
+    "checkedAt": "2026-10-25",
+    "kind": "historical-job-posting",
+    "notes": "자동차 보안 인증 보조는 청년인턴 사무직의 행정업무; 자동차 통합보안 연구는 별도 위촉연구원 5급 한 자리. 학위·경력 조건은 연구원 자리 한정."
+  },
+  {
+    "id": "fasoo-technical-writer-2026",
+    "title": "파수 테크니컬 라이터 경력 채용",
+    "organization": "파수",
+    "url": "https://recruit.fasoo.com/apply/284",
+    "version": "2026-01-19 게시; 채용 시까지",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "공식 채용 페이지에 경력·정규직·지원 가능 표시. 세부 JD는 이미지로 제공되어 경력 연수와 상세 자격·업무를 텍스트로 확인할 수 없음."
+  },
+  {
+    "id": "fasoo-technical-writer-interview-2025",
+    "title": "테크니컬 라이터는 무슨 일을 하나요",
+    "organization": "파수",
+    "url": "https://recruit.fasoo.com/fasoo-inside/tw%ED%85%8C%ED%81%AC%EB%8B%88%EC%BB%AC-%EB%9D%BC%EC%9D%B4%ED%84%B0%EB%8A%94-%EB%AC%B4%EC%8A%A8-%EC%9D%BC%EC%9D%84-%ED%95%98%EB%82%98%EC%9A%94",
+    "version": "2025-02-21 공식 현직자 인터뷰",
+    "checkedAt": "2026-10-25",
+    "kind": "employer-role-interview",
+    "notes": "Product technical writer describes Korean/English manuals and UI/UX in-product text; interview explains work but is not a hiring-qualification source."
+  },
+  {
+    "id": "fasoo-entry-internship-2026",
+    "title": "파수 2026년 3차 신입 공개 채용",
+    "organization": "파수",
+    "url": "https://recruit.fasoo.com/apply/299",
+    "version": "2026-10-12~2026-10-25 채용연계형 인턴 접수",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Official listing says new-hire conversion internship. Image-only details do not establish an individual security-product placement or role requirements."
+  },
+  {
+    "id": "fasoo-sw-consultant-interview-2026",
+    "title": "파수 SW 컨설턴트 직무 인터뷰",
+    "organization": "파수",
+    "url": "https://recruit.fasoo.com/fasoo-inside/26-3_swcon",
+    "version": "2026-10-08 공식 인터뷰",
+    "checkedAt": "2026-10-25",
+    "kind": "employer-role-interview",
+    "notes": "Describes AM assigned-customer build/operations and CS multi-customer remote/occasional site support. Does not prove placement under the separate 2026 internship notice."
+  },
+  {
+    "id": "fasoo-presales-historical-2022",
+    "title": "파수 솔루션 컨설턴트(프리세일즈) 과거 채용",
+    "organization": "파수",
+    "url": "https://career.fasoo.com/apply/apply_recruit_board_view.asp?idx=202",
+    "version": "2022-11-01 게시된 과거 공고",
+    "checkedAt": "2026-10-25",
+    "kind": "historical-job-posting",
+    "notes": "Historical listing names proposal, product demonstration, POC and BMT. Template still says in progress, but 2022 date cannot establish current recruitment."
+  },
+  {
+    "id": "coupang-threat-hunting-2026",
+    "title": "Staff Security Engineer (Cyber Threat Hunting)",
+    "organization": "Coupang Careers",
+    "url": "https://www.coupang.jobs/kr/jobs/8163723/staff-security-engineer-cyber-threat-hunting/",
+    "version": "2026-10-25 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Threat-hunting staff role collaborates with Insider Threat and other security teams. It is not a separate Insider Threat Analyst vacancy."
+  },
+  {
+    "id": "coupang-threat-detection-2026",
+    "title": "Senior Threat Detection Engineer",
+    "organization": "Coupang Careers",
+    "url": "https://www.coupang.jobs/kr/jobs/8188040/senior-threat-detection-engineer/",
+    "version": "2026-10-25 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Detection engineering role includes insider-threat detection context/experience; not evidence of independent Insider Threat Analyst hiring."
+  },
+  {
+    "id": "cisa-fbi-threat-hunting-2021",
+    "title": "Ransomware Awareness for Holidays and Weekends",
+    "organization": "CISA / FBI",
+    "url": "https://www.cisa.gov/sites/default/files/publications/AA21-243A-Ransomware_Awareness_for_Holidays_and_Weekends.pdf",
+    "version": "Joint Cybersecurity Advisory AA21-243A, 2021-08-31",
+    "checkedAt": "2026-10-25",
+    "kind": "guidance",
+    "notes": "THREAT HUNTING section directly describes proactive search for signs of threat actor activity. Official PDF returned 403 to one reader; indexed official text was checked, so readers may encounter access limits."
+  },
+  {
+    "id": "enisa-cti-definition-2017",
+    "title": "Exploring the Opportunities and Limitations of Current Threat Intelligence Platforms",
+    "organization": "ENISA",
+    "url": "https://www.enisa.europa.eu/sites/default/files/publications/WP2017%20O.3.1.2u3%20-%20Limits%20of%20TISPs.pdf",
+    "version": "December 2017, section 2.1.1",
+    "checkedAt": "2026-10-25",
+    "kind": "guidance",
+    "notes": "Section 2.1.1 discusses CTI as interpreted information meeting a decision requirement. It quotes an illustrative definition from another source, so do not present the quote as ENISA's exclusive definition."
+  },
+  {
+    "id": "nist-csrc-grc",
+    "title": "NIST CSRC Glossary: GRC",
+    "organization": "NIST Computer Security Resource Center",
+    "url": "https://csrc.nist.gov/glossary/term/grc",
+    "version": "공식 약어 목록; 2026-10-25 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "glossary",
+    "notes": "Direct acronym expansion to Governance, Risk, and Compliance; the entry does not by itself define a job's full responsibilities."
+  },
+  {
+    "id": "ahnlab-digital-forensics-2026",
+    "title": "안랩 디지털 포렌식 (신입/경력) 채용",
+    "organization": "안랩",
+    "url": "https://ahnlab-cms.recruiter.co.kr/app/jobnotice/view?systemKindCode=MRS2&jobnoticeSn=268606",
+    "version": "2026-10-07~2026-10-25 접수",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Official ATS detail renders in a SmartEditorRead iframe. Duty line says incident analysis and threat intelligence. New applicants: relevant education, projects or self-driven practice; experienced applicants: 2+ years in forensics or IR and memory/disk/log analysis. Certifications are preferred; direct evidence-collection duty is not stated."
+  },
+  {
+    "id": "ahnlab-soc-onsite-2026",
+    "title": "안랩 경력 보안관제 채용",
+    "organization": "안랩",
+    "url": "https://ahnlab-cms.recruiter.co.kr/app/jobnotice/view?systemKindCode=MRS2&jobnoticeSn=269141",
+    "version": "2026-10-14~2026-10-25 접수",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Official ATS SmartEditorRead iframe says customer-site 24x7 security monitoring, 4+ years' experience and rotating day/night shifts; malware/forensic experience and certifications are preferred. These are this customer-site post's requirements."
   }
 ]

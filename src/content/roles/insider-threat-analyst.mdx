@@ -11,9 +11,9 @@ typicalTasks: [접근 이상 신고 접수, 자산·권한 맥락 확인, 승인
 keyDeliverables: [사건 접수·분류 기록, 근거와 반례가 있는 분석 보고서, 인계 기록, 절차 개선 의견]
 relatedRoleIds: [soc-analyst, iam-engineer, incident-responder]
 roadmapIds: [security-operations]
-sourceIds: [nist-nice, nist-jobs-vs-roles, nist-csf]
+sourceIds: [nist-nice, nist-jobs-vs-roles, nist-csf, nist-nice-insider-threat-role, coupang-threat-hunting-2026, coupang-threat-detection-2026]
 reviewStatus: needs-review
-reviewedAt: '2026-10-09'
+reviewedAt: '2026-10-25'
 publicationStatus: published
 ---
 
@@ -35,15 +35,18 @@ SOC, IAM, 사고 대응, 내부 감사에서 옮겨올 수 있다. 포트폴리�
 
 ## 근거와 미확인 사항
 
-[NICE Framework의 Insider Threat Analysis 업무 역할](https://niccs.cisa.gov/workforce-development/nice-framework)은 내부자 위협의 능력과 활동을 식별·평가하고 조사 지원에 필요한 결과를 만드는 책임을 제시한다. 이는 업무 역할의 공식 정의이지만 한국 회사의 독립 채용 직함을 보장하지는 않는다. 이번 조사에서는 국내 ‘내부자 위협 분석가’ 공고 본문을 확인하지 못했다. 따라서 근무 형태, 조사 권한, 필수 자격을 일반 요건으로 쓰지 않는다. 개인정보와 근로 관계에 관한 구체적 법적 판단은 해당 조직의 공식 절차와 전문가 검토가 필요하다.
+[NIST NICE의 2024년 공식 변경 기록](https://www.nist.gov/system/files/documents/2024/03/04/NICE%20Framework%20Components%20v1.0.0_Summary%20of%20Changes_March2024.pdf)은 **Insider Threat Analysis (PD-WRL-005)**를 새 업무 역할로 추가했다고 명시한다. 이는 내부자 위협 분석이라는 책임을 구분하는 근거이지만 한국 회사의 독립 채용 직함이나 채용 규모를 보장하지 않는다. 이번 조사에서는 국내 ‘내부자 위협 분석가’ 상세 공고를 확인하지 못했으므로 근무 형태, 조사 권한, 필수 자격을 일반 요건으로 쓰지 않는다. 개인정보와 근로 관계에 관한 구체적 법적 판단은 해당 조직의 공식 절차와 전문가 검토가 필요하다.
 
-## 판단의 질을 높이는 질문
+[쿠팡의 Cyber Threat Hunting 공고](https://www.coupang.jobs/kr/jobs/8163723/staff-security-engineer-cyber-threat-hunting/)는 SOC·사고 대응·탐지·위협 인텔리전스와 함께 **Insider Threat 팀과 협업**한다고 썼다. [Senior Threat Detection Engineer 공고](https://www.coupang.jobs/kr/jobs/8188040/senior-threat-detection-engineer/)도 내부자 위협 탐지 업무와 관련 경험을 다룬다. 두 자료는 2026-10-25 확인한 **인접 업무 공고**이며 ‘내부자 위협 분석가’의 독립 채용이나 그 자격 요건을 증명하지 않는다. 지원자는 해당 조직에서 조사 승인과 사람 관련 판단을 누가 맡는지 구분해야 한다.
 
-같은 행위라도 업무 변경, 승인된 대체 업무, 시스템 오류 등 다른 설명이 있을 수 있다. 그래서 이상 신호를 받으면 ‘무엇을 관찰했는가’와 ‘왜 위험하다고 해석하는가’를 별도 항목으로 적는다. 확인하지 않은 소문이나 개인의 평판을 기술적 사실과 섞지 않는다. 누가 어떤 자료를 볼 수 있는지, 어떤 시점에 인사·법무 담당자를 참여시켜야 하는지, 조사 결과를 어떻게 삭제·보존하는지를 조직 절차로 확인한다. 채용 공고가 이 명칭을 쓰더라도 내부 감사, 정보 유출 방지 제품 운영, 사기 조사 중 어디에 무게가 있는지 확인해야 한다. 입문자는 사실과 가설을 분리한 모의 사건 기록으로 판단력을 보여줄 수 있다.
+## 지원 전에 확인할 조건
 
-## 가상의 오탐 검토
+- 이 역할이 관제팀, 내부 감사팀, 기업 위험 조직 가운데 어디에 속하며 주된 결과물은 무엇인가?
+- 조사의 승인자와 열람 가능한 자료 범위, 자료 보존·삭제 책임은 누구에게 있는가?
+- 인사·법무·개인정보 담당자는 어느 단계에서 참여하고 보호 조치를 누가 승인하는가?
+- 오탐이거나 업무상 정당한 활동으로 확인되면 기록과 탐지 기준을 어떻게 바로잡는가?
 
-가상으로 한 직원이 평소보다 많은 파일을 읽었다는 경보가 발생한다. 분석가는 해당 직원의 이름이나 퇴사 소문을 먼저 결론에 넣지 않는다. 승인된 조사 범위 안에서 업무 변경과 프로젝트 마감 여부, 같은 팀의 정상 활동을 확인한다. 실제 자료 이동이 있었다면 어떤 자료가 어느 경로로 이동했는지 확인하고, 합법적 공유일 가능성도 검토한다. 위험이 높아 보이더라도 계정을 즉시 차단할 권한이 없다면 정해진 사고 대응자에게 근거와 긴급도를 전달한다. 결과 보고서에는 위험 신호와 반례, 미확인 사실을 함께 적어 인사 판단과 기술 분석이 섞이지 않게 한다.
+지원자는 기술적 이상을 사람에 대한 단정으로 바꾸지 않는 판단 기록을 준비한다. 실제 직원 자료와 확인되지 않은 평판은 포트폴리오에 사용하지 않는다.
 
 ## 실무에서 지켜야 할 원칙
 

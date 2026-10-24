@@ -13,15 +13,84 @@ export function normalizeSearchText(value: string): string {
   return value.normalize("NFKC").toLocaleLowerCase().replace(/[\s\p{P}\p{S}]+/gu, "");
 }
 
+export function textOnlySearchBody(body: string): string {
+  return body.replace(/[#*_`>\[\]()]|https?:\/\/\S+/g, " ").replace(/\s+/g, " ").trim();
+}
+
+export function searchTerms(query: string): string[] {
+  return query.trim().split(/[\s/]+/u).map(normalizeSearchText).filter(Boolean);
+}
+
+function containsTerm(value: string, normalizedValue: string, term: string): boolean {
+  if (!normalizedValue.includes(term)) return false;
+  if (!/^[a-z0-9]{1,3}$/.test(term)) return true;
+  // AI, OT and similar abbreviations should not match inside "chain" or "IoT".
+  return new RegExp(`(^|[^a-z0-9])${term}(?=$|[^a-z0-9])`, "u")
+    .test(value.normalize("NFKC").toLocaleLowerCase());
+}
+
+export function matchesAllTerms(query: string, fields: string[]): boolean {
+  const terms = searchTerms(query);
+  if (!terms.length) return true;
+  const text = fields.join(" ");
+  const normalizedText = normalizeSearchText(text);
+  return terms.every((term) => containsTerm(text, normalizedText, term));
+}
+
+export function searchMatchContext(query: string, visibleFields: string[], body: string): string | undefined {
+  const visible = visibleFields.join(" ");
+  const normalizedVisible = normalizeSearchText(visible);
+  const normalizedBody = normalizeSearchText(body);
+  const lowerBody = body.toLocaleLowerCase();
+  for (const term of searchTerms(query)) {
+    if (containsTerm(visible, normalizedVisible, term) || !containsTerm(body, normalizedBody, term)) continue;
+    const index = lowerBody.indexOf(term);
+    if (index < 0) continue;
+    const start = Math.max(0, index - 45);
+    const end = Math.min(body.length, index + term.length + 75);
+    return `${start ? "…" : ""}${body.slice(start, end).trim()}${end < body.length ? "…" : ""}`;
+  }
+  return undefined;
+}
+
 export function searchDocuments(query: string, documents: SearchDocument[]): SearchDocument[] {
   const needle = normalizeSearchText(query);
   if (!needle) return [];
+  const terms = searchTerms(query);
   return documents
     .map((document) => {
-      const names = [document.title, document.english, ...document.aliases].map(normalizeSearchText);
-      let score = names.includes(needle) ? 100 : names.some((name) => name.startsWith(needle)) ? 70 : names.some((name) => name.includes(needle)) ? 55 : 0;
-      if (normalizeSearchText(document.summary).includes(needle)) score = Math.max(score, 30);
-      if (normalizeSearchText(document.body).includes(needle)) score = Math.max(score, 10);
+      const title = normalizeSearchText(document.title);
+      const english = normalizeSearchText(document.english);
+      const aliases = document.aliases.map(normalizeSearchText);
+      const summary = normalizeSearchText(document.summary);
+      const body = normalizeSearchText(document.body);
+      function termScore(term: string): number {
+        if (title === term) return 120;
+        if (english === term) return 110;
+        if (aliases.includes(term)) return 100;
+        if (title.startsWith(term) && containsTerm(document.title, title, term)) return 85;
+        if (english.startsWith(term) && containsTerm(document.english, english, term)) return 80;
+        if (aliases.some((name, index) => name.startsWith(term) && containsTerm(document.aliases[index], name, term))) return 70;
+        if (containsTerm(document.title, title, term)) return 65;
+        if (containsTerm(document.english, english, term)) return 60;
+        if (aliases.some((name, index) => containsTerm(document.aliases[index], name, term))) return 55;
+        if (containsTerm(document.summary, summary, term)) return 30;
+        if (containsTerm(document.body, body, term)) return 10;
+        return 0;
+      }
+      const phraseScore = termScore(needle);
+      const termScores = terms.map(termScore);
+      const allTermsFound = terms.length > 1 && termScores.every(Boolean);
+      const inSameName = allTermsFound && [
+        [document.title, title],
+        [document.english, english],
+        ...document.aliases.map((alias, index) => [alias, aliases[index]]),
+      ].some(([value, normalized]) => terms.every((term) => containsTerm(value, normalized, term)));
+      // In a multiword role query, the final word is usually the role or work area.
+      const combinedScore = allTermsFound
+        ? (termScores.reduce((sum, value) => sum + value, 0) + termScores[termScores.length - 1]) / (termScores.length + 1) + (inSameName ? 15 : 0)
+        : 0;
+      const score = Math.max(phraseScore, combinedScore);
       return { document, score };
     })
     .filter(({ score }) => score > 0)

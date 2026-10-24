@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 import { ArrowUpRight, Search, X } from "lucide-react";
-import { useEffect, useMemo, useRef, useState, type KeyboardEvent as ReactKeyboardEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { assetUrl } from "@/lib/urls";
-import { normalizeSearchText, searchDocuments, type SearchDocument } from "@/lib/search";
+import { normalizeSearchText, searchDocuments, searchMatchContext, searchTerms, type SearchDocument } from "@/lib/search";
 
 const typeNames: Record<SearchDocument["type"], string> = {
   role: "직무", roadmap: "커리어 경로", glossary: "용어",
@@ -14,10 +14,33 @@ const typeNames: Record<SearchDocument["type"], string> = {
 const focusableSelector = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
 function highlighted(value: string, query: string) {
-  const clean = query.trim();
-  const index = value.toLocaleLowerCase().indexOf(clean.toLocaleLowerCase());
-  if (!clean || index < 0) return value;
-  return <>{value.slice(0, index)}<mark>{value.slice(index, index + clean.length)}</mark>{value.slice(index + clean.length)}</>;
+  const lower = value.toLocaleLowerCase();
+  const ranges: Array<{ start: number; end: number }> = [];
+  for (const term of searchTerms(query)) {
+    let from = 0;
+    while (from < lower.length) {
+      const start = lower.indexOf(term, from);
+      if (start < 0) break;
+      const end = start + term.length;
+      const shortLatin = /^[a-z0-9]{1,3}$/.test(term);
+      if (!shortLatin || ((start === 0 || !/[a-z0-9]/.test(lower[start - 1])) && (end === lower.length || !/[a-z0-9]/.test(lower[end])))) {
+        ranges.push({ start, end });
+      }
+      from = end;
+    }
+  }
+  if (!ranges.length) return value;
+  ranges.sort((a, b) => a.start - b.start || b.end - a.end);
+  const parts: ReactNode[] = [];
+  let cursor = 0;
+  for (const range of ranges) {
+    if (range.start < cursor) continue;
+    if (range.start > cursor) parts.push(value.slice(cursor, range.start));
+    parts.push(<mark key={`${range.start}-${range.end}`}>{value.slice(range.start, range.end)}</mark>);
+    cursor = range.end;
+  }
+  if (cursor < value.length) parts.push(value.slice(cursor));
+  return <>{parts}</>;
 }
 
 function matchingAlias(item: SearchDocument, query: string): string | undefined {
@@ -36,7 +59,8 @@ export function SearchDialog() {
   const overlayRef = useRef<HTMLDivElement>(null);
   const openerRef = useRef<HTMLElement | null>(null);
   const restoreFocusRef = useRef(true);
-  const results = useMemo(() => searchDocuments(query, documents).slice(0, 10), [query, documents]);
+  const allResults = useMemo(() => searchDocuments(query, documents), [query, documents]);
+  const results = allResults.slice(0, 10);
   const activeIndex = Math.min(selected, Math.max(0, results.length - 1));
 
   function openDialog() {
@@ -118,17 +142,24 @@ export function SearchDialog() {
   }
 
   return <>
-    <button type="button" className="search-trigger" onClick={openDialog} aria-label="보안 직무 검색" aria-haspopup="dialog" aria-expanded={open}>
+    <button type="button" className="search-trigger" onClick={openDialog} aria-label="직무, 경로, 용어 검색" aria-haspopup="dialog" aria-expanded={open}>
       <Search size={18} /><span>직무, 경로, 용어 검색</span><kbd>Ctrl K</kbd>
     </button>
     {open && createPortal(<div ref={overlayRef} className="search-overlay" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) closeDialog(); }} onKeyDown={onModalKey}>
       <div ref={modalRef} className="search-modal" role="dialog" aria-modal="true" aria-label="보안 직무 검색">
         <div className="search-modal-top"><Search size={21} aria-hidden="true" /><input ref={inputRef} value={query} onChange={(event) => { setQuery(event.target.value); setSelected(0); }} onKeyDown={onInputKey} placeholder="직무, 커리어 경로 또는 용어를 검색하세요" aria-label="검색어" /><button type="button" className="icon-button" aria-label="검색 닫기" onClick={() => closeDialog()}><X size={18} /></button></div>
-        <span className="sr-only" role="status" aria-live="polite">{query && results.length ? `${results.length}개 결과. ${activeIndex + 1}번째 ${results[activeIndex].title}` : query && documents.length ? "검색 결과 없음" : ""}</span>
+        <span className="sr-only" role="status" aria-live="polite">{query && results.length ? `전체 ${allResults.length}개 결과 중 ${results.length}개 표시. ${activeIndex + 1}번째 ${results[activeIndex].title}` : query && documents.length ? "검색 결과 없음" : ""}</span>
         <div className="search-results" role="region" aria-label="검색 결과">
-          {error ? <p className="search-message">검색 색인을 불러오지 못했습니다. 페이지를 새로고침해 주세요.</p> : !query ? <div className="search-hint"><span>추천 검색어</span><button type="button" onClick={() => setQuery("보안관제")}>보안관제</button><button type="button" onClick={() => setQuery("개인정보")}>개인정보</button><button type="button" onClick={() => setQuery("보안 제품")}>보안 제품</button></div> : !documents.length ? <p className="search-message">검색 자료를 불러오는 중입니다…</p> : !results.length ? <p className="search-message">검색 결과가 없습니다. 다른 직무명이나 영어 약어를 시도해 보세요.</p> : results.map((item, index) => <Link className={`search-result ${index === activeIndex ? "selected" : ""}`} key={`${item.type}-${item.id}`} href={item.href} onClick={() => closeDialog(false)}>
-            <span className="search-result-main"><strong>{highlighted(item.title, query)}</strong><small>{highlighted(item.english, query)}{matchingAlias(item, query) && <> · {highlighted(matchingAlias(item, query)!, query)}</>}</small><em>{highlighted(item.summary, query)}</em></span><span className="search-result-side"><span>{typeNames[item.type]}</span><ArrowUpRight size={15} aria-hidden="true" /></span>
-          </Link>)}
+          {error ? <p className="search-message">검색 색인을 불러오지 못했습니다. 페이지를 새로고침해 주세요.</p> : !query ? <div className="search-hint"><span>추천 검색어</span><button type="button" onClick={() => setQuery("보안관제")}>보안관제</button><button type="button" onClick={() => setQuery("개인정보")}>개인정보</button><button type="button" onClick={() => setQuery("보안 제품")}>보안 제품</button></div> : !documents.length ? <p className="search-message">검색 자료를 불러오는 중입니다…</p> : !results.length ? <p className="search-message">검색 결과가 없습니다. 다른 직무명이나 영어 약어를 시도해 보세요.</p> : <>
+            <p className="search-count">{allResults.length}개 결과{allResults.length > results.length ? ` 중 관련도 높은 ${results.length}개를 보여줍니다. 검색어를 더 구체적으로 입력해 보세요.` : ""}</p>
+            {results.map((item, index) => {
+              const alias = matchingAlias(item, query);
+              const context = searchMatchContext(query, [item.title, item.english, ...item.aliases, item.summary], item.body);
+              return <Link className={`search-result ${index === activeIndex ? "selected" : ""}`} key={`${item.type}-${item.id}`} href={item.href} onClick={() => closeDialog(false)}>
+                <span className="search-result-main"><strong>{highlighted(item.title, query)}</strong><small>{highlighted(item.english, query)}{alias && <> · {highlighted(alias, query)}</>}</small><em>{highlighted(item.summary, query)}</em>{context && <span className="search-result-context">본문: {highlighted(context, query)}</span>}</span><span className="search-result-side"><span>{typeNames[item.type]}</span><ArrowUpRight size={15} aria-hidden="true" /></span>
+              </Link>;
+            })}
+          </>}
         </div>
         <div className="search-footer"><span>Tab 결과 탐색</span><span>입력창에서 ↑ ↓ 이동 · Enter 열기</span><span>Esc 닫기</span></div>
       </div>

@@ -145,6 +145,7 @@ html[data-theme="dark"] .wiki-home-index-head { background: #2b4055; }
 .wiki-file-title { color: var(--blue-ink); font-weight: 700; font-size: 14px; }
 .wiki-file-subtitle { grid-column: 1; color: var(--muted); font-size: 12px; }
 .wiki-file-description { grid-column: 2; grid-row: 1 / 3; color: var(--muted); font-size: 13px; line-height: 1.5; }
+.wiki-file-context { grid-column: 2; color: var(--muted); font-size: 12px; line-height: 1.45; margin-top: 2px; }
 .wiki-file-meta { flex: none; min-width: 47px; color: var(--muted); font-size: 10px; text-align: right; }
 .wiki-file-arrow { flex: none; color: var(--muted); }
 .wiki-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin: 19px 0; padding: 10px 12px; border: 1px solid var(--line); background: var(--surface-soft); }
@@ -268,7 +269,7 @@ html[data-theme="dark"] .search-result:hover, html[data-theme="dark"] .search-re
   .wiki-home-file-description { order: 3; flex-basis: 100%; padding-left: 22px; font-size: 13px; }
   .wiki-file-list { padding: 0 5px 8px 18px; }
   .wiki-file-main { display: block; }
-  .wiki-file-title, .wiki-file-subtitle, .wiki-file-description { display: block; }
+  .wiki-file-title, .wiki-file-subtitle, .wiki-file-description, .wiki-file-context { display: block; }
   .wiki-file-title { font-size: 14px; }
   .wiki-file-description { margin-top: 2px; font-size: 13px; }
   .wiki-file-meta { display: none; }

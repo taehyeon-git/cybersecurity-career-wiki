@@ -1,4 +1,4 @@
-/** NCS 정보보호 SQF의 하위 산업 분야를 실제 채용 직무에 맞게 풀어 쓴 업무 범주. */
+/** NCS 정보보호 SQF를 참고한 위키의 편집 분류. SQF의 운영·관리는 전략·관리와 구축·운영으로 나눈다. */
 export const roleCategories = [
   { id: "management", ko: "보안 전략·관리", en: "Strategy & Governance", description: "보안 전략, 정책, 위험, 개인정보와 조직 운영을 책임집니다.", tone: "amber" },
   { id: "development", ko: "보안 설계·개발", en: "Design & Development", description: "서비스와 제품의 안전한 설계·개발을 맡습니다.", tone: "teal" },

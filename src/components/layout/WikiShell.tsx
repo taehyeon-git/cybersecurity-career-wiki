@@ -76,7 +76,7 @@ export function WikiShell({ sidebar, footer, children }: { sidebar: ReactNode; f
         <button ref={closeRef} className="wiki-sidebar-close" type="button" onClick={() => setSidebarOpen(false)}><X size={16} aria-hidden="true" /> 닫기</button>
         {sidebar}
       </aside>
-      <div ref={stageRef} className="wiki-stage" id="main-content">{children}</div>
+      <div ref={stageRef} className="wiki-stage" id="main-content" tabIndex={-1}>{children}</div>
     </div>
     {footer}
   </>;
