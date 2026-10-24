@@ -108,6 +108,14 @@ test("security product work has its own folder and category breadcrumb", async (
   await expect(page.locator(".breadcrumbs").getByRole("link", { name: "보안제품 기획·개발·품질" })).toBeVisible();
 });
 
+test("the customer path sends internal solution operators to the operations folder", async ({ page }) => {
+  await page.goto("./roadmaps/security-customer-career/");
+  await page.getByRole("link", { name: "보안 구축·운영 직무 폴더" }).click();
+  await expect(page).toHaveURL(/\/careers\/\?category=operations$/);
+  await expect(page.getByRole("combobox", { name: "분야" })).toHaveValue("operations");
+  await expect(page.locator(".wiki-index .wiki-folder")).toHaveCount(1);
+});
+
 test("career index initially shows all seven work folders on a narrow screen", async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 720 });
   await page.goto("./careers/");
@@ -226,13 +234,13 @@ test("document pagers follow the order shown in their folder lists", async ({ pa
 
 test("a narrow career article offers a table of contents for long sections", async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 720 });
-  await page.goto("./roadmaps/security-product-customer/");
+  await page.goto("./roadmaps/security-operations/");
   const toc = page.locator(".mobile-document-toc");
   await expect(toc.locator("summary")).toBeVisible();
   await toc.locator("summary").click();
-  await toc.getByRole("link", { name: "포트폴리오: 하나의 고객 문제를 끝까지 추적하기" }).click();
-  await expect(page.getByRole("heading", { name: "포트폴리오: 하나의 고객 문제를 끝까지 추적하기" })).toBeInViewport();
-  expect(decodeURIComponent(new URL(page.url()).hash)).toBe("#포트폴리오-하나의-고객-문제를-끝까지-추적하기");
+  await toc.getByRole("link", { name: "포트폴리오: 한 사건을 여러 역할로 보기" }).click();
+  await expect(page.getByRole("heading", { name: "포트폴리오: 한 사건을 여러 역할로 보기" })).toBeInViewport();
+  expect(decodeURIComponent(new URL(page.url()).hash)).toBe("#포트폴리오-한-사건을-여러-역할로-보기");
 });
 
 test("skip link moves keyboard focus into the article", async ({ page }) => {
@@ -253,6 +261,17 @@ test("narrow mobile header stays inside a 320px viewport", async ({ page }) => {
     const menu = page.getByRole("button", { name: "문서 탐색기 열기" });
     await expect(menu).toBeVisible();
     expect((await menu.boundingBox())!.x + (await menu.boundingBox())!.width).toBeLessThanOrEqual(320);
+  }
+});
+
+test("footer navigation links have a usable touch target on narrow and wide screens", async ({ page }) => {
+  for (const width of [320, 1280]) {
+    await page.setViewportSize({ width, height: 720 });
+    await page.goto("./");
+    for (const link of await page.locator(".footer-links a").all()) {
+      const box = await link.boundingBox();
+      expect(box?.height).toBeGreaterThanOrEqual(24);
+    }
   }
 });
 
@@ -305,14 +324,19 @@ test("career roadmap has one document title", async ({ page }) => {
   await expect(page.locator("main h1")).toHaveCount(1);
 });
 
-test("a broad career path links all of its associated roles", async ({ page }) => {
+test("product and customer career paths keep their distinct role links", async ({ page }) => {
   await page.goto("./roadmaps/security-product-customer/");
   const cards = page.locator(".related-section .related-card");
-  await expect(cards).toHaveCount(10);
-  await expect(page.locator('.related-section a[href*="/careers/security-account-manager/"]')).toBeVisible();
+  await expect(cards).toHaveCount(6);
+  await expect(page.locator('.related-section a[href*="/careers/security-account-manager/"]')).toHaveCount(0);
   await expect(page.locator('.related-section a[href*="/careers/security-certification-evaluator/"]')).toBeVisible();
   await expect(page.locator('.related-section a[href*="/careers/cryptography-engineer/"]')).toBeVisible();
   await expect(page.locator('.related-section a[href*="/careers/security-certification-evaluator/"] small')).toContainText("보안 진단·평가");
+
+  await page.goto("./roadmaps/security-customer-career/");
+  await expect(page.locator(".related-section .related-card")).toHaveCount(4);
+  await expect(page.locator('.related-section a[href*="/careers/security-account-manager/"]')).toBeVisible();
+  await expect(page.locator('.related-section a[href*="/careers/security-product-manager/"]')).toHaveCount(0);
 });
 
 test("a role offers its preparation path before the long article", async ({ page }) => {

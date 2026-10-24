@@ -25,7 +25,7 @@ test("career directory separates security product work from security design and 
 
 test("each role has a reciprocal career path link", () => {
   const roadmaps = publishedRoadmaps();
-  assert.equal(roadmaps.length, 11);
+  assert.equal(roadmaps.length, 12);
   const byId = new Map(roadmaps.map((roadmap) => [roadmap.id, roadmap]));
   for (const role of publishedRoles()) {
     assert.ok(role.roadmapIds.length > 0, `${role.id} has no career path`);

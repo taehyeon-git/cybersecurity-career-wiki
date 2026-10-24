@@ -34,6 +34,6 @@ npm run build
 
 `npm run build`는 `out/index.html`, `out/404.html`, `out/search-index.json`, `out/sitemap.xml`, `out/robots.txt`, `out/.nojekyll`과 게시된 직무·커리어 경로의 상세 출력을 확인합니다. 검색 색인에는 직무·경로·용어만 포함되어야 합니다. 제거된 `/knowledge/`, `/comparisons/`, `/knowledge-map/` 경로가 출력과 색인에 남으면 빌드를 수정합니다.
 
-배포 후 공개 URL에서 홈, 직무 목록·상세, 11개 커리어 경로, 용어집, 검색, 404, 사이트맵, CSS·이미지를 수동 확인합니다. Playwright E2E는 빌드된 `out/`을 검사하며 실제 공개 URL의 상태까지 확인하지는 않습니다. 프로젝트 사이트에서 자산이 404라면 `BASE_PATH`와 `SITE_URL`의 경로를 비교합니다. 자세한 검사 범위는 [검증 안내](TESTING.md)에 있습니다.
+배포 후 공개 URL에서 홈, 직무 목록·상세, 12개 커리어 경로, 용어집, 검색, 404, 사이트맵, CSS·이미지를 수동 확인합니다. Playwright E2E는 빌드된 `out/`을 검사하며 실제 공개 URL의 상태까지 확인하지는 않습니다. 프로젝트 사이트에서 자산이 404라면 `BASE_PATH`와 `SITE_URL`의 경로를 비교합니다. 자세한 검사 범위는 [검증 안내](TESTING.md)에 있습니다.
 
 프로젝트 Pages의 `robots.txt`는 `/저장소명/robots.txt`에 놓입니다. 검색 로봇이 자동으로 조회하는 호스트 루트 `/robots.txt`는 이 저장소에서 제공할 수 없으므로, 공개 사이트의 바닥글에 사이트맵 링크를 두었습니다. 검색엔진 도구에서 사이트 소유권을 확인한 경우 프로젝트 URL의 `/sitemap.xml`을 직접 제출합니다.
