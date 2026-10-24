@@ -10,8 +10,8 @@
 | `npm run content:check` | MDX frontmatter 스키마, 게시 본문 길이, 출처·직무·경로 참조, 본문 외부 인용의 출처 장부·문서별 연결, 직무·경로 내부 링크와 용어집 앵커, 중복 ID·슬러그, 제거된 경로 링크 |
 | `npm run search:build` | 게시된 직무·커리어 경로와 용어에서 `public/search-index.json` 생성 |
 | `npm run build` | 콘텐츠 검사 → 검색 색인 생성 → Next.js 정적 내보내기 → RSC 별칭 생성 → 출력 확인 |
-| `npm run build:verify` | `out/` 필수 파일, 게시 직무·경로 HTML, 제거된 경로의 출력·검색 색인 잔존 여부 확인 |
-| `npm run test:e2e` | Playwright Chromium으로 빌드된 `out/`을 서빙해 홈·직무 이동, 검색과 초점 복귀, 분야 필터 URL 유지, 모바일 탐색기, 제거된 경로의 404, 용어 링크와 출처를 확인 |
+| `npm run build:verify` | `out/` 필수 파일, 게시 직무·경로 HTML, 제거된 경로의 출력·검색 색인 잔존 여부와 모든 정적 HTML의 내부 페이지·위치 링크 확인 |
+| `npm run test:e2e` | Playwright Chromium으로 빌드된 `out/`을 서빙해 홈·직무 이동, 검색과 초점 복귀, 분야 필터 URL 유지, 모바일 폴더·문서 목차, 제거된 경로의 404, 용어 링크와 출처를 확인 |
 
 `search:build`는 유효한 콘텐츠를, `build:verify`는 이미 생성된 `out/`을 필요로 합니다. `public/search-index.json`과 `out/`은 생성물입니다. 직접 수정한 뒤 검증 결과로 취급하지 말고 빌드를 다시 실행합니다.
 

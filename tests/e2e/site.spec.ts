@@ -97,6 +97,16 @@ test("career category selection persists in the page URL", async ({ page }) => {
   await expect(page).toHaveURL(/\/careers\/$/);
 });
 
+test("career index initially shows all six work folders on a narrow screen", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 720 });
+  await page.goto("./careers/");
+  const folders = page.locator(".wiki-index .wiki-folder");
+  await expect(folders).toHaveCount(6);
+  await expect(folders.first()).not.toHaveAttribute("open");
+  await expect(folders.last().locator("summary")).toBeVisible();
+  expect((await folders.last().locator("summary").boundingBox())!.y).toBeLessThan(1000);
+});
+
 test("the selected color theme persists after a reload", async ({ page }) => {
   await page.goto("./careers/");
   await page.getByRole("button", { name: "다크 모드" }).click();
@@ -171,6 +181,17 @@ test("a mobile role article lists its work area and links back to that folder", 
   await expect(page.locator(".breadcrumbs").getByRole("link", { name: "보안 관제·사고 대응" })).toBeVisible();
   await page.locator(".breadcrumbs").getByRole("link", { name: "보안 관제·사고 대응" }).click();
   await expect(page).toHaveURL(/\/careers\/\?category=response$/);
+});
+
+test("a narrow career article offers a table of contents for long sections", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 720 });
+  await page.goto("./roadmaps/security-product-customer/");
+  const toc = page.locator(".mobile-document-toc");
+  await expect(toc.locator("summary")).toBeVisible();
+  await toc.locator("summary").click();
+  await toc.getByRole("link", { name: "포트폴리오: 하나의 고객 문제를 끝까지 추적하기" }).click();
+  await expect(page.getByRole("heading", { name: "포트폴리오: 하나의 고객 문제를 끝까지 추적하기" })).toBeInViewport();
+  expect(decodeURIComponent(new URL(page.url()).hash)).toBe("#포트폴리오-하나의-고객-문제를-끝까지-추적하기");
 });
 
 test("skip link moves keyboard focus into the article", async ({ page }) => {
@@ -250,6 +271,11 @@ test("a broad career path links all of its associated roles", async ({ page }) =
   await expect(page.locator('.related-section a[href*="/careers/security-certification-evaluator/"]')).toBeVisible();
   await expect(page.locator('.related-section a[href*="/careers/cryptography-engineer/"]')).toBeVisible();
   await expect(page.locator('.related-section a[href*="/careers/security-certification-evaluator/"] small')).toContainText("보안 진단·평가");
+});
+
+test("a role article exposes every related role in its further reading", async ({ page }) => {
+  await page.goto("./careers/ciso/");
+  await expect(page.locator('.related-section a[href*="/careers/grc-analyst/"]')).toBeVisible();
 });
 
 test("keyboard focus is visible in both search inputs", async ({ page }) => {

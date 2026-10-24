@@ -296,7 +296,7 @@
     "url": "https://job.alio.go.kr/recruitview.do?idx=305395",
     "version": "2026-09-28 공고; 2026-10-13 마감",
     "checkedAt": "2026-10-25",
-    "kind": "job-posting",
+    "kind": "historical-job-posting",
     "notes": "New-hire privacy field required 정보보안기사 and TOEIC 700 in this one public-sector posting; these are not universal entry requirements."
   },
   {
@@ -456,7 +456,7 @@
     "url": "https://www.samsunghospital.com/home/recruit/recruitInfo/recruitNoticeView.do?RECRUIT_CD=2025AAH0039&ST=ALL&cPage=1",
     "version": "2025-07-08~2025-07-22 모집 종료",
     "checkedAt": "2026-10-25",
-    "kind": "job-posting",
+    "kind": "historical-job-posting",
     "notes": "Historical hospital role combining security checks, audit, privacy systems and cloud review; five years of relevant experience were required. An old countdown badge is not evidence that it is open."
   },
   {
@@ -506,7 +506,7 @@
     "url": "https://job.alio.go.kr/recruitview.do?idx=303024",
     "version": "2026-07-23~2026-08-07 모집 종료",
     "checkedAt": "2026-10-25",
-    "kind": "job-posting",
+    "kind": "historical-job-posting",
     "notes": "Multiple employment tracks in one posting. The permanent information-security role required three years; a separate fixed-term privacy/security-management role required six years."
   },
   {
@@ -516,7 +516,7 @@
     "url": "https://job.alio.go.kr/recruitview.do?idx=305840",
     "version": "2026-10-08~2026-10-19 모집 종료",
     "checkedAt": "2026-10-25",
-    "kind": "job-posting",
+    "kind": "historical-job-posting",
     "notes": "Official public notice confirms title and qualification alternatives, but the attached HWP job description has not been verified; do not infer detailed duties."
   },
   {
@@ -526,7 +526,7 @@
     "url": "https://www.skcareers.com/Recruit/Detail/R252455",
     "version": "2025-11-24~2025-12-08 조기 종료",
     "checkedAt": "2026-10-25",
-    "kind": "job-posting",
+    "kind": "historical-job-posting",
     "notes": "Historical OT and information-security role also includes OT education and awareness; this is a combined role, not evidence of a dedicated security educator opening."
   },
   {
@@ -576,7 +576,7 @@
     "url": "https://samsunghospital.com/home/recruit/recruitInfo/recruitNoticeView.do?RECRUIT_CD=2026AAH0080&cPage=1",
     "version": "2026-09-23~2026-10-06 모집 종료",
     "checkedAt": "2026-10-25",
-    "kind": "job-posting",
+    "kind": "historical-job-posting",
     "notes": "Historical hospital cloud-security specialist posting covering multi-cloud checks, process standardization, architecture review and incident coordination. Related bachelor's degree and three years after graduation apply only to this opening."
   },
   {
@@ -626,7 +626,7 @@
     "url": "https://www.skcareers.com/Recruit/Detail/R251590",
     "version": "2025-07-29~2025-10-13 모집 종료",
     "checkedAt": "2026-10-25",
-    "kind": "job-posting",
+    "kind": "historical-job-posting",
     "notes": "Historical IoT product-security posting includes firmware and OTA security as part of a broader role. Related bachelor's degree and four years of relevant experience apply only to this opening."
   },
   {
@@ -636,7 +636,7 @@
     "url": "https://www.skcareers.com/Recruit/Detail/R252048",
     "version": "2025-10-01~2025-10-22 모집 종료",
     "checkedAt": "2026-10-25",
-    "kind": "job-posting",
+    "kind": "historical-job-posting",
     "notes": "Historical new-hire cryptography role, covering design and verification and HSM/KMS integration. Eligible applicants were 2025 master's graduates or expected February 2026 master's graduates; the degree restriction is specific to this posting."
   },
   {

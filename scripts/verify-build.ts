@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { publishedRoadmaps, publishedRoles } from "../src/lib/content";
+import { validateExportedLinks } from "./lib/export-links";
 
 const out = path.join(process.cwd(), "out");
 const required = ["index.html", "404.html", "icon.svg", "search-index.json", "sitemap.xml", "robots.txt", ".nojekyll"];
@@ -26,4 +27,26 @@ if (missing.length) {
   process.exitCode = 1;
 } else {
   console.log(`Static export verified: ${required.length} required files`);
+}
+
+const exportedFiles = new Set<string>();
+const htmlPages = new Map<string, string>();
+function collectExportedFiles(directory: string) {
+  for (const entry of fs.readdirSync(path.join(out, directory), { withFileTypes: true })) {
+    const relative = path.posix.join(directory.replace(/\\/g, "/"), entry.name);
+    if (entry.isDirectory()) {
+      collectExportedFiles(relative);
+    } else {
+      exportedFiles.add(relative);
+      if (relative.endsWith(".html")) htmlPages.set(relative, fs.readFileSync(path.join(out, relative), "utf8"));
+    }
+  }
+}
+collectExportedFiles("");
+const brokenLinks = validateExportedLinks(htmlPages, exportedFiles, process.env.NEXT_PUBLIC_BASE_PATH ?? "");
+if (brokenLinks.length) {
+  console.error(`Broken static links (${brokenLinks.length}):\n${brokenLinks.slice(0, 20).join("\n")}`);
+  process.exitCode = 1;
+} else {
+  console.log(`Static links verified across ${htmlPages.size} HTML files`);
 }
