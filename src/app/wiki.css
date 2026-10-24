@@ -183,7 +183,8 @@ html[data-theme="dark"] .editorial-note { background: #22384b; color: var(--mute
 .document-toc { top: 110px; max-height: calc(100vh - 130px); padding: 0 0 0 10px; border-left: 1px solid var(--line); }
 .document-toc > div { margin: 0 0 7px; font-size: 11px; }
 .document-toc nav { padding-left: 0; border-left: 0; }
-.document-toc a { padding: 4px 0; color: var(--blue-ink); font-size: 11px; }
+.document-toc a { padding: 5px 0; color: var(--blue-ink); font-size: 13px; line-height: 1.45; }
+.sidebar-links a { font-size: 13px; }
 .document-toc a:hover { text-decoration: underline; }
 .source-section { margin-top: 42px; padding-top: 18px; }
 .source-section h2, .related-section h2 { font-size: 18px; }
