@@ -22,7 +22,8 @@ export default async function RolePage({ params }: { params: Promise<{ slug: str
   if (!role) notFound();
   const category = roleCategories.find((item) => item.id === role.category);
   if (!category) notFound();
-  const categoryRoles = roles.filter((item) => item.category === role.category);
+  const categoryRoles = roles.filter((item) => item.category === role.category)
+    .sort((a, b) => a.titleKo.localeCompare(b.titleKo, "ko"));
   const index = categoryRoles.findIndex((item) => item.id === role.id);
   const roadmaps = publishedRoadmaps();
   const related = [

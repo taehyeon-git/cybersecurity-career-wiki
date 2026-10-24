@@ -190,6 +190,16 @@
     "notes": "Official platform documentation; individual pages should be checked against the version selector."
   },
   {
+    "id": "kubernetes-service-accounts",
+    "title": "Service Accounts | Kubernetes",
+    "organization": "Kubernetes project",
+    "url": "https://kubernetes.io/docs/concepts/security/service-accounts/",
+    "version": "living documentation; checked 2026-10-25",
+    "checkedAt": "2026-10-25",
+    "kind": "documentation",
+    "notes": "Official definition of a non-human ServiceAccount identity in Kubernetes; used only for the glossary term."
+  },
+  {
     "id": "aws-security",
     "title": "AWS Security Documentation",
     "organization": "Amazon Web Services",
@@ -328,6 +338,26 @@
     "checkedAt": "2026-10-25",
     "kind": "glossary",
     "notes": "Direct definition of a SIEM tool in the official NIST glossary; does not prescribe a specific role title."
+  },
+  {
+    "id": "nist-csrc-iam",
+    "title": "Identity and Access Management",
+    "organization": "NIST Computer Security Resource Center",
+    "url": "https://csrc.nist.gov/glossary/term/identity_and_access_management",
+    "version": "living glossary; checked 2026-10-25",
+    "checkedAt": "2026-10-25",
+    "kind": "glossary",
+    "notes": "Official acronym and definition for managing identities, roles and access privileges."
+  },
+  {
+    "id": "nist-zta-architecture",
+    "title": "Implementing a Zero Trust Architecture: Architecture and Builds",
+    "organization": "NIST National Cybersecurity Center of Excellence",
+    "url": "https://pages.nist.gov/zero-trust-architecture/VolumeB/architecture.html",
+    "version": "living project documentation; checked 2026-10-25",
+    "checkedAt": "2026-10-25",
+    "kind": "documentation",
+    "notes": "Official description of identity/access management and endpoint detection/response supporting capabilities; glossary use only."
   },
   {
     "id": "secui-security-sales-2026",
@@ -1468,5 +1498,35 @@
     "checkedAt": "2026-10-25",
     "kind": "historical-job-posting",
     "notes": "Official district page directly states one fixed-term clerical opening supporting CCTV personal-video inspection/disclosure paperwork and records for installation and operations. It is administrative assistance, not a standalone video-security engineer position."
+  },
+  {
+    "id": "fasoo-solution-sales-2023",
+    "title": "솔루션 영업",
+    "organization": "파수·스패로우",
+    "url": "https://career.fasoo.com/apply/apply_recruit_board_view.asp?idx=200",
+    "version": "2023-01-01 접수 시작·채용 시 마감 표시; 2026-10-25 원문 재확인, 실제 모집 지속 여부 미확인",
+    "checkedAt": "2026-10-25",
+    "kind": "historical-job-posting",
+    "notes": "Direct B2B security software sales role: inbound/outbound enterprise accounts, product presentations, proposals and sales kits. Regular employment and 5–10 years of direct IT/software sales experience apply only to this old posting. Its lingering ongoing label does not prove a current opening."
+  },
+  {
+    "id": "fasoo-sales-entry-2022",
+    "title": "2022년 3차 신입 공채: 솔루션 영업 분야",
+    "organization": "파수·스패로우",
+    "url": "https://career.fasoo.com/apply/apply_recruit_board_view.asp?idx=212",
+    "version": "2022-11-14~2022-11-27 접수 종료; 2026-10-25 원문 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "historical-job-posting",
+    "notes": "One mixed graduate intake lists software consulting, QA and solution sales as distinct tracks. The solution-sales track covers customer problem discovery, product proposal and extra purchases or maintenance contracts. It was a three-month conversion-track internship, with conversion process after internship rather than guaranteed regular employment."
+  },
+  {
+    "id": "coupang-csoc-manager-2026",
+    "title": "CSOC Manager (CSOC - Cyber Security Operations Center)",
+    "organization": "쿠팡",
+    "url": "https://www.coupang.jobs/kr/jobs/8027999/csoc-manager-csoc-cyber-security-operations-center/?gh_jid=8027999",
+    "version": "2026-10-08 갱신; 2026-10-25 공식 상세 확인, 마감일 미표기",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Direct Seoul CSOC manager posting: team supervision, shift schedules, triage and escalation oversight, coverage/playbook improvement, training and governance reporting. This employer's 24x7 operation and 12+ years security plus 3+ years CSOC management are not universal SOC-manager requirements. Employment type is not specified in the viewed detail."
   }
 ]

@@ -14,7 +14,12 @@ export function normalizeSearchText(value: string): string {
 }
 
 export function textOnlySearchBody(body: string): string {
-  return body.replace(/[#*_`>\[\]()]|https?:\/\/\S+/g, " ").replace(/\s+/g, " ").trim();
+  return body
+    .replace(/!?\[([^\]\n]+)\]\((?:[^()]|\([^()]*\))*\)/gu, "$1")
+    .replace(/https?:\/\/\S+/gu, " ")
+    .replace(/[#*_`>\[\]()]/gu, " ")
+    .replace(/\s+/gu, " ")
+    .trim();
 }
 
 export function searchTerms(query: string): string[] {

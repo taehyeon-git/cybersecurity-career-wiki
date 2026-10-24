@@ -58,7 +58,7 @@
   {
     "term": "인증",
     "english": "Authentication",
-    "definition": "사용자 또는 서비스가 주장하는 신원을 확인하는 과정.",
+    "definition": "로그인이나 시스템 접근 때 사용자·서비스의 신원을 확인하는 과정. ISMS-P 같은 관리체계 인증과는 다른 뜻이다.",
     "sourceIds": [
       "nist-csrc-authentication"
     ]
@@ -74,9 +74,18 @@
   {
     "term": "서비스 계정",
     "english": "Service Account",
-    "definition": "사람이 아닌 애플리케이션이나 작업이 자원에 접근할 때 쓰는 신원.",
+    "definition": "사람 대신 애플리케이션이나 자동화 작업에 부여하는 접근 계정.",
     "sourceIds": [
-      "kubernetes"
+      "kubernetes-service-accounts"
+    ]
+  },
+  {
+    "term": "IAM",
+    "english": "Identity and Access Management",
+    "definition": "사람·서비스의 신원과 접근 권한을 만들고 변경·회수하며, 누가 어떤 자원에 접근할 수 있는지 관리하는 업무 영역.",
+    "sourceIds": [
+      "nist-csrc-iam",
+      "nist-zta-architecture"
     ]
   },
   {
@@ -90,7 +99,7 @@
   {
     "term": "위협 모델링",
     "english": "Threat Modeling",
-    "definition": "시스템의 자산, 경계와 오용 경로를 분석해 설계 단계의 보안 요구를 도출하는 활동.",
+    "definition": "서비스 설계 단계에서 예상 위협과 영향을 검토하고 필요한 보호 조치를 정리하는 활동.",
     "sourceIds": [
       "nist-ssdf",
       "owasp-cheatsheets"
@@ -107,7 +116,7 @@
   {
     "term": "SAST",
     "english": "Static Application Security Testing",
-    "definition": "프로그램을 실행하지 않고 코드나 중간 표현을 분석해 잠재 약점을 찾는 방식.",
+    "definition": "프로그램을 실행하지 않고 소스 코드 등을 분석해 잠재적 보안 약점을 찾는 검사 방식.",
     "sourceIds": [
       "owasp-devguide-sast"
     ]
@@ -115,7 +124,7 @@
   {
     "term": "SCA",
     "english": "Software Composition Analysis",
-    "definition": "소프트웨어 의존 구성요소의 버전과 알려진 취약점 등을 분석하는 활동.",
+    "definition": "소프트웨어에 포함된 외부 구성요소와 알려진 취약점 등을 확인하는 활동.",
     "sourceIds": [
       "owasp-component-analysis-sca"
     ]
@@ -178,6 +187,14 @@
     ]
   },
   {
+    "term": "EDR",
+    "english": "Endpoint Detection and Response",
+    "definition": "노트북·서버 등 단말에서 의심 징후를 발견하고 조사·대응하도록 돕는 보안 도구 범주.",
+    "sourceIds": [
+      "nist-zta-architecture"
+    ]
+  },
+  {
     "term": "OT",
     "english": "Operational Technology",
     "definition": "설비나 물리적 공정을 감시·제어하며 실제 환경과 상호작용하는 운영기술 시스템과 장치.",
@@ -221,7 +238,7 @@
   {
     "term": "격리",
     "english": "Containment",
-    "definition": "보안 사건이 더 확산되지 않도록 영향을 받은 시스템의 연결을 분리하는 등의 대응 조치.",
+    "definition": "보안 사건의 피해가 더 퍼지지 않도록 영향 범위를 제한하는 대응 조치.",
     "sourceIds": [
       "nist-sp-800-61r3"
     ]
@@ -256,7 +273,7 @@
   {
     "term": "위험 수용",
     "english": "Risk Acceptance",
-    "definition": "위험을 줄이거나 이전하는 대신 잔여 위험을 받아들이는 대응 선택지. 승인과 재검토 방식은 조직 절차에 따른다.",
+    "definition": "위험을 인지한 뒤 추가 완화 없이 받아들이기로 하는 대응 선택지. 승인과 재검토 방식은 조직 절차에 따른다.",
     "sourceIds": [
       "nist-csrc-risk-response"
     ]
@@ -286,9 +303,18 @@
     ]
   },
   {
+    "term": "ECSF",
+    "english": "European Cybersecurity Skills Framework",
+    "definition": "ENISA가 보안 직무의 역할·업무·역량을 설명한 유럽의 공통 틀. 국내 기업의 채용 직함이나 필수 요건을 정한 목록은 아니다.",
+    "sourceIds": [
+      "enisa-ecsf",
+      "enisa-ecsf-roles"
+    ]
+  },
+  {
     "term": "NICE 업무 역할",
     "english": "NICE Work Role",
-    "definition": "NICE가 책임지는 업무를 묶어 설명하는 단위. 한 회사의 일자리나 직무명과 같지 않을 수 있다.",
+    "definition": "NICE 프레임워크에서 개인이나 팀이 책임지는 업무를 묶어 설명하는 단위. 한 회사의 채용 자리나 직무명과 일대일로 같지 않다.",
     "sourceIds": [
       "nist-jobs-vs-roles",
       "nist-nice"
@@ -313,7 +339,7 @@
   {
     "term": "커리어 경로",
     "english": "Career Pathway",
-    "definition": "현재의 업무 경험과 산출물을 바탕으로 다음 직무를 준비하는 예시 경로. 공식 승진 순서는 아니다.",
+    "definition": "관심 분야와 현재 경험을 바탕으로 목표 직무에 필요한 활동과 산출물을 준비하는 예시 경로. 공식 승진 순서는 아니다.",
     "sourceIds": [
       "cisa-pathways",
       "nist-jobs-vs-roles"
@@ -377,7 +403,7 @@
   {
     "term": "ISMS-P",
     "english": "ISMS-P Certification",
-    "definition": "정보보호 및 개인정보보호 관리체계가 인증기준에 맞게 운영되는지 심사하는 국내 인증. 특정 직무의 공통 필수 자격을 뜻하지 않는다.",
+    "definition": "정보보호 및 개인정보보호 관리체계가 기준을 충족하는지 심사해 부여하는 국내 인증. 특정 직무의 공통 필수 자격은 아니다.",
     "sourceIds": [
       "kisa-isms-p"
     ]
@@ -385,7 +411,7 @@
   {
     "term": "교대근무",
     "english": "Shift Work",
-    "definition": "정해진 조가 시간대를 나눠 운영 업무를 이어받는 근무 형태. 일부 보안 운영 공고에만 명시되므로 지원자는 적용 분야와 근무표를 확인해야 한다.",
+    "definition": "정해진 조가 시간대를 나눠 운영 업무를 이어받는 근무 형태. 적용 직무와 근무표는 공고마다 확인해야 한다.",
     "sourceIds": [
       "secui-security-operations-2026"
     ]
@@ -401,7 +427,7 @@
   {
     "term": "온콜",
     "english": "On-call Rotation",
-    "definition": "보안 사건이 생기면 연락받아 대응하는 공동 대기 순번. 교대근무와 같지 않으며 시간과 호출 범위는 공고에서 확인해야 한다.",
+    "definition": "사고나 운영 이슈가 생겼을 때 호출에 대응하도록 정한 대기 순번. 교대근무와 다르며 대기 시간·호출 범위는 공고에서 확인해야 한다.",
     "sourceIds": [
       "notion-detection-response-oncall"
     ]
@@ -423,9 +449,18 @@
     ]
   },
   {
+    "term": "QA",
+    "english": "Quality Assurance",
+    "definition": "제품의 기대 동작과 실제 결과를 확인하고 결함·남은 문제를 기록해 출시 판단을 돕는 품질 업무.",
+    "sourceIds": [
+      "ncs-sqf",
+      "autocrypt-qa-2026"
+    ]
+  },
+  {
     "term": "FDS",
     "english": "Fraud Detection System",
-    "definition": "금융거래의 이상 징후를 탐지·차단해 금융사고를 예방하는 시스템. 관련 채용은 금융사기·거래 위험 관리 업무를 다루며, 기업의 일반 보안관제(SOC)와는 담당 대상과 조직이 다를 수 있다.",
+    "definition": "이상 금융거래를 탐지·차단해 전자금융사고를 예방하는 시스템. 관련 공고에서는 거래 모니터링과 탐지 정책·대응 설계 중 실제 담당 범위를 확인해야 한다.",
     "sourceIds": [
       "fsec-fds",
       "kakaopaysec-fds-2026"

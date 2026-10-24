@@ -22,6 +22,7 @@ export default function StartPage() {
     <section className="wiki-start-section">
       <h2>채용 사례는 이렇게 읽으세요</h2>
       <p>공고의 회사·직함·확인일·업무·요건을 함께 확인하세요. 공고는 수정되거나 마감될 수 있습니다. 한 회사의 특정 공고가 모든 회사의 필수 조건을 뜻하지는 않습니다. 직함만 확인된 공고는 업무나 신입 가능 여부의 근거로 사용하지 않습니다.</p>
+      <p>직무 글의 ‘근거·범위 검토 중’ 표시는 편집 상태입니다. 그 직무가 없거나 글의 모든 근거가 미확인이라는 뜻은 아닙니다. 본문의 직접 공고, 인접 사례, 아직 확인하지 못한 조건을 구분해 읽으세요.</p>
       <p>자료의 기준과 한계는 <a href="https://github.com/taehyeon-git/cybersecurity-career-wiki/blob/main/docs/research/korean-job-market.md" target="_blank" rel="noopener noreferrer">국내 채용 공고 조사</a>에 공개되어 있습니다. 표본은 플랫폼·금융 기업에 치우쳐 있으므로 채용 수요나 연봉 추정에는 사용하지 마세요.</p>
     </section>
 

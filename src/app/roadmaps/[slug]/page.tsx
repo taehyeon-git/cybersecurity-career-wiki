@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function RoadmapPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const roadmaps = publishedRoadmaps(); const roles = publishedRoles();
+  const roadmaps = publishedRoadmaps().sort((a, b) => a.titleKo.localeCompare(b.titleKo, "ko")); const roles = publishedRoles();
   const item = roadmaps.find((entry) => entry.slug === slug);
   if (!item) notFound();
   const index = roadmaps.findIndex((entry) => entry.id === item.id);

@@ -8,11 +8,11 @@ import { roleCategories, mainNav } from "../src/lib/site-data";
 import { validateCitationUrls } from "../src/lib/validation";
 import terms from "../src/content/glossary/terms.json";
 
-test("career directory separates security product work from security design and retains 47 roles", () => {
+test("career directory separates security product work from security design and retains 49 roles", () => {
   assert.deepEqual(roleCategories.map((item) => item.id), ["management", "development", "product", "operations", "assessment", "response", "customer"]);
   const roles = publishedRoles();
-  assert.equal(roles.length, 47);
-  assert.equal(new Set(roles.map((role) => role.slug)).size, 47);
+  assert.equal(roles.length, 49);
+  assert.equal(new Set(roles.map((role) => role.slug)).size, 49);
   assert.deepEqual(
     roles.filter((role) => role.category === "product").map((role) => role.id).sort(),
     ["security-product-developer", "security-product-manager", "security-product-qa", "security-product-technical-writer"],
@@ -67,7 +67,7 @@ test("every public article's external citation has a registered source", () => {
 test("generated search index contains only career pages and glossary", () => {
   execFileSync(process.execPath, ["--import", "tsx", "scripts/build-search.ts"], { cwd: process.cwd() });
   const documents = JSON.parse(fs.readFileSync(path.join(process.cwd(), "public", "search-index.json"), "utf8")) as Array<{ type: string; href: string }>;
-  assert.ok(documents.length >= 47);
+  assert.ok(documents.length >= 49);
   for (const item of documents) {
     assert.ok(["role", "roadmap", "glossary"].includes(item.type), `unexpected search type: ${item.type}`);
     assert.doesNotMatch(item.href, /^\/(?:knowledge|comparisons|knowledge-map)\//);

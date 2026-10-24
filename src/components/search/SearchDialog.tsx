@@ -74,7 +74,8 @@ export function SearchDialog() {
   const activeIndex = Math.min(selected, Math.max(0, results.length - 1));
 
   function openDialog() {
-    openerRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    const sidebarClose = document.querySelector<HTMLElement>('#wiki-sidebar[aria-modal="true"] .wiki-sidebar-close');
+    openerRef.current = sidebarClose ?? (document.activeElement instanceof HTMLElement ? document.activeElement : null);
     restoreFocusRef.current = true;
     setOpen(true);
   }

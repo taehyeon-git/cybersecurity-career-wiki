@@ -181,6 +181,18 @@ test("mobile document drawer traps focus and Escape restores the trigger", async
   await expect(trigger).toBeFocused();
 });
 
+test("closing search restores focus inside an open mobile document drawer", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 720 });
+  await page.goto("./");
+  await page.getByRole("button", { name: "문서 탐색기 열기" }).click();
+  await page.keyboard.press(searchShortcut);
+  await expect(page.getByRole("dialog", { name: "보안 직무 검색" })).toBeVisible();
+  await page.keyboard.press("Escape");
+  const drawer = page.getByRole("dialog", { name: "문서 탐색기" });
+  await expect(drawer).toBeVisible();
+  await expect(drawer.getByRole("button", { name: "닫기" })).toBeFocused();
+});
+
 test("a mobile role article lists its work area and links back to that folder", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("./careers/soc-analyst/");
@@ -191,6 +203,25 @@ test("a mobile role article lists its work area and links back to that folder", 
   await expect(page.locator(".breadcrumbs").getByRole("link", { name: "보안 관제·사고 대응" })).toBeVisible();
   await page.locator(".breadcrumbs").getByRole("link", { name: "보안 관제·사고 대응" }).click();
   await expect(page).toHaveURL(/\/careers\/\?category=response$/);
+});
+
+test("document pagers follow the order shown in their folder lists", async ({ page }) => {
+  for (const route of ["./careers/ciso/", "./roadmaps/security-operations/"]) {
+    await page.goto(route);
+    const links = page.locator(".document-sidebar .sidebar-links a");
+    const labels = (await links.allTextContents()).map((label) => label.trim());
+    expect(labels).toEqual([...labels].sort((a, b) => a.localeCompare(b, "ko")));
+    const hrefs = await links.evaluateAll((items) => items.map((item) => item.getAttribute("href")));
+    const currentHref = await page.locator(".document-sidebar .sidebar-links a[aria-current='page']").getAttribute("href");
+    const currentIndex = hrefs.indexOf(currentHref);
+    expect(currentIndex).toBeGreaterThanOrEqual(0);
+    const previous = page.locator(".document-pager a").filter({ hasText: "이전 문서" });
+    const next = page.locator(".document-pager a").filter({ hasText: "다음 문서" });
+    if (currentIndex > 0) await expect(previous).toHaveAttribute("href", hrefs[currentIndex - 1]!);
+    else await expect(previous).toHaveCount(0);
+    if (currentIndex < hrefs.length - 1) await expect(next).toHaveAttribute("href", hrefs[currentIndex + 1]!);
+    else await expect(next).toHaveCount(0);
+  }
 });
 
 test("a narrow career article offers a table of contents for long sections", async ({ page }) => {
@@ -277,10 +308,19 @@ test("career roadmap has one document title", async ({ page }) => {
 test("a broad career path links all of its associated roles", async ({ page }) => {
   await page.goto("./roadmaps/security-product-customer/");
   const cards = page.locator(".related-section .related-card");
-  await expect(cards).toHaveCount(9);
+  await expect(cards).toHaveCount(10);
+  await expect(page.locator('.related-section a[href*="/careers/security-account-manager/"]')).toBeVisible();
   await expect(page.locator('.related-section a[href*="/careers/security-certification-evaluator/"]')).toBeVisible();
   await expect(page.locator('.related-section a[href*="/careers/cryptography-engineer/"]')).toBeVisible();
   await expect(page.locator('.related-section a[href*="/careers/security-certification-evaluator/"] small')).toContainText("보안 진단·평가");
+});
+
+test("a role offers its preparation path before the long article", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 720 });
+  await page.goto("./careers/soc-analyst/");
+  const path = page.getByRole("navigation", { name: "이 직무의 커리어 경로" });
+  await expect(path.getByRole("link", { name: "보안 운영·사고 대응 커리어 경로" })).toBeVisible();
+  expect((await path.boundingBox())!.y).toBeLessThan((await page.locator(".article-prose").boundingBox())!.y);
 });
 
 test("a role article exposes every related role in its further reading", async ({ page }) => {

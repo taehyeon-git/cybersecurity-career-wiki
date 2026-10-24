@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { matchesAllTerms, normalizeSearchText, searchDocuments, searchMatchContext, type SearchDocument } from "../src/lib/search";
+import { matchesAllTerms, normalizeSearchText, searchDocuments, searchMatchContext, textOnlySearchBody, type SearchDocument } from "../src/lib/search";
 
 const docs: SearchDocument[] = [
   { id: "role-appsec", type: "role", title: "애플리케이션 보안 엔지니어", english: "Application Security Engineer", aliases: ["앱섹", "AppSec"], summary: "소프트웨어의 보안 결함을 줄입니다.", body: "위협 모델링과 코드 검토", href: "/careers/application-security-engineer/" },
@@ -60,6 +60,13 @@ test("a body-only match has a short, visible explanation", () => {
 test("a body snippet is shown when Korean spacing differs from the query", () => {
   const body = "조직의 AI 보안 거버넌스를 설계하고 담당 부서의 승인을 조율한다.";
   assert.match(searchMatchContext("AI보안", ["전략 담당자"], body) ?? "", /AI 보안 거버넌스/);
+});
+
+test("search body keeps link labels without indexing Markdown destinations", () => {
+  const body = textOnlySearchBody("[보안관제 분석가](/careers/soc-analyst/)는 [공식 공고](https://example.org/jobs?id=42)를 읽는다.");
+  assert.match(body, /보안관제 분석가.*공식 공고/);
+  assert.doesNotMatch(body, /careers|soc-analyst|example\.org|jobs|id=42/);
+  assert.deepEqual(searchDocuments("careers", [{ ...docs[0], body, summary: "", aliases: [] }]), []);
 });
 
 test("folder filters share word and abbreviation matching rules", () => {
