@@ -7,7 +7,7 @@
 | `npm run typecheck` | TypeScript 정적 검사 |
 | `npm run lint` | ESLint 검사 |
 | `npm test` | `tests/*.test.ts`의 URL·검색·콘텐츠 범위 등 코드 검사 |
-| `npm run content:check` | MDX frontmatter 스키마, 게시 본문 길이, 출처·직무·경로 참조, 본문 외부 인용의 출처 장부·문서별 연결, 용어집 앵커, 중복 ID·슬러그, 제거된 경로 링크 |
+| `npm run content:check` | MDX frontmatter 스키마, 게시 본문 길이, 출처·직무·경로 참조, 본문 외부 인용의 출처 장부·문서별 연결, 직무·경로 내부 링크와 용어집 앵커, 중복 ID·슬러그, 제거된 경로 링크 |
 | `npm run search:build` | 게시된 직무·커리어 경로와 용어에서 `public/search-index.json` 생성 |
 | `npm run build` | 콘텐츠 검사 → 검색 색인 생성 → Next.js 정적 내보내기 → RSC 별칭 생성 → 출력 확인 |
 | `npm run build:verify` | `out/` 필수 파일, 게시 직무·경로 HTML, 제거된 경로의 출력·검색 색인 잔존 여부 확인 |

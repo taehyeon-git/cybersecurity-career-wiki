@@ -20,11 +20,14 @@ export default async function RolePage({ params }: { params: Promise<{ slug: str
   const roles = publishedRoles();
   const role = roles.find((item) => item.slug === slug);
   if (!role) notFound();
-  const index = roles.findIndex((item) => item.id === role.id);
+  const category = roleCategories.find((item) => item.id === role.category);
+  if (!category) notFound();
+  const categoryRoles = roles.filter((item) => item.category === role.category);
+  const index = categoryRoles.findIndex((item) => item.id === role.id);
   const roadmaps = publishedRoadmaps();
   const related = [
     ...role.roadmapIds.map((id) => roadmaps.find((item) => item.id === id)).filter((item) => !!item).map((item) => ({ label: item.titleKo, href: routeFor.roadmap(item.slug), eyebrow: "커리어 경로" })),
     ...role.relatedRoleIds.map((id) => roles.find((item) => item.id === id)).filter((item) => !!item).slice(0, 3).map((item) => ({ label: item.titleKo, href: routeFor.role(item.slug), eyebrow: "관련 직무" })),
   ];
-  return <DocumentShell section="직무 탐색" sectionHref="/careers/" title={role.titleKo} english={role.titleEn} summary={role.summary} body={role.body} reviewedAt={role.reviewedAt} reviewStatus={role.reviewStatus} sourceIds={role.sourceIds} sources={loadSources()} navItems={roles.map((item) => ({ label: item.titleKo, href: routeFor.role(item.slug) }))} currentHref={routeFor.role(slug)} related={related} previous={roles[index - 1] ? { label: roles[index - 1].titleKo, href: routeFor.role(roles[index - 1].slug) } : undefined} next={roles[index + 1] ? { label: roles[index + 1].titleKo, href: routeFor.role(roles[index + 1].slug) } : undefined} filePath={role.filePath} badge={roleCategories.find((item) => item.id === role.category)?.ko} />;
+  return <DocumentShell section={category.ko} sectionHref={`/careers/?category=${role.category}`} title={role.titleKo} english={role.titleEn} summary={role.summary} body={role.body} reviewedAt={role.reviewedAt} reviewStatus={role.reviewStatus} sourceIds={role.sourceIds} sources={loadSources()} navItems={categoryRoles.map((item) => ({ label: item.titleKo, href: routeFor.role(item.slug) }))} currentHref={routeFor.role(slug)} related={related} previous={categoryRoles[index - 1] ? { label: categoryRoles[index - 1].titleKo, href: routeFor.role(categoryRoles[index - 1].slug) } : undefined} next={categoryRoles[index + 1] ? { label: categoryRoles[index + 1].titleKo, href: routeFor.role(categoryRoles[index + 1].slug) } : undefined} filePath={role.filePath} badge={category.ko} />;
 }

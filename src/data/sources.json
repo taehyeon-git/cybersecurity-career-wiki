@@ -1428,5 +1428,45 @@
     "checkedAt": "2026-10-25",
     "kind": "job-posting",
     "notes": "Compliance-organization hiring for fraud-risk policies and abnormal financial-transaction monitoring, not enterprise SOC incident response. Six years of relevant experience applies to this senior posting only."
+  },
+  {
+    "id": "sk-shieldus-ai-security-2026",
+    "title": "SK쉴더스 [EQST Lab] AI 보안 연구원",
+    "organization": "SK쉴더스",
+    "url": "https://www.skshieldusapply.com/ko/o/240272",
+    "version": "2026-10-25 확인; 헤더 2026-10-28 23:59 마감과 본문 채용 시 마감 상충",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Official Chrome detail and Apply verified. Pangyo regular experienced position covers security/safety assessment and red teaming of GenAI/AI-agent systems plus AI-assisted conventional vulnerability research. Header says experience unrestricted while body requires security practice or equivalent research and vulnerability-analysis/research experience. Closing date conflicts between header and body; do not claim junior eligibility."
+  },
+  {
+    "id": "lg-cto-ai-product-security-2026",
+    "title": "LG전자 CTO부문 AI Security 전문가",
+    "organization": "LG전자",
+    "url": "https://careers.lg.com/apply/detail?id=1002330",
+    "version": "2026-10-23~2026-11-04 접수",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Despite title, work uses AI to find vulnerabilities in product software and firmware and collaborates with development on fixes; not direct evidence of protecting AI models/services. Experienced rolling recruitment; master's plus 2 years or doctorate plus 1 year belongs to this posting only. Employment type not confirmed. Official page has sparse text in one crawler; Chrome detail was checked."
+  },
+  {
+    "id": "gsretail-endpoint-cloud-2026",
+    "title": "GS리테일 엔드포인트·클라우드 보안 담당",
+    "organization": "GS리테일",
+    "url": "https://recruit.wanted.jobs/wd/393095",
+    "version": "2026-11-01 마감 예정; 2026-10-25 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Company-named and managed Wanted recruitment page rather than a dedicated GS ATS. Combines endpoint and cloud security. Bachelor's degree and 3+ years security practice are requirements of this posting; employment type was not shown."
+  },
+  {
+    "id": "sdm-video-admin-2026",
+    "title": "서대문구청 2026년 스마트정보과 기간제근로자 채용",
+    "organization": "서대문구청",
+    "url": "https://www.sdm.go.kr/genre/economic/jobinfo/jobs.do?mode=view&sdmBoardSeq=315010",
+    "version": "2026-09-21~2026-09-23 접수 종료; 근무기간 채용일~2027-08-31",
+    "checkedAt": "2026-10-25",
+    "kind": "historical-job-posting",
+    "notes": "Official district page directly states one fixed-term clerical opening supporting CCTV personal-video inspection/disclosure paperwork and records for installation and operations. It is administrative assistance, not a standalone video-security engineer position."
   }
 ]

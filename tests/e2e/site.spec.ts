@@ -97,6 +97,15 @@ test("career category selection persists in the page URL", async ({ page }) => {
   await expect(page).toHaveURL(/\/careers\/$/);
 });
 
+test("the selected color theme persists after a reload", async ({ page }) => {
+  await page.goto("./careers/");
+  await page.getByRole("button", { name: "다크 모드" }).click();
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+  await page.reload();
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+  await expect(page.getByRole("button", { name: "라이트 모드" })).toBeVisible();
+});
+
 test("career index explains a body-only search term and announces the result count", async ({ page }) => {
   await page.goto("./careers/");
   await page.getByRole("textbox", { name: "직무 검색" }).fill("보안관제 SIEM");
@@ -150,6 +159,18 @@ test("mobile document drawer traps focus and Escape restores the trigger", async
   await page.keyboard.press("Escape");
   await expect(drawer).toBeHidden();
   await expect(trigger).toBeFocused();
+});
+
+test("a mobile role article lists its work area and links back to that folder", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("./careers/soc-analyst/");
+  const list = page.locator(".mobile-document-nav");
+  await list.locator("summary").click();
+  await expect(list.locator('a[href*="/careers/soc-analyst/"]')).toBeVisible();
+  await expect(list.locator('a[href*="/careers/ciso/"]')).toHaveCount(0);
+  await expect(page.locator(".breadcrumbs").getByRole("link", { name: "보안 관제·사고 대응" })).toBeVisible();
+  await page.locator(".breadcrumbs").getByRole("link", { name: "보안 관제·사고 대응" }).click();
+  await expect(page).toHaveURL(/\/careers\/\?category=response$/);
 });
 
 test("skip link moves keyboard focus into the article", async ({ page }) => {
@@ -220,6 +241,15 @@ test("references heading remains below the sticky header after TOC navigation", 
 test("career roadmap has one document title", async ({ page }) => {
   await page.goto("./roadmaps/security-operations/");
   await expect(page.locator("main h1")).toHaveCount(1);
+});
+
+test("a broad career path links all of its associated roles", async ({ page }) => {
+  await page.goto("./roadmaps/security-product-customer/");
+  const cards = page.locator(".related-section .related-card");
+  await expect(cards).toHaveCount(9);
+  await expect(page.locator('.related-section a[href*="/careers/security-certification-evaluator/"]')).toBeVisible();
+  await expect(page.locator('.related-section a[href*="/careers/cryptography-engineer/"]')).toBeVisible();
+  await expect(page.locator('.related-section a[href*="/careers/security-certification-evaluator/"] small')).toContainText("보안 진단·평가");
 });
 
 test("keyboard focus is visible in both search inputs", async ({ page }) => {

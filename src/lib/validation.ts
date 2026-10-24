@@ -110,3 +110,24 @@ export function validateGlossaryAnchors(
   }
   return errors;
 }
+
+export function validateInternalDocumentLinks(
+  documents: Array<{ id: string; body: string }>,
+  roleSlugs: Set<string>,
+  roadmapSlugs: Set<string>,
+): string[] {
+  const errors: string[] = [];
+  for (const document of documents) {
+    const missing = new Set<string>();
+    for (const match of document.body.matchAll(/\]\((\/(?:careers|roadmaps)\/[^\s)]+)\)/g)) {
+      const href = match[1];
+      const path = href.split(/[?#]/, 1)[0];
+      if (/^\/(?:careers|roadmaps)\/$/.test(path)) continue;
+      const route = /^\/(careers|roadmaps)\/([^/]+)\/$/.exec(path);
+      const valid = route && (route[1] === "careers" ? roleSlugs.has(route[2]) : roadmapSlugs.has(route[2]));
+      if (!valid) missing.add(href);
+    }
+    for (const href of missing) errors.push(`${document.id}: unknown internal link ${href}`);
+  }
+  return errors;
+}

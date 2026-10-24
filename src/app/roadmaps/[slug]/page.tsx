@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { DocumentShell } from "@/components/layout/DocumentShell";
 import { loadSources, publishedRoadmaps, publishedRoles } from "@/lib/content";
-import { routeFor } from "@/lib/site-data";
+import { roleCategories, routeFor } from "@/lib/site-data";
 import { canonicalUrl } from "@/lib/urls";
 
 export const dynamicParams = false;
@@ -19,6 +19,6 @@ export default async function RoadmapPage({ params }: { params: Promise<{ slug: 
   const item = roadmaps.find((entry) => entry.slug === slug);
   if (!item) notFound();
   const index = roadmaps.findIndex((entry) => entry.id === item.id);
-  const related = item.roleIds.map((id) => roles.find((role) => role.id === id)).filter((role) => !!role).slice(0, 6).map((role) => ({ label: role.titleKo, href: routeFor.role(role.slug), eyebrow: "관련 직무" }));
+  const related = item.roleIds.map((id) => roles.find((role) => role.id === id)).filter((role) => !!role).map((role) => ({ label: role.titleKo, href: routeFor.role(role.slug), eyebrow: roleCategories.find((category) => category.id === role.category)?.ko ?? "관련 직무" }));
   return <DocumentShell section="커리어 경로" sectionHref="/roadmaps/" title={item.titleKo} english={item.titleEn} summary={item.summary} body={item.body} reviewedAt={item.reviewedAt} sourceIds={item.sourceIds} sources={loadSources()} navItems={roadmaps.map((entry) => ({ label: entry.titleKo, href: routeFor.roadmap(entry.slug) }))} currentHref={routeFor.roadmap(slug)} related={related} previous={roadmaps[index - 1] ? { label: roadmaps[index - 1].titleKo, href: routeFor.roadmap(roadmaps[index - 1].slug) } : undefined} next={roadmaps[index + 1] ? { label: roadmaps[index + 1].titleKo, href: routeFor.roadmap(roadmaps[index + 1].slug) } : undefined} filePath={item.filePath} badge="직무 준비 경로" />;
 }

@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { validateCitationSourceIds, validateCitationUrls, validateGlossaryAnchors, validateGlossaryReferences, validateReferences, type ReferenceDocument } from "../src/lib/validation";
+import { validateCitationSourceIds, validateCitationUrls, validateGlossaryAnchors, validateGlossaryReferences, validateInternalDocumentLinks, validateReferences, type ReferenceDocument } from "../src/lib/validation";
 
 const role: ReferenceDocument = {
   kind: "role", id: "soc-analyst", slug: "soc-analyst", publicationStatus: "published",
@@ -61,4 +61,12 @@ test("a linked official source also appears in that article's references", () =>
   const sources = [{ id: "example-job", url: "https://example.org/jobs/42" }];
   assert.deepEqual(validateCitationSourceIds(docs, sources), ["soc-analyst: cited source example-job missing from sourceIds"]);
   assert.deepEqual(validateCitationSourceIds([{ ...docs[0], sourceIds: ["example-job"] }], sources), []);
+});
+
+test("career path links must resolve to published role or path slugs", () => {
+  const docs = [{ id: "entry-path", body: "[SOC](/careers/soc-analyst/) [missing](/roadmaps/missing-path/)" }];
+  assert.deepEqual(
+    validateInternalDocumentLinks(docs, new Set(["soc-analyst"]), new Set(["entry-path"])),
+    ["entry-path: unknown internal link /roadmaps/missing-path/"],
+  );
 });
