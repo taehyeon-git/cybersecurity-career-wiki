@@ -1,6 +1,6 @@
 # 분류 결정 기록
 
-기준일: **2026-10-25**. 이 문서의 범주와 직무 경계는 공개 위키의 편집 결정입니다. [NCS 정보보호 SQF](https://www.ncs.go.kr/sqf/sqf01/sqf10100201p1.do?iscCd=20&iscNm=%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8)의 국내 직무역량 영역을 우선 참고하고, [NIST NICE](https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/nice-framework-current-versions)와 [ENISA ECSF](https://www.enisa.europa.eu/publications/european-cybersecurity-skills-framework-role-profiles)로 업무 범위를 검토했습니다. **7개 탐색 범주**의 명칭과 49개 페이지는 세 체계의 공식 목록을 그대로 복제한 것이 아닙니다. 국내 직함 근거는 [채용공고 표본](korean-job-market.md), 실제 공개 목록은 [직무 인벤토리](role-inventory.md)를 참조합니다.
+기준일: **2026-10-25**. 이 문서의 범주와 직무 경계는 공개 위키의 편집 결정입니다. [NCS 정보보호 SQF](https://www.ncs.go.kr/sqf/sqf01/sqf10100201p1.do?iscCd=20&iscNm=%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8)의 국내 직무역량 영역을 우선 참고하고, [NIST NICE](https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/nice-framework-current-versions)와 [ENISA ECSF](https://www.enisa.europa.eu/publications/european-cybersecurity-skills-framework-role-profiles)로 업무 범위를 검토했습니다. **7개 탐색 범주**의 명칭과 50개 페이지는 세 체계의 공식 목록을 그대로 복제한 것이 아닙니다. 국내 직함 근거는 [채용공고 표본](korean-job-market.md), 실제 공개 목록은 [직무 인벤토리](role-inventory.md)를 참조합니다.
 
 NCS SQF는 정보보호를 **5개 하위산업분야**와 그 안의 직무로 정리합니다. 이 위키의 **7개 폴더**는 독자가 실제 공고에서 주 책임을 찾아가기 쉽게 만든 탐색 분류입니다. 두 숫자는 같은 단위를 세지 않으며, 위키 폴더가 NCS의 공식 일곱 번째 분야를 뜻하지 않습니다. SQF 표에는 **정보보호개발**과 **보안품질관리**가 각각 별도 직무로 나타납니다. 제품 관리자와 기술문서 작성자까지 그 둘과 함께 `product` 폴더에 둔 것은 네 역할의 제품 수명주기 협업을 쉽게 찾게 하려는 **위키의 편집 결정**입니다.
 
@@ -8,7 +8,7 @@ NCS SQF는 정보보호를 **5개 하위산업분야**와 그 안의 직무로 �
 
 | 구분 | 결정 | 판단 기준 |
 | --- | --- | --- |
-| 직무 | `/careers/` 아래 49개 | 사람·팀이 지속적으로 맡는 주 책임, 업무 흐름, 산출물과 협업 상대를 설명할 수 있을 때 독립 페이지로 둡니다. 채용 공고의 직함과 1:1 대응한다고 가정하지 않습니다. |
+| 직무 | `/careers/` 아래 50개 | 사람·팀이 지속적으로 맡는 주 책임, 업무 흐름, 산출물과 협업 상대를 설명할 수 있을 때 독립 페이지로 둡니다. 채용 공고의 직함과 1:1 대응한다고 가정하지 않습니다. |
 | 커리어 준비 경로 | `/roadmaps/` 아래 12개 | 입문과 전환의 준비 순서를 예시로 보여줍니다. 공식 승진 사다리, 필수 자격 목록, 취업 보증으로 표현하지 않습니다. |
 | 용어집 | `/glossary/` | 채용공고·직무 설명을 읽는 데 필요한 보안 용어를 짧게 풉니다. 독립 기술 강의나 구현 절차를 싣지 않습니다. |
 | 검색 | 직무·경로·용어 | 각 공개 엔터티의 제목, 별칭, 요약과 본문 맥락을 찾습니다. |
@@ -22,7 +22,7 @@ NCS SQF는 정보보호를 **5개 하위산업분야**와 그 안의 직무로 �
 | `development` | 보안 설계·개발 | 서비스와 일반 제품의 보안 설계, AppSec·DevSecOps·펌웨어·AI 서비스 및 오픈소스 프로젝트의 보안 책임 | 9 |
 | `product` | 보안제품 기획·개발·품질 | 보안제품의 고객 요구·기능 개발·품질 검증·사용 설명과 화면 문구 | 4 |
 | `operations` | 보안 구축·운영 | 인프라·플랫폼·솔루션의 배치, 설정, 유지와 보호 운영 | 10 |
-| `assessment` | 보안 진단·평가 | 승인된 진단, 평가, 감사, 연구와 결과 보고 | 7 |
+| `assessment` | 보안 진단·평가 | 승인된 진단, 평가, 감사, 연구와 결과 보고 | 8 |
 | `response` | 보안 관제·사고 대응 | 신호 분석, 관제팀 운영 관리, 탐지, 위협 조사, 사고 대응과 증거 분석 | 9 |
 | `customer` | 보안 기술영업·고객지원 | 보안 제품·서비스의 고객 관계·계약, 기술 제안과 도입·운영 지원 | 3 |
 

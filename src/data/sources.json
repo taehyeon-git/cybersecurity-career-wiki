@@ -313,7 +313,7 @@
     "id": "toss-it-security-entry-2026",
     "title": "IT Security Specialist (신입 / 2년 이하)",
     "organization": "토스",
-    "url": "https://toss.im/career/job-detail?job_id=8000384003",
+    "url": "https://toss.im/career/job-detail?job_id=8000384003&sub_position_id=8000384003&company=%ED%86%A0%EC%8A%A4",
     "version": "게시일 미표기; 2026-10-25 확인",
     "checkedAt": "2026-10-25",
     "kind": "job-posting",
@@ -1538,5 +1538,35 @@
     "checkedAt": "2026-10-25",
     "kind": "job-posting",
     "notes": "Direct Seoul senior mobile-security posting across consumer, seller, rider and logistics apps. It asks for company-wide mobile standards, a repeatable review program, prioritization, evidence and cross-team influence; management may grow later but is not required initially. The posting says full-time regular with a 12-week probation period, and gives no numerical minimum experience years. These senior scope and contract terms apply only to this position."
+  },
+  {
+    "id": "pipc-privacy-impact-assessment",
+    "title": "개인정보 영향평가제도 안내",
+    "organization": "개인정보보호위원회",
+    "url": "https://pipc.go.kr/np/default/page.do?mCode=D050020000",
+    "version": "2026-10-25 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "guidance",
+    "notes": "Explains the public-agency statutory PIA scope, designated evaluation institution, division of reporting and improvement responsibility, and assessment workflow. Check current law for binding conditions."
+  },
+  {
+    "id": "privacy-portal-pia-professionals",
+    "title": "개인정보 영향평가 전문인력 안내",
+    "organization": "개인정보 포털",
+    "url": "https://www.privacy.go.kr/front/contents/cntntsView.do?contsNo=29",
+    "version": "2026-10-25 검색 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "guidance",
+    "notes": "Official portal says statutory PIA is performed by certified professionals and outlines eligibility, 38-hour training, four-subject exam and certificate. Page body timed out in a text reader; search index exposed the relevant official text. Verify current conditions before applying."
+  },
+  {
+    "id": "comhu-pia-recruitment",
+    "title": "인재채용: 개인정보 영향평가",
+    "organization": "컴앤휴먼",
+    "url": "https://comhu.co.kr/41",
+    "version": "연중상시접수 안내, 게시일·수정일 미표기; 2026-10-25 회사 직접 페이지 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Company recruitment page has a separate PIA category and requires PIA professional credential; privacy consulting experience and other privacy qualifications are preferred. It labels each category 0 people and gives 10-15 overall, so current openings are not established. Employment type is not shown."
   }
 ]

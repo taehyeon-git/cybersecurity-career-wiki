@@ -14,19 +14,6 @@ export default function StartPage() {
     </header>
 
     <section className="wiki-start-section">
-      <h2>업무 범주를 먼저 고르세요</h2>
-      <p>직무 폴더는 국내 <a href="https://www.ncs.go.kr/sqf/sqf01/sqf10100201p1.do?iscCd=20&amp;iscNm=%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8" target="_blank" rel="noopener noreferrer">NCS 정보보호 SQF</a>의 다섯 하위산업 분야와 세부 직무를 참고해, 주 책임에 따라 위키의 일곱 폴더로 재구성했습니다. 보안제품 기획·개발·품질은 제품 조직의 일을 찾기 위한 위키 분류이며 SQF의 별도 공식 분야명은 아닙니다. 조직마다 직함이 다르고 한 공고가 여러 분야의 일을 합칠 수 있으므로 폴더명과 함께 각 글의 책임을 확인하세요.</p>
-      <div className="wiki-start-definition"><strong>직무 글에서 볼 것</strong><ul><li><b>책임</b> — 어떤 결정을 내리고 어디까지 책임지는가</li><li><b>산출물</b> — 업무 결과를 누가 받아 어떤 결정을 하는가</li><li><b>채용 근거</b> — 어떤 공고에서 실제로 확인했으며 무엇이 미확인인가</li><li><b>진입 경로</b> — 지금 가진 경험으로 무엇을 보여줄 수 있는가</li></ul></div>
-    </section>
-
-    <section className="wiki-start-section">
-      <h2>채용 사례는 이렇게 읽으세요</h2>
-      <p>공고의 회사·직함·확인일·업무·요건을 함께 확인하세요. 공고는 수정되거나 마감될 수 있습니다. 한 회사의 특정 공고가 모든 회사의 필수 조건을 뜻하지는 않습니다. 직함만 확인된 공고는 업무나 신입 가능 여부의 근거로 사용하지 않습니다.</p>
-      <p>직무 글의 ‘근거·범위 검토 중’ 표시는 편집 상태입니다. 그 직무가 없거나 글의 모든 근거가 미확인이라는 뜻은 아닙니다. 본문의 직접 공고, 인접 사례, 아직 확인하지 못한 조건을 구분해 읽으세요.</p>
-      <p>자료의 기준과 한계는 <a href="https://github.com/taehyeon-git/cybersecurity-career-wiki/blob/main/docs/research/korean-job-market.md" target="_blank" rel="noopener noreferrer">국내 채용 공고 조사</a>에 공개되어 있습니다. 표본은 플랫폼·금융 기업에 치우쳐 있으므로 채용 수요나 연봉 추정에는 사용하지 마세요.</p>
-    </section>
-
-    <section className="wiki-start-section">
       <h2>이 순서로 읽으면 됩니다</h2>
       <div className="wiki-folder-list"><WikiFolder name="첫 탐색 순서" description="직무 목록·입문 경로·용어집" count="3단계" defaultOpen>
         <WikiFileRow href="/careers/" title="01. 업무 범주에서 직무 찾기" description="맡는 일과 대표 산출물로 관심 직무를 좁힙니다." />
@@ -34,5 +21,24 @@ export default function StartPage() {
         <WikiFileRow href="/glossary/" title="03. 공고 용어 확인하기" description="낯선 약어만 짧게 확인하고 직무 글로 돌아옵니다." />
       </WikiFolder></div>
     </section>
+
+    <section className="wiki-start-section">
+      <h2>업무 범주를 먼저 고르세요</h2>
+      <p>직무 폴더는 국내 <a href="https://www.ncs.go.kr/sqf/sqf01/sqf10100201p1.do?iscCd=20&amp;iscNm=%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8" target="_blank" rel="noopener noreferrer">NCS 정보보호 SQF</a>의 다섯 하위산업 분야와 세부 직무를 참고해, 주 책임에 따라 위키의 일곱 폴더로 재구성했습니다. 보안제품 기획·개발·품질은 제품 조직의 일을 찾기 위한 위키 분류이며 SQF의 별도 공식 분야명은 아닙니다. 조직마다 직함이 다르고 한 공고가 여러 분야의 일을 합칠 수 있으므로 폴더명과 함께 각 글의 책임을 확인하세요.</p>
+      <div className="wiki-start-definition"><h3>직무 글에서 볼 것</h3><ul><li><b>책임</b> — 어떤 결정을 내리고 어디까지 책임지는가</li><li><b>산출물</b> — 업무 결과를 누가 받아 어떤 결정을 하는가</li><li><b>채용 근거</b> — 어떤 공고에서 실제로 확인했으며 무엇이 미확인인가</li><li><b>진입 경로</b> — 지금 가진 경험으로 무엇을 보여줄 수 있는가</li></ul></div>
+    </section>
+
+    <section className="wiki-start-section">
+      <h2>채용 사례는 이렇게 읽으세요</h2>
+      <p>공고의 회사·직함·확인일·업무·요건을 함께 확인하세요. 공고는 수정되거나 마감될 수 있습니다. 한 회사의 특정 공고가 모든 회사의 필수 조건을 뜻하지는 않습니다. 직함만 확인된 공고는 업무나 신입 가능 여부의 근거로 사용하지 않습니다.</p>
+      <p>직무 글의 ‘근거·범위 검토 중’ 표시는 편집 상태입니다. 그 직무가 없거나 글의 모든 근거가 미확인이라는 뜻은 아닙니다. 본문의 직접 공고, 인접 사례, 아직 확인하지 못한 조건을 구분해 읽으세요.</p>
+      <p>자료의 기준과 한계는 <a href="https://github.com/taehyeon-git/cybersecurity-career-wiki/blob/main/docs/research/korean-job-market.md" target="_blank" rel="noopener noreferrer">국내 채용 공고 조사</a>에 공개되어 있습니다. 표본은 플랫폼·금융 기업에 치우쳐 있으므로 채용 수요나 연봉 추정에는 사용하지 마세요.</p>
+      <div className="wiki-start-definition">
+        <h3>공식 표본조사와 개별 공고가 알려 주는 것</h3>
+        <p><a href="https://www.msit.go.kr/bbs/view.do?sCode=user&amp;mId=99&amp;mPid=74&amp;bbsSeqNo=79&amp;nttSeqNo=3173676" target="_blank" rel="noopener noreferrer">2024 사이버보안 인력수급 실태조사</a>는 종사자 50명 이상 민간기업 1,500개와 보안 관련 학과 재학생 1,000명을 조사했습니다. 보고서의 ‘부족한 직무’는 기업 인식에 대한 가중 추정·복수응답이지 현재 열린 공고 수가 아닙니다.</p>
+        <p>지원할 자리의 업무·신입 가능 여부·고용형태·근무조건은 해당 공고 원문에서 확인하세요. 조사 결과나 이 위키의 공고 사례 수만으로 전체 채용 규모를 추정할 수 없습니다. <a href="https://github.com/taehyeon-git/cybersecurity-career-wiki/blob/main/docs/research/official-workforce-survey.md" target="_blank" rel="noopener noreferrer">조사 범위와 해석 한계 보기</a></p>
+      </div>
+    </section>
+
   </main>;
 }

@@ -465,5 +465,14 @@
       "fsec-fds",
       "kakaopaysec-fds-2026"
     ]
+  },
+  {
+    "term": "개인정보 영향평가(PIA)",
+    "english": "Privacy Impact Assessment",
+    "definition": "공공기관의 법정 대상 개인정보파일 신설·변경에 앞서 침해 요인과 개선안을 조사·평가하는 제도. 공식 과업은 지정 평가기관과 인증된 수행인력이 담당하며, 발주기관이 결과 제출과 개선 이행을 맡는다.",
+    "sourceIds": [
+      "pipc-privacy-impact-assessment",
+      "privacy-portal-pia-professionals"
+    ]
   }
 ]
