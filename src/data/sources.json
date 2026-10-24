@@ -20,16 +20,6 @@
     "notes": "Components contain Work Role Categories, Work Roles, Competency Areas, and TKS statements. Official pages have inconsistent date labels, so the component release date is not asserted here."
   },
   {
-    "id": "nist-nice-base",
-    "title": "NIST SP 800-181 Rev. 1: Workforce Framework for Cybersecurity",
-    "organization": "NIST",
-    "url": "https://csrc.nist.gov/pubs/sp/800/181/r1/final",
-    "version": "Revision 1 (2020-11)",
-    "checkedAt": "2026-10-09",
-    "kind": "workforce-framework",
-    "notes": "Defines the framework structure; component releases are maintained separately."
-  },
-  {
     "id": "nist-nice-changelog",
     "title": "NICE Framework Change Logs",
     "organization": "NIST NICE",
@@ -47,7 +37,7 @@
     "version": "living guidance; checked 2026-10-09",
     "checkedAt": "2026-10-09",
     "kind": "guidance",
-    "notes": "Explains the five current Work Role Categories and the 42 Work Roles shown at review time."
+    "notes": "The page currently lists 42 Work Roles in five categories, while NIST's Occupations, Jobs, and Work Roles page says 52 in seven. Do not present either count as settled without reconciling the official pages."
   },
   {
     "id": "nist-jobs-vs-roles",
@@ -240,26 +230,6 @@
     "notes": "Entry point for generative AI and LLM application security resources."
   },
   {
-    "id": "kisia-job-market-2025",
-    "title": "2025년 정보보호 채용시장 조사·분석 보고서",
-    "organization": "한국정보보호산업협회 정보보호 ISC",
-    "url": "https://www.kisia.or.kr/ks/kboard_view.php?PN=71&no=1028&page=1",
-    "version": "2025 study; KISIA listing dated 2026-08-04",
-    "checkedAt": "2026-10-09",
-    "kind": "market-report",
-    "notes": "Official report listing verified. Search-indexed PDF says postings were collected April–October 2025 and cautions against generalizing to the whole market; PDF download was not reliably retrievable in this session."
-  },
-  {
-    "id": "kisia-workforce-2025",
-    "title": "2025년 정보보호 산업인력현황 조사·분석 보고서",
-    "organization": "한국정보보호산업협회 정보보호 ISC",
-    "url": "https://www.kisia.or.kr/ks/kboard_view.php?PN=71&no=1023&page=1",
-    "version": "2025 study; KISIA listing dated 2026-08-04",
-    "checkedAt": "2026-10-09",
-    "kind": "market-report",
-    "notes": "Official publication listing; the alternate legacy listing records a July 2025 distribution date, so chronology is unclear. Do not infer current vacancy counts from this report."
-  },
-  {
     "id": "kisa-training-2025",
     "title": "KISA 사이버보안 교육 추진 안내",
     "organization": "한국인터넷진흥원",
@@ -268,16 +238,6 @@
     "checkedAt": "2026-10-09",
     "kind": "training-reference",
     "notes": "Lists Security Gym, K-Shield, K-Shield Junior, and AI security monitoring training; training names are not proof of hiring demand."
-  },
-  {
-    "id": "kisia-security-academy",
-    "title": "KISIA 시큐리티 아카데미 교육과정",
-    "organization": "한국정보보호산업협회",
-    "url": "https://kice.kisia.or.kr/home/kor/education/security/view.do?idx2=303&menuPos=12&pageIndex=1&tabPos=A",
-    "version": "course listing; checked 2026-10-09",
-    "checkedAt": "2026-10-09",
-    "kind": "training-reference",
-    "notes": "Provides Korean practice and training labels such as monitoring, incident response, penetration testing, malware analysis, and consulting."
   },
   {
     "id": "nist-scrm-800161",
@@ -338,5 +298,155 @@
     "checkedAt": "2026-10-09",
     "kind": "job-posting",
     "notes": "Employer ATS search-indexed posting covers private report intake, maintainer coordination, release security, and open-source community collaboration. Direct HTML requires JavaScript; no publication date was verified."
+  },
+  {
+    "id": "ahnlab-rnd-junior-2025",
+    "title": "안랩, 2025년 연구개발 직군 신입사원 및 주니어 공개채용 실시",
+    "organization": "안랩",
+    "url": "https://company.ahnlab.com/kr/news/press_release_view.do?seqPressRelease=10568",
+    "version": "2025-11-21 발표; 모집 종료",
+    "checkedAt": "2026-10-25",
+    "kind": "recruiting-announcement",
+    "notes": "Security analysis, vulnerability analysis and digital forensics appeared among ten R&D fields open to new and junior applicants. Field-specific requirements differed; this is not a current vacancy."
+  },
+  {
+    "id": "at-privacy-entry-2026",
+    "title": "2026년 한국농수산식품유통공사 신입직원 채용공고",
+    "organization": "한국농수산식품유통공사 / JOB-ALIO",
+    "url": "https://job.alio.go.kr/recruitview.do?idx=305395",
+    "version": "2026-09-28 공고; 2026-10-13 마감",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "New-hire privacy field required 정보보안기사 and TOEIC 700 in this one public-sector posting; these are not universal entry requirements."
+  },
+  {
+    "id": "toss-it-security-entry-2026",
+    "title": "IT Security Specialist (신입 / 2년 이하)",
+    "organization": "토스",
+    "url": "https://toss.im/career/job-detail?job_id=8000384003",
+    "version": "게시일 미표기; 2026-10-25 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "One-year contract for internal IT device/software support and account/permission work. Security Manager and Infra Security Engineer are possible future paths stated by the employer, not the current duties or guaranteed transitions."
+  },
+  {
+    "id": "kisa-isms-p",
+    "title": "정보보호 및 개인정보보호 관리체계 인증(ISMS-P)",
+    "organization": "한국인터넷진흥원(KISA)",
+    "url": "https://www.kisa.or.kr/1050602",
+    "version": "공식 제도 소개; 2026-10-25 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "guidance",
+    "notes": "Defines the ISMS-P and ISMS certification types and describes KISA's operating role. Certification status is not a hiring requirement by itself."
+  },
+  {
+    "id": "nist-csrc-siem",
+    "title": "Security Information and Event Management (SIEM) Tool",
+    "organization": "NIST Computer Security Resource Center",
+    "url": "https://csrc.nist.gov/glossary/term/Security_Information_and_Event_Management_Tool",
+    "version": "공식 용어집; 2026-10-25 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "glossary",
+    "notes": "Direct definition of a SIEM tool in the official NIST glossary; does not prescribe a specific role title."
+  },
+  {
+    "id": "secui-security-sales-2026",
+    "title": "시큐아이 경력사원 모집: 영업",
+    "organization": "시큐아이",
+    "url": "https://secui-recruit.recruiter.co.kr/career/jobs/131077",
+    "version": "2026-10-13 게시; 2026-10-28 마감 예정",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Direct company posting for enterprise and overseas security-solution sales. It requires prior sales experience and does not explicitly advertise a presales engineer or PoC duty."
+  },
+  {
+    "id": "secui-security-consulting-2026",
+    "title": "시큐아이 경력사원 모집: 보안컨설팅",
+    "organization": "시큐아이",
+    "url": "https://secui-recruit.recruiter.co.kr/career/jobs/131068",
+    "version": "2026-10-13 게시; 2026-10-27 마감 예정",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Three consulting fields combine assessments, penetration testing and project management; all require at least seven years in this posting. One field also lists incident, forensic and malware analysis. Contract employment with review for regular conversion."
+  },
+  {
+    "id": "secui-security-operations-2026",
+    "title": "시큐아이 경력사원 모집: 보안운영",
+    "organization": "시큐아이",
+    "url": "https://secui-recruit.recruiter.co.kr/career/jobs/131042",
+    "version": "2026-10-14 상세 본문; 2026-10-28 마감 예정",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Four operational fields cover SIEM, network controls, security solutions and 24x365 EDR monitoring. Shift work is stated for field IV only; no on-call requirement is stated. Contract employment with review for regular conversion."
+  },
+  {
+    "id": "nist-csrc-false-positive",
+    "title": "False Positive",
+    "organization": "NIST Computer Security Resource Center",
+    "url": "https://csrc.nist.gov/glossary/term/False_Positive",
+    "version": "공식 용어집; 2026-10-25 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "glossary",
+    "notes": "Direct NIST definitions include incorrectly classifying benign activity or content as malicious; use the security-operations sense in this wiki."
+  },
+  {
+    "id": "nist-csrc-rules-of-engagement",
+    "title": "Rules of Engagement (ROE)",
+    "organization": "NIST Computer Security Resource Center",
+    "url": "https://csrc.nist.gov/glossary/term/Rules_of_Engagement",
+    "version": "공식 용어집; 2026-10-25 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "glossary",
+    "notes": "Defines agreed testing constraints and authority established before a security test. It is a career-scoping term here, not a testing procedure."
+  },
+  {
+    "id": "notion-detection-response-oncall",
+    "title": "Security Engineer, Detection and Response",
+    "organization": "Notion",
+    "url": "https://jobs.ashbyhq.com/notion/06e1d3a8-2706-4ed9-9fe6-8b69607de18e/",
+    "version": "게시일 미표기; 2026-10-25 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Employer ATS describes participation in a shared on-call rotation for incident response. US full-time hybrid role; this is not a universal Korean employment condition."
+  },
+  {
+    "id": "ahead-network-consultant-onsite",
+    "title": "Principal Technical Consultant - Network Security",
+    "organization": "AHEAD",
+    "url": "https://jobs.lever.co/thinkahead/580d9ea5-5fad-473f-bc41-680e6bb4e482",
+    "version": "게시일 미표기; 2026-10-25 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Employer posting describes work on-site at client facilities or leading remote delivery, and travel of at least 25 percent. It does not establish a Korean dispatch-employment classification."
+  },
+  {
+    "id": "outtake-sales-engineer-poc",
+    "title": "Sales Engineer",
+    "organization": "Outtake",
+    "url": "https://jobs.ashbyhq.com/outtake/a6095ab8-1c86-4499-a51f-26790be0156c",
+    "version": "게시일 미표기; 2026-10-25 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Employer ATS explicitly combines technical discovery, demos and proof-of-concept deployment design in a sales engineering role. US on-site role; not evidence of Korean hiring frequency."
+  },
+  {
+    "id": "toss-securities-infra-2026",
+    "title": "Security Engineer (보안 인프라)",
+    "organization": "토스증권",
+    "url": "https://toss.im/career/job-detail?job_id=8032261003",
+    "version": "게시일 미표기; 2026-10-25 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Current employer posting on hybrid infrastructure, network segmentation, workload security baselines and access architecture. Separate posting ID from the former P19 URL, which now returns 404."
+  },
+  {
+    "id": "toss-securities-detection-2026",
+    "title": "Security Engineer (이벤트 분석/사고 대응)",
+    "organization": "토스증권",
+    "url": "https://toss.im/career/job-detail?job_id=8032692003",
+    "version": "2026-10-25 확인; 게시일 별도 미검증",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Current employer posting on SIEM monitoring, log correlation, incident analysis/response and automation. Separate posting ID from the former P21 URL, which now returns 404."
   }
 ]

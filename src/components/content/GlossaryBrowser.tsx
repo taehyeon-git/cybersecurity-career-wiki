@@ -17,13 +17,42 @@ const ranges = [
 
 export function GlossaryBrowser({ terms, sources }: { terms: GlossaryTerm[]; sources: GlossarySource[] }) {
   const [query, setQuery] = useState("");
+  const [hashToReveal, setHashToReveal] = useState<string | null>(null);
   useEffect(() => {
-    const hash = decodeURIComponent(window.location.hash.slice(1));
-    if (!hash) return;
-    const target = document.getElementById(hash);
-    target?.closest("details")?.setAttribute("open", "");
-    target?.scrollIntoView();
-  }, []);
+    function queueReveal(hash: string) {
+      if (!hash) return;
+      let id: string;
+      try { id = decodeURIComponent(hash); } catch { return; }
+      if (!terms.some((term) => normalizeSearchText(term.english) === id)) return;
+      setQuery("");
+      setHashToReveal(id);
+    }
+    function onHashChange() { queueReveal(window.location.hash.slice(1)); }
+    function onLinkClick(event: MouseEvent) {
+      const anchor = event.target instanceof Element ? event.target.closest<HTMLAnchorElement>("a[href]") : null;
+      if (!anchor) return;
+      const url = new URL(anchor.href);
+      if (url.pathname === window.location.pathname && url.hash) queueReveal(url.hash.slice(1));
+    }
+    onHashChange();
+    window.addEventListener("hashchange", onHashChange);
+    document.addEventListener("click", onLinkClick, true);
+    return () => {
+      window.removeEventListener("hashchange", onHashChange);
+      document.removeEventListener("click", onLinkClick, true);
+    };
+  }, [terms]);
+  useEffect(() => {
+    if (!hashToReveal) return;
+    const target = document.getElementById(hashToReveal);
+    if (!target) return;
+    target.closest("details")?.setAttribute("open", "");
+    const frame = requestAnimationFrame(() => {
+      target.scrollIntoView();
+      setHashToReveal(null);
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [hashToReveal, query]);
   const filtered = useMemo(() => terms.filter((item) => normalizeSearchText(`${item.term} ${item.english} ${item.definition}`).includes(normalizeSearchText(query)))
     .sort((a, b) => a.english.localeCompare(b.english, "en")), [terms, query]);
   const groups = ranges.map((range) => ({ ...range, entries: filtered.filter((item) => {

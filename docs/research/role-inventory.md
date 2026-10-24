@@ -1,8 +1,8 @@
 # 직무 인벤토리
 
-기준일: **2026-10-09**. 공개 직무 페이지 **46개**를 실제 `src/content/roles/` 파일과 대조한 목록입니다. 이는 [NCS 정보보호 SQF](https://www.ncs.go.kr/sqf/sqf01/sqf10100201p1.do?iscCd=20&iscNm=%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8)의 실무 영역을 참고해 여섯 범주로 구성한 위키의 안내 체계입니다. NCS의 공식 직종 목록을 그대로 복제하거나 각 위키 직무가 독립 채용 직함으로 널리 쓰인다고 주장하지 않습니다. [NICE](https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/nice-framework-current-versions)와 [ENISA ECSF](https://www.enisa.europa.eu/publications/european-cybersecurity-skills-framework-role-profiles)는 업무 범위를 검토하는 보조 근거입니다.
+기준일: **2026-10-25**. 공개 직무 페이지 **46개**를 실제 `src/content/roles/` 파일과 대조한 목록입니다. 이는 [NCS 정보보호 SQF](https://www.ncs.go.kr/sqf/sqf01/sqf10100201p1.do?iscCd=20&iscNm=%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8)의 실무 영역을 참고해 여섯 범주로 구성한 위키의 안내 체계입니다. NCS의 공식 직종 목록을 그대로 복제하거나 각 위키 직무가 독립 채용 직함으로 널리 쓰인다고 주장하지 않습니다. [NICE](https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/nice-framework-current-versions)와 [ENISA ECSF](https://www.enisa.europa.eu/publications/european-cybersecurity-skills-framework-role-profiles)는 업무 범위를 검토하는 보조 근거입니다.
 
-표의 P번호는 [국내 채용공고 표본](korean-job-market.md)에 연결됩니다. **본문**은 공식 공고 본문에서 관련 업무를 확인했다는 뜻이며 독립 직함 확인을 뜻하지 않습니다. **제목만**은 공식 목록·제목만 확인하고 상세 직무 요건은 검증하지 못했다는 뜻입니다. **인접**은 한 공고 속 관련 업무를 찾았으나 해당 직무 전체를 대표하지 않는다는 뜻입니다. **표본 없음**은 이번 23건 조사에서 직접 근거를 확보하지 못했다는 뜻이지 직무가 없거나 수요가 낮다는 뜻이 아닙니다.
+표의 P번호는 [국내 채용공고 표본](korean-job-market.md)에 연결됩니다. **본문**은 공식 공고 본문에서 관련 업무를 확인했다는 뜻이며 독립 직함 확인을 뜻하지 않습니다. **제목만**은 공식 목록·제목만 확인하고 상세 직무 요건은 검증하지 못했다는 뜻입니다. **인접**은 한 공고 속 관련 업무를 찾았으나 해당 직무 전체를 대표하지 않는다는 뜻입니다. **표본 없음**은 이번 29개 식별자 조사에서 직접 근거를 확보하지 못했다는 뜻이지 직무가 없거나 수요가 낮다는 뜻이 아닙니다. P19·P21의 원문은 현재 404라 같은 업무의 새 원문 P28·P29를 별도로 기록했습니다.
 
 ## 보안 전략·관리 · 7개
 
@@ -10,7 +10,7 @@
 | --- | --- | --- |
 | `ciso` · 최고정보보호책임자 | 조직의 보안 방향·위험 수용·자원과 경영진 보고 총괄 | 표본 없음. P08은 CISO 직속 조직을 언급할 뿐 CISO 채용 공고는 아님 |
 | `grc-analyst` · 보안 거버넌스·위험·컴플라이언스 분석가 | 요구사항을 내부 통제·증적·개선 과제로 연결 | P08·P16 본문 |
-| `privacy-manager` · 개인정보보호 담당자 | 개인정보 처리 흐름·수탁사·권리 및 법적 요구 검토 | P18 본문 |
+| `privacy-manager` · 개인정보보호 담당자 | 개인정보 처리 흐름·수탁사·권리 및 법적 요구 검토 | P18·P24 본문. P24는 신입 모집이지만 해당 기관의 자격 조건만 적용 |
 | `security-awareness-specialist` · 보안 인식·교육 담당자 | 조직 구성원 대상 교육·캠페인·효과 점검 | 표본 없음 |
 | `security-policy-manager` · 정보보호 정책 담당자 | 규제·위험을 정책과 운영 기준으로 정리·갱신 | P16 본문 |
 | `security-program-manager` · 보안 프로그램 관리자 | 여러 보안 과제의 범위·일정·의존성·보고 조정 | P08 인접 |
@@ -39,13 +39,13 @@
 | --- | --- | --- |
 | `automotive-security-engineer` · 차량·모빌리티 보안 엔지니어 | 차량·모빌리티 시스템의 보안 요구와 운영 개선 조율 | 표본 없음 |
 | `cloud-security-engineer` · 클라우드 보안 엔지니어 | 클라우드 계정·자원 보안 기준, 설정 점검, 개선 운영 | P07·P12 본문 |
-| `endpoint-security-engineer` · 엔드포인트 보안 엔지니어 | 단말 보호 정책·도구 배포·운영 상태 관리 | P02 제목·목록 메타데이터만; 상세 제한 |
+| `endpoint-security-engineer` · 엔드포인트 보안 엔지니어 | 단말 보호 정책·도구 배포·운영 상태 관리 | P02 제목·목록 메타데이터만; P27의 EDR 운영Ⅳ 업무는 인접 |
 | `iam-engineer` · 신원·접근관리 엔지니어 | 계정 생명주기·접근 권한·특권 통제 운영 | P07·P17 인접. 독립 IAM 직함은 미확인 |
-| `infrastructure-security-engineer` · 시스템·인프라 보안 엔지니어 | 서버·플랫폼·접근 경계의 보안 기준과 개선 운영 | P19 본문 |
-| `network-security-engineer` · 네트워크 보안 엔지니어 | 네트워크 보안 정책·구성·운영 문제 관리 | P04 제목만; P19의 네트워크 분할 업무는 인접 |
+| `infrastructure-security-engineer` · 시스템·인프라 보안 엔지니어 | 서버·플랫폼·접근 경계의 보안 기준과 개선 운영 | P28 본문. 과거 P19 원문은 현재 404 |
+| `network-security-engineer` · 네트워크 보안 엔지니어 | 네트워크 보안 정책·구성·운영 문제 관리 | P04 제목만; P27 운영Ⅱ와 P28 네트워크 정책·설계 본문 |
 | `ot-security-engineer` · OT·산업제어 보안 엔지니어 | 산업제어 환경의 가용성·안전 제약 속 보안 관리 | 표본 없음 |
-| `security-solution-engineer` · 보안 솔루션 구축·운영 엔지니어 | 조직에 도입된 보안 솔루션의 구축·정책·안정성 관리 | P02 제목만, 세부 업무 제한 |
-| `siem-platform-engineer` · SIEM·보안 분석 플랫폼 엔지니어 | 보안 분석 플랫폼의 데이터 수집·품질·성능·운영 책임 | P10 본문 |
+| `security-solution-engineer` · 보안 솔루션 구축·운영 엔지니어 | 조직에 도입된 보안 솔루션의 구축·정책·안정성 관리 | P02 제목만; P27 운영Ⅲ의 솔루션 운영·정책·패치 본문 |
+| `siem-platform-engineer` · SIEM·보안 분석 플랫폼 엔지니어 | 보안 분석 플랫폼의 데이터 수집·품질·성능·운영 책임 | P10·P27 운영Ⅰ 본문 |
 | `video-security-specialist` · 영상정보 보안·운영 담당자 | 영상정보 처리 시스템의 운영·접근·보호 절차 관리 | 표본 없음 |
 
 ## 보안 진단·평가 · 7개
@@ -55,8 +55,8 @@
 | `red-team-operator` · 레드팀 운영자 | 승인된 목표형 모의 공격으로 방어 공백을 검증 | P14 인접. 공고 제목 자체가 레드팀은 아님 |
 | `security-auditor` · 보안 감사자 | 독립 기준에 따라 통제 증거를 평가·보고 | P08의 감사 대응은 인접 업무이며 감사자 채용은 미확인 |
 | `security-certification-evaluator` · 보안제품 인증·평가 담당자 | 정해진 인증·평가 기준에 따른 제품 증빙 검토 | 표본 없음 |
-| `security-consultant` · 보안 컨설턴트 | 고객 과업의 진단·관리체계 자문과 결과 보고 | P05 제목만; 세부 과업 미검증 |
-| `vulnerability-management-specialist` · 취약점 관리 담당자 | 발견된 취약점의 위험 우선순위·조치·재확인 관리 | P13·P19 인접. 독립 직함은 미확인 |
+| `security-consultant` · 보안 컨설턴트 | 고객 과업의 진단·관리체계 자문과 결과 보고 | P05 제목만; P26은 진단·모의해킹 중심의 경력 컨설팅 본문 |
+| `vulnerability-management-specialist` · 취약점 관리 담당자 | 발견된 취약점의 위험 우선순위·조치·재확인 관리 | P13·P28 인접. 독립 직함은 미확인 |
 | `vulnerability-researcher` · 취약점 연구원 | 새로운 결함의 원인·영향을 연구하고 검증 결과 기록 | 표본 없음. P13의 서비스 진단과 동일시하지 않음 |
 | `web-penetration-tester` · 웹 모의침투 테스터 | 승인된 웹·API 범위의 공격 가능성 검증과 개선 권고 | P13 본문 |
 
@@ -65,19 +65,19 @@
 | 직무 페이지 | 주 책임 | 국내 표본 |
 | --- | --- | --- |
 | `cyber-threat-intelligence-analyst` · 사이버 위협 인텔리전스 분석가 | 위협 정보의 신뢰도·관련성을 평가해 의사결정에 전달 | P22의 CTI 활용은 인접, 독립 직함 미확인 |
-| `detection-engineer` · 보안 탐지 엔지니어 | 탐지 시나리오·규칙의 품질과 적용 범위 개선 | P11·P22 본문에 탐지 업무 확인 |
-| `digital-forensics-specialist` · 디지털 포렌식 전문가 | 증거 보존·분석과 사건 경위 재구성 | P03 제목만, 세부 업무 미검증 |
-| `incident-responder` · 침해사고 대응 담당자 | 사고 판단·조사·복구 조정·사후 개선 | P06·P11·P21·P22 본문 |
+| `detection-engineer` · 보안 탐지 엔지니어 | 탐지 시나리오·규칙의 품질과 적용 범위 개선 | P11·P22·P27 운영Ⅰ·P29 본문에 탐지 업무 확인 |
+| `digital-forensics-specialist` · 디지털 포렌식 전문가 | 증거 보존·분석과 사건 경위 재구성 | P03 제목만; P26의 컨설팅Ⅱ 포렌식 업무는 인접 |
+| `incident-responder` · 침해사고 대응 담당자 | 사고 판단·조사·복구 조정·사후 개선 | P06·P11·P22·P29 본문 |
 | `insider-threat-analyst` · 내부자 위협 분석가 | 내부자 관련 위험 신호 조사와 적법한 대응 조율 | 표본 없음 |
 | `malware-analyst` · 악성코드 분석가 | 악성 프로그램 분석 결과를 탐지·대응에 전달 | 표본 없음 |
-| `soc-analyst` · 보안관제 분석가 | 경보 분류·초기 조사·에스컬레이션과 관제 기록 | P06 본문. 단일 공고에 SOC·CSIRT 업무가 결합됨 |
+| `soc-analyst` · 보안관제 분석가 | 경보 분류·초기 조사·에스컬레이션과 관제 기록 | P06 본문은 SOC·CSIRT 결합, P27 운영Ⅳ은 EDR 관제 분야. P27의 교대 조건은 운영Ⅳ에만 해당 |
 | `threat-hunter` · 위협 헌터 | 가설을 바탕으로 미탐지 침해 흔적을 탐색·보고 | P22의 헌팅 업무는 인접, 독립 직함 미확인 |
 
 ## 보안 기술영업·고객지원 · 2개
 
 | 직무 페이지 | 주 책임 | 국내 표본 |
 | --- | --- | --- |
-| `security-sales-engineer` · 보안 솔루션 프리세일즈 엔지니어 | 고객 요구를 파악해 도입 가능성과 제안 범위를 설명 | 표본 없음 |
+| `security-sales-engineer` · 보안 솔루션 프리세일즈 엔지니어 | 고객 요구를 파악해 도입 가능성과 제안 범위를 설명 | 독립 프리세일즈 표본 없음. P25는 보안 솔루션 **영업**으로 인접하지만 PoC·시연 업무는 명시하지 않음 |
 | `security-support-engineer` · 보안제품 기술지원 엔지니어 | 제품 이용 고객의 장애·설정 문제를 조사하고 해결 조율 | 표본 없음. P04의 제목만으로 기술지원 직무라 단정하지 않음 |
 
 ## 범위와 갱신 기준

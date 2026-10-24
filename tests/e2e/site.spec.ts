@@ -43,6 +43,12 @@ test("Ctrl+K search focuses the input and restores the actual opener", async ({ 
   await expect(page).toHaveURL(/\/careers\/[^/]+\/$/);
 });
 
+test("career index finds a role by its work output", async ({ page }) => {
+  await page.goto("./careers/");
+  await page.getByRole("textbox", { name: "직무 검색" }).fill("평가 계획과 결과");
+  await expect(page.locator('.wiki-index a[href*="/careers/ai-security-engineer/"]')).toBeVisible();
+});
+
 test("mobile document drawer traps focus and Escape restores the trigger", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("./");
@@ -62,6 +68,17 @@ test("mobile document drawer traps focus and Escape restores the trigger", async
   await expect(trigger).toBeFocused();
 });
 
+test("narrow mobile header stays inside a 320px viewport", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 720 });
+  for (const route of ["./", "./careers/soc-analyst/"]) {
+    await page.goto(route);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(320);
+    const menu = page.getByRole("button", { name: "문서 탐색기 열기" });
+    await expect(menu).toBeVisible();
+    expect((await menu.boundingBox())!.x + (await menu.boundingBox())!.width).toBeLessThanOrEqual(320);
+  }
+});
+
 test("removed knowledge and comparison routes return 404", async ({ page }) => {
   for (const route of ["knowledge/", "knowledge-map/", "comparisons/"]) {
     const response = await page.goto(`./${route}`);
@@ -76,4 +93,38 @@ test("glossary entries show their sources", async ({ page }) => {
   const source = page.locator(".wiki-glossary-sources a").first();
   await expect(source).toBeVisible();
   await expect(source).toHaveAttribute("href", /^https:\/\//);
+});
+
+test("search opens a glossary term inside its folder", async ({ page }) => {
+  await page.goto("./glossary/");
+  await page.getByRole("textbox", { name: "용어 검색" }).fill("NCS");
+  await page.keyboard.press(searchShortcut);
+  const dialog = page.getByRole("dialog", { name: "보안 직무 검색" });
+  await dialog.getByRole("textbox", { name: "검색어" }).fill("SIEM");
+  await dialog.locator('a.search-result[href*="/glossary/#"]').first().click();
+  await expect(page).toHaveURL(/\/glossary\/#securityinformationandeventmanagement$/);
+  const term = page.locator("#securityinformationandeventmanagement");
+  await expect(term).toBeVisible();
+  await expect(term.locator("h2")).toContainText("SIEM");
+});
+
+test("references heading remains below the sticky header after TOC navigation", async ({ page }) => {
+  await page.goto("./careers/soc-analyst/");
+  await page.locator('.document-toc a[href="#references"]').click();
+  const header = page.locator(".site-header");
+  const heading = page.locator("#source-heading");
+  expect((await heading.boundingBox())!.y).toBeGreaterThanOrEqual((await header.boundingBox())!.y + (await header.boundingBox())!.height);
+});
+
+test("career roadmap has one document title", async ({ page }) => {
+  await page.goto("./roadmaps/security-operations/");
+  await expect(page.locator("main h1")).toHaveCount(1);
+});
+
+test("keyboard focus is visible in both search inputs", async ({ page }) => {
+  await page.goto("./careers/");
+  await page.getByRole("textbox", { name: "직무 검색" }).focus();
+  await expect(page.locator(".wiki-search")).toHaveCSS("outline-style", "solid");
+  await page.keyboard.press(searchShortcut);
+  await expect(page.locator(".search-modal-top")).toHaveCSS("outline-style", "solid");
 });

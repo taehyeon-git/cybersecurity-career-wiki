@@ -23,7 +23,7 @@ export function RoleExplorer({ roles }: { roles: RoleSummary[] }) {
     .filter((item) => category === "all" || item.id === category)
     .map((item) => ({
       ...item,
-      entries: roles.filter((role) => role.category === item.id && (!query.trim() || normalizeSearchText([role.titleKo, role.titleEn, role.summary, ...role.aliases].join(" ")).includes(normalizeSearchText(query)))),
+      entries: roles.filter((role) => role.category === item.id && (!query.trim() || normalizeSearchText([role.titleKo, role.titleEn, role.summary, ...role.aliases, ...role.keyDeliverables].join(" ")).includes(normalizeSearchText(query)))),
     }))
     .filter((item) => item.entries.length > 0), [roles, category, query]);
   const count = groups.reduce((sum, item) => sum + item.entries.length, 0);

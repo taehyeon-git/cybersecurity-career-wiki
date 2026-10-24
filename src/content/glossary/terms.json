@@ -49,51 +49,11 @@
     ]
   },
   {
-    "term": "기밀성",
-    "english": "Confidentiality",
-    "definition": "허가받지 않은 주체에게 정보가 노출되지 않게 하는 보안 속성.",
-    "sourceIds": [
-      "nist-csf"
-    ]
-  },
-  {
-    "term": "무결성",
-    "english": "Integrity",
-    "definition": "정보와 시스템이 허가되지 않은 방식으로 변경되지 않도록 하는 속성.",
-    "sourceIds": [
-      "nist-csf"
-    ]
-  },
-  {
-    "term": "가용성",
-    "english": "Availability",
-    "definition": "필요할 때 허가된 사용자가 시스템과 정보에 접근할 수 있는 속성.",
-    "sourceIds": [
-      "nist-csf"
-    ]
-  },
-  {
     "term": "NIST CSF 2.0",
     "english": "NIST Cybersecurity Framework 2.0",
     "definition": "조직이 사이버 위험을 이해하고 관리하는 데 쓰는 NIST의 결과 중심 프레임워크.",
     "sourceIds": [
       "nist-csf"
-    ]
-  },
-  {
-    "term": "공격면",
-    "english": "Attack Surface",
-    "definition": "공격자가 접근하거나 상호작용할 수 있는 시스템의 경로와 구성 요소.",
-    "sourceIds": [
-      "owasp-cheatsheets"
-    ]
-  },
-  {
-    "term": "신뢰 경계",
-    "english": "Trust Boundary",
-    "definition": "데이터 또는 요청이 서로 다른 신뢰 수준이나 통제 책임 사이를 넘는 지점.",
-    "sourceIds": [
-      "owasp-cheatsheets"
     ]
   },
   {
@@ -123,76 +83,11 @@
     ]
   },
   {
-    "term": "다중 인증",
-    "english": "Multi-Factor Authentication",
-    "definition": "서로 다른 종류의 인증 요소를 둘 이상 사용해 신원을 확인하는 방식.",
-    "sourceIds": [
-      "nist-zero-trust"
-    ]
-  },
-  {
-    "term": "역할 기반 접근 제어",
-    "english": "Role-Based Access Control",
-    "definition": "역할에 권한을 연결하고 사용자에게 역할을 부여하는 접근 제어 방식.",
-    "sourceIds": [
-      "kubernetes",
-      "nist-zero-trust"
-    ]
-  },
-  {
     "term": "서비스 계정",
     "english": "Service Account",
     "definition": "사람이 아닌 애플리케이션이나 작업이 자원에 접근할 때 쓰는 신원.",
     "sourceIds": [
       "kubernetes"
-    ]
-  },
-  {
-    "term": "특권 계정",
-    "english": "Privileged Account",
-    "definition": "관리나 중요한 변경 권한을 가진 계정.",
-    "sourceIds": [
-      "nist-zero-trust"
-    ]
-  },
-  {
-    "term": "세션",
-    "english": "Session",
-    "definition": "여러 요청에 걸쳐 사용자의 인증 상태와 관련 맥락을 유지하는 논리적 상호작용.",
-    "sourceIds": [
-      "owasp-cheatsheets"
-    ]
-  },
-  {
-    "term": "쿠키",
-    "english": "Cookie",
-    "definition": "브라우저가 저장하고 조건에 맞는 요청에 보내는 작은 데이터. 세션 식별자 저장에 쓰일 수 있다.",
-    "sourceIds": [
-      "owasp-cheatsheets"
-    ]
-  },
-  {
-    "term": "HTTP",
-    "english": "Hypertext Transfer Protocol",
-    "definition": "웹 클라이언트와 서버가 요청과 응답을 주고받는 응용 계층 프로토콜.",
-    "sourceIds": [
-      "owasp-cheatsheets"
-    ]
-  },
-  {
-    "term": "TLS",
-    "english": "Transport Layer Security",
-    "definition": "통신 상대 인증과 전송 구간 보호에 사용되는 암호 프로토콜.",
-    "sourceIds": [
-      "owasp-cheatsheets"
-    ]
-  },
-  {
-    "term": "DNS",
-    "english": "Domain Name System",
-    "definition": "도메인 이름을 주소 등 DNS 레코드와 연결하는 분산 이름 시스템.",
-    "sourceIds": [
-      "nist-csf"
     ]
   },
   {
@@ -204,70 +99,12 @@
     ]
   },
   {
-    "term": "BOLA",
-    "english": "Broken Object Level Authorization",
-    "definition": "사용자에게 허용되지 않은 객체에 접근할 수 있게 되는 API 객체 수준 인가 실패.",
-    "sourceIds": [
-      "owasp-api"
-    ]
-  },
-  {
-    "term": "SSRF",
-    "english": "Server-Side Request Forgery",
-    "definition": "서버가 공격자가 조작한 대상에 요청을 보내도록 유도되는 취약점 유형.",
-    "sourceIds": [
-      "owasp-api"
-    ]
-  },
-  {
-    "term": "인젝션",
-    "english": "Injection",
-    "definition": "신뢰할 수 없는 입력이 명령이나 질의의 구조로 해석되면서 의도하지 않은 동작이 생기는 문제.",
-    "sourceIds": [
-      "owasp-top10",
-      "mitre-cwe"
-    ]
-  },
-  {
-    "term": "SQL 인젝션",
-    "english": "SQL Injection",
-    "definition": "입력이 SQL 질의 구조를 바꾸어 데이터 접근이나 변경을 유발하는 인젝션 유형.",
-    "sourceIds": [
-      "owasp-cheatsheets",
-      "mitre-cwe"
-    ]
-  },
-  {
-    "term": "출력 인코딩",
-    "english": "Output Encoding",
-    "definition": "데이터를 표시되는 문맥에 맞게 변환해 코드나 마크업으로 해석되지 않도록 하는 방법.",
-    "sourceIds": [
-      "owasp-cheatsheets"
-    ]
-  },
-  {
-    "term": "입력 검증",
-    "english": "Input Validation",
-    "definition": "외부 입력이 기대하는 형식, 범위와 의미 조건을 만족하는지 확인하는 절차.",
-    "sourceIds": [
-      "owasp-cheatsheets"
-    ]
-  },
-  {
     "term": "위협 모델링",
     "english": "Threat Modeling",
     "definition": "시스템의 자산, 경계와 오용 경로를 분석해 설계 단계의 보안 요구를 도출하는 활동.",
     "sourceIds": [
       "nist-ssdf",
       "owasp-cheatsheets"
-    ]
-  },
-  {
-    "term": "안전한 개발 수명주기",
-    "english": "Secure SDLC",
-    "definition": "개발의 요구·설계·구현·검증·운영 전반에 보안 활동을 포함하는 접근.",
-    "sourceIds": [
-      "nist-ssdf"
     ]
   },
   {
@@ -340,29 +177,13 @@
     "english": "False Positive",
     "definition": "실제 문제가 아닌데 검사나 탐지에서 문제라고 보고하는 결과.",
     "sourceIds": [
-      "nist-ssdf"
-    ]
-  },
-  {
-    "term": "미탐",
-    "english": "False Negative",
-    "definition": "문제가 실제로 존재하지만 검사나 탐지가 놓친 결과.",
-    "sourceIds": [
-      "nist-csf"
+      "nist-csrc-false-positive"
     ]
   },
   {
     "term": "CI/CD",
     "english": "Continuous Integration and Continuous Delivery",
     "definition": "코드 통합과 검증·배포 과정을 반복 가능하게 자동화하는 개발 관행.",
-    "sourceIds": [
-      "nist-ssdf"
-    ]
-  },
-  {
-    "term": "빌드 산출물",
-    "english": "Build Artifact",
-    "definition": "빌드 과정에서 생성되어 시험 또는 배포 대상으로 쓰이는 파일이나 이미지.",
     "sourceIds": [
       "nist-ssdf"
     ]
@@ -377,67 +198,11 @@
     ]
   },
   {
-    "term": "컨테이너 이미지",
-    "english": "Container Image",
-    "definition": "컨테이너 실행에 필요한 파일시스템과 구성 정보를 담은 배포 단위.",
-    "sourceIds": [
-      "kubernetes"
-    ]
-  },
-  {
-    "term": "Pod",
-    "english": "Pod",
-    "definition": "Kubernetes에서 함께 스케줄되고 네트워크 등 일부 실행 맥락을 공유하는 기본 워크로드 단위.",
-    "sourceIds": [
-      "kubernetes"
-    ]
-  },
-  {
-    "term": "Kubernetes RBAC",
-    "english": "Kubernetes Role-Based Access Control",
-    "definition": "Kubernetes API 작업 권한을 역할과 바인딩으로 표현하는 접근 제어 기능.",
-    "sourceIds": [
-      "kubernetes"
-    ]
-  },
-  {
-    "term": "NetworkPolicy",
-    "english": "Kubernetes NetworkPolicy",
-    "definition": "선택한 Pod 사이의 허용 네트워크 트래픽을 정의하는 Kubernetes 리소스.",
-    "sourceIds": [
-      "kubernetes"
-    ]
-  },
-  {
-    "term": "제로 트러스트",
-    "english": "Zero Trust",
-    "definition": "네트워크 위치만으로 암묵적 신뢰를 주지 않고 접근을 평가하는 보안 개념.",
-    "sourceIds": [
-      "nist-zero-trust"
-    ]
-  },
-  {
-    "term": "정책 결정 지점",
-    "english": "Policy Decision Point",
-    "definition": "접근 정책을 평가해 허용 여부를 결정하는 제로 트러스트 구성 개념.",
-    "sourceIds": [
-      "nist-zero-trust"
-    ]
-  },
-  {
     "term": "SIEM",
     "english": "Security Information and Event Management",
-    "definition": "여러 로그와 이벤트를 모아 검색·상관 분석·경보에 쓰는 보안 운영 기술 범주.",
+    "definition": "보안관제·탐지 담당자가 여러 시스템의 사건 기록을 모아 조사와 경보 판단에 사용하는 도구 범주.",
     "sourceIds": [
-      "nist-csf"
-    ]
-  },
-  {
-    "term": "이벤트 정규화",
-    "english": "Event Normalization",
-    "definition": "서로 다른 원천의 로그 필드를 공통 형식으로 매핑하는 처리.",
-    "sourceIds": [
-      "nist-csf"
+      "nist-csrc-siem"
     ]
   },
   {
@@ -449,52 +214,12 @@
     ]
   },
   {
-    "term": "IOC",
-    "english": "Indicator of Compromise",
-    "definition": "침해와 관련될 수 있는 관측 가능한 흔적. 단독 일치는 침해 확정이 아니다.",
-    "sourceIds": [
-      "mitre-attack"
-    ]
-  },
-  {
-    "term": "TTP",
-    "english": "Tactics, Techniques, and Procedures",
-    "definition": "행위자의 목적과 실행 방식, 구체적 절차를 함께 가리키는 표현.",
-    "sourceIds": [
-      "mitre-attack"
-    ]
-  },
-  {
-    "term": "전술",
-    "english": "Tactic",
-    "definition": "MITRE ATT&CK에서 공격자가 달성하려는 고수준 목표.",
-    "sourceIds": [
-      "mitre-attack"
-    ]
-  },
-  {
-    "term": "기술",
-    "english": "Technique",
-    "definition": "MITRE ATT&CK에서 전술 목표를 달성하는 관측 가능한 방식.",
-    "sourceIds": [
-      "mitre-attack"
-    ]
-  },
-  {
     "term": "위협 헌팅",
     "english": "Threat Hunting",
     "definition": "기존 경보를 기다리지 않고 내부 데이터에서 위협 가설을 능동적으로 시험하는 활동.",
     "sourceIds": [
       "mitre-attack",
       "nist-nice"
-    ]
-  },
-  {
-    "term": "경보 분류",
-    "english": "Alert Triage",
-    "definition": "들어온 경보의 맥락과 근거를 검토해 조사·이관·종결 방향을 정하는 과정.",
-    "sourceIds": [
-      "nist-csf"
     ]
   },
   {
@@ -540,12 +265,12 @@
     ]
   },
   {
-    "term": "감사 증거",
+    "term": "증적",
     "english": "Audit Evidence",
-    "definition": "통제가 설계되고 실제 운영되었는지 판단하는 데 쓰는 기록, 설정, 관찰과 인터뷰 자료.",
+    "definition": "점검·감사에서 정책이 실제로 적용됐는지 확인하는 기록이나 자료. 대상과 기간이 맞는지도 함께 봐야 한다.",
     "sourceIds": [
-      "nist-csf",
-      "enisa-ecsf"
+      "ncs-sqf",
+      "nist-csf"
     ]
   },
   {
@@ -562,6 +287,158 @@
     "definition": "정책 또는 통제 예외를 무기한 두지 않고 재검토해야 하는 시점.",
     "sourceIds": [
       "nist-csf"
+    ]
+  },
+  {
+    "term": "SQF",
+    "english": "Sectoral Qualifications Framework",
+    "definition": "산업에서 통용되는 직무와 수준별 요구역량을 구조화한 체계. 기업의 채용 직함 목록과 같지는 않다.",
+    "sourceIds": [
+      "ncs-sqf"
+    ]
+  },
+  {
+    "term": "NCS",
+    "english": "National Competency Standards",
+    "definition": "국가직무능력표준. 직무 수행에 필요한 능력을 정리한 자료로, 한 회사의 채용 요건과 일대일로 같지는 않다.",
+    "sourceIds": [
+      "ncs-sqf"
+    ]
+  },
+  {
+    "term": "NICE 업무 역할",
+    "english": "NICE Work Role",
+    "definition": "NICE가 책임지는 업무를 묶어 설명하는 단위. 한 회사의 일자리나 직무명과 같지 않을 수 있다.",
+    "sourceIds": [
+      "nist-jobs-vs-roles",
+      "nist-nice"
+    ]
+  },
+  {
+    "term": "채용 직무",
+    "english": "Job",
+    "definition": "고용주가 한 포지션에 부여한 책임의 묶음. 여러 업무 역할을 포함하거나 한 역할의 일부만 맡길 수 있다.",
+    "sourceIds": [
+      "nist-jobs-vs-roles"
+    ]
+  },
+  {
+    "term": "직무명",
+    "english": "Job Title",
+    "definition": "공고에 표시된 일자리 이름. 같은 이름이어도 회사마다 실제 업무와 요건은 다를 수 있다.",
+    "sourceIds": [
+      "nist-jobs-vs-roles"
+    ]
+  },
+  {
+    "term": "커리어 경로",
+    "english": "Career Pathway",
+    "definition": "현재의 업무 경험과 산출물을 바탕으로 다음 직무를 준비하는 예시 경로. 공식 승진 순서는 아니다.",
+    "sourceIds": [
+      "cisa-pathways",
+      "nist-jobs-vs-roles"
+    ]
+  },
+  {
+    "term": "프리세일즈",
+    "english": "Pre-Sales",
+    "definition": "계약 전에 고객 요구와 운영 조건을 확인하고 제안의 적합성을 설명하는 기술영업 활동.",
+    "sourceIds": [
+      "ncs-sqf"
+    ]
+  },
+  {
+    "term": "공급망 위험 관리",
+    "english": "Cybersecurity Supply Chain Risk Management",
+    "definition": "외부 제품·서비스·공급자의 보안 위험과 책임을 구매, 운영, 종료 단계에서 검토하는 업무.",
+    "sourceIds": [
+      "nist-scrm-800161",
+      "nist-nice-changelog"
+    ]
+  },
+  {
+    "term": "제3자 위험 관리",
+    "english": "Third-Party Risk Management",
+    "definition": "협력사 같은 외부 조직과의 관계에서 생기는 위험, 책임, 운영 증거를 확인하는 업무.",
+    "sourceIds": [
+      "nist-scrm-800161",
+      "nist-scrm-due-diligence"
+    ]
+  },
+  {
+    "term": "모의해킹",
+    "english": "Penetration Testing",
+    "definition": "서면 승인된 범위에서 보안 약점을 확인하고 영향과 개선 필요 사항을 보고하는 진단 업무.",
+    "sourceIds": [
+      "ncs-sqf",
+      "enisa-ecsf-roles"
+    ]
+  },
+  {
+    "term": "보안관제",
+    "english": "Security Monitoring",
+    "definition": "경보를 살피고 사건 여부를 판단해 필요한 담당자에게 인계하는 업무. SOC는 이런 업무를 맡는 운영 조직이나 센터를 가리킨다.",
+    "sourceIds": [
+      "ncs-sqf",
+      "nist-nice",
+      "secui-security-operations-2026"
+    ]
+  },
+  {
+    "term": "정보보호 관리체계",
+    "english": "Information Security Management System",
+    "definition": "조직의 보안 정책, 위험 관리, 점검과 개선을 계속 운영하는 체계. 인증 심사 준비만을 뜻하지 않는다.",
+    "sourceIds": [
+      "ncs-sqf",
+      "kisa-isms-p"
+    ]
+  },
+  {
+    "term": "ISMS-P",
+    "english": "ISMS-P Certification",
+    "definition": "정보보호 및 개인정보보호 관리체계가 인증기준에 맞게 운영되는지 심사하는 국내 인증. 특정 직무의 공통 필수 자격을 뜻하지 않는다.",
+    "sourceIds": [
+      "kisa-isms-p"
+    ]
+  },
+  {
+    "term": "교대근무",
+    "english": "Shift Work",
+    "definition": "정해진 조가 시간대를 나눠 운영 업무를 이어받는 근무 형태. 일부 보안 운영 공고에만 명시되므로 지원자는 적용 분야와 근무표를 확인해야 한다.",
+    "sourceIds": [
+      "secui-security-operations-2026"
+    ]
+  },
+  {
+    "term": "교전 규칙",
+    "english": "Rules of Engagement",
+    "definition": "승인된 보안 평가나 훈련에서 대상·기간·허용 및 금지 행위·중단과 연락 절차를 합의한 운영 규칙.",
+    "sourceIds": [
+      "nist-csrc-rules-of-engagement"
+    ]
+  },
+  {
+    "term": "온콜",
+    "english": "On-call Rotation",
+    "definition": "보안 사건이 생기면 연락받아 대응하는 공동 대기 순번. 교대근무와 같지 않으며 시간과 호출 범위는 공고에서 확인해야 한다.",
+    "sourceIds": [
+      "notion-detection-response-oncall"
+    ]
+  },
+  {
+    "term": "고객 현장 근무",
+    "english": "On-site Client Work",
+    "definition": "고객 시설에서 직접 과업을 수행하는 방식. 원격 수행 여부, 출장 빈도와 고용 형태는 공고마다 별도로 확인한다.",
+    "sourceIds": [
+      "ahead-network-consultant-onsite"
+    ]
+  },
+  {
+    "term": "PoC",
+    "english": "Proof of Concept",
+    "definition": "도입 전에 제품이나 제안이 고객의 정해진 사용 사례에 맞는지 제한된 범위에서 확인하는 개념검증. 목표와 결과를 누가 승인하는지 확인해야 한다.",
+    "sourceIds": [
+      "outtake-sales-engineer-poc"
     ]
   }
 ]
