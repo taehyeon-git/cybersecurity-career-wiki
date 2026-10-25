@@ -176,6 +176,7 @@ html[data-theme="dark"] .wiki-home-index-head { background: #2b4055; }
 .document-english { color: var(--muted); font-size: 12px; font-weight: 400; }
 .document-summary { margin-top: 15px; color: var(--text); font-size: 15px; line-height: 1.8; }
 .document-meta { flex-wrap: wrap; gap: 6px 16px; margin-top: 13px; font-size: 12px; line-height: 1.45; }
+.document-meta a { color: var(--blue-ink); text-decoration: underline; text-underline-offset: 2px; }
 .document-career-paths { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; padding: 11px 0 0; font-size: 13px; line-height: 1.5; }
 .document-career-paths span { color: var(--muted); font-weight: 700; }
 .document-career-paths a { color: var(--blue-ink); text-decoration: underline; text-underline-offset: 2px; }
@@ -207,6 +208,10 @@ a .external-link-cue { display: inline-block; margin-left: 3px; font-size: .8em;
 .source-section { margin-top: 42px; padding-top: 18px; }
 .source-section h2, .related-section h2 { font-size: 18px; }
 .source-section li { padding: 8px 10px; border-radius: 0; }
+.related-group { margin-top: 19px; }
+.related-section { scroll-margin-top: 94px; }
+.related-group h3 { margin: 0; color: var(--text); font-size: 13px; }
+.related-group .related-grid { margin-top: 6px; }
 .related-grid { grid-template-columns: 1fr; gap: 0; border-top: 1px solid var(--line); }
 .related-card { min-height: 48px; border: 0; border-bottom: 1px dotted var(--line); border-radius: 0; padding: 7px 5px; }
 .related-card:hover { background: var(--surface-soft); }

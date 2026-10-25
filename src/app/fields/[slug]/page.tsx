@@ -3,8 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { DocumentShell } from "@/components/layout/DocumentShell";
 import { PageIllustration } from "@/components/illustration/PageIllustration";
-import { loadSources, publishedFields } from "@/lib/content";
-import { fieldDomains, roleCategories, routeFor } from "@/lib/site-data";
+import { loadSources, publishedFields, publishedRoles } from "@/lib/content";
+import { fieldDomainGroups, fieldDomains, roleCategories, routeFor } from "@/lib/site-data";
 import { canonicalUrl } from "@/lib/urls";
 
 export const dynamicParams = false;
@@ -49,10 +49,19 @@ export default async function FieldPage({ params }: { params: Promise<{ slug: st
       </header>
     </main>;
   }
-  const index = fields.findIndex((item) => item.id === field.id);
+  const group = fieldDomainGroups.find((entry) => entry.domainIds.some((id) => id === field.id));
+  if (!group) throw new Error(`${field.id}: published field is missing a protective environment folder`);
+  const groupFields = fields.filter((item) => group.domainIds.some((id) => id === item.id));
+  const index = groupFields.findIndex((item) => item.id === field.id);
+  const rolesById = new Map(publishedRoles().map((role) => [role.id, role]));
+  const relatedRoles = field.roleIds.flatMap((id) => {
+    const role = rolesById.get(id);
+    return role ? [{ label: role.titleKo, href: routeFor.role(role.slug), eyebrow: "관련 직무" }] : [];
+  });
   return <DocumentShell
     section="보안 분야"
     sectionHref="/fields/"
+    navLabel={group.ko}
     title={field.titleKo}
     english={field.titleEn}
     summary={field.summary}
@@ -60,12 +69,13 @@ export default async function FieldPage({ params }: { params: Promise<{ slug: st
     reviewedAt={field.reviewedAt}
     sourceIds={field.sourceIds}
     sources={loadSources()}
-    navItems={fields.map((item) => ({ label: item.titleKo, href: routeFor.field(item.slug) }))}
+    navItems={groupFields.map((item) => ({ label: item.titleKo, href: routeFor.field(item.slug) }))}
     currentHref={routeFor.field(slug)}
-    previous={fields[index - 1] ? { label: fields[index - 1].titleKo, href: routeFor.field(fields[index - 1].slug) } : undefined}
-    next={fields[index + 1] ? { label: fields[index + 1].titleKo, href: routeFor.field(fields[index + 1].slug) } : undefined}
+    related={relatedRoles}
+    previous={groupFields[index - 1] ? { label: groupFields[index - 1].titleKo, href: routeFor.field(groupFields[index - 1].slug) } : undefined}
+    next={groupFields[index + 1] ? { label: groupFields[index + 1].titleKo, href: routeFor.field(groupFields[index + 1].slug) } : undefined}
     filePath={field.filePath}
-    badge="분야 안내"
+    badge={`${group.ko} 분야 안내`}
     editorialNote="보호 대상과 기술 환경을 기준으로 읽는 커리어 안내입니다. 실제 담당 범위와 채용 요건은 조직과 공고마다 다르므로 해당 직무 글과 공고를 함께 확인하세요."
   />;
 }

@@ -2,14 +2,12 @@ import type { Metadata } from "next";
 import { WikiFileRow, WikiFolder } from "@/components/wiki/Directory";
 import { PageIllustration } from "@/components/illustration/PageIllustration";
 import { publishedRoadmaps } from "@/lib/content";
-import { routeFor } from "@/lib/site-data";
+import { roadmapGroups, routeFor } from "@/lib/site-data";
 
 export const metadata: Metadata = { title: "커리어 경로", description: "보안 직무 선택부터 업무 포트폴리오와 지원 준비까지 이어지는 경로입니다.", alternates: { canonical: "/roadmaps/" } };
 
 export default function RoadmapsPage() {
-  const roadmaps = publishedRoadmaps();
-  const foundation = roadmaps.filter((item) => item.id === "cybersecurity-fundamentals");
-  const specialized = roadmaps.filter((item) => item.id !== "cybersecurity-fundamentals");
+  const roadmaps = publishedRoadmaps().sort((a, b) => a.titleKo.localeCompare(b.titleKo, "ko"));
   return <main className="wiki-page">
     <header className="wiki-page-header">
       <div className="wiki-page-kicker">위키 / 커리어 경로</div>
@@ -19,8 +17,10 @@ export default function RoadmapsPage() {
       <PageIllustration kind="roadmaps" title="커리어 경로" />
     </header>
     <div className="wiki-folder-list">
-      <WikiFolder name="처음 시작하는 경로" description="직무 선택과 공고 읽기" count={`${foundation.length}개 문서`} defaultOpen>{foundation.map((item) => <WikiFileRow key={item.id} href={routeFor.roadmap(item.slug)} title={item.titleKo} subtitle={item.titleEn} description={item.summary} />)}</WikiFolder>
-      <WikiFolder name="직무 방향별 준비 경로" description="업무 사례와 포트폴리오" count={`${specialized.length}개 문서`} defaultOpen>{specialized.map((item) => <WikiFileRow key={item.id} href={routeFor.roadmap(item.slug)} title={item.titleKo} subtitle={item.titleEn} description={item.summary} />)}</WikiFolder>
+      {roadmapGroups.map((group) => {
+        const items = roadmaps.filter((roadmap) => group.roadmapIds.some((id) => id === roadmap.id));
+        return <WikiFolder key={group.id} name={group.ko} description={group.description} count={`${items.length}개 문서`} defaultOpen={group.id === "start"}>{items.map((item) => <WikiFileRow key={item.id} href={routeFor.roadmap(item.slug)} title={item.titleKo} subtitle={item.titleEn} description={item.summary} />)}</WikiFolder>;
+      })}
     </div>
   </main>;
 }

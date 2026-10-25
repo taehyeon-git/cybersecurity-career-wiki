@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FileText, Folder, FolderOpen } from "lucide-react";
-import { useId, useState } from "react";
+import { useEffect, useId, useState } from "react";
 
 export type WikiPageNode = {
   kind: "page";
@@ -50,6 +50,11 @@ function FolderBranch({ node, pathname, depth }: { node: WikiFolderNode; pathnam
   const [open, setOpen] = useState(() => containsPath(node, pathname));
   const childId = useId();
   const currentBranch = containsPath(node, pathname);
+  useEffect(() => {
+    if (!currentBranch) return;
+    const frame = requestAnimationFrame(() => setOpen(true));
+    return () => cancelAnimationFrame(frame);
+  }, [pathname, currentBranch]);
   return <li className={`wiki-tree-item wiki-tree-folder${open ? " is-open" : ""}${currentBranch ? " is-active" : ""}`}>
     <button
       type="button"
@@ -88,6 +93,5 @@ function TreeView({ nodes, pathname }: { nodes: WikiTreeNode[]; pathname: string
 
 export function WikiFolderNavigation({ nodes }: { nodes: WikiTreeNode[] }) {
   const pathname = normalizedPath(usePathname() ?? "/");
-  // Remount the tree when navigating so the selected document's ancestors open.
-  return <TreeView key={pathname} nodes={nodes} pathname={pathname} />;
+  return <TreeView nodes={nodes} pathname={pathname} />;
 }

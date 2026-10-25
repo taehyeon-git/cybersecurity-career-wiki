@@ -1,5 +1,5 @@
 import { publishedFields, publishedRoadmaps, publishedRoles } from "@/lib/content";
-import { fieldDomainGroups, roleCategories, routeFor } from "@/lib/site-data";
+import { fieldDomainGroups, roadmapGroups, roleCategories, routeFor } from "@/lib/site-data";
 import { WikiFolderNavigation, type WikiTreeNode } from "./WikiFolderNavigation";
 
 function page(key: string, label: string, href: string): WikiTreeNode {
@@ -14,7 +14,7 @@ function folder(key: string, label: string, count: number, children: WikiTreeNod
 export function WikiFolderTree() {
   const fields = publishedFields();
   const roles = publishedRoles();
-  const roadmaps = publishedRoadmaps();
+  const roadmaps = publishedRoadmaps().sort((a, b) => a.titleKo.localeCompare(b.titleKo, "ko"));
   const roleFolders = roleCategories.map((category) => {
     const entries = roles.filter((role) => role.category === category.id)
       .sort((a, b) => a.titleKo.localeCompare(b.titleKo, "ko"));
@@ -38,8 +38,11 @@ export function WikiFolderTree() {
     folder("roles", "보안 직무", roles.length, [page("roles-index", "직무 전체 보기", "/careers/"), ...roleFolders]),
     folder("roadmaps", "커리어 경로", roadmaps.length, [
       page("roadmaps-index", "경로 전체 보기", "/roadmaps/"),
-      ...roadmaps.sort((a, b) => a.titleKo.localeCompare(b.titleKo, "ko"))
-        .map((roadmap) => page(`roadmap-${roadmap.id}`, roadmap.titleKo, routeFor.roadmap(roadmap.slug))),
+      ...roadmapGroups.map((group) => {
+        const entries = roadmaps.filter((roadmap) => group.roadmapIds.some((id) => id === roadmap.id));
+        return folder(`roadmaps-${group.id}`, group.ko, entries.length,
+          entries.map((roadmap) => page(`roadmap-${roadmap.id}`, roadmap.titleKo, routeFor.roadmap(roadmap.slug))));
+      }),
     ]),
     page("glossary", "보안 용어집", "/glossary/"),
   ];

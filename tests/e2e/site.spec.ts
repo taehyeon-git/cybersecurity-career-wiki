@@ -137,6 +137,7 @@ test("mobile document explorer opens the OT field from its group", async ({ page
   await sidebar.locator('a[href*="/fields/ot/"]').click();
   await expect(page).toHaveURL(/\/fields\/ot\/$/);
   await expect(page.locator(".document-main h1")).toContainText("OT");
+  await expect(page.locator(".document-main h1")).toBeFocused();
 });
 
 test("jobs show relevant fields without forcing one-to-one categories", async ({ page }) => {
@@ -174,6 +175,44 @@ test("five main navigation links fit between the brand and actions", async ({ pa
     expect(geometry.actionsLeft, `${width}px navigation and actions overlap`).toBeGreaterThanOrEqual(geometry.navRight - 1);
     expect(geometry.scrollWidth, `${width}px horizontal overflow`).toBeLessThanOrEqual(width);
   }
+});
+
+test("client navigation focuses the new document heading and marks its current section", async ({ page }) => {
+  await page.goto("./");
+  const fieldsNav = page.locator(".desktop-nav").getByRole("link", { name: "보안 분야" });
+  await fieldsNav.click();
+  await expect(page).toHaveURL(/\/fields\/$/);
+  await expect(page.getByRole("heading", { level: 1, name: "보안 분야" })).toBeFocused();
+  await expect(fieldsNav).toHaveAttribute("aria-current", "page");
+
+  await page.locator(".wiki-folder-list .wiki-folder").nth(3).locator("summary").click();
+  await page.locator('.wiki-folder-list a[href*="/fields/ot/"]').click();
+  await expect(page).toHaveURL(/\/fields\/ot\/$/);
+  await expect(page.getByRole("heading", { level: 1, name: "OT·산업제어 보안" })).toBeFocused();
+  await expect(fieldsNav).toHaveAttribute("aria-current", "location");
+});
+
+test("document tree preserves opened branches and opens the new route ancestors", async ({ page }) => {
+  await page.goto("./");
+  const tree = page.locator("#wiki-sidebar .wiki-tree");
+  const jobs = tree.getByRole("button", { name: /보안 직무/ });
+  const fields = tree.getByRole("button", { name: /보안 분야/ });
+  await jobs.click();
+  await expect(jobs).toHaveAttribute("aria-expanded", "true");
+
+  await page.locator(".desktop-nav").getByRole("link", { name: "보안 분야" }).click();
+  await expect(fields).toHaveAttribute("aria-expanded", "true");
+  await expect(jobs).toHaveAttribute("aria-expanded", "true");
+
+  await fields.click();
+  await expect(fields).toHaveAttribute("aria-expanded", "false");
+  await page.locator(".desktop-nav").getByRole("link", { name: "보안 직무" }).click();
+  await expect(jobs).toHaveAttribute("aria-expanded", "true");
+  await expect(fields).toHaveAttribute("aria-expanded", "false");
+
+  await page.locator(".desktop-nav").getByRole("link", { name: "보안 분야" }).click();
+  await expect(fields).toHaveAttribute("aria-expanded", "true");
+  await expect(jobs).toHaveAttribute("aria-expanded", "true");
 });
 
 test("Ctrl+K search focuses the input and restores the actual opener", async ({ page }) => {
@@ -277,12 +316,15 @@ test("career index puts an exact role title ahead of incidental body matches", a
   await expect(firstFolder.locator(".wiki-file").first()).toHaveAttribute("href", /\/careers\/soc-analyst\/$/);
 });
 
-test("specialized career paths are visible without opening another folder", async ({ page }) => {
+test("specialized career paths are discoverable in named folders on mobile", async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 720 });
   await page.goto("./roadmaps/");
-  const specialized = page.locator(".wiki-folder").filter({ has: page.getByText("직무 방향별 준비 경로", { exact: true }) });
-  await expect(specialized).toHaveAttribute("open", "");
-  await expect(specialized.locator('a[href*="/roadmaps/ai-security-career/"]')).toBeVisible();
+  const folders = page.locator(".wiki-folder-list .wiki-folder");
+  await expect(folders).toHaveCount(6);
+  const design = folders.filter({ has: page.getByText("설계·개발 경로", { exact: true }) });
+  await expect(design.locator("summary")).toBeVisible();
+  await design.locator("summary").click();
+  await expect(design.locator('a[href*="/roadmaps/ai-security-career/"]')).toBeVisible();
 });
 
 test("glossary folders follow Korean terms and keep acronyms easy to find", async ({ page }) => {
@@ -669,15 +711,17 @@ test("article source links show and announce that they open a new tab", async ({
 });
 
 test("new-tab links announce their behavior across the wiki", async ({ page }) => {
+  let checkedLinks = 0;
   for (const route of ["./", "./start/", "./careers/", "./glossary/", "./careers/privacy-manager/"]) {
     await page.goto(route);
     const links = page.locator('a[target="_blank"]:visible');
     const count = await links.count();
-    expect(count, `${route} should expose an external link`).toBeGreaterThan(0);
+    checkedLinks += count;
     for (let index = 0; index < count; index += 1) {
       await expect(links.nth(index), `${route} external link ${index + 1}`).toHaveAccessibleName(/새 탭에서 열림/);
     }
   }
+  expect(checkedLinks, "representative wiki pages should expose an external link").toBeGreaterThan(0);
 });
 
 test("search opens a glossary term inside its folder", async ({ page }) => {

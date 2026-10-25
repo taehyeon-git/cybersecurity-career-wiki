@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowUpRight, ChevronRight, FileText, Folder, Info } from "lucide-react";
 import { publishedFields, publishedRoadmaps, publishedRoles } from "@/lib/content";
 import { PageIllustration } from "@/components/illustration/PageIllustration";
-import { fieldDomainGroups, roleCategories, routeFor } from "@/lib/site-data";
+import { fieldDomainGroups, roadmapGroups, roleCategories, routeFor } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "사이버보안 커리어 위키",
@@ -43,18 +43,10 @@ export default function HomePage() {
       <PageIllustration kind="home" title="사이버보안 커리어 위키" />
     </header>
 
-    <aside className="wiki-home-notice"><Info size={18} aria-hidden="true" /><p><strong>처음 방문했다면</strong> <Link href="/start/">직무 찾는 방법</Link>을 읽고, 먼저 분야 폴더에서 하는 일을 살펴보세요. 개별 채용 사례는 시장 전체의 공통 요건을 뜻하지 않습니다.</p></aside>
+    <aside className="wiki-home-notice"><Info size={18} aria-hidden="true" /><p><strong>처음 방문했다면</strong> <Link href="/start/">직무 찾는 방법</Link>을 읽고 보안 분야 폴더부터 펼쳐 보세요.</p></aside>
 
     <section className="wiki-home-index" aria-labelledby="wiki-home-index-title">
       <div className="wiki-home-index-head"><div><span>ROOT /</span><h2 id="wiki-home-index-title">전체 문서</h2></div><span>폴더를 눌러 펼치기</span></div>
-
-      <details className="wiki-home-folder" open>
-        <FolderSummary name="처음 읽기" description="이용 안내 · 용어 사전" count={2} />
-        <div className="wiki-home-folder-contents"><div className="wiki-home-file-list">
-          <FileRow href="/start/" name="직무 찾는 방법" description="업무 범주와 채용 근거를 읽는 방법을 안내합니다." type="안내" />
-          <FileRow href="/glossary/" name="보안 용어집" description="직무 글과 공고에 등장하는 약어와 용어를 짧게 확인합니다." type="사전" />
-        </div></div>
-      </details>
 
       <details className="wiki-home-folder">
         <FolderSummary name="보안 분야" description="보호 대상 · 실제 일 · 관련 직무" count={fields.length} />
@@ -69,6 +61,14 @@ export default function HomePage() {
           </details>)}
           <Link className="wiki-home-folder-footer" href="/fields/">분야 전체 보기 <ArrowUpRight size={15} aria-hidden="true" /></Link>
         </div>
+      </details>
+
+      <details className="wiki-home-folder">
+        <FolderSummary name="처음 읽기" description="이용 안내 · 용어 사전" count={2} />
+        <div className="wiki-home-folder-contents"><div className="wiki-home-file-list">
+          <FileRow href="/start/" name="직무 찾는 방법" description="업무 범주와 채용 근거를 읽는 방법을 안내합니다." type="안내" />
+          <FileRow href="/glossary/" name="보안 용어집" description="직무 글과 공고에 등장하는 약어와 용어를 짧게 확인합니다." type="사전" />
+        </div></div>
       </details>
 
       <details className="wiki-home-folder">
@@ -88,7 +88,16 @@ export default function HomePage() {
 
       <details className="wiki-home-folder">
         <FolderSummary name="커리어 경로" description="직무 선택 · 준비물 · 지원 과정" count={roadmaps.length} />
-        <div className="wiki-home-folder-contents"><div className="wiki-home-file-list">{roadmaps.map((roadmap) => <FileRow key={roadmap.id} href={routeFor.roadmap(roadmap.slug)} name={roadmap.titleKo} description={roadmap.summary} type="경로" />)}</div><Link className="wiki-home-folder-footer" href="/roadmaps/">경로 전체 보기 <ArrowUpRight size={15} aria-hidden="true" /></Link></div>
+        <div className="wiki-home-folder-contents">
+          {roadmapGroups.map((group) => {
+            const items = roadmaps.filter((roadmap) => group.roadmapIds.some((id) => id === roadmap.id));
+            return <details className="wiki-home-subfolder" key={group.id}>
+              <summary className="wiki-home-subfolder-summary"><span><ChevronRight size={14} className="wiki-home-chevron" aria-hidden="true" /><Folder size={17} aria-hidden="true" /><strong>{group.ko}</strong></span><small>{items.length}개 경로</small></summary>
+              <div className="wiki-home-file-list">{items.map((roadmap) => <FileRow key={roadmap.id} href={routeFor.roadmap(roadmap.slug)} name={roadmap.titleKo} description={roadmap.summary} type="경로" />)}</div>
+            </details>;
+          })}
+          <Link className="wiki-home-folder-footer" href="/roadmaps/">경로 전체 보기 <ArrowUpRight size={15} aria-hidden="true" /></Link>
+        </div>
       </details>
     </section>
   </main>;

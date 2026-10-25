@@ -33,6 +33,16 @@ export const fieldDomainGroups = [
 
 export const fieldDomains = fieldDomainGroups.flatMap((group) => group.domainIds);
 
+/** 직무 준비 방향으로 찾는 커리어 경로 폴더. 보호 대상별 분야·직무군과는 별개의 탐색 구조다. */
+export const roadmapGroups = [
+  { id: "start", ko: "처음 시작하는 경로", description: "직무 선택과 공고 읽기", roadmapIds: ["cybersecurity-fundamentals"] },
+  { id: "design-development", ko: "설계·개발 경로", description: "서비스·클라우드·보안제품에서 설계하고 만드는 일", roadmapIds: ["application-security", "ai-security-career", "devsecops", "cloud-security", "security-product-customer"] },
+  { id: "operations-field", ko: "운영·현장 경로", description: "보안 운영과 산업·모빌리티 현장의 일", roadmapIds: ["security-operations", "industrial-mobility-security"] },
+  { id: "assessment-investigation-research", ko: "평가·수사·연구 경로", description: "보안 평가, 사이버 수사와 연구의 일", roadmapIds: ["penetration-testing", "police-cybercrime-career", "security-research-career"] },
+  { id: "planning-management", ko: "기획·관리 경로", description: "위험·정책·개인정보를 다루는 일", roadmapIds: ["grc-security-management", "privacy-security-leadership"] },
+  { id: "education-customer", ko: "교육·고객 경로", description: "보안 교육과 고객의 도입·활용을 돕는 일", roadmapIds: ["security-education-career", "security-customer-career"] },
+] as const;
+
 export const mainNav = [
   { href: "/start/", label: "처음 시작" },
   { href: "/fields/", label: "보안 분야" },

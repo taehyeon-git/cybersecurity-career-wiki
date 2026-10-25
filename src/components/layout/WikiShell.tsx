@@ -16,6 +16,7 @@ export function WikiShell({ sidebar, footer, children }: { sidebar: ReactNode; f
   const stageRef = useRef<HTMLDivElement>(null);
   const openerRef = useRef<HTMLElement | null>(null);
   const restoreFocusRef = useRef(true);
+  const previousPathRef = useRef(pathname);
   useEffect(() => {
     const media = window.matchMedia("(max-width: 900px)");
     const update = () => {
@@ -41,6 +42,21 @@ export function WikiShell({ sidebar, footer, children }: { sidebar: ReactNode; f
     });
     return () => cancelAnimationFrame(frame);
   }, [pathname, isMobile, sidebarOpen]);
+
+  useEffect(() => {
+    if (previousPathRef.current === pathname) return;
+    previousPathRef.current = pathname;
+    const frame = requestAnimationFrame(() => {
+      const heading = stageRef.current?.querySelector<HTMLElement>("main h1");
+      if (heading) {
+        heading.tabIndex = -1;
+        heading.focus({ preventScroll: true });
+      } else {
+        stageRef.current?.focus({ preventScroll: true });
+      }
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [pathname]);
 
   useEffect(() => {
     if (!isMobile || !sidebarOpen) return;
