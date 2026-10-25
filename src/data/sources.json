@@ -323,8 +323,8 @@
     "id": "kisa-isms-p",
     "title": "정보보호 및 개인정보보호 관리체계 인증(ISMS-P)",
     "organization": "한국인터넷진흥원(KISA)",
-    "url": "https://www.kisa.or.kr/1050602",
-    "version": "공식 제도 소개; 2026-10-25 확인",
+    "url": "https://www.isms-p.or.kr/sysm/intro/selectSysmCertDetail.do",
+    "version": "공식 ISMS-P 제도 소개; 2026-10-25 현행 페이지 확인",
     "checkedAt": "2026-10-25",
     "kind": "guidance",
     "notes": "Defines the ISMS-P and ISMS certification types and describes KISA's operating role. Certification status is not a hiring requirement by itself."

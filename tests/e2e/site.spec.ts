@@ -375,6 +375,18 @@ test("article source links show and announce that they open a new tab", async ({
   await expect(reference).toContainText("새 탭에서 열림");
 });
 
+test("new-tab links announce their behavior across the wiki", async ({ page }) => {
+  for (const route of ["./", "./start/", "./careers/", "./glossary/", "./careers/privacy-manager/"]) {
+    await page.goto(route);
+    const links = page.locator('a[target="_blank"]:visible');
+    const count = await links.count();
+    expect(count, `${route} should expose an external link`).toBeGreaterThan(0);
+    for (let index = 0; index < count; index += 1) {
+      await expect(links.nth(index), `${route} external link ${index + 1}`).toHaveAccessibleName(/새 탭에서 열림/);
+    }
+  }
+});
+
 test("search opens a glossary term inside its folder", async ({ page }) => {
   await page.goto("./glossary/");
   await page.getByRole("textbox", { name: "용어 검색" }).fill("NCS");

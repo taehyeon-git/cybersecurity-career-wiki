@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ExternalLinkCue } from "@/components/content/ExternalLinkCue";
 import { RoleExplorer } from "@/components/careers/RoleExplorer";
 import { publishedRoles } from "@/lib/content";
 import { textOnlySearchBody } from "@/lib/search";
@@ -16,6 +17,6 @@ export default function CareersPage() {
       <div className="wiki-page-meta"><span>직무 {roles.length}개</span><span>업무 범주별 폴더</span><Link href="/start/">분류 기준</Link></div>
     </header>
     <RoleExplorer roles={roles.map(({ id, slug, titleKo, titleEn, summary, category, aliases, responsibilities, typicalTasks, keyDeliverables, body }) => ({ id, slug, titleKo, titleEn, summary, category, aliases, responsibilities, typicalTasks, keyDeliverables, body: textOnlySearchBody(body) }))} />
-    <p className="wiki-index-note">상위 폴더는 <a href="https://www.ncs.go.kr/sqf/sqf01/sqf10100201p1.do?iscCd=20&amp;iscNm=%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8" target="_blank" rel="noopener noreferrer">NCS 정보보호 SQF</a>의 업무 분야를 바탕으로 구성했습니다. 세부 문서명은 실제 채용 직함과 업무를 함께 반영했으며, 한 공고가 여러 역할을 묶을 수 있습니다.</p>
+    <p className="wiki-index-note">상위 폴더는 <a href="https://www.ncs.go.kr/sqf/sqf01/sqf10100201p1.do?iscCd=20&amp;iscNm=%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8" target="_blank" rel="noopener noreferrer">NCS 정보보호 SQF<ExternalLinkCue /></a>의 업무 분야를 바탕으로 구성했습니다. 세부 문서명은 실제 채용 직함과 업무를 함께 반영했으며, 한 공고가 여러 역할을 묶을 수 있습니다.</p>
   </main>;
 }

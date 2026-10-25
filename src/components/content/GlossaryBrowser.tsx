@@ -1,6 +1,7 @@
 "use client";
 
 import { Search } from "lucide-react";
+import { ExternalLinkCue } from "./ExternalLinkCue";
 import { useEffect, useMemo, useState } from "react";
 import { WikiFolder } from "@/components/wiki/Directory";
 import { matchesAllTerms, normalizeSearchText } from "@/lib/search";
@@ -71,7 +72,7 @@ export function GlossaryBrowser({ terms, sources }: { terms: GlossaryTerm[]; sou
         <p>{item.definition}</p>
         <div className="wiki-glossary-sources">출처: {item.sourceIds.map((id, index) => {
           const source = sourceById.get(id);
-          return source ? <span key={id}>{index > 0 ? " · " : ""}<a href={source.url} target="_blank" rel="noopener noreferrer">{source.title}</a></span> : null;
+          return source ? <span key={id}>{index > 0 ? " · " : ""}<a href={source.url} target="_blank" rel="noopener noreferrer">{source.title}<ExternalLinkCue /></a></span> : null;
         })}</div>
       </article>)}
     </WikiFolder>)}</div>
