@@ -4,6 +4,8 @@
 
 이 프로젝트는 Next.js 16 App Router와 TypeScript를 사용합니다. `next.config.ts`의 `output: "export"`와 `trailingSlash: true`에 따라 빌드가 각 경로의 `index.html`을 `out/`에 만듭니다. GitHub Pages는 정적 파일만 제공합니다. 실행 중인 Next.js 서버, 계정, 데이터베이스, 사용자별 저장 기능은 없습니다.
 
+2026-10-25 공개 콘텐츠 스냅샷은 직무 **60개**, 커리어 준비 경로 **15개**, 용어 **57개**입니다. 직무는 아래의 콘텐츠 검사와 정적 빌드를 거쳐 9개 탐색 폴더에 표시됩니다.
+
 ```text
 src/content/roles/*.mdx ─┐
 src/content/roadmaps/*.mdx ├─ gray-matter → Zod 및 참조 검사 → 정적 페이지

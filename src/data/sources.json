@@ -1778,5 +1778,45 @@
     "checkedAt": "2026-10-25",
     "kind": "historical-recruitment-announcement",
     "notes": "공식 게시글은 2026년도 상반기 신입 채용 공고 PDF·HWP 첨부와 접수기간을 제공한다. 교육과정 개발·운영의 세부 근거는 같은 기관의 공식 보도자료를 함께 확인해야 한다. 이 공고는 현재 접수 가능한 자리가 아니다."
+  },
+  {
+    "id": "coupang-financial-cpo-2026",
+    "title": "[Coupang Financial] Director, Chief Privacy Officer",
+    "organization": "쿠팡파이낸셜",
+    "url": "https://www.coupang.jobs/kr/jobs/8184200/coupang-financial-director-chief-privacy-officer/",
+    "version": "2026-10-09 업데이트; 2026-10-25 공식 본문 확인, 마감일 미표시",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "서울 Director 직책으로 CPO·신용정보관리·보호인과 Privacy 조직 총괄을 함께 적는다. 이 공고의 필수 조건은 관련 경력 15년 이상 및 법정 CPO 자격 충족이다. 정규직과 기본 12주 수습을 명시하지만 수습기간 변경 가능성을 안내한다. 모집 완료 시 조기 마감될 수 있어 현재 충원 여부를 지원 전에 확인해야 한다."
+  },
+  {
+    "id": "coupang-data-security-engineering-2026",
+    "title": "Director, Data Security Engineering (Digital Trust)",
+    "organization": "쿠팡",
+    "url": "https://www.coupang.jobs/kr/jobs/7994573/director-data-security-engineering-digital-trust/",
+    "version": "2026-10-23 업데이트; 2026-10-25 공식 본문 확인, 마감일 미표시",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "서울 Director 직책이며 데이터 발견·분류, 유출 방지, 암호화·키 관리 등 데이터 통제의 설계·운영과 팀 리드를 맡는다. 이 공고는 보안 경력 10–15년 이상, 보안 엔지니어링 팀 관리 5년 이상, 관련 학사를 필수로 적는다. 고용형태는 본문에서 확인되지 않았고 이 고위직 요건을 모든 데이터 보안 실무직에 적용할 수 없다."
+  },
+  {
+    "id": "privacy-act-cpo-article31-2026",
+    "title": "개인정보 보호법 제31조: 개인정보 보호책임자의 지정 등",
+    "organization": "국가법령정보센터",
+    "url": "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?lsJoLnkSeq=1033214941",
+    "version": "2026-09-11 시행 법률 제21445호 제31조",
+    "checkedAt": "2026-10-25",
+    "kind": "legislation",
+    "notes": "개인정보 보호책임자의 지정·업무·독립성 및 일부 개인정보처리자에 적용되는 이사회 의결·신고를 정한다. 구체 자격과 적용 대상은 시행령 제32조 및 별표와 함께 확인해야 하며 개별 채용공고의 경력 연수와 혼동하지 않는다."
+  },
+  {
+    "id": "privacy-decree-cpo-article32-2026",
+    "title": "개인정보 보호법 시행령 제32조: 개인정보 보호책임자의 지정 등",
+    "organization": "국가법령정보센터",
+    "url": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lspttninfSeq=201811",
+    "version": "2026-09-11 시행 대통령령 제36671호 제32조",
+    "checkedAt": "2026-10-25",
+    "kind": "legislation",
+    "notes": "기관 유형별 지정 기준, 별표 1 자격 적용 대상, 일정 규모 이상 개인정보처리자의 지정·변경 신고 및 독립성 보장 사항을 정한다. 2026-09-10 개정된 현행 조문을 기준으로 하며 과거 보도자료의 규모 기준을 현행 요건으로 쓰지 않는다."
   }
 ]

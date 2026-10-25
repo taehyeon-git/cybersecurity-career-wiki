@@ -1,6 +1,6 @@
 # 콘텐츠 모델
 
-공개 본문은 `src/content/roles/`와 `src/content/roadmaps/`의 MDX, 용어집은 `src/content/glossary/terms.json`으로 관리합니다. `src/lib/content.ts`가 YAML frontmatter와 JSON 구조를 검사합니다. 현재 게시 콘텐츠는 **직무 58개, 커리어 경로 15개, 용어 57개**입니다.
+공개 본문은 `src/content/roles/`와 `src/content/roadmaps/`의 MDX, 용어집은 `src/content/glossary/terms.json`으로 관리합니다. `src/lib/content.ts`가 YAML frontmatter와 JSON 구조를 검사합니다. 현재 게시 콘텐츠는 **직무 60개, 커리어 경로 15개, 용어 57개**입니다.
 
 ## MDX 공통 필드
 
@@ -28,7 +28,7 @@
 | `roadmapIds` | 해당 직무와 관련된 커리어 경로 ID; 기본값 빈 배열 |
 | `reviewStatus` | `reviewed` 또는 `needs-review`; 기본값 `needs-review` |
 
-9개 `category`의 표시명과 순서는 `src/lib/site-data.ts`가 정의합니다. `product`에는 보안제품 기획자·개발자·품질 검증 담당자·기술문서 작성자가 속합니다. `investigation`은 민간 디지털 포렌식과 경찰공무원 사이버수사를 함께 찾되 두 직무의 신분·권한·채용 경로 차이를 각 페이지에 설명합니다. `research`는 기술·정책 연구와 교육 운영을 찾는 폴더입니다. 이는 국내 SQF와 실제 공고를 참고해 만든 위키의 탐색 분류이며, NCS의 공식 추가 하위산업분야나 단일 직무를 뜻하지 않습니다. NICE Work Role이나 회사의 부서·직함과도 일대일로 같지 않습니다. `publicationStatus`는 공개 여부, `reviewStatus`는 편집 검토 상태입니다. 게시된 글에도 조사 공백이 있으면 본문과 `reviewStatus`로 표시합니다.
+9개 `category`의 표시명과 순서는 `src/lib/site-data.ts`가 정의합니다. `management`는 법정 개인정보 보호책임자(CPO)와 개인정보 운영 담당자를 서로 다른 책임으로 설명하고, `operations`는 데이터 보호 통제의 설계·운영을 포함합니다. `product`에는 보안제품 기획자·개발자·품질 검증 담당자·기술문서 작성자가 속합니다. `investigation`은 민간 디지털 포렌식과 경찰공무원 사이버수사를 함께 찾되 두 직무의 신분·권한·채용 경로 차이를 각 페이지에 설명합니다. `research`는 기술·정책 연구와 교육 운영을 찾는 폴더입니다. 이는 국내 SQF와 실제 공고를 참고해 만든 위키의 탐색 분류이며, NCS의 공식 추가 하위산업분야나 단일 직무를 뜻하지 않습니다. NICE Work Role이나 회사의 부서·직함과도 일대일로 같지 않습니다. `publicationStatus`는 공개 여부, `reviewStatus`는 편집 검토 상태입니다. 게시된 글에도 조사 공백이 있으면 본문과 `reviewStatus`로 표시합니다.
 
 `reviewedAt`은 마지막 내용 갱신 또는 검토 날짜이며, 날짜만으로 편집 검토 완료를 뜻하지 않습니다. 직무 문서는 `reviewStatus: reviewed`일 때 공개 화면에 “마지막 내용 검토”, `needs-review`일 때 “내용 갱신”과 “근거·범위 검토 중”을 표시합니다. 경로 문서에는 `reviewStatus` 필드가 없으므로 “내용 갱신” 날짜를 표시합니다.
 

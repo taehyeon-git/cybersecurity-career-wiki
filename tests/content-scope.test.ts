@@ -11,7 +11,7 @@ import terms from "../src/content/glossary/terms.json";
 test("career directory separates investigation from incident response", () => {
   assert.deepEqual(roleCategories.map((item) => item.id), ["management", "development", "product", "operations", "assessment", "response", "investigation", "research", "customer"]);
   const roles = publishedRoles();
-  assert.equal(roles.length, 58);
+  assert.equal(roles.length, 60);
   assert.equal(new Set(roles.map((role) => role.slug)).size, roles.length);
   assert.deepEqual(
     roles.filter((role) => role.category === "product").map((role) => role.id).sort(),
@@ -22,6 +22,8 @@ test("career directory separates investigation from incident response", () => {
   assert.equal(roles.find((role) => role.id === "police-cybercrime-investigator")?.category, "investigation");
   assert.equal(roles.find((role) => role.id === "incident-responder")?.category, "response");
   assert.equal(roles.find((role) => role.id === "security-awareness-specialist")?.category, "research");
+  assert.equal(roles.find((role) => role.id === "chief-privacy-officer")?.category, "management");
+  assert.equal(roles.find((role) => role.id === "data-security-engineer")?.category, "operations");
   for (const category of roleCategories) {
     assert.ok(roles.some((role) => role.category === category.id), `missing ${category.id} roles`);
   }

@@ -61,6 +61,15 @@ test("mobile keyboard search keeps the selected result in view", async ({ page }
     const item = selected.getBoundingClientRect();
     return container.scrollTop > 0 && item.top >= viewport.top && item.bottom <= viewport.bottom;
   })).toBe(true);
+  await input.press("ArrowDown");
+  await expect(dialog.locator(".search-result.selected")).toHaveCount(1);
+  await expect.poll(() => dialog.locator(".search-results").evaluate((container) => {
+    const selected = container.querySelector(".search-result.selected");
+    if (!selected) return false;
+    const viewport = container.getBoundingClientRect();
+    const item = selected.getBoundingClientRect();
+    return item.top >= viewport.top && item.bottom <= viewport.bottom;
+  })).toBe(true);
 });
 
 test("global search combines terms from different parts of a career article", async ({ page }) => {
@@ -192,6 +201,18 @@ test("police cybercrime investigation has a separate folder and career path", as
   await folder.locator('a[href*="/careers/police-cybercrime-investigator/"]').click();
   await expect(page.locator(".breadcrumbs").getByRole("link", { name: "디지털 조사·사이버 수사" })).toBeVisible();
   await expect(page.getByRole("link", { name: "경찰 사이버범죄 수사 커리어 경로", exact: true })).toBeVisible();
+});
+
+test("privacy leadership and data security open from their work folders", async ({ page }) => {
+  await page.goto("./careers/?category=management");
+  await page.locator('.wiki-index a[href*="/careers/chief-privacy-officer/"]').click();
+  await expect(page.getByRole("heading", { name: "개인정보 보호책임자(CPO)", exact: true })).toBeVisible();
+  await expect(page.locator(".document-career-paths").getByRole("link", { name: "개인정보·보안 기획 커리어 경로", exact: true })).toBeVisible();
+
+  await page.goto("./careers/?category=operations");
+  await page.locator('.wiki-index a[href*="/careers/data-security-engineer/"]').click();
+  await expect(page.getByRole("heading", { name: "데이터 보안 엔지니어", exact: true })).toBeVisible();
+  await expect(page.locator(".document-career-paths").getByRole("link", { name: "클라우드 보안 커리어 경로", exact: true })).toBeVisible();
 });
 
 test("the selected color theme persists after a reload", async ({ page }) => {
