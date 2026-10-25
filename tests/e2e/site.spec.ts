@@ -206,13 +206,38 @@ test("a keyboard-opened career folder survives refining the query and returning 
   await input.fill("보안 ");
   await expect(folder).toHaveAttribute("open", "");
   await folder.locator('a[href*="/careers/"]').first().click();
+  await expect(page).toHaveURL(/\/careers\/[^/]+\/$/);
   await page.goBack();
+  await expect(page).toHaveURL(/\/careers\/\?q=/);
   await expect(input).toHaveValue("보안 ");
   await expect(folder).toHaveAttribute("open", "");
   await summary.focus();
   await summary.press("Space");
   await expect(folder).not.toHaveAttribute("open", "");
   await expect(page).toHaveURL(/\bclosed=/);
+});
+
+test("same-route career navigation keeps the URL and visible filters in sync", async ({ page }) => {
+  await page.goto("./careers/");
+  const input = page.getByRole("textbox", { name: "직무 검색" });
+  const filter = page.getByRole("combobox", { name: "분야" });
+  await input.fill("보안");
+  await filter.selectOption("response");
+  const folder = page.locator(".wiki-index .wiki-folder");
+  await folder.locator("summary").click();
+  await expect(folder).not.toHaveAttribute("open", "");
+  await expect(page).toHaveURL(/\bclosed=response/);
+
+  await page.getByRole("navigation", { name: "주 탐색" }).getByRole("link", { name: "보안 직무" }).click();
+  await expect(page).toHaveURL(/\/careers\/$/);
+  await expect(input).toHaveValue("");
+  await expect(filter).toHaveValue("all");
+  await expect(page.locator(".wiki-index .wiki-folder")).toHaveCount(9);
+
+  await page.goBack();
+  await expect(input).toHaveValue("보안");
+  await expect(filter).toHaveValue("response");
+  await expect(folder).not.toHaveAttribute("open", "");
 });
 
 test("security product work has its own folder and category breadcrumb", async ({ page }) => {

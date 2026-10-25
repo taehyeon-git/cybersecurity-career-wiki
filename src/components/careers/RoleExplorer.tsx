@@ -1,7 +1,7 @@
 "use client";
 
 import { Search } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { WikiFileRow, WikiFolder } from "@/components/wiki/Directory";
 import { matchesAllTerms, searchDocuments, searchMatchContext } from "@/lib/search";
 import { roleCategories, routeFor } from "@/lib/site-data";
@@ -12,19 +12,48 @@ export function RoleExplorer({ roles }: { roles: RoleSummary[] }) {
   const [category, setCategory] = useState("all");
   const [query, setQuery] = useState("");
   const [folderOverrides, setFolderOverrides] = useState<Record<string, boolean>>({});
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
+  const syncFromUrl = useCallback((queryString: string) => {
+    const params = new URLSearchParams(queryString);
     const categoryParam = params.get("category");
     const overrides: Record<string, boolean> = {};
     for (const id of params.getAll("open")) if (roleCategories.some((item) => item.id === id)) overrides[id] = true;
     for (const id of params.getAll("closed")) if (roleCategories.some((item) => item.id === id)) overrides[id] = false;
-    const frame = requestAnimationFrame(() => {
-      if (categoryParam && roleCategories.some((item) => item.id === categoryParam)) setCategory(categoryParam);
-      setQuery(params.get("q") ?? "");
-      setFolderOverrides(overrides);
-    });
-    return () => cancelAnimationFrame(frame);
+    setCategory(categoryParam && roleCategories.some((item) => item.id === categoryParam) ? categoryParam : "all");
+    setQuery(params.get("q") ?? "");
+    setFolderOverrides(overrides);
   }, []);
+  useEffect(() => {
+    const update = () => syncFromUrl(window.location.search);
+    const navigation = (window as Window & { navigation?: EventTarget }).navigation;
+    const history = window.history;
+    const originalPushState = history.pushState;
+    const originalReplaceState = history.replaceState;
+    let patchedPushState: typeof history.pushState | undefined;
+    let patchedReplaceState: typeof history.replaceState | undefined;
+
+    if (navigation) {
+      navigation.addEventListener("currententrychange", update);
+    } else {
+      patchedPushState = (data, unused, url) => {
+        originalPushState.call(history, data, unused, url);
+        update();
+      };
+      patchedReplaceState = (data, unused, url) => {
+        originalReplaceState.call(history, data, unused, url);
+        update();
+      };
+      history.pushState = patchedPushState;
+      history.replaceState = patchedReplaceState;
+    }
+    window.addEventListener("popstate", update);
+    update();
+    return () => {
+      navigation?.removeEventListener("currententrychange", update);
+      window.removeEventListener("popstate", update);
+      if (patchedPushState && history.pushState === patchedPushState) history.pushState = originalPushState;
+      if (patchedReplaceState && history.replaceState === patchedReplaceState) history.replaceState = originalReplaceState;
+    };
+  }, [syncFromUrl]);
 
   const groups = useMemo(() => {
     const ranked = query.trim() ? searchDocuments(query, roles.map((role) => ({

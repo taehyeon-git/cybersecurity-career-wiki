@@ -5,7 +5,7 @@
     "organization": "국가직무능력표준(NCS)",
     "url": "https://www.ncs.go.kr/sqf/sqf01/sqf10100201p1.do?iscCd=20&iscNm=%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8",
     "version": "웹 공개 직무역량체계",
-    "checkedAt": "2026-10-09",
+    "checkedAt": "2026-10-25",
     "kind": "workforce-framework",
     "notes": "정보보호 분야의 5개 하위산업분야와 15개 직무를 제시한다. 위키의 세부 직함은 채용 공고와 다른 공식 직무 프로필을 함께 고려해 확장했다."
   },
@@ -15,7 +15,7 @@
     "organization": "NIST NICE",
     "url": "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/nice-framework-current-versions",
     "version": "Components 2.2.0",
-    "checkedAt": "2026-10-09",
+    "checkedAt": "2026-10-25",
     "kind": "workforce-framework",
     "notes": "Components contain Work Role Categories, Work Roles, Competency Areas, and TKS statements. Official pages have inconsistent date labels, so the component release date is not asserted here."
   },
@@ -25,7 +25,7 @@
     "organization": "NIST NICE",
     "url": "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/current-version/change-logs",
     "version": "2.2.0 change record (2026-04-28)",
-    "checkedAt": "2026-10-09",
+    "checkedAt": "2026-10-25",
     "kind": "change-log",
     "notes": "Records the new Cybersecurity Supply Chain Risk Management Work Role and changes to Cryptography and DevSecOps Competency Areas."
   },
