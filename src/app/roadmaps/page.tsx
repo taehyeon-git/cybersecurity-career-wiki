@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { WikiFileRow, WikiFolder } from "@/components/wiki/Directory";
+import { PageIllustration } from "@/components/illustration/PageIllustration";
 import { publishedRoadmaps } from "@/lib/content";
 import { routeFor } from "@/lib/site-data";
 
@@ -15,6 +16,7 @@ export default function RoadmapsPage() {
       <h1 className="wiki-page-title">커리어 경로</h1>
       <p className="wiki-page-intro">관심 직무를 고르고, 공고를 읽고, 업무 결과물로 역량을 보여주기까지의 준비 순서입니다.</p>
       <div className="wiki-page-meta"><span>경로 {roadmaps.length}개</span><span>처음이라면 입문 경로부터</span></div>
+      <PageIllustration kind="roadmaps" title="커리어 경로" />
     </header>
     <div className="wiki-folder-list">
       <WikiFolder name="처음 시작하는 경로" description="직무 선택과 공고 읽기" count={`${foundation.length}개 문서`} defaultOpen>{foundation.map((item) => <WikiFileRow key={item.id} href={routeFor.roadmap(item.slug)} title={item.titleKo} subtitle={item.titleEn} description={item.summary} />)}</WikiFolder>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ExternalLinkCue } from "@/components/content/ExternalLinkCue";
 import { WikiFileRow, WikiFolder } from "@/components/wiki/Directory";
+import { PageIllustration } from "@/components/illustration/PageIllustration";
 
 export const metadata: Metadata = { title: "직무 찾는 방법", description: "보호 대상별 보안 분야와 책임별 직무군, 채용 근거를 읽는 방법을 안내합니다.", alternates: { canonical: "/start/" } };
 
@@ -12,6 +13,7 @@ export default function StartPage() {
       <h1 className="wiki-page-title">직무 찾는 방법</h1>
       <p className="wiki-page-intro">보안 커리어를 고를 때는 직함보다 실제로 맡는 책임과 결과물을 먼저 보세요. 이 위키는 기술 강의 대신 직무와 진입 경로에 집중합니다.</p>
       <div className="wiki-page-meta"><span>입문 안내</span><Link href="/careers/">직무 전체 보기</Link></div>
+      <PageIllustration kind="start" title="직무 찾는 방법" />
     </header>
 
     <section className="wiki-start-section">

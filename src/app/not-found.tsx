@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { WikiFileRow, WikiFolder } from "@/components/wiki/Directory";
+import { PageIllustration } from "@/components/illustration/PageIllustration";
 
 export default function NotFound() {
   return <main className="wiki-page wiki-not-found">
@@ -8,6 +9,7 @@ export default function NotFound() {
       <div className="wiki-page-kicker">404 / DOCUMENT NOT FOUND</div>
       <h1 className="wiki-page-title">문서를 찾지 못했습니다</h1>
       <p className="wiki-page-intro">이 문서는 삭제되었거나 주소가 바뀌었습니다. 아래에서 공개 중인 직무와 커리어 경로를 찾아보세요.</p>
+      <PageIllustration kind="start" id="not-found" title="문서를 찾지 못했습니다" />
     </header>
     <div className="wiki-folder-list"><WikiFolder name="다시 찾아보기" description="공개된 문서 색인" count="4개 경로" defaultOpen>
       <WikiFileRow href="/" title="위키 홈" description="모든 폴더를 한눈에 봅니다." />

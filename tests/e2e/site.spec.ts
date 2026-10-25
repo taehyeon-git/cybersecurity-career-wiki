@@ -2,6 +2,27 @@ import { expect, test } from "@playwright/test";
 
 const searchShortcut = process.platform === "darwin" ? "Meta+k" : "Control+k";
 
+test("representative wiki pages show one named illustration without mobile overflow", async ({ page }) => {
+  test.setTimeout(90_000);
+  const routes = ["./", "./start/", "./fields/", "./fields/ot/", "./careers/", "./careers/soc-analyst/", "./roadmaps/", "./roadmaps/cybersecurity-fundamentals/", "./glossary/"];
+  for (const width of [320, 390]) {
+    await page.setViewportSize({ width, height: 720 });
+    for (const route of routes) {
+      await page.goto(route);
+      const title = await page.getByRole("heading", { level: 1 }).innerText();
+      const illustration = page.locator('svg[data-wiki-illustration]');
+      await expect(illustration).toHaveCount(1);
+      await expect(illustration).toHaveAttribute("role", "img");
+      expect(await illustration.getAttribute("aria-label")).toContain(title);
+      const bounds = await illustration.boundingBox();
+      expect(bounds?.width ?? 0).toBeGreaterThan(60);
+      expect(bounds?.width ?? 0).toBeLessThanOrEqual(width);
+      await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+    }
+  }
+});
+
 test("home shows nine job folders and opens a role article", async ({ page }) => {
   await page.goto("./");
   await expect(page.getByRole("heading", { name: "사이버보안 커리어 위키", exact: true })).toBeVisible();

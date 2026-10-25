@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ExternalLinkCue } from "@/components/content/ExternalLinkCue";
 import { WikiFileRow, WikiFolder } from "@/components/wiki/Directory";
+import { PageIllustration } from "@/components/illustration/PageIllustration";
 import { publishedFields } from "@/lib/content";
 import { fieldDomainGroups, routeFor } from "@/lib/site-data";
 
@@ -21,6 +22,7 @@ export default function FieldsPage() {
       <h1 className="wiki-page-title">보안 분야</h1>
       <p className="wiki-page-intro">시스템, 웹, 데이터, 산업 설비처럼 <strong>무엇을 보호하는지</strong> 아래 폴더를 펼쳐 골라 보세요. 각 문서에 실제 업무와 관련 직무, 진입 방법을 담았습니다.</p>
       <div className="wiki-page-meta"><span>분야 {fields.length}개</span><span>분야에 직접 연결된 직무 {relatedRoleCount}개</span><Link href="/careers/">직무 목록 보기</Link></div>
+      <PageIllustration kind="fields" title="보안 분야" />
     </header>
     <p className="wiki-index-note"><span><strong>분야와 직무군의 차이</strong> 분야는 보호 대상, 직무군은 맡는 책임으로 나눕니다. 한 직무가 여러 분야에서 일할 수 있습니다. 관제·대응·정책처럼 분야를 가로지르는 역할은 <Link href="/careers/">직무 목록</Link>에서도 찾아보세요. 실제 범위는 공고에서 확인하세요.</span></p>
     <div className="wiki-folder-list">

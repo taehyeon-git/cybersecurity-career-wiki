@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { DocumentShell } from "@/components/layout/DocumentShell";
+import { PageIllustration } from "@/components/illustration/PageIllustration";
 import { loadSources, publishedFields } from "@/lib/content";
 import { fieldDomains, roleCategories, routeFor } from "@/lib/site-data";
 import { canonicalUrl } from "@/lib/urls";
@@ -44,6 +45,7 @@ export default async function FieldPage({ params }: { params: Promise<{ slug: st
         <h1 className="wiki-page-title">보안 분야 안내가 바뀌었습니다</h1>
         <p className="wiki-page-intro">이전에 사용하던 업무 유형별 분야 안내를 보호 대상별 안내로 다시 구성했습니다. 시스템, 웹, 클라우드, OT 등 관심 있는 환경을 새 분야 목록에서 선택해 주세요.</p>
         <div className="wiki-page-meta"><Link href="/fields/">새 보안 분야 목록 보기</Link><Link href="/careers/">직무군별 직무 보기</Link></div>
+        <PageIllustration kind="fields" id={`legacy-${slug}`} title="보안 분야 안내가 바뀌었습니다" />
       </header>
     </main>;
   }

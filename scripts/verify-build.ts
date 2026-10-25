@@ -74,6 +74,29 @@ function collectExportedFiles(directory: string) {
   }
 }
 collectExportedFiles("");
+const illustratedPages = [
+  "index.html", "start/index.html", "fields/index.html", "careers/index.html", "roadmaps/index.html", "glossary/index.html",
+  ...publishedFields().map((field) => `fields/${field.slug}/index.html`),
+  ...publishedRoles().map((role) => `careers/${role.slug}/index.html`),
+  ...publishedRoadmaps().map((roadmap) => `roadmaps/${roadmap.slug}/index.html`),
+];
+const illustrationIds = new Set<string>();
+for (const file of illustratedPages) {
+  const html = htmlPages.get(file);
+  const images = html ? [...html.matchAll(/<svg\b[^>]*\bdata-wiki-illustration="([^"]+)"[^>]*>/g)] : [];
+  if (images.length !== 1 || !/\brole="img"/.test(images[0]?.[0] ?? "") || !/\baria-label="[^"]+"/.test(images[0]?.[0] ?? "")) {
+    console.error(`Expected one named wiki illustration in ${file}; found ${images.length}`);
+    process.exitCode = 1;
+    continue;
+  }
+  const id = images[0][1];
+  if (illustrationIds.has(id)) {
+    console.error(`Illustration identity repeated across pages: ${id}`);
+    process.exitCode = 1;
+  }
+  illustrationIds.add(id);
+}
+if (illustrationIds.size === illustratedPages.length) console.log(`Named illustrations verified across ${illustratedPages.length} public pages`);
 const brokenLinks = validateExportedLinks(htmlPages, exportedFiles, process.env.NEXT_PUBLIC_BASE_PATH ?? "");
 if (brokenLinks.length) {
   console.error(`Broken static links (${brokenLinks.length}):\n${brokenLinks.slice(0, 20).join("\n")}`);

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight, ChevronRight, FileText, Folder, Info } from "lucide-react";
 import { publishedFields, publishedRoadmaps, publishedRoles } from "@/lib/content";
+import { PageIllustration } from "@/components/illustration/PageIllustration";
 import { fieldDomainGroups, roleCategories, routeFor } from "@/lib/site-data";
 
 export const metadata: Metadata = {
@@ -39,6 +40,7 @@ export default function HomePage() {
       <h1>사이버보안 커리어 위키</h1>
       <p className="wiki-home-lede">시스템·웹·OT처럼 보호하는 대상별 분야를 살펴보고, 실제 직무의 책임과 채용 근거로 이어 가세요. 폴더를 펼쳐 관심 있는 일을 찾을 수 있습니다.</p>
       <div className="wiki-home-meta"><span>분야 <strong>{fields.length}</strong></span><span>직무 <strong>{roles.length}</strong></span><span>커리어 경로 <strong>{roadmaps.length}</strong></span></div>
+      <PageIllustration kind="home" title="사이버보안 커리어 위키" />
     </header>
 
     <aside className="wiki-home-notice"><Info size={18} aria-hidden="true" /><p><strong>처음 방문했다면</strong> <Link href="/start/">직무 찾는 방법</Link>을 읽고, 먼저 분야 폴더에서 하는 일을 살펴보세요. 개별 채용 사례는 시장 전체의 공통 요건을 뜻하지 않습니다.</p></aside>

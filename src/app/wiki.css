@@ -89,6 +89,10 @@ html[data-theme="dark"] .wiki-tree-page.is-current > .wiki-tree-link { backgroun
 /* Shared wiki page and directory elements */
 .wiki-page, .wiki-home, .wiki-start { max-width: 1120px; margin: 0; padding: 23px 34px 75px; }
 .wiki-page-header, .wiki-home-intro { margin: 0 0 21px; padding: 0 0 17px; border-bottom: 3px double var(--line); }
+.wiki-page-header, .wiki-home-intro, .document-header { position: relative; }
+.wiki-page-header, .wiki-home-intro { min-height: 204px; padding-right: 294px; }
+.page-illustration { display: block; width: 100%; height: auto; aspect-ratio: 8 / 5; border: 1px solid var(--line); background: var(--surface-soft); box-shadow: inset 0 0 0 4px var(--surface); }
+.wiki-page-header > .page-illustration, .wiki-home-intro > .page-illustration, .document-header > .page-illustration { position: absolute; top: 1px; right: 0; width: 270px; }
 .wiki-page-kicker, .wiki-home-kicker, .section-eyebrow { color: var(--muted); font: 700 10px Arial, sans-serif; letter-spacing: .1em; }
 .wiki-page-title, .wiki-home-intro h1 { margin: 9px 0 8px; font: 700 clamp(24px, 2.2vw, 30px)/1.3 Georgia, "Malgun Gothic", serif; letter-spacing: -.035em; }
 .wiki-page-intro, .wiki-home-lede { max-width: 760px; margin: 0; color: var(--muted); font-size: 15px; line-height: 1.75; }
@@ -165,7 +169,8 @@ html[data-theme="dark"] .wiki-home-index-head { background: #2b4055; }
 .document-main { min-width: 0; }
 .breadcrumbs { padding-bottom: 12px; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 11px; }
 .breadcrumbs a { color: var(--blue-ink); text-decoration: underline; }
-.document-header { padding: 20px 0 16px; border-bottom: 3px double var(--line); }
+.document-header { min-height: 205px; padding: 20px 274px 16px 0; border-bottom: 3px double var(--line); }
+.document-header > .page-illustration { top: 16px; width: 250px; }
 .document-kicker { color: var(--muted); font-size: 10px; letter-spacing: .08em; }
 .document-header h1 { margin: 7px 0 2px; font: 700 clamp(25px, 2.4vw, 34px)/1.3 Georgia, "Malgun Gothic", serif; letter-spacing: -.035em; }
 .document-english { color: var(--muted); font-size: 12px; font-weight: 400; }
@@ -251,6 +256,10 @@ html[data-theme="dark"] .search-result:hover, html[data-theme="dark"] .search-re
   .document-wrap { grid-template-columns: minmax(0, 1fr); }
   .document-toc { display: none; }
   .mobile-document-toc { display: block; }
+}
+@media (max-width: 1050px) {
+  .wiki-page-header, .wiki-home-intro, .document-header { min-height: 0; padding-right: 0; }
+  .wiki-page-header > .page-illustration, .wiki-home-intro > .page-illustration, .document-header > .page-illustration { position: static; width: min(100%, 320px); margin-top: 16px; }
 }
 @media (max-width: 900px) {
   .desktop-nav { display: none; }
