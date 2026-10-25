@@ -170,6 +170,16 @@
     "notes": "Vulnerability records and enrichment; the home page loaded but automated text extraction returned no body, so no database totals are asserted."
   },
   {
+    "id": "cve-program-glossary",
+    "title": "CVE Program Glossary",
+    "organization": "CVE Program",
+    "url": "https://www.cve.org/ResourcesSupport/Glossary?activeTerm=glossaryCVEID",
+    "version": "2026-10-25 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "glossary",
+    "notes": "CVE Identifier(CVE ID)를 공개 취약점을 식별하는 문자열로 설명하는 CVE Program의 공식 용어집이다. NVD의 추가 메타데이터와 구분한다."
+  },
+  {
     "id": "cncf",
     "title": "Cloud Native Computing Foundation",
     "organization": "CNCF",
@@ -1444,10 +1454,10 @@
     "title": "NICE Framework Work Role Videos",
     "organization": "NIST NICE",
     "url": "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-work-role-videos",
-    "version": "2026-10-25 확인",
+    "version": "2026-10-25 확인; 영상 페이지의 범주 탐색은 이전 분류를 포함",
     "checkedAt": "2026-10-25",
-    "kind": "workforce-framework",
-    "notes": "Official videos illustrate work roles and state that NICE work roles are not identical to job titles."
+    "kind": "workforce-resource",
+    "notes": "Official videos illustrate work roles and state that NICE work roles are not identical to job titles. The page navigation still includes categories removed in NICE Framework 2.0; use the current Components and change log for taxonomy."
   },
   {
     "id": "kakaopaysec-fds-2026",
@@ -1926,5 +1936,83 @@
     "checkedAt": "2026-10-25",
     "kind": "domain-guidance",
     "notes": "의료기기 사이버보안의 허가·심사 맥락을 확인하는 공식 안내다. 제조사·의료기관별 고용 조건이나 모든 IoT 제품의 공통 인증 조건으로 일반화하지 않는다."
+  },
+  {
+    "id": "megazone-junior-grc-consultant-2026",
+    "title": "주니어 보안 컨설턴트(GRC Consultant)",
+    "organization": "메가존클라우드",
+    "url": "https://career.megazone.com/job_posting/5wGL27yS",
+    "version": "게시일 미표기, 채용 시 마감 표시",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "공식 공고 제목은 주니어 GRC Consultant이지만 주 업무는 인프라·클라우드 관리 콘솔·웹·모바일 기술 취약점 진단과 보고다. 상단은 경력 5년 이하·정규직, 본문은 신입~5년 및 정규직 전환 평가를 위한 3개월 계약을 적는다. 사내 GRC 운영이나 무조건적 신입 입문·정규직 보장으로 일반화하지 않는다."
+  },
+  {
+    "id": "agile-defense-insider-threat-2026",
+    "title": "Insider Threat Analyst (Active Top Secret Required)",
+    "organization": "Agile Defense",
+    "url": "https://jobs.lever.co/agile-defense/c92c9096-a6bc-4f28-ae54-eb524420475d",
+    "version": "게시일 미표기, 2026-10-25 열람",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "미국 연방 계약직 업무의 직접 직무 사례다. 미국 시민권과 약 6년 경력을 요구한다. 제목의 현행 Top Secret 인가 요구와 본문의 인가 취득·유지 가능성 표현, 상단 Hybrid와 본문 Onsite 근무 표기가 각각 다르다. 국내 채용·신입 진입 조건으로 일반화하지 않는다."
+  },
+  {
+    "id": "sourceai-security-program-manager-2026",
+    "title": "Information Security Program Manager",
+    "organization": "Source.ai",
+    "url": "https://jobs.lever.co/source.ai/a35c6fd3-0613-4210-80ac-4f3ecda22c9a",
+    "version": "게시일 미표기, 2026-10-25 열람",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "리투아니아의 직접 직무 사례다. 보안 프로젝트 관리와 인식 캠페인·위험관리·협력사 조정을 결합한다. 관련 경험과 영어·리투아니아어 능력을 요구하며 필수 연수는 표시되지 않았다. 국내 채용 근거로 세지 않는다."
+  },
+  {
+    "id": "ppfa-cyber-awareness-2026",
+    "title": "Manager, Technology and Cyber Awareness, Training and Enablement",
+    "organization": "Planned Parenthood Federation of America",
+    "url": "https://jobs.lever.co/ppfa/6ec3ae64-9878-4f75-ae55-e8a1eec4173f",
+    "version": "게시일 미표기, 2026-10-25 열람",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "미국 뉴욕의 보안 인식·기술 도입·책임 있는 AI 교육이 결합된 직접 채용 사례다. 관련 경력 3~5년을 요구한다. 국내 교육 전담직 또는 신입 채용 근거로 일반화하지 않는다."
+  },
+  {
+    "id": "tossbank-it-governance-bcp-2026",
+    "title": "IT Governance Manager (BCP)",
+    "organization": "토스뱅크",
+    "url": "https://toss.im/career/job-detail?job_id=7531919003",
+    "version": "게시·마감일 미표기, 2026-10-25 본문 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "IT 거버넌스 팀의 BCP 수립·운영, ISO 22301 인증 대응, IT 재해복구 훈련과 제3자 위험·위탁 관리가 결합된 정규직 공고다. 비상대응훈련·비상대책위원회 운영과 ISO 22301 심사 대응 경험은 필수, IT 재해복구 훈련 주도는 우대다. 순수 사이버보안 전담직이나 신입 자리로 일반화하지 않는다."
+  },
+  {
+    "id": "nist-csrc-bcp",
+    "title": "Business continuity plan (BCP) — CSRC Glossary",
+    "organization": "NIST Computer Security Resource Center",
+    "url": "https://csrc.nist.gov/glossary/term/business_continuity_plan",
+    "checkedAt": "2026-10-25",
+    "kind": "glossary",
+    "notes": "중대한 중단 중과 그 이후 핵심 업무를 지속하기 위한 절차 문서의 정의다. 특정 보안 직무나 국내 법적 의무를 정하지 않는다."
+  },
+  {
+    "id": "nist-csrc-drp",
+    "title": "Disaster recovery plan (DRP) — CSRC Glossary",
+    "organization": "NIST Computer Security Resource Center",
+    "url": "https://csrc.nist.gov/glossary/term/disaster_recovery_plan",
+    "checkedAt": "2026-10-25",
+    "kind": "glossary",
+    "notes": "중대한 장애나 시설 손상에 뒤따르는 정보시스템 복구 계획의 정의를 확인하는 자료다. 업무연속성 전체와 동일시하지 않는다."
+  },
+  {
+    "id": "first-psirt-framework",
+    "title": "PSIRT Services Framework 1.1",
+    "organization": "Forum of Incident Response and Security Teams (FIRST)",
+    "url": "https://www.first.org/standards/frameworks/psirts/psirt_services_framework_v1-1",
+    "version": "1.1",
+    "checkedAt": "2026-10-25",
+    "kind": "domain-guidance",
+    "notes": "PSIRT의 제품·서비스 취약점 처리와 조직 내부 인프라의 사고 대응을 맡는 CSIRT의 초점 차이를 설명한다. 국내 독립 채용 규모나 필수 자격의 근거는 아니다."
   }
 ]

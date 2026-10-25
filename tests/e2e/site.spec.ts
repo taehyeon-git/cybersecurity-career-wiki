@@ -210,7 +210,7 @@ test("career index puts an exact role title ahead of incidental body matches", a
 test("specialized career paths are visible without opening another folder", async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 720 });
   await page.goto("./roadmaps/");
-  const specialized = page.locator(".wiki-folder").filter({ has: page.getByText("분야별 준비 경로", { exact: true }) });
+  const specialized = page.locator(".wiki-folder").filter({ has: page.getByText("직무 방향별 준비 경로", { exact: true }) });
   await expect(specialized).toHaveAttribute("open", "");
   await expect(specialized.locator('a[href*="/roadmaps/ai-security-career/"]')).toBeVisible();
 });
@@ -440,6 +440,33 @@ test("mobile document drawer traps focus and Escape restores the trigger", async
   await page.keyboard.press("Escape");
   await expect(drawer).toBeHidden();
   await expect(trigger).toBeFocused();
+});
+
+test("mobile document drawer keeps its focused close button visible when it scrolls to the current article", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("./roadmaps/cloud-security/");
+  await page.getByRole("button", { name: "문서 탐색기 열기" }).click();
+
+  const drawer = page.getByRole("dialog", { name: "문서 탐색기" });
+  await expect(drawer.locator('[aria-current="page"]')).toBeInViewport();
+  const close = drawer.getByRole("button", { name: "닫기" });
+  await expect(close).toBeFocused();
+  await expect(close).toBeInViewport();
+});
+
+test("mobile home heading stays below the sticky header after leaving a scrolled article", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("./roadmaps/cloud-security/");
+  await page.mouse.wheel(0, 900);
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(300);
+  await page.locator(".site-header .brand").click();
+  await expect(page.locator(".wiki-home h1")).toHaveText("사이버보안 커리어 위키");
+
+  await expect.poll(() => page.evaluate(() => {
+    const headerBottom = document.querySelector(".site-header")!.getBoundingClientRect().bottom;
+    const headingTop = document.querySelector(".wiki-home h1")!.getBoundingClientRect().top;
+    return headingTop - headerBottom;
+  })).toBeGreaterThanOrEqual(0);
 });
 
 test("closing search restores focus inside an open mobile document drawer", async ({ page }) => {

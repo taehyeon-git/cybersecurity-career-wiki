@@ -6,14 +6,14 @@ titleEn: Software Supply Chain & Open Source Security
 aliases: ["소프트웨어 공급망 보안", "오픈소스 보안", "OSS 보안", "의존성 보안"]
 summary: 서비스와 제품에 들어오는 외부 코드·도구와 출시 과정의 책임을 확인하고 안전한 변경을 이어가는 분야입니다.
 roleIds: [open-source-security-engineer, devsecops-engineer, product-security-engineer, security-supply-chain-risk-manager]
-sourceIds: [nist-ssdf, nist-scrm-800161, nist-scrm-due-diligence, owasp-component-analysis-sca, nist-nice-getting-started]
+sourceIds: [nist-ssdf, nist-scrm-800161, nist-scrm-due-diligence, owasp-component-analysis-sca, nist-nice-getting-started, tossbank-internal-oss-security-2026]
 reviewedAt: '2026-10-25'
 publicationStatus: published
 ---
 
 ## 한눈에 보기
 
-소프트웨어 공급망 보안은 회사가 만드는 프로그램에 **누가 만든 구성요소와 개발·배포 도구가 들어오는지**, 문제가 알려졌을 때 누가 확인하고 수정·출시할지를 다룬다. 오픈소스 코드는 공개된 이용 조건에 따라 쓸 수 있지만, 이를 서비스에 포함한 회사의 고객 보호 책임까지 사라지는 것은 아니다. 반대로 공개 프로젝트를 유지하는 사람은 여러 사용자가 안전하게 업데이트할 수 있도록 제보와 수정 소식을 조율한다. 두 위치에서 보는 위험과 결정권은 다르다.
+소프트웨어 공급망 보안은 회사가 만드는 프로그램에 **누가 만든 구성요소와 개발·배포 도구가 들어오는지**, 문제가 알려졌을 때 누가 확인하고 수정·출시할지를 다룬다. 오픈소스 코드는 공개된 이용 조건에 따라 쓸 수 있지만, 이를 서비스에 포함한 회사의 고객 보호 책임까지 사라지는 것은 아니다. 반대로 공개 프로젝트를 유지하는 사람은 여러 사용자가 안전하게 업데이트할 수 있도록 제보와 수정 버전의 배포(릴리스) 소식을 조율한다. 두 위치에서 보는 위험과 결정권은 다르다.
 
 이 분야를 '취약한 라이브러리 목록을 뽑는 일'로만 좁히면 실제 업무가 빠진다. 구성요소를 쓰는 서비스, 영향받는 버전, 교체·수정 가능성, 고객 안내, 재검증을 연결해야 한다. 자동 점검 결과가 많아도 담당자가 없는 문제라면 개선으로 이어지기 어렵다.
 
@@ -32,7 +32,7 @@ publicationStatus: published
 
 ## 연결되는 직무
 
-[오픈소스 보안 엔지니어](/careers/open-source-security-engineer/)는 공개 프로젝트의 제보·수정·배포 협업에 가깝다. [데브섹옵스 엔지니어](/careers/devsecops-engineer/)는 개발·배포 과정의 점검과 예외 처리를 운영할 수 있다. [제품 보안 엔지니어](/careers/product-security-engineer/)는 고객에게 전달된 제품의 구성요소 위험과 출시 후 제보를 연결한다. [보안 공급망·제3자 위험 관리자](/careers/security-supply-chain-risk-manager/)는 외부 업체와 기술 서비스의 위험을 계약·운영 전반에서 판단하는 **인접 직무**다. 이 네 역할을 모두 '오픈소스 보안 담당자'로 부르면 업무 범위가 왜곡된다.
+[오픈소스 보안 엔지니어](/careers/open-source-security-engineer/) 문서는 **회사에서 사용하는 구성요소 관리**와 **공개 프로젝트의 제보·수정·릴리스 조정**을 서로 다른 갈래로 안내한다. [토스뱅크의 오픈소스 보안 공고](https://toss.im/career/job-detail?job_id=7985037003)는 앞쪽의 직접 채용 사례로, 사내 반입 정책·소프트웨어 자재명세서(SBOM)·취약점 조치 추적을 맡긴다. 공개 프로젝트 전담 자리의 채용 근거는 아니다. [데브섹옵스 엔지니어](/careers/devsecops-engineer/)는 개발·배포 과정의 점검과 예외 처리를 운영할 수 있다. [제품 보안 엔지니어](/careers/product-security-engineer/)는 고객에게 전달된 제품의 구성요소 위험과 출시 후 제보를 연결한다. [보안 공급망·제3자 위험 관리자](/careers/security-supply-chain-risk-manager/)는 외부 업체와 기술 서비스의 위험을 계약·운영 전반에서 판단하는 **인접 직무**다. 이 네 역할을 모두 '오픈소스 보안 담당자'로 부르면 업무 범위가 왜곡된다.
 
 개발팀·릴리스 담당자는 수정 가능 시점을, 제품팀은 고객과 지원 기간을, 법무·조달팀은 계약과 사용 조건을 설명한다. 실제 승인과 고객 통지의 책임자는 조직마다 다르다.
 
@@ -40,6 +40,6 @@ publicationStatus: published
 
 개발, 제품 운영, 배포 자동화, 오픈소스 유지 경험에서 이동할 수 있다. 본인이 만든 공개 가능한 작은 서비스의 외부 구성요소 몇 개를 골라 사용 위치, 담당자, 업데이트 판단과 고객에게 미칠 영향을 표로 정리해 보자. 실제 회사의 비공개 의존성 목록이나 제보 내용을 허가 없이 공개하지 않는다. 포트폴리오에서는 점검 도구의 화면보다 **발견을 수정·배포·예외 결정으로 연결한 과정**을 보여주는 편이 낫다.
 
-공고에서는 회사가 **공개 프로젝트를 유지하는지, 외부 코드를 사용하는 제품을 만드는지, 공급업체를 평가하는지**를 먼저 구분한다. 직접 코드 수정과 릴리스 권한이 있는지, 제품팀에 의견을 주는지, 계약 검토가 중심인지에 따라 요구 경험이 달라진다. [NIST의 안전한 소프트웨어 개발 프레임워크](https://csrc.nist.gov/pubs/sp/800/218/final)는 개발 과정의 책임을, [NIST의 공급망 위험 관리 지침](https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final)은 조직과 공급 관계의 폭넓은 판단을, [OWASP 구성요소 분석 안내](https://community.owasp.org/Component_Analysis)는 외부 소프트웨어 구성요소를 살피는 범위를 설명한다. 어느 자료도 회사별 채용 직함이나 필수 경력 연수를 정하지 않는다.
+공고에서는 회사가 **공개 프로젝트를 유지하는지, 외부 코드를 사용하는 제품을 만드는지, 공급업체를 평가하는지**를 먼저 구분한다. 직접 코드 수정과 릴리스 권한이 있는지, 제품팀에 의견을 주는지, 계약 검토가 중심인지에 따라 요구 경험이 달라진다. 위 토스뱅크 공고는 오픈소스 반입·활용 관리 경험을 필수로 적고 인프라·웹/모바일 진단도 함께 묶는다. 그 한 자리의 조건을 공개 프로젝트 유지 업무나 모든 소프트웨어 공급망 보안직에 적용하지 않는다. [NIST의 안전한 소프트웨어 개발 프레임워크](https://csrc.nist.gov/pubs/sp/800/218/final)는 개발 과정의 책임을, [NIST의 공급망 위험 관리 지침](https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final)은 조직과 공급 관계의 폭넓은 판단을, [OWASP 구성요소 분석 안내](https://community.owasp.org/Component_Analysis)는 외부 소프트웨어 구성요소를 살피는 범위를 설명한다. 어느 자료도 회사별 채용 직함이나 필수 경력 연수를 정하지 않는다.
 
 서비스 자체의 기능·사용자 권한은 [웹·애플리케이션 보안](/fields/web/)에서, 고객에게 전달되는 연결 기기의 긴 지원 기간은 [IoT·임베디드 보안](/fields/iot-embedded/)에서 함께 읽을 수 있다.

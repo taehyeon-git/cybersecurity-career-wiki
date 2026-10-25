@@ -140,9 +140,9 @@
   {
     "term": "CVE",
     "english": "Common Vulnerabilities and Exposures",
-    "definition": "공개된 개별 취약점에 부여되는 식별 체계.",
+    "definition": "공개된 개별 취약점을 공통 식별 번호(CVE ID)로 가리키는 체계.",
     "sourceIds": [
-      "nist-nvd"
+      "cve-program-glossary"
     ]
   },
   {
@@ -211,6 +211,14 @@
     ]
   },
   {
+    "term": "PSIRT",
+    "english": "Product Security Incident Response Team",
+    "definition": "제품·서비스의 취약점 제보를 접수해 영향 확인, 수정과 이용자 안내를 조정하는 팀. 사내 인프라 사고를 다루는 기업 CSIRT와 보호 대상이 다르다.",
+    "sourceIds": [
+      "first-psirt-framework"
+    ]
+  },
+  {
     "term": "탐지 규칙",
     "english": "Detection Rule",
     "definition": "관측 이벤트에서 조사할 행동 패턴을 찾도록 정의한 조건.",
@@ -259,6 +267,22 @@
       "nist-csrc-grc",
       "nist-csf",
       "enisa-ecsf"
+    ]
+  },
+  {
+    "term": "BCP",
+    "english": "Business Continuity Plan",
+    "definition": "큰 중단이 생겨도 조직의 핵심 업무를 이어 가거나 재개하기 위해 정한 역할과 절차를 담은 계획. 보안 사고 외의 장애·재난에도 적용될 수 있다.",
+    "sourceIds": [
+      "nist-csrc-bcp"
+    ]
+  },
+  {
+    "term": "DRP",
+    "english": "Disaster Recovery Plan",
+    "definition": "중대한 장애나 시설 피해 뒤 정보시스템을 복구하기 위한 역할과 절차를 담은 계획. 업무 전체를 지속하는 BCP와 범위가 다르다.",
+    "sourceIds": [
+      "nist-csrc-drp"
     ]
   },
   {
@@ -460,10 +484,9 @@
   {
     "term": "FDS",
     "english": "Fraud Detection System",
-    "definition": "이상 금융거래를 탐지·차단해 사기와 전자금융사고를 예방하는 시스템. 이번 카카오페이증권 FDS 공고는 준법감시 조직의 거래 위험 정책·탐지 운영을 맡는다. 기업 시스템 침해를 다루는 보안관제(SOC)와 업무 대상을 구분해 읽어야 한다.",
+    "definition": "금융거래의 이상 징후를 찾아 확인·차단 등 사고 예방과 대응을 돕는 시스템. 기업 시스템의 침해 경보를 다루는 보안관제와 보호 대상이 다르다.",
     "sourceIds": [
-      "fsec-fds",
-      "kakaopaysec-fds-2026"
+      "fsec-fds"
     ]
   },
   {
