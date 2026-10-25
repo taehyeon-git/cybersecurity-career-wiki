@@ -130,6 +130,14 @@
     ]
   },
   {
+    "term": "SBOM",
+    "english": "Software Bill of Materials",
+    "definition": "소프트웨어를 만드는 데 사용된 구성요소와 그 관계를 기록한 목록. 담당자는 이를 참고해 어느 제품이 영향을 받는지 확인하지만 목록만으로 안전이 보장되지는 않는다.",
+    "sourceIds": [
+      "ntia-sbom-minimum-elements-2021"
+    ]
+  },
+  {
     "term": "CWE",
     "english": "Common Weakness Enumeration",
     "definition": "소프트웨어와 하드웨어 약점 유형을 분류하는 MITRE의 공통 어휘.",

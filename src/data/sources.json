@@ -2014,5 +2014,15 @@
     "checkedAt": "2026-10-25",
     "kind": "domain-guidance",
     "notes": "PSIRT의 제품·서비스 취약점 처리와 조직 내부 인프라의 사고 대응을 맡는 CSIRT의 초점 차이를 설명한다. 국내 독립 채용 규모나 필수 자격의 근거는 아니다."
+  },
+  {
+    "id": "ntia-sbom-minimum-elements-2021",
+    "title": "The Minimum Elements for a Software Bill of Materials (SBOM)",
+    "organization": "U.S. National Telecommunications and Information Administration",
+    "url": "https://www.ntia.gov/report/2021/minimum-elements-software-bill-materials-sbom",
+    "version": "2021-07-12",
+    "checkedAt": "2026-10-25",
+    "kind": "glossary",
+    "notes": "SBOM을 소프트웨어를 구성하는 여러 구성요소와 공급 관계를 기록한 자료로 정의한다. 목록이 존재한다는 사실만으로 제품 안전성이나 특정 채용 자격을 보장하지 않는다."
   }
 ]
