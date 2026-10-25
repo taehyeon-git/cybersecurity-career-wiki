@@ -174,7 +174,7 @@ html[data-theme="dark"] .wiki-home-index-head { background: #2b4055; }
 .document-career-paths { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; padding: 11px 0 0; font-size: 13px; line-height: 1.5; }
 .document-career-paths span { color: var(--muted); font-weight: 700; }
 .document-career-paths a { color: var(--blue-ink); text-decoration: underline; text-underline-offset: 2px; }
-.editorial-note { margin: 18px 0 18px; padding: 8px 11px; border: 1px solid #b5c8d8; border-left: 3px solid #628cb2; border-radius: 0; background: #f1f7fb; color: var(--muted); font-size: 12px; line-height: 1.5; }
+.editorial-note { margin: 18px 0 18px; padding: 8px 11px; border: 1px solid #b5c8d8; border-left: 3px solid #628cb2; border-radius: 0; background: #f1f7fb; color: var(--muted); font-size: 13px; line-height: 1.6; }
 html[data-theme="dark"] .editorial-note { background: #22384b; color: var(--muted); }
 .mobile-document-toc { display: none; margin: 0 0 20px; border: 1px solid var(--line); background: var(--surface); }
 .mobile-document-toc summary { display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 8px 12px; color: var(--blue-ink); font-size: 13px; font-weight: 700; list-style: none; cursor: pointer; }

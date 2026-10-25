@@ -34,7 +34,7 @@
     "title": "Getting Started with the NICE Framework",
     "organization": "NIST NICE",
     "url": "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/getting-started",
-    "version": "living guidance; checked 2026-10-25",
+    "version": "living guidance",
     "checkedAt": "2026-10-25",
     "kind": "guidance",
     "notes": "The page currently lists 42 Work Roles in five categories, while NIST's Occupations, Jobs, and Work Roles page says 52 in seven. Do not present either count as settled without reconciling the official pages."
@@ -44,7 +44,7 @@
     "title": "Occupations, Jobs, and Work Roles",
     "organization": "NIST NICE",
     "url": "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/resources/occupations-jobs-and-work",
-    "version": "living guidance; checked 2026-10-25",
+    "version": "living guidance",
     "checkedAt": "2026-10-25",
     "kind": "guidance",
     "notes": "Distinguishes a framework Work Role from an employer's specific job."
@@ -134,7 +134,7 @@
     "title": "OWASP Cheat Sheet Series",
     "organization": "OWASP",
     "url": "https://cheatsheetseries.owasp.org/",
-    "version": "living documentation; checked 2026-10-25",
+    "version": "living documentation",
     "checkedAt": "2026-10-25",
     "kind": "guidance",
     "notes": "Topic-specific secure implementation guidance; cite the individual cheat sheet where possible."
@@ -144,7 +144,7 @@
     "title": "MITRE ATT&CK",
     "organization": "MITRE",
     "url": "https://attack.mitre.org/",
-    "version": "living knowledge base; checked 2026-10-25",
+    "version": "living knowledge base",
     "checkedAt": "2026-10-25",
     "kind": "knowledge-base",
     "notes": "Adversary tactics and techniques; cite specific techniques for technical claims."
@@ -154,7 +154,7 @@
     "title": "Common Weakness Enumeration",
     "organization": "MITRE",
     "url": "https://cwe.mitre.org/",
-    "version": "living catalog; checked 2026-10-25",
+    "version": "living catalog",
     "checkedAt": "2026-10-25",
     "kind": "knowledge-base",
     "notes": "Software and hardware weakness taxonomy; distinguish weakness from a specific CVE."
@@ -164,7 +164,7 @@
     "title": "National Vulnerability Database",
     "organization": "NIST",
     "url": "https://nvd.nist.gov/",
-    "version": "living database; checked 2026-10-25",
+    "version": "living database",
     "checkedAt": "2026-10-25",
     "kind": "database",
     "notes": "Vulnerability records and enrichment; the home page loaded but automated text extraction returned no body, so no database totals are asserted."
@@ -184,7 +184,7 @@
     "title": "Cloud Native Computing Foundation",
     "organization": "CNCF",
     "url": "https://www.cncf.io/",
-    "version": "living project directory; checked 2026-10-25",
+    "version": "living project directory",
     "checkedAt": "2026-10-25",
     "kind": "documentation",
     "notes": "Entry point for cloud native projects; cite a project or specification page for technical claims."
@@ -194,7 +194,7 @@
     "title": "Kubernetes Documentation",
     "organization": "Kubernetes project",
     "url": "https://kubernetes.io/docs/",
-    "version": "living documentation; checked 2026-10-25",
+    "version": "living documentation",
     "checkedAt": "2026-10-25",
     "kind": "documentation",
     "notes": "Official platform documentation; individual pages should be checked against the version selector."
@@ -204,7 +204,7 @@
     "title": "Service Accounts | Kubernetes",
     "organization": "Kubernetes project",
     "url": "https://kubernetes.io/docs/concepts/security/service-accounts/",
-    "version": "living documentation; checked 2026-10-25",
+    "version": "living documentation",
     "checkedAt": "2026-10-25",
     "kind": "documentation",
     "notes": "Official definition of a non-human ServiceAccount identity in Kubernetes; used only for the glossary term."
@@ -214,7 +214,7 @@
     "title": "AWS Security Documentation",
     "organization": "Amazon Web Services",
     "url": "https://docs.aws.amazon.com/security/",
-    "version": "living documentation; checked 2026-10-25",
+    "version": "living documentation",
     "checkedAt": "2026-10-25",
     "kind": "documentation",
     "notes": "AWS security documentation hub; cite service-level docs for product behavior."
@@ -224,7 +224,7 @@
     "title": "Microsoft Security documentation",
     "organization": "Microsoft",
     "url": "https://learn.microsoft.com/security/",
-    "version": "living documentation; checked 2026-10-25",
+    "version": "living documentation",
     "checkedAt": "2026-10-25",
     "kind": "documentation",
     "notes": "Security documentation hub, including Microsoft security products and identity resources."
@@ -234,7 +234,7 @@
     "title": "Google Cloud Security",
     "organization": "Google Cloud",
     "url": "https://cloud.google.com/security",
-    "version": "living hub; checked 2026-10-25",
+    "version": "living hub",
     "checkedAt": "2026-10-25",
     "kind": "documentation",
     "notes": "Official security overview; use Google Cloud product documentation for precise technical details."
@@ -244,7 +244,7 @@
     "title": "OWASP Gen AI Security Project",
     "organization": "OWASP",
     "url": "https://genai.owasp.org/",
-    "version": "living project; checked 2026-10-25",
+    "version": "living project",
     "checkedAt": "2026-10-25",
     "kind": "reference",
     "notes": "Entry point for generative AI and LLM application security resources."
@@ -294,7 +294,7 @@
     "title": "Guide to implementing a coordinated vulnerability disclosure process for open source projects",
     "organization": "OpenSSF Vulnerability Disclosure Working Group",
     "url": "https://oss-vulnerability-guide.openssf.org/maintainer-guide.html",
-    "version": "living guide; checked 2026-10-25",
+    "version": "living guide",
     "checkedAt": "2026-10-25",
     "kind": "guidance",
     "notes": "Explains private report intake, coordination, remediation, and communication for OSS project maintainers; projects may adapt its advice."
@@ -354,7 +354,7 @@
     "title": "Identity and Access Management",
     "organization": "NIST Computer Security Resource Center",
     "url": "https://csrc.nist.gov/glossary/term/identity_and_access_management",
-    "version": "living glossary; checked 2026-10-25",
+    "version": "living glossary",
     "checkedAt": "2026-10-25",
     "kind": "glossary",
     "notes": "Official acronym and definition for managing identities, roles and access privileges."
@@ -364,7 +364,7 @@
     "title": "Implementing a Zero Trust Architecture: Architecture and Builds",
     "organization": "NIST National Cybersecurity Center of Excellence",
     "url": "https://pages.nist.gov/zero-trust-architecture/VolumeB/architecture.html",
-    "version": "living project documentation; checked 2026-10-25",
+    "version": "living project documentation",
     "checkedAt": "2026-10-25",
     "kind": "documentation",
     "notes": "Official description of identity/access management and endpoint detection/response supporting capabilities; glossary use only."

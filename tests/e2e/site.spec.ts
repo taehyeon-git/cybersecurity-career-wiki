@@ -57,6 +57,15 @@ test("global search finds web security as a distinct field result", async ({ pag
   await expect(field.locator(".search-result-side")).toContainText("분야");
 });
 
+test("search index failure is announced in the live status region", async ({ page }) => {
+  await page.route("**/search-index.json", (route) => route.fulfill({ status: 503, body: "Unavailable" }));
+  await page.goto("./");
+  await page.getByRole("button", { name: "분야, 직무, 경로, 용어 검색" }).click();
+  const dialog = page.getByRole("dialog", { name: "분야·직무·경로·용어 검색" });
+  await dialog.getByRole("textbox", { name: "검색어" }).fill("보안관제");
+  await expect(dialog.getByRole("status")).toHaveText("검색 색인을 불러오지 못했습니다. 페이지를 새로고침해 주세요.");
+});
+
 test("mobile document explorer opens the OT field from its group", async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 720 });
   await page.goto("./");

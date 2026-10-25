@@ -12,6 +12,7 @@ const typeNames: Record<SearchDocument["type"], string> = {
 };
 
 const focusableSelector = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+const indexErrorMessage = "검색 색인을 불러오지 못했습니다. 페이지를 새로고침해 주세요.";
 
 function highlighted(value: string, query: string) {
   const spans: Array<{ start: number; end: number }> = [];
@@ -173,9 +174,9 @@ export function SearchDialog() {
       <div ref={modalRef} className="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-dialog-title">
         <h2 className="search-modal-heading" id="search-dialog-title">분야·직무·경로·용어 검색</h2>
         <div className="search-modal-top"><Search size={21} aria-hidden="true" /><input ref={inputRef} value={query} onChange={(event) => { setQuery(event.target.value); setSelected(0); }} onKeyDown={onInputKey} placeholder="검색어를 입력하세요" aria-label="검색어" /><button type="button" className="icon-button" aria-label="검색 닫기" onClick={() => closeDialog()}><X size={18} /></button></div>
-        <span className="sr-only" role="status" aria-live="polite">{query && results.length ? `전체 ${allResults.length}개 결과 중 ${results.length}개 표시. ${activeIndex + 1}번째 ${results[activeIndex].title}` : query && documents.length ? "검색 결과 없음" : ""}</span>
+        <span className="sr-only" role="status" aria-live="polite">{error ? indexErrorMessage : query && results.length ? `전체 ${allResults.length}개 결과 중 ${results.length}개 표시. ${activeIndex + 1}번째 ${results[activeIndex].title}` : query && documents.length ? "검색 결과 없음" : ""}</span>
         <div ref={resultsRef} className="search-results" role="region" aria-label="검색 결과">
-          {error ? <p className="search-message">검색 색인을 불러오지 못했습니다. 페이지를 새로고침해 주세요.</p> : !query ? <div className="search-hint"><span>추천 검색어</span><button type="button" onClick={() => setQuery("보안관제")}>보안관제</button><button type="button" onClick={() => setQuery("개인정보")}>개인정보</button><button type="button" onClick={() => setQuery("보안 제품")}>보안 제품</button></div> : !documents.length ? <p className="search-message">검색 자료를 불러오는 중입니다…</p> : !results.length ? <p className="search-message">검색 결과가 없습니다. 다른 직무명이나 영어 약어를 시도해 보세요.</p> : <>
+          {error ? <p className="search-message">{indexErrorMessage}</p> : !query ? <div className="search-hint"><span>추천 검색어</span><button type="button" onClick={() => setQuery("보안관제")}>보안관제</button><button type="button" onClick={() => setQuery("개인정보")}>개인정보</button><button type="button" onClick={() => setQuery("보안 제품")}>보안 제품</button></div> : !documents.length ? <p className="search-message">검색 자료를 불러오는 중입니다…</p> : !results.length ? <p className="search-message">검색 결과가 없습니다. 다른 직무명이나 영어 약어를 시도해 보세요.</p> : <>
             <p className="search-count">{allResults.length}개 결과{allResults.length > results.length ? ` 중 관련도 높은 ${results.length}개를 보여줍니다. 검색어를 더 구체적으로 입력해 보세요.` : ""}</p>
             {results.map((item, index) => {
               const alias = matchingAlias(item, query);
