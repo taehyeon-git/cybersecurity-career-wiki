@@ -1,6 +1,6 @@
 # 콘텐츠 모델
 
-공개 본문은 `src/content/roles/`와 `src/content/roadmaps/`의 MDX, 용어집은 `src/content/glossary/terms.json`으로 관리합니다. `src/lib/content.ts`가 YAML frontmatter와 JSON 구조를 검사합니다. 현재 게시 콘텐츠는 **직무 60개, 커리어 경로 15개, 용어 57개**입니다.
+공개 본문은 `src/content/roles/`와 `src/content/roadmaps/`의 MDX, 용어집은 `src/content/glossary/terms.json`으로 관리합니다. `src/lib/content.ts`가 YAML frontmatter와 JSON 구조를 검사합니다. 현재 게시 콘텐츠는 **직무 60개, 커리어 경로 15개, 용어 59개**입니다.
 
 ## MDX 공통 필드
 

@@ -1818,5 +1818,15 @@
     "checkedAt": "2026-10-25",
     "kind": "legislation",
     "notes": "기관 유형별 지정 기준, 별표 1 자격 적용 대상, 일정 규모 이상 개인정보처리자의 지정·변경 신고 및 독립성 보장 사항을 정한다. 2026-09-10 개정된 현행 조문을 기준으로 하며 과거 보도자료의 규모 기준을 현행 요건으로 쓰지 않는다."
+  },
+  {
+    "id": "nist-csrc-data-loss-prevention",
+    "title": "Data Loss Prevention (DLP) — CSRC Glossary",
+    "organization": "NIST Computer Security Resource Center",
+    "url": "https://csrc.nist.gov/glossary/term/data_loss_prevention",
+    "version": "2026-10-25 용어 페이지 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "glossary",
+    "notes": "사용·전송·저장 중인 데이터의 비인가 사용과 전송 위험을 식별·감시·보호하는 데이터 유출 방지 능력을 정의한다. 직무 전체의 필수 제품이나 채용 자격을 규정하는 자료는 아니다."
   }
 ]

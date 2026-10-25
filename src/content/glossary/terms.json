@@ -474,5 +474,23 @@
       "pipc-privacy-impact-assessment",
       "privacy-portal-pia-professionals"
     ]
+  },
+  {
+    "term": "CPO",
+    "english": "Chief Privacy Officer",
+    "definition": "개인정보의 처리와 보호에 관한 업무를 총괄하는 개인정보 보호책임자. 별도 지정, 자격, 신고의 적용 범위는 개인정보처리자의 유형과 규모에 따라 다르다.",
+    "sourceIds": [
+      "privacy-act-cpo-article31-2026",
+      "privacy-decree-cpo-article32-2026"
+    ]
+  },
+  {
+    "term": "DLP",
+    "english": "Data Loss Prevention",
+    "definition": "중요 데이터의 비인가 사용·전송 위험을 식별하고 감시·보호하는 데이터 유출 방지 통제. 공고에서는 보호 범위와 정책 설계·운영·예외 관리 중 실제 담당 업무를 확인한다.",
+    "sourceIds": [
+      "nist-csrc-data-loss-prevention",
+      "coupang-data-security-engineering-2026"
+    ]
   }
 ]

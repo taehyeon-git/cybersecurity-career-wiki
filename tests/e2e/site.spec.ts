@@ -137,6 +137,8 @@ test("glossary folders follow Korean terms and keep acronyms easy to find", asyn
   const acronyms = folders.filter({ has: page.getByText("영문 약어", { exact: true }) });
   await acronyms.locator("summary").click();
   await expect(acronyms.locator("#securityinformationandeventmanagement")).toBeVisible();
+  await expect(acronyms.locator("#chiefprivacyofficer")).toBeVisible();
+  await expect(acronyms.locator("#datalossprevention")).toBeVisible();
 });
 
 test("mobile global search shows its scope and the actual Tab order", async ({ page }) => {
