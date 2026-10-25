@@ -1588,5 +1588,55 @@
     "checkedAt": "2026-10-25",
     "kind": "job-posting",
     "notes": "Direct regular senior Service Security Engineer in Seoul, Gangnam, with 8+ years experience. Duties include public-cloud security policy and compliance, CNAPP operation, cloud infrastructure assessment, incident response and automation. AI work improvement and AWS/Azure/GCP operation or security experience are stated in the body; CNAPP/CSPM, CIEM/EASM/CVE work and AWS Security Specialty are preferred. Team-description education is not this position's direct duty."
+  },
+  {
+    "id": "cytur-maritime-careers-2026",
+    "title": "Recruitment: 선박 사이버 보안 엔지니어·보안 플랫폼 기획 연구원·QA 엔지니어 외",
+    "organization": "CYTUR(싸이터)",
+    "url": "https://cytur.net/recruitment/",
+    "version": "2026 Careers 페이지; 게시·마감일 및 고용형태 미표기, 2026-10-25 회사 직접 페이지 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "One company recruitment page covering nine positions, counted as one posting identifier. Ship cybersecurity engineer: 5+ years, shipboard OT/IT architecture, product application and FAT/SAT support. Security platform planning researcher: 3+ years, standards-to-product requirements and roadmap. QA engineer: 3+ years, maritime security product functional/integration/event-scenario/release testing. Maritime cybersecurity researcher header says 5+ years but body says 3+ years in OT security/vulnerability/risk assessment. Top page simultaneously says entry-to-senior and all experienced; do not infer entry eligibility. No position-specific employment type, posting date, deadline, or confirmed present opening."
+  },
+  {
+    "id": "elice-privacy-engineer-2026",
+    "title": "개인정보보호 엔지니어",
+    "organization": "엘리스그룹",
+    "url": "https://www.elice.careers/jobs?recordId=recky6szpuwrtV8vQ",
+    "version": "게시·마감일 미표기; 2026-10-25 공식 상세 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Direct Privacy Engineer title. Requires 3+ years of privacy work for this position. Integrates privacy requirements into architecture, data flows and APIs with developers; combines policy, PIA, audits, automation and GRC collaboration. Programming, PIA/ISMS-P experience and listed certificates are preferred rather than universal requirements. Employment type is shown as '-', posting/deadline dates are absent. Apply button was visible, but current hiring capacity and successful submission were not verified."
+  },
+  {
+    "id": "elice-security-grc-2026",
+    "title": "보안 GRC 매니저",
+    "organization": "엘리스그룹",
+    "url": "https://www.elice.careers/jobs?recordId=recvFaZeA0zLROXJS",
+    "version": "게시·마감일 미표기, 고용형태 '-' 표시; 2026-10-25 공식 상세 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Direct internal security GRC manager title. Requires 5+ years of information-security or privacy work, ISMS-P or CSAP certification acquisition/follow-up, PIA, risk assessment, internal audit and policy documentation. Covers control mapping, evidence automation, certification maintenance and public-sector security requirements. Listed certifications and cloud/AI experience are preferred. It is not a third-party certification-auditor position. Employment type, posting date and deadline are not shown."
+  },
+  {
+    "id": "kakaopay-privacy-internal-control-2026",
+    "title": "컴플라이언스 담당자 - 개인(신용)정보 내부통제",
+    "organization": "카카오페이",
+    "url": "https://careers.kakaopay.com/ko/o/239384",
+    "version": "상시 영입, 채용 완료 시 조기 마감; 게시일 미표기, 2026-10-25 공식 상세 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Direct permanent Pangyo role in privacy and personal-credit-information internal controls, not product privacy engineering. Requires 3+ years privacy work and understanding of privacy/credit-information law; monitors access and misuse, improves policies/procedures, advises service teams and supports regulator inspections. Financial-sector control and regulator experience plus named qualifications are preferred. Apply button was visible; availability can change."
+  },
+  {
+    "id": "kurly-privacy-manager-2026",
+    "title": "개인정보보호 담당자",
+    "organization": "컬리",
+    "url": "https://kurly.career.greetinghr.com/ko/o/230124",
+    "version": "게시·마감일 미표기; 2026-10-25 회사 공식 상세 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Direct regular Seoul Yeoksam privacy-manager posting with a three-month probation. Requires 6+ years privacy work, lifecycle/notice/vendor operations and understanding of applicable law and ISMS-P. Duties include processing lifecycle, marketing consent, processors, third-party transfer and cross-border transfer, and CPO organization support. Certification-audit experience, listed certificates and automation/e-commerce experience are preferred. Apply button visible; present vacancy and deadline not separately verified."
   }
 ]
