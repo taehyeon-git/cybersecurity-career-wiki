@@ -81,11 +81,15 @@ const illustratedPages = [
   ...publishedRoadmaps().map((roadmap) => `roadmaps/${roadmap.slug}/index.html`),
 ];
 const illustrationIds = new Set<string>();
+const illustrationScenes = new Set<string>();
 for (const file of illustratedPages) {
   const html = htmlPages.get(file);
   const images = html ? [...html.matchAll(/<svg\b[^>]*\bdata-wiki-illustration="([^"]+)"[^>]*>/g)] : [];
-  if (images.length !== 1 || !/\brole="img"/.test(images[0]?.[0] ?? "") || !/\baria-label="[^"]+"/.test(images[0]?.[0] ?? "")) {
-    console.error(`Expected one named wiki illustration in ${file}; found ${images.length}`);
+  const imageTag = images[0]?.[0] ?? "";
+  const scene = imageTag.match(/\bdata-scene-description="([^"]+)"/)?.[1];
+  const label = imageTag.match(/\baria-label="([^"]+)"/)?.[1];
+  if (images.length !== 1 || !/\brole="img"/.test(imageTag) || !scene || scene.length < 12 || !label?.includes(scene) || !html?.includes("data-scene-focus")) {
+    console.error(`Expected one descriptive wiki scene in ${file}; found ${images.length} illustration(s)`);
     process.exitCode = 1;
     continue;
   }
@@ -95,8 +99,13 @@ for (const file of illustratedPages) {
     process.exitCode = 1;
   }
   illustrationIds.add(id);
+  if (illustrationScenes.has(scene)) {
+    console.error(`Illustration scene description repeated across pages: ${file}`);
+    process.exitCode = 1;
+  }
+  illustrationScenes.add(scene);
 }
-if (illustrationIds.size === illustratedPages.length) console.log(`Named illustrations verified across ${illustratedPages.length} public pages`);
+if (illustrationIds.size === illustratedPages.length && illustrationScenes.size === illustratedPages.length) console.log(`Descriptive illustrations verified across ${illustratedPages.length} public pages`);
 const brokenLinks = validateExportedLinks(htmlPages, exportedFiles, process.env.NEXT_PUBLIC_BASE_PATH ?? "");
 if (brokenLinks.length) {
   console.error(`Broken static links (${brokenLinks.length}):\n${brokenLinks.slice(0, 20).join("\n")}`);

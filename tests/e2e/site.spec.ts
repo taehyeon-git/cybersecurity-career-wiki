@@ -14,6 +14,10 @@ test("representative wiki pages show one named illustration without mobile overf
       await expect(illustration).toHaveCount(1);
       await expect(illustration).toHaveAttribute("role", "img");
       expect(await illustration.getAttribute("aria-label")).toContain(title);
+      const scene = await illustration.getAttribute("data-scene-description");
+      expect(scene?.length ?? 0).toBeGreaterThanOrEqual(12);
+      expect(await illustration.getAttribute("aria-label")).toContain(scene);
+      await expect(illustration.locator("[data-scene-focus]")).toHaveCount(1);
       const bounds = await illustration.boundingBox();
       expect(bounds?.width ?? 0).toBeGreaterThan(60);
       expect(bounds?.width ?? 0).toBeLessThanOrEqual(width);
@@ -21,6 +25,42 @@ test("representative wiki pages show one named illustration without mobile overf
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
     }
   }
+});
+
+test("field, role, and roadmap artwork remains distinct in light and dark layouts", async ({ page }) => {
+  test.setTimeout(90_000);
+  const routes = ["./fields/ot/", "./careers/soc-analyst/", "./roadmaps/cybersecurity-fundamentals/"];
+  const sceneDescriptions = new Set<string>();
+  const artworkShapes = new Set<string>();
+  await page.goto("./");
+
+  for (const theme of ["light", "dark"] as const) {
+    await page.evaluate((value) => localStorage.setItem("wiki-theme", value), theme);
+    for (const width of [375, 1280]) {
+      await page.setViewportSize({ width, height: 720 });
+      for (const route of routes) {
+        await page.goto(route);
+        await expect(page.locator("html")).toHaveAttribute("data-theme", theme);
+        const illustration = page.locator('svg[data-wiki-illustration]');
+        await expect(illustration).toBeVisible();
+        const description = await illustration.getAttribute("data-scene-description");
+        expect(description?.length ?? 0).toBeGreaterThanOrEqual(12);
+        sceneDescriptions.add(description ?? "");
+        const artwork = await illustration.locator("[data-scene-focus]").innerHTML();
+        expect(artwork.length).toBeGreaterThan(100);
+        if (theme === "light" && width === 375) {
+          artworkShapes.add(artwork.replace(/\s(?:fill|stroke|opacity|data-[\w-]+)="[^"]*"/g, ""));
+        }
+        const bounds = await illustration.boundingBox();
+        expect(bounds?.height ?? 0).toBeGreaterThan(60);
+        expect(bounds?.width ?? 0).toBeLessThanOrEqual(width);
+        expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+      }
+    }
+  }
+
+  expect(sceneDescriptions.size).toBe(routes.length);
+  expect(artworkShapes.size).toBe(routes.length);
 });
 
 test("home shows nine job folders and opens a role article", async ({ page }) => {
