@@ -2,10 +2,10 @@ import { expect, test } from "@playwright/test";
 
 const searchShortcut = process.platform === "darwin" ? "Meta+k" : "Control+k";
 
-test("home shows seven job folders and opens a role article", async ({ page }) => {
+test("home shows nine job folders and opens a role article", async ({ page }) => {
   await page.goto("./");
   await expect(page.getByRole("heading", { name: "사이버보안 커리어 위키", exact: true })).toBeVisible();
-  await expect(page.locator(".wiki-home-subfolder")).toHaveCount(7);
+  await expect(page.locator(".wiki-home-subfolder")).toHaveCount(9);
   await expect(page.getByRole("link", { name: "사이트맵" })).toHaveAttribute("href", /\/sitemap\.xml$/);
 
   const jobsFolder = page.locator(".wiki-home-folder").nth(1);
@@ -173,13 +173,25 @@ test("the customer path sends internal solution operators to the operations fold
   await expect(page.locator(".wiki-index .wiki-folder")).toHaveCount(1);
 });
 
-test("career index initially shows all seven work folders on a narrow screen", async ({ page }) => {
+test("career index shows nine work folders on a narrow screen", async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 720 });
   await page.goto("./careers/");
   const folders = page.locator(".wiki-index .wiki-folder");
-  await expect(folders).toHaveCount(7);
+  await expect(folders).toHaveCount(9);
   await expect(page.locator(".wiki-index .wiki-folder[open]")).toHaveCount(0);
   await expect(folders.last().locator("summary")).toBeVisible();
+});
+
+test("police cybercrime investigation has a separate folder and career path", async ({ page }) => {
+  await page.goto("./careers/?category=investigation");
+  await expect(page.getByRole("combobox", { name: "분야" })).toHaveValue("investigation");
+  const folder = page.locator(".wiki-index .wiki-folder");
+  await expect(folder).toHaveCount(1);
+  await expect(folder.locator('a[href*="/careers/police-cybercrime-investigator/"]')).toBeVisible();
+  await expect(folder.locator('a[href*="/careers/digital-forensics-specialist/"]')).toBeVisible();
+  await folder.locator('a[href*="/careers/police-cybercrime-investigator/"]').click();
+  await expect(page.locator(".breadcrumbs").getByRole("link", { name: "디지털 조사·사이버 수사" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "경찰 사이버범죄 수사 커리어 경로", exact: true })).toBeVisible();
 });
 
 test("the selected color theme persists after a reload", async ({ page }) => {

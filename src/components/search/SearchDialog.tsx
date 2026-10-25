@@ -132,8 +132,9 @@ export function SearchDialog() {
     if (!container || !active) return;
     const viewport = container.getBoundingClientRect();
     const item = active.getBoundingClientRect();
-    if (item.top < viewport.top) container.scrollTop -= viewport.top - item.top;
-    else if (item.bottom > viewport.bottom) container.scrollTop += item.bottom - viewport.bottom;
+    const padding = 8;
+    if (item.top < viewport.top + padding) container.scrollTop -= viewport.top + padding - item.top;
+    else if (item.bottom > viewport.bottom - padding) container.scrollTop += item.bottom - viewport.bottom + padding;
   }, [open, query, activeIndex, results.length]);
 
   function onInputKey(event: ReactKeyboardEvent<HTMLInputElement>) {

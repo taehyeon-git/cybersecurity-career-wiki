@@ -8,16 +8,20 @@ import { roleCategories, mainNav } from "../src/lib/site-data";
 import { validateCitationUrls } from "../src/lib/validation";
 import terms from "../src/content/glossary/terms.json";
 
-test("career directory separates security product work from security design and retains 54 roles", () => {
-  assert.deepEqual(roleCategories.map((item) => item.id), ["management", "development", "product", "operations", "assessment", "response", "customer"]);
+test("career directory separates investigation from incident response", () => {
+  assert.deepEqual(roleCategories.map((item) => item.id), ["management", "development", "product", "operations", "assessment", "response", "investigation", "research", "customer"]);
   const roles = publishedRoles();
-  assert.equal(roles.length, 54);
-  assert.equal(new Set(roles.map((role) => role.slug)).size, 54);
+  assert.equal(roles.length, 58);
+  assert.equal(new Set(roles.map((role) => role.slug)).size, roles.length);
   assert.deepEqual(
     roles.filter((role) => role.category === "product").map((role) => role.id).sort(),
     ["security-product-developer", "security-product-manager", "security-product-qa", "security-product-technical-writer"],
   );
   assert.equal(roles.find((role) => role.id === "product-security-engineer")?.category, "development");
+  assert.equal(roles.find((role) => role.id === "digital-forensics-specialist")?.category, "investigation");
+  assert.equal(roles.find((role) => role.id === "police-cybercrime-investigator")?.category, "investigation");
+  assert.equal(roles.find((role) => role.id === "incident-responder")?.category, "response");
+  assert.equal(roles.find((role) => role.id === "security-awareness-specialist")?.category, "research");
   for (const category of roleCategories) {
     assert.ok(roles.some((role) => role.category === category.id), `missing ${category.id} roles`);
   }
@@ -25,7 +29,7 @@ test("career directory separates security product work from security design and 
 
 test("each role has a reciprocal career path link", () => {
   const roadmaps = publishedRoadmaps();
-  assert.equal(roadmaps.length, 12);
+  assert.equal(roadmaps.length, 15);
   const byId = new Map(roadmaps.map((roadmap) => [roadmap.id, roadmap]));
   for (const role of publishedRoles()) {
     assert.ok(role.roadmapIds.length > 0, `${role.id} has no career path`);

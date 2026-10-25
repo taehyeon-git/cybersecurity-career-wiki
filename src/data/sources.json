@@ -1688,5 +1688,95 @@
     "checkedAt": "2026-10-25",
     "kind": "guidance",
     "notes": "Official portal provides certification scheme and auditor qualification-exam announcements. Current admission requirements must be checked against the latest specific exam notice; homepage does not itself establish universal entry requirements."
+  },
+  {
+    "id": "police-department-duties-2026",
+    "title": "경찰청 부서별 연락처·담당업무",
+    "organization": "경찰청",
+    "url": "https://www.police.go.kr/www/agency/orginfo/orginfo0203.jsp",
+    "version": "현행 조직 업무표; 2026-10-25 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "documentation",
+    "notes": "사이버범죄수사과, 사이버테러대응과, 디지털포렌식센터의 담당업무를 구별한다. 부서 단위의 업무이지 신규 임용자 한 사람의 확정 업무나 보직을 뜻하지 않는다."
+  },
+  {
+    "id": "police-cyber-junior-recruitment-2026",
+    "title": "2026년 하반기 경찰공무원(경사 이하) 경력경쟁채용시험 공고",
+    "organization": "중앙경찰학교·제주경찰청",
+    "url": "https://jjpolice.go.kr/jcg/notice/employment.htm?act=view&seq=84788",
+    "version": "2026-07-10 게시, 해당 원서접수 종료; 2026-10-25 공식 게시글 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "historical-recruitment-announcement",
+    "notes": "공식 게시글이 중앙경찰학교 공고 제2026-12호의 HWP 첨부파일을 제공한다. 첨부파일 직접 주소는 https://jjpolice.go.kr/jcg/notice/employment.htm?act=download&no=1&seq=84788 이다. 게시글과 파일명은 확인했지만 이 조사 환경의 문서 도구는 HWP 본문을 열지 못했다. 구체적 업무·자격의 인용은 경찰청장 발행 2026년 연간 직무기술서 공개 사본과 구분한다."
+  },
+  {
+    "id": "police-cyber-senior-recruitment-2026",
+    "title": "2026년 하반기 경위 이상 경력경쟁채용시험 공고",
+    "organization": "경찰대학",
+    "url": "https://www.police.ac.kr/police/police/master/368/168689/boardView.do",
+    "version": "2026-07-10 게시, 해당 원서접수 종료; 2026-10-25 공식 게시글 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "historical-recruitment-announcement",
+    "notes": "공식 게시글에 경위 이상 경찰공무원 경력채용 공고 HWP와 사이버수사 분야 서류제출 안내 HWP가 있다. 사이트의 첨부 링크는 동적 다운로드여서 안정적인 직접 파일 URL을 확보하지 못했다. 현재 지원 가능 공고가 아니며 상세 자격은 최종 해당 분야 공고로 재확인해야 한다."
+  },
+  {
+    "id": "police-annual-hiring-plan-2026-mirror",
+    "title": "경찰청 공고 제2026-1호: 2026년 경찰공무원 채용인원 및 시험 일정 등 공고",
+    "organization": "경찰청 (공개 사본 호스트: 공단기)",
+    "url": "https://gong.knconects.com/board/file/9/2026%20%EA%B2%BD%EC%B0%B0%EA%B3%B5%EB%AC%B4%EC%9B%90%20%EC%B1%84%EC%9A%A9%EC%8B%9C%ED%97%98%20%EC%9D%BC%EC%A0%95%20%EB%93%B1%20%EA%B3%B5%EA%B3%A0.pdf",
+    "version": "2026-01-09 경찰청장 발행; 2026-10-25 공개 사본 PDF 39쪽 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "historical-recruitment-announcement",
+    "notes": "경찰청장 명의 원문을 사설 교육 사이트가 PDF로 공개한 사본이다. PDF 15~16쪽의 사이버수사 경위·경장 직무기술서에서 업무, 임용예정 계급·인원, 경장 대체 자격 경로 및 경위 자격을 확인했다. PDF 6쪽은 경채가 매년 정기 선발이 아니며 일정·요건·평가 내용이 변경될 수 있다고 명시한다. 최종 세부 공고 및 현재 모집 확인은 공식 경찰 채용 게시글을 우선한다."
+  },
+  {
+    "id": "etri-cybersecurity-research-fields-2027",
+    "title": "2027년 1차 정규직 및 실무직 공개채용 모집분야: 지능형 사이버보안 핵심기술 연구",
+    "organization": "한국전자통신연구원(ETRI)",
+    "url": "https://etri.re.kr/preview/1788324798224/index.html",
+    "version": "A2027-06 분야표; 2026-10-25 원문 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "historical-recruitment-announcement",
+    "notes": "A2027-06은 대전 본원 정규 연구직 3명 예정 분야다. 보안 전용 AI 모델, 시스템 취약점 대응, AI 에이전트 보안 등을 연구 과업으로 명시하고 관련 전공을 적는다. 이는 해당 모집 분야의 업무·인원이며 전체 보안 R&D 채용 규모나 기술 필수 목록이 아니다."
+  },
+  {
+    "id": "etri-research-recruitment-2027",
+    "title": "2027년 1차 정규직 및 실무직 공개채용 공고",
+    "organization": "한국전자통신연구원(ETRI)",
+    "url": "https://etri.re.kr/preview/1788324918552/index.html",
+    "version": "2026-09-02 14:00~09-17 16:00 접수 종료; 2026-10-25 원문 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "historical-recruitment-announcement",
+    "notes": "연구직 공통 자격은 석사 이상(공고의 학위예정자 조건 포함)과 최근 5년 내 인정 논문 주저자·교신저자 또는 등록 국제특허 1건 등으로 제시된다. 지원·성과 요건은 2027년 1차 ETRI 해당 공고의 조건이며 모든 사이버보안 연구직의 공통 필수 조건이 아니다."
+  },
+  {
+    "id": "kisdi-cyber-policy-research-2026",
+    "title": "정규직 직원(연구책임자) 채용 재공고: AI·정보보호·사이버보안 정책 및 법·제도 연구",
+    "organization": "정보통신정책연구원(KISDI)·JOB-ALIO",
+    "url": "https://job.alio.go.kr/recruitview.do?idx=305951",
+    "version": "2026-10-13~10-28 접수; 2026-10-25 정부 공공기관 채용정보 원문 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "충북 정규 연구책임자 1명 공고. AI·정보보호·사이버보안 관련 정책과 법·제도 연구를 담당하며 법학·정책학·경영학 등 관련 전공 박사를 요구한다. 논문과 연구 적합성, 면접, 세미나 심사가 전형에 포함된다. 한 연구원 한 자리의 요건이며 기업 내부 보안정책 운영 채용과 구분한다."
+  },
+  {
+    "id": "fsec-security-training-hiring-2025",
+    "title": "금융보안원, 2026년도 상반기 신입직원 채용 실시",
+    "organization": "금융보안원",
+    "url": "https://www.fsec.or.kr/bbs/detail?bbsNo=11773&menuNo=69",
+    "version": "2025-09-03 게시, 09-04~09-17 접수 종료; 2026-10-25 공식 본문 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "historical-recruitment-announcement",
+    "notes": "전략기획 신입 모집 분야의 수행업무에 금융보안 교육과정 개발·운영이 명시된다. 경영기획·총무·회계·자금·예산도 같은 모집 분야에 있으므로 독립 교육 전담 직함이나 배정 보장으로 해석하지 않는다. 모집표의 0명은 분야별 정확한 인원을 뜻하지 않는다."
+  },
+  {
+    "id": "fsec-recruitment-notice-2025",
+    "title": "금융보안원 2026년도 상반기 신입직원 채용 공고",
+    "organization": "금융보안원",
+    "url": "https://www.fsec.or.kr/bbs/detail?bbsNo=11772&menuNo=258",
+    "version": "2025-09-03 게시, 09-04~09-17 접수 종료; 2026-10-25 공식 게시글 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "historical-recruitment-announcement",
+    "notes": "공식 게시글은 2026년도 상반기 신입 채용 공고 PDF·HWP 첨부와 접수기간을 제공한다. 교육과정 개발·운영의 세부 근거는 같은 기관의 공식 보도자료를 함께 확인해야 한다. 이 공고는 현재 접수 가능한 자리가 아니다."
   }
 ]
