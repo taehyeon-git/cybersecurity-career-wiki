@@ -8,7 +8,7 @@ import { assetUrl } from "@/lib/urls";
 import { normalizeSearchText, searchDocuments, searchMatchContext, searchTerms, type SearchDocument } from "@/lib/search";
 
 const typeNames: Record<SearchDocument["type"], string> = {
-  role: "직무", roadmap: "커리어 경로", glossary: "용어",
+  field: "보안 분야", role: "직무", roadmap: "커리어 경로", glossary: "용어",
 };
 
 const focusableSelector = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
@@ -166,12 +166,12 @@ export function SearchDialog() {
   }
 
   return <>
-    <button type="button" className="search-trigger" onClick={openDialog} title="직무, 경로, 용어 검색" aria-haspopup="dialog" aria-expanded={open}>
-      <Search size={18} aria-hidden="true" /><span>직무, 경로, 용어 검색</span><kbd aria-hidden="true">Ctrl K</kbd>
+    <button type="button" className="search-trigger" onClick={openDialog} title="분야, 직무, 경로, 용어 검색" aria-haspopup="dialog" aria-expanded={open}>
+      <Search size={18} aria-hidden="true" /><span>분야, 직무, 경로, 용어 검색</span><kbd aria-hidden="true">Ctrl K</kbd>
     </button>
     {open && createPortal(<div ref={overlayRef} className="search-overlay" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) closeDialog(); }} onKeyDown={onModalKey}>
       <div ref={modalRef} className="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-dialog-title">
-        <h2 className="search-modal-heading" id="search-dialog-title">직무·경로·용어 검색</h2>
+        <h2 className="search-modal-heading" id="search-dialog-title">분야·직무·경로·용어 검색</h2>
         <div className="search-modal-top"><Search size={21} aria-hidden="true" /><input ref={inputRef} value={query} onChange={(event) => { setQuery(event.target.value); setSelected(0); }} onKeyDown={onInputKey} placeholder="검색어를 입력하세요" aria-label="검색어" /><button type="button" className="icon-button" aria-label="검색 닫기" onClick={() => closeDialog()}><X size={18} /></button></div>
         <span className="sr-only" role="status" aria-live="polite">{query && results.length ? `전체 ${allResults.length}개 결과 중 ${results.length}개 표시. ${activeIndex + 1}번째 ${results[activeIndex].title}` : query && documents.length ? "검색 결과 없음" : ""}</span>
         <div ref={resultsRef} className="search-results" role="region" aria-label="검색 결과">

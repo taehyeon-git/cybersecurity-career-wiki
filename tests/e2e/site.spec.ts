@@ -8,7 +8,7 @@ test("home shows nine job folders and opens a role article", async ({ page }) =>
   await expect(page.locator(".wiki-home-subfolder")).toHaveCount(9);
   await expect(page.getByRole("link", { name: "사이트맵" })).toHaveAttribute("href", /\/sitemap\.xml$/);
 
-  const jobsFolder = page.locator(".wiki-home-folder").nth(1);
+  const jobsFolder = page.locator(".wiki-home-folder").filter({ has: page.getByText("보안 직무", { exact: true }) });
   await jobsFolder.locator("summary").first().click();
   const category = jobsFolder.locator(".wiki-home-subfolder").first();
   await category.locator("summary").click();
@@ -20,13 +20,61 @@ test("home shows nine job folders and opens a role article", async ({ page }) =>
   await expect(page.getByRole("heading", { name: title, exact: true })).toBeVisible();
 });
 
+test("field folder explains a work area and leads to its jobs", async ({ page }) => {
+  await page.goto("./");
+  const fieldFolder = page.locator(".wiki-home-folder").filter({ has: page.getByText("보안 분야", { exact: true }) });
+  await expect(fieldFolder).toHaveCount(1);
+  await fieldFolder.locator("summary").first().click();
+  await fieldFolder.locator('a.wiki-home-file[href*="/fields/management/"]').click();
+  await expect(page).toHaveURL(/\/fields\/management\/$/);
+  await expect(page.locator(".document-main h1")).toContainText("보안 전략·관리");
+  await page.locator('.document-main a[href*="/careers/ciso/"]').first().click();
+  await expect(page).toHaveURL(/\/careers\/ciso\/$/);
+});
+
+test("global search finds a field guide as a distinct result", async ({ page }) => {
+  await page.goto("./");
+  await page.getByRole("button", { name: /검색/ }).first().click();
+  const dialog = page.getByRole("dialog", { name: /검색/ });
+  await dialog.getByRole("textbox", { name: "검색어" }).fill("보안 전략·관리");
+  const field = dialog.locator('a.search-result[href*="/fields/management/"]');
+  await expect(field).toBeVisible();
+  await expect(field.locator(".search-result-side")).toContainText("분야");
+});
+
+test("mobile document explorer opens the field folder", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 720 });
+  await page.goto("./");
+  await page.getByRole("button", { name: "문서 탐색기 열기" }).click();
+  const sidebar = page.locator("#wiki-sidebar");
+  await sidebar.getByRole("button", { name: /보안 분야/ }).click();
+  await sidebar.locator('a[href*="/fields/management/"]').click();
+  await expect(page).toHaveURL(/\/fields\/management\/$/);
+});
+
+test("five main navigation links fit between the brand and actions", async ({ page }) => {
+  for (const width of [901, 1024, 1180, 1440]) {
+    await page.setViewportSize({ width, height: 720 });
+    await page.goto("./fields/");
+    const geometry = await page.evaluate(() => {
+      const brand = document.querySelector(".brand")!.getBoundingClientRect();
+      const nav = document.querySelector(".desktop-nav")!.getBoundingClientRect();
+      const actions = document.querySelector(".header-actions")!.getBoundingClientRect();
+      return { brandRight: brand.right, navLeft: nav.left, navRight: nav.right, actionsLeft: actions.left, scrollWidth: document.documentElement.scrollWidth };
+    });
+    expect(geometry.navLeft, `${width}px brand and navigation overlap`).toBeGreaterThanOrEqual(geometry.brandRight - 1);
+    expect(geometry.actionsLeft, `${width}px navigation and actions overlap`).toBeGreaterThanOrEqual(geometry.navRight - 1);
+    expect(geometry.scrollWidth, `${width}px horizontal overflow`).toBeLessThanOrEqual(width);
+  }
+});
+
 test("Ctrl+K search focuses the input and restores the actual opener", async ({ page }) => {
   await page.goto("./");
   const opener = page.getByRole("link", { name: "직무 찾는 방법" }).first();
   await opener.focus();
   await page.keyboard.press(searchShortcut);
 
-  const dialog = page.getByRole("dialog", { name: "직무·경로·용어 검색" });
+  const dialog = page.getByRole("dialog", { name: "분야·직무·경로·용어 검색" });
   await expect(dialog).toBeVisible();
   const input = dialog.getByRole("textbox", { name: "검색어" });
   await expect(input).toBeFocused();
@@ -47,8 +95,8 @@ test("Ctrl+K search focuses the input and restores the actual opener", async ({ 
 test("mobile keyboard search keeps the selected result in view", async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 720 });
   await page.goto("./");
-  await page.getByRole("button", { name: "직무, 경로, 용어 검색" }).click();
-  const dialog = page.getByRole("dialog", { name: "직무·경로·용어 검색" });
+  await page.getByRole("button", { name: "분야, 직무, 경로, 용어 검색" }).click();
+  const dialog = page.getByRole("dialog", { name: "분야·직무·경로·용어 검색" });
   const input = dialog.getByRole("textbox", { name: "검색어" });
   await input.fill("보안");
   await expect(dialog.locator("a.search-result")).toHaveCount(10);
@@ -75,8 +123,8 @@ test("mobile keyboard search keeps the selected result in view", async ({ page }
 test("global search combines terms from different parts of a career article", async ({ page }) => {
   await page.goto("./");
   await page.waitForLoadState("networkidle");
-  await page.getByRole("button", { name: "직무, 경로, 용어 검색" }).click();
-  const dialog = page.getByRole("dialog", { name: "직무·경로·용어 검색" });
+  await page.getByRole("button", { name: "분야, 직무, 경로, 용어 검색" }).click();
+  const dialog = page.getByRole("dialog", { name: "분야·직무·경로·용어 검색" });
   await dialog.getByRole("textbox", { name: "검색어" }).fill("보안관제 SIEM");
   const result = dialog.locator('a.search-result[href*="/careers/soc-analyst/"]');
   await expect(result).toBeVisible();
@@ -90,8 +138,8 @@ test("global search combines terms from different parts of a career article", as
 test("global search reports the full result count and indexes late article sections", async ({ page }) => {
   await page.goto("./");
   await page.waitForLoadState("networkidle");
-  await page.getByRole("button", { name: "직무, 경로, 용어 검색" }).click();
-  const dialog = page.getByRole("dialog", { name: "직무·경로·용어 검색" });
+  await page.getByRole("button", { name: "분야, 직무, 경로, 용어 검색" }).click();
+  const dialog = page.getByRole("dialog", { name: "분야·직무·경로·용어 검색" });
   const input = dialog.getByRole("textbox", { name: "검색어" });
   await input.fill("보안");
   await expect(dialog.locator(".search-count")).toContainText(/개 결과 중 관련도 높은 10개/);
@@ -144,9 +192,9 @@ test("glossary folders follow Korean terms and keep acronyms easy to find", asyn
 test("mobile global search shows its scope and the actual Tab order", async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 720 });
   await page.goto("./");
-  await page.getByRole("button", { name: "직무, 경로, 용어 검색" }).click();
+  await page.getByRole("button", { name: "분야, 직무, 경로, 용어 검색" }).click();
   const dialog = page.locator(".search-modal");
-  await expect(dialog.getByRole("heading", { name: "직무·경로·용어 검색" })).toBeVisible();
+  await expect(dialog.getByRole("heading", { name: "분야·직무·경로·용어 검색" })).toBeVisible();
   await dialog.getByRole("textbox", { name: "검색어" }).fill("보안관제");
   await expect(dialog.locator(".search-footer")).toContainText("Tab: 닫기 버튼 다음 결과");
   await dialog.getByRole("textbox", { name: "검색어" }).press("Tab");
@@ -361,7 +409,7 @@ test("closing search restores focus inside an open mobile document drawer", asyn
   await page.goto("./");
   await page.getByRole("button", { name: "문서 탐색기 열기" }).click();
   await page.keyboard.press(searchShortcut);
-  await expect(page.getByRole("dialog", { name: "직무·경로·용어 검색" })).toBeVisible();
+  await expect(page.getByRole("dialog", { name: "분야·직무·경로·용어 검색" })).toBeVisible();
   await page.keyboard.press("Escape");
   const drawer = page.getByRole("dialog", { name: "문서 탐색기" });
   await expect(drawer).toBeVisible();
@@ -501,7 +549,7 @@ test("search opens a glossary term inside its folder", async ({ page }) => {
   await page.goto("./glossary/");
   await page.getByRole("textbox", { name: "용어 검색" }).fill("NCS");
   await page.keyboard.press(searchShortcut);
-  const dialog = page.getByRole("dialog", { name: "직무·경로·용어 검색" });
+  const dialog = page.getByRole("dialog", { name: "분야·직무·경로·용어 검색" });
   await dialog.getByRole("textbox", { name: "검색어" }).fill("SIEM");
   await dialog.locator('a.search-result[href*="/glossary/#"]').first().click();
   await expect(page).toHaveURL(/\/glossary\/#securityinformationandeventmanagement$/);

@@ -1,6 +1,6 @@
 # 콘텐츠 모델
 
-공개 본문은 `src/content/roles/`와 `src/content/roadmaps/`의 MDX, 용어집은 `src/content/glossary/terms.json`으로 관리합니다. `src/lib/content.ts`가 YAML frontmatter와 JSON 구조를 검사합니다. 현재 게시 콘텐츠는 **직무 60개, 커리어 경로 15개, 용어 59개**입니다.
+공개 본문은 `src/content/fields/`, `src/content/roles/`, `src/content/roadmaps/`의 MDX, 용어집은 `src/content/glossary/terms.json`으로 관리합니다. `src/lib/content.ts`가 YAML frontmatter와 JSON 구조를 검사합니다. 현재 게시 콘텐츠는 **분야 안내 9개, 직무 60개, 커리어 경로 15개, 용어 59개**입니다.
 
 ## MDX 공통 필드
 
@@ -14,9 +14,13 @@
 | `reviewedAt` | 문서가 마지막으로 갱신되거나 검토된 날짜 문자열. 편집 검토 완료 여부는 `reviewStatus`로 구분 |
 | `publicationStatus` | `draft`, `needs-review`, `published`, `outdated` 중 하나 |
 
-`published` 문서만 목록·상세·검색에 포함됩니다. 게시된 직무·경로 MDX 본문은 frontmatter를 제외하고 최소 1,800자여야 합니다. 현재 검사는 `reviewedAt`의 날짜 형식, 파일명과 `slug`의 일치, 링크의 실제 접속 가능성은 강제하지 않습니다. 다른 게시 상태의 문서도 frontmatter 스키마 검사를 받지만 목록과 검색에는 나타나지 않습니다.
+`published` 문서만 목록·상세·검색에 포함됩니다. 게시된 분야·직무·경로 MDX 본문은 frontmatter를 제외하고 최소 1,800자여야 합니다. 현재 검사는 `reviewedAt`의 날짜 형식, 파일명과 `slug`의 일치, 외부 링크의 실제 접속 가능성은 강제하지 않습니다. 다른 게시 상태의 문서도 frontmatter 스키마 검사를 받지만 목록과 검색에는 나타나지 않습니다.
 
-## 직무 필드
+## 분야 안내와 직무 필드
+
+분야 안내 MDX는 공통 필드에 `category`를 추가합니다. `id`, `slug`, `category`는 같은 9개 범주 ID를 사용하고, 게시된 범주마다 안내가 정확히 한 편 있어야 합니다. 관련 직무 ID는 별도 입력하지 않고 게시된 직무의 `category`에서 자동으로 계산합니다. 안내 본문은 큰 업무 목적, 실제 하루, 세부 분야, 협업·결과물, 입문과 공고 확인점을 설명합니다. 위키의 범주를 NCS·NICE·ECSF의 공식 분류와 혼동하지 않도록 범위를 밝힙니다.
+
+직무 MDX에는 다음 필드를 추가합니다.
 
 | 필드 | 형식과 의미 |
 | --- | --- |
@@ -41,11 +45,11 @@
 ## 참조·출처 검사
 
 - 같은 종류의 MDX 안에서 `id`와 `slug` 중복을 허용하지 않습니다.
-- 게시 직무·경로의 `sourceIds`와 `relatedRoleIds`는 실제 출처·직무를 가리켜야 합니다. `roadmapIds`는 모든 직무에서 존재하는 경로 ID를 가리켜야 합니다.
+- 게시 분야·직무·경로의 `sourceIds`와 관련 직무 ID는 실제 출처·직무를 가리켜야 합니다. `roadmapIds`는 모든 직무에서 존재하는 경로 ID를 가리켜야 합니다. 9개 범주마다 게시 분야 안내가 하나씩 있어야 합니다.
 - 용어집의 출처, 한국어·영어 중복, 영문 첫 글자를 검사합니다.
 - MDX 본문의 외부 인용 URL이 출처 장부에 등록되고 해당 문서의 `sourceIds`에도 포함되는지 확인합니다.
 - MDX의 용어집 앵커가 실제 영문 용어 항목을 가리키는지 확인합니다.
-- MDX에서 연결한 직무·경로 URL이 게시된 문서의 슬러그를 가리키는지 확인합니다.
+- MDX에서 연결한 분야·직무·경로 URL이 게시된 문서의 슬러그를 가리키는지 확인합니다.
 - MDX 본문에 남은 옛 `/knowledge/`, `/comparisons/`, `/knowledge-map/` 링크를 검사합니다.
 - 검사기는 공고가 현재 모집 중인지, 문장의 해석이 올바른지, 외부 링크가 살아 있는지는 자동으로 판단하지 못합니다.
 

@@ -70,3 +70,11 @@ test("career path links must resolve to published role or path slugs", () => {
     ["entry-path: unknown internal link /roadmaps/missing-path/"],
   );
 });
+
+test("field links resolve to a published field guide", () => {
+  const docs = [{ id: "soc-analyst", body: "[분야](/fields/response/) [없는 분야](/fields/missing/)" }];
+  assert.deepEqual(
+    validateInternalDocumentLinks(docs, new Set(["soc-analyst"]), new Set(), new Set(["response"])),
+    ["soc-analyst: unknown internal link /fields/missing/"],
+  );
+});

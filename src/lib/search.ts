@@ -1,6 +1,6 @@
 export type SearchDocument = {
   id: string;
-  type: "role" | "roadmap" | "glossary";
+  type: "field" | "role" | "roadmap" | "glossary";
   title: string;
   english: string;
   aliases: string[];

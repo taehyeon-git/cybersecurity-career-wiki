@@ -1,7 +1,7 @@
 import { normalizeSearchText } from "./search";
 
 export type ReferenceDocument = {
-  kind: "role" | "roadmap";
+  kind: "role" | "roadmap" | "field";
   id: string;
   slug: string;
   publicationStatus: string;
@@ -115,16 +115,17 @@ export function validateInternalDocumentLinks(
   documents: Array<{ id: string; body: string }>,
   roleSlugs: Set<string>,
   roadmapSlugs: Set<string>,
+  fieldSlugs: Set<string> = new Set(),
 ): string[] {
   const errors: string[] = [];
   for (const document of documents) {
     const missing = new Set<string>();
-    for (const match of document.body.matchAll(/\]\((\/(?:careers|roadmaps)\/[^\s)]+)\)/g)) {
+    for (const match of document.body.matchAll(/\]\((\/(?:careers|roadmaps|fields)\/[^\s)]+)\)/g)) {
       const href = match[1];
       const path = href.split(/[?#]/, 1)[0];
-      if (/^\/(?:careers|roadmaps)\/$/.test(path)) continue;
-      const route = /^\/(careers|roadmaps)\/([^/]+)\/$/.exec(path);
-      const valid = route && (route[1] === "careers" ? roleSlugs.has(route[2]) : roadmapSlugs.has(route[2]));
+      if (/^\/(?:careers|roadmaps|fields)\/$/.test(path)) continue;
+      const route = /^\/(careers|roadmaps|fields)\/([^/]+)\/$/.exec(path);
+      const valid = route && (route[1] === "careers" ? roleSlugs.has(route[2]) : route[1] === "roadmaps" ? roadmapSlugs.has(route[2]) : fieldSlugs.has(route[2]));
       if (!valid) missing.add(href);
     }
     for (const href of missing) errors.push(`${document.id}: unknown internal link ${href}`);

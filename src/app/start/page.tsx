@@ -16,16 +16,17 @@ export default function StartPage() {
 
     <section className="wiki-start-section">
       <h2>이 순서로 읽으면 됩니다</h2>
-      <div className="wiki-folder-list"><WikiFolder name="첫 탐색 순서" description="직무 목록·입문 경로·용어집" count="3단계" defaultOpen>
-        <WikiFileRow href="/careers/" title="01. 업무 범주에서 직무 찾기" description="맡는 일과 대표 산출물로 관심 직무를 좁힙니다." />
-        <WikiFileRow href="/roadmaps/cybersecurity-fundamentals/" title="02. 입문 경로 읽기" description="채용 공고와 포트폴리오를 연결해 첫 지원 계획을 세웁니다." />
-        <WikiFileRow href="/glossary/" title="03. 공고 용어 확인하기" description="낯선 약어만 짧게 확인하고 직무 글로 돌아옵니다." />
+      <div className="wiki-folder-list"><WikiFolder name="첫 탐색 순서" description="분야·직무·입문 경로·용어집" count="4단계" defaultOpen>
+        <WikiFileRow href="/fields/" title="01. 보안 분야 살펴보기" description="각 분야의 목적과 실제 하루를 읽고 관심 있는 일을 찾습니다." />
+        <WikiFileRow href="/careers/" title="02. 분야 안에서 직무 찾기" description="맡는 책임과 대표 산출물로 관심 직무를 좁힙니다." />
+        <WikiFileRow href="/roadmaps/cybersecurity-fundamentals/" title="03. 입문 경로 읽기" description="채용 공고와 포트폴리오를 연결해 첫 지원 계획을 세웁니다." />
+        <WikiFileRow href="/glossary/" title="04. 공고 용어 확인하기" description="낯선 약어만 짧게 확인하고 직무 글로 돌아옵니다." />
       </WikiFolder></div>
     </section>
 
     <section className="wiki-start-section">
-      <h2>업무 범주를 먼저 고르세요</h2>
-      <p>직무 폴더는 국내 <a href="https://www.ncs.go.kr/sqf/sqf01/sqf10100201p1.do?iscCd=20&amp;iscNm=%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8" target="_blank" rel="noopener noreferrer">NCS 정보보호 SQF<ExternalLinkCue /></a>의 다섯 하위산업 분야와 세부 직무를 참고해, 주 책임에 따라 위키의 업무별 폴더로 재구성했습니다. 보안제품 기획·개발·품질은 제품 조직의 일을 찾기 위한 위키 분류이며 SQF의 별도 공식 분야명은 아닙니다. 조직마다 직함이 다르고 한 공고가 여러 분야의 일을 합칠 수 있으므로 폴더명과 함께 각 글의 책임을 확인하세요.</p>
+      <h2>분야를 읽고 직무를 고르세요</h2>
+      <p><Link href="/fields/">분야 안내</Link>는 큰 업무의 목적과 실제 하루, 세부 갈래, 관련 직무를 설명합니다. 그다음 직무 글에서 한 사람의 책임과 산출물, 채용 근거를 확인하세요. 이 위키의 분야 폴더는 국내 <a href="https://www.ncs.go.kr/sqf/sqf01/sqf10100201p1.do?iscCd=20&amp;iscNm=%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8" target="_blank" rel="noopener noreferrer">NCS 정보보호 SQF<ExternalLinkCue /></a>를 참고해 실제 역할을 찾기 쉽게 재구성한 것이며 공식 하위산업 분야와 같은 목록은 아닙니다. 조직마다 직함이 다르고 한 공고가 여러 분야의 일을 합칠 수 있으므로 폴더명과 함께 각 글의 책임을 확인하세요.</p>
       <div className="wiki-start-definition"><h3>직무 글에서 볼 것</h3><ul><li><b>책임</b> — 어떤 결정을 내리고 어디까지 책임지는가</li><li><b>산출물</b> — 업무 결과를 누가 받아 어떤 결정을 하는가</li><li><b>채용 근거</b> — 어떤 공고에서 실제로 확인했으며 무엇이 미확인인가</li><li><b>진입 경로</b> — 지금 가진 경험으로 무엇을 보여줄 수 있는가</li></ul></div>
     </section>
 

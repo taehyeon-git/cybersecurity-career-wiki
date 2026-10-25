@@ -1,4 +1,4 @@
-import { publishedRoadmaps, publishedRoles } from "@/lib/content";
+import { publishedFields, publishedRoadmaps, publishedRoles } from "@/lib/content";
 import { roleCategories, routeFor } from "@/lib/site-data";
 import { WikiFolderNavigation, type WikiTreeNode } from "./WikiFolderNavigation";
 
@@ -12,6 +12,7 @@ function folder(key: string, label: string, count: number, children: WikiTreeNod
 
 /** Keeps filesystem-backed content loading on the server side of the layout. */
 export function WikiFolderTree() {
+  const fields = publishedFields();
   const roles = publishedRoles();
   const roadmaps = publishedRoadmaps();
   const roleFolders = roleCategories.map((category) => {
@@ -24,6 +25,13 @@ export function WikiFolderTree() {
   const nodes: WikiTreeNode[] = [
     page("home", "홈", "/"),
     page("start", "처음 시작하기", "/start/"),
+    folder("fields", "보안 분야", fields.length, [
+      page("fields-index", "분야 전체 보기", "/fields/"),
+      ...roleCategories.flatMap((category) => {
+        const field = fields.find((item) => item.category === category.id);
+        return field ? [page(`field-${field.id}`, field.titleKo, routeFor.field(field.slug))] : [];
+      }),
+    ]),
     folder("roles", "보안 직무", roles.length, [page("roles-index", "직무 전체 보기", "/careers/"), ...roleFolders]),
     folder("roadmaps", "커리어 경로", roadmaps.length, [
       page("roadmaps-index", "경로 전체 보기", "/roadmaps/"),

@@ -13,12 +13,14 @@ export const roleCategories = [
 
 export const mainNav = [
   { href: "/start/", label: "처음 시작" },
+  { href: "/fields/", label: "보안 분야" },
   { href: "/careers/", label: "보안 직무" },
   { href: "/roadmaps/", label: "커리어 경로" },
   { href: "/glossary/", label: "용어집" },
 ];
 
 export const routeFor = {
+  field: (slug: string) => `/fields/${slug}/`,
   role: (slug: string) => `/careers/${slug}/`,
   roadmap: (slug: string) => `/roadmaps/${slug}/`,
 };

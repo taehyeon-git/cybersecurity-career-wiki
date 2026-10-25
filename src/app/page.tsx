@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight, ChevronRight, FileText, Folder, Info } from "lucide-react";
-import { publishedRoadmaps, publishedRoles } from "@/lib/content";
+import { publishedFields, publishedRoadmaps, publishedRoles } from "@/lib/content";
 import { roleCategories, routeFor } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "사이버보안 커리어 위키",
-  description: "사이버보안 직무의 실제 업무, 채용 근거, 진입 경로를 폴더별로 찾아보는 한국어 위키입니다.",
+  description: "사이버보안 분야와 직무의 실제 업무, 채용 근거, 진입 경로를 폴더별로 찾아보는 한국어 위키입니다.",
   alternates: { canonical: "/" },
 };
 
@@ -27,6 +27,7 @@ function FolderSummary({ name, description, count }: { name: string; description
 }
 
 export default function HomePage() {
+  const fields = publishedFields();
   const roles = publishedRoles().sort((a, b) => a.titleKo.localeCompare(b.titleKo, "ko"));
   const roadmaps = publishedRoadmaps().sort((a, b) => a.titleKo.localeCompare(b.titleKo, "ko"));
 
@@ -36,11 +37,11 @@ export default function HomePage() {
     <header className="wiki-home-intro">
       <p className="wiki-home-kicker">CYBERSECURITY CAREER WIKI / INDEX</p>
       <h1>사이버보안 커리어 위키</h1>
-      <p className="wiki-home-lede">보안 분야에서 어떤 일을 하는지, 어떤 결과물을 책임지는지, 실제 채용 공고는 무엇을 요구하는지 살펴보세요. 폴더를 펼쳐 직무를 찾을 수 있습니다.</p>
-      <div className="wiki-home-meta"><span>직무 <strong>{roles.length}</strong></span><span>커리어 경로 <strong>{roadmaps.length}</strong></span><span>직무 분야 <strong>{roleCategories.length}</strong></span></div>
+      <p className="wiki-home-lede">보안 분야의 큰 그림부터 실제 직무의 책임과 채용 근거까지 살펴보세요. 폴더를 펼쳐 관심 있는 분야와 직무를 찾을 수 있습니다.</p>
+      <div className="wiki-home-meta"><span>분야 <strong>{fields.length}</strong></span><span>직무 <strong>{roles.length}</strong></span><span>커리어 경로 <strong>{roadmaps.length}</strong></span></div>
     </header>
 
-    <aside className="wiki-home-notice"><Info size={18} aria-hidden="true" /><p><strong>처음 방문했다면</strong> <Link href="/start/">직무 찾는 방법</Link>을 읽고, 관심 있는 업무 범주의 폴더를 열어 보세요. 개별 채용 사례는 시장 전체의 공통 요건을 뜻하지 않습니다.</p></aside>
+    <aside className="wiki-home-notice"><Info size={18} aria-hidden="true" /><p><strong>처음 방문했다면</strong> <Link href="/start/">직무 찾는 방법</Link>을 읽고, 먼저 분야 폴더에서 하는 일을 살펴보세요. 개별 채용 사례는 시장 전체의 공통 요건을 뜻하지 않습니다.</p></aside>
 
     <section className="wiki-home-index" aria-labelledby="wiki-home-index-title">
       <div className="wiki-home-index-head"><div><span>ROOT /</span><h2 id="wiki-home-index-title">전체 문서</h2></div><span>폴더를 눌러 펼치기</span></div>
@@ -51,6 +52,18 @@ export default function HomePage() {
           <FileRow href="/start/" name="직무 찾는 방법" description="업무 범주와 채용 근거를 읽는 방법을 안내합니다." type="안내" />
           <FileRow href="/glossary/" name="보안 용어집" description="직무 글과 공고에 등장하는 약어와 용어를 짧게 확인합니다." type="사전" />
         </div></div>
+      </details>
+
+      <details className="wiki-home-folder">
+        <FolderSummary name="보안 분야" description="큰 업무 영역 · 하루의 일 · 세부 갈래 · 관련 직무" count={fields.length} />
+        <div className="wiki-home-folder-contents">
+          <p className="wiki-home-folder-help">처음 보는 사람을 위해 업무의 목적과 실제 하루, 함께 일하는 사람, 진입 방법을 분야별로 설명합니다.</p>
+          <div className="wiki-home-file-list">{roleCategories.map((category) => {
+            const field = fields.find((item) => item.category === category.id);
+            return field ? <FileRow key={field.id} href={routeFor.field(field.slug)} name={field.titleKo} description={field.summary} type="분야" /> : null;
+          })}</div>
+          <Link className="wiki-home-folder-footer" href="/fields/">분야 전체 보기 <ArrowUpRight size={15} aria-hidden="true" /></Link>
+        </div>
       </details>
 
       <details className="wiki-home-folder">

@@ -4,6 +4,7 @@ import path from "node:path";
 import { execFileSync } from "node:child_process";
 import test from "node:test";
 import { publishedRoles, publishedRoadmaps, loadSources } from "../src/lib/content";
+import * as content from "../src/lib/content";
 import { roleCategories, mainNav } from "../src/lib/site-data";
 import { validateCitationUrls } from "../src/lib/validation";
 import terms from "../src/content/glossary/terms.json";
@@ -26,6 +27,28 @@ test("career directory separates investigation from incident response", () => {
   assert.equal(roles.find((role) => role.id === "data-security-engineer")?.category, "operations");
   for (const category of roleCategories) {
     assert.ok(roles.some((role) => role.category === category.id), `missing ${category.id} roles`);
+  }
+});
+
+test("field guides cover every published job in its primary work area", () => {
+  const fieldCollection = content as typeof content & { publishedFields?: () => Array<{
+    id: string; slug: string; category: string; roleIds: string[]; body: string; sourceIds: string[];
+  }> };
+  assert.ok(fieldCollection.publishedFields, "field guide collection is missing");
+  const fields = fieldCollection.publishedFields();
+  const roles = publishedRoles();
+  assert.equal(fields.length, roleCategories.length);
+  assert.deepEqual(new Set(fields.map((field) => field.category)), new Set(roleCategories.map((category) => category.id)));
+  for (const category of roleCategories) {
+    const field = fields.find((item) => item.category === category.id);
+    assert.ok(field, `${category.id} has no field guide`);
+    assert.equal(field.slug, category.id);
+    assert.ok(field.body.length >= 1800, `${category.id} guide is too short to explain the field`);
+    assert.ok(field.sourceIds.length > 0, `${category.id} guide has no sources`);
+    assert.deepEqual(new Set(field.roleIds), new Set(roles.filter((role) => role.category === category.id).map((role) => role.id)), `${category.id} must link every job in that work area once`);
+    const linkedRoleSlugs = [...field.body.matchAll(/\]\(\/careers\/([a-z0-9-]+)\/\)/g)].map((match) => match[1]);
+    assert.equal(linkedRoleSlugs.length, new Set(linkedRoleSlugs).size, `${category.id} repeats a job link`);
+    assert.deepEqual(new Set(linkedRoleSlugs), new Set(roles.filter((role) => role.category === category.id).map((role) => role.slug)), `${category.id} guide must link every published job in its area`);
   }
 });
 
@@ -70,12 +93,13 @@ test("every public article's external citation has a registered source", () => {
   assert.deepEqual(validateCitationUrls(articles, loadSources()), []);
 });
 
-test("generated search index contains only career pages and glossary", () => {
+test("generated search index includes field guides, career pages and glossary", () => {
   execFileSync(process.execPath, ["--import", "tsx", "scripts/build-search.ts"], { cwd: process.cwd() });
   const documents = JSON.parse(fs.readFileSync(path.join(process.cwd(), "public", "search-index.json"), "utf8")) as Array<{ type: string; href: string }>;
   assert.ok(documents.length >= 50);
+  assert.equal(documents.filter((item) => item.type === "field").length, roleCategories.length);
   for (const item of documents) {
-    assert.ok(["role", "roadmap", "glossary"].includes(item.type), `unexpected search type: ${item.type}`);
+    assert.ok(["field", "role", "roadmap", "glossary"].includes(item.type), `unexpected search type: ${item.type}`);
     assert.doesNotMatch(item.href, /^\/(?:knowledge|comparisons|knowledge-map)\//);
   }
 });

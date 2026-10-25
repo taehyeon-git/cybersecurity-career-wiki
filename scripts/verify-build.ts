@@ -1,10 +1,11 @@
 import fs from "node:fs";
 import path from "node:path";
-import { publishedRoadmaps, publishedRoles } from "../src/lib/content";
+import { publishedFields, publishedRoadmaps, publishedRoles } from "../src/lib/content";
 import { validateExportedLinks } from "./lib/export-links";
 
 const out = path.join(process.cwd(), "out");
-const required = ["index.html", "404.html", "icon.svg", "search-index.json", "sitemap.xml", "robots.txt", ".nojekyll"];
+const required = ["index.html", "404.html", "icon.svg", "search-index.json", "sitemap.xml", "robots.txt", ".nojekyll", "fields/index.html"];
+for (const field of publishedFields()) required.push(`fields/${field.slug}/index.html`, `fields/${field.slug}/__next.fields.$d$slug.__PAGE__.txt`);
 for (const role of publishedRoles()) required.push(`careers/${role.slug}/index.html`, `careers/${role.slug}/__next.careers.$d$slug.__PAGE__.txt`);
 for (const roadmap of publishedRoadmaps()) required.push(`roadmaps/${roadmap.slug}/index.html`, `roadmaps/${roadmap.slug}/__next.roadmaps.$d$slug.__PAGE__.txt`);
 const removed = ["knowledge", "comparisons", "knowledge-map"];

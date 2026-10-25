@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { DocumentShell } from "@/components/layout/DocumentShell";
-import { loadSources, publishedRoadmaps, publishedRoles } from "@/lib/content";
+import { loadSources, publishedFields, publishedRoadmaps, publishedRoles } from "@/lib/content";
 import { roleCategories, routeFor } from "@/lib/site-data";
 import { canonicalUrl } from "@/lib/urls";
 
@@ -26,7 +26,9 @@ export default async function RolePage({ params }: { params: Promise<{ slug: str
     .sort((a, b) => a.titleKo.localeCompare(b.titleKo, "ko"));
   const index = categoryRoles.findIndex((item) => item.id === role.id);
   const roadmaps = publishedRoadmaps();
+  const field = publishedFields().find((item) => item.category === role.category);
   const related = [
+    ...(field ? [{ label: field.titleKo, href: routeFor.field(field.slug), eyebrow: "보안 분야" }] : []),
     ...role.roadmapIds.map((id) => roadmaps.find((item) => item.id === id)).filter((item) => !!item).map((item) => ({ label: item.titleKo, href: routeFor.roadmap(item.slug), eyebrow: "커리어 경로" })),
     ...role.relatedRoleIds.map((id) => roles.find((item) => item.id === id)).filter((item) => !!item).map((item) => ({ label: item.titleKo, href: routeFor.role(item.slug), eyebrow: "관련 직무" })),
   ];
