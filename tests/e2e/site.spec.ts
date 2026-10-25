@@ -39,7 +39,10 @@ test("home field folder opens system security and links back from its job", asyn
 test("field index lists web and OT under protective environments", async ({ page }) => {
   await page.goto("./fields/");
   await expect(page.locator(".wiki-folder-list .wiki-folder")).toHaveCount(4);
+  await expect(page.locator(".wiki-folder-list .wiki-folder[open]")).toHaveCount(0);
+  await page.locator(".wiki-folder-list .wiki-folder").nth(1).locator("summary").click();
   await expect(page.locator('.wiki-folder-list a[href*="/fields/web/"]')).toBeVisible();
+  await page.locator(".wiki-folder-list .wiki-folder").nth(3).locator("summary").click();
   await expect(page.locator('.wiki-folder-list a[href*="/fields/ot/"]')).toBeVisible();
   await expect(page.locator('.wiki-folder-list a[href*="/fields/management/"]')).toHaveCount(0);
 });
