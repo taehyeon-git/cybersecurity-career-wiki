@@ -8,12 +8,14 @@ import { matchesAllTerms, normalizeSearchText } from "@/lib/search";
 export type GlossaryTerm = { term: string; english: string; definition: string; sourceIds: string[] };
 type GlossarySource = { id: string; title: string; url: string };
 
-const ranges = [
-  { label: "A–F", first: "A", last: "F" },
-  { label: "G–L", first: "G", last: "L" },
-  { label: "M–R", first: "M", last: "R" },
-  { label: "S–Z", first: "S", last: "Z" },
-];
+const groupLabels = ["ㄱ–ㅁ", "ㅂ–ㅇ", "ㅈ–ㅎ", "영문 약어"] as const;
+
+function koreanTermGroup(term: string): typeof groupLabels[number] {
+  const code = term.charCodeAt(0);
+  if (code < 0xac00 || code > 0xd7a3) return "영문 약어";
+  const initial = Math.floor((code - 0xac00) / 588);
+  return initial <= 6 ? "ㄱ–ㅁ" : initial <= 11 ? "ㅂ–ㅇ" : "ㅈ–ㅎ";
+}
 
 export function GlossaryBrowser({ terms, sources }: { terms: GlossaryTerm[]; sources: GlossarySource[] }) {
   const [query, setQuery] = useState("");
@@ -53,17 +55,17 @@ export function GlossaryBrowser({ terms, sources }: { terms: GlossaryTerm[]; sou
     });
     return () => cancelAnimationFrame(frame);
   }, [hashToReveal, query]);
-  const filtered = useMemo(() => terms.filter((item) => matchesAllTerms(query, [item.term, item.english, item.definition]))
-    .sort((a, b) => a.english.localeCompare(b.english, "en")), [terms, query]);
-  const groups = ranges.map((range) => ({ ...range, entries: filtered.filter((item) => {
-    const letter = item.english.charAt(0).toUpperCase();
-    return letter >= range.first && letter <= range.last;
-  }) })).filter((group) => group.entries.length > 0);
+  const filtered = useMemo(() => terms.filter((item) => matchesAllTerms(query, [item.term, item.english, item.definition])), [terms, query]);
+  const groups = groupLabels.map((label) => ({
+    label,
+    entries: filtered.filter((item) => koreanTermGroup(item.term) === label)
+      .sort((a, b) => a.term.localeCompare(b.term, label === "영문 약어" ? "en" : "ko")),
+  })).filter((group) => group.entries.length > 0);
   const sourceById = new Map(sources.map((source) => [source.id, source]));
 
   return <section className="wiki-index" aria-label="용어 목록">
     <div className="wiki-toolbar"><label className="wiki-search"><Search size={17} aria-hidden="true" /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="용어 또는 영문 약어 검색" aria-label="용어 검색" /></label><span className="wiki-toolbar-count" role="status" aria-live="polite" aria-atomic="true">{filtered.length}개 용어</span></div>
-    <div className="wiki-folder-list">{groups.map((group, index) => <WikiFolder key={`${group.label}-${query}`} name={`${group.label} 용어`} description="영문 명칭 기준" count={`${group.entries.length}개`} defaultOpen={Boolean(query) || index === 0}>
+    <div className="wiki-folder-list">{groups.map((group, index) => <WikiFolder key={`${group.label}-${query}`} name={group.label === "영문 약어" ? group.label : `${group.label} 용어`} description={group.label === "영문 약어" ? "영문 약어·표기" : "한국어 표제어 기준"} count={`${group.entries.length}개`} defaultOpen={Boolean(query) || index === 0}>
       {group.entries.map((item) => <article className="wiki-glossary-row" key={`${item.term}-${item.english}`} id={normalizeSearchText(item.english)}>
         <div className="wiki-glossary-heading"><h2>{item.term}</h2><span>{item.english}</span></div>
         <p>{item.definition}</p>

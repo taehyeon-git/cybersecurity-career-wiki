@@ -18,7 +18,7 @@ export default function RoadmapsPage() {
     </header>
     <div className="wiki-folder-list">
       <WikiFolder name="처음 시작하는 경로" description="직무 선택과 공고 읽기" count={`${foundation.length}개 문서`} defaultOpen>{foundation.map((item) => <WikiFileRow key={item.id} href={routeFor.roadmap(item.slug)} title={item.titleKo} subtitle={item.titleEn} description={item.summary} />)}</WikiFolder>
-      <WikiFolder name="분야별 준비 경로" description="업무 사례와 포트폴리오" count={`${specialized.length}개 문서`}>{specialized.map((item) => <WikiFileRow key={item.id} href={routeFor.roadmap(item.slug)} title={item.titleKo} subtitle={item.titleEn} description={item.summary} />)}</WikiFolder>
+      <WikiFolder name="분야별 준비 경로" description="업무 사례와 포트폴리오" count={`${specialized.length}개 문서`} defaultOpen>{specialized.map((item) => <WikiFileRow key={item.id} href={routeFor.roadmap(item.slug)} title={item.titleKo} subtitle={item.titleEn} description={item.summary} />)}</WikiFolder>
     </div>
   </main>;
 }

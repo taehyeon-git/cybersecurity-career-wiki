@@ -3,7 +3,7 @@
 import { Search } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { WikiFileRow, WikiFolder } from "@/components/wiki/Directory";
-import { matchesAllTerms, searchMatchContext } from "@/lib/search";
+import { matchesAllTerms, searchDocuments, searchMatchContext } from "@/lib/search";
 import { roleCategories, routeFor } from "@/lib/site-data";
 
 type RoleSummary = { id: string; slug: string; titleKo: string; titleEn: string; summary: string; category: string; aliases: string[]; responsibilities: string[]; typicalTasks: string[]; keyDeliverables: string[]; body?: string };
@@ -19,13 +19,30 @@ export function RoleExplorer({ roles }: { roles: RoleSummary[] }) {
     }
   }, []);
 
-  const groups = useMemo(() => roleCategories
-    .filter((item) => category === "all" || item.id === category)
-    .map((item) => ({
-      ...item,
-      entries: roles.filter((role) => role.category === item.id && matchesAllTerms(query, [role.titleKo, role.titleEn, role.summary, ...role.aliases, ...role.responsibilities, ...role.typicalTasks, ...role.keyDeliverables, role.body ?? ""])),
-    }))
-    .filter((item) => item.entries.length > 0), [roles, category, query]);
+  const groups = useMemo(() => {
+    const ranked = query.trim() ? searchDocuments(query, roles.map((role) => ({
+      id: role.id,
+      type: "role" as const,
+      title: role.titleKo,
+      english: role.titleEn,
+      aliases: role.aliases,
+      summary: role.summary,
+      body: [role.body, ...role.responsibilities, ...role.typicalTasks, ...role.keyDeliverables].join(" "),
+      href: routeFor.role(role.slug),
+    }))) : [];
+    const rankById = new Map(ranked.map((role, index) => [role.id, index]));
+    const rankOf = (id: string) => rankById.get(id) ?? Number.MAX_SAFE_INTEGER;
+    const groups = roleCategories
+      .filter((item) => category === "all" || item.id === category)
+      .map((item) => ({
+        ...item,
+        entries: roles
+          .filter((role) => role.category === item.id && matchesAllTerms(query, [role.titleKo, role.titleEn, role.summary, ...role.aliases, ...role.responsibilities, ...role.typicalTasks, ...role.keyDeliverables, role.body ?? ""]))
+          .sort((a, b) => rankOf(a.id) - rankOf(b.id)),
+      }))
+      .filter((item) => item.entries.length > 0);
+    return query.trim() ? groups.sort((a, b) => rankOf(a.entries[0].id) - rankOf(b.entries[0].id)) : groups;
+  }, [roles, category, query]);
   const count = groups.reduce((sum, item) => sum + item.entries.length, 0);
 
   function changeCategory(value: string) {

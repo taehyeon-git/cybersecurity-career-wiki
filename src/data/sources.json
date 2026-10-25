@@ -891,13 +891,13 @@
   },
   {
     "id": "fasoo-entry-internship-2026",
-    "title": "파수 2026년 3차 신입 공개 채용",
-    "organization": "파수",
+    "title": "2026년 3차 신입 공개 채용: 스패로우 보안 취약점 연구 포함",
+    "organization": "파수 AI·스패로우",
     "url": "https://recruit.fasoo.com/apply/299",
     "version": "2026-10-12~2026-10-25 채용연계형 인턴 접수",
     "checkedAt": "2026-10-25",
     "kind": "job-posting",
-    "notes": "Official listing says new-hire conversion internship. Image-only details do not establish an individual security-product placement or role requirements."
+    "notes": "Official 2026 graduate conversion-internship listing and linked image JD name Sparrow's separate Security Vulnerability Research track. Duties focus on CVE/CWE analysis and security-product detection-rule design, validation and testing; the track is not proof of a standalone new-vulnerability discovery job. Degree, CTF and CVE registration are preferred; the posting does not give track-specific headcount or guarantee conversion."
   },
   {
     "id": "fasoo-sw-consultant-interview-2026",
@@ -1568,5 +1568,25 @@
     "checkedAt": "2026-10-25",
     "kind": "job-posting",
     "notes": "Company recruitment page has a separate PIA category and requires PIA professional credential; privacy consulting experience and other privacy qualifications are preferred. It labels each category 0 people and gives 10-15 overall, so current openings are not established. Employment type is not shown."
+  },
+  {
+    "id": "tossbank-infrastructure-assessment-2026",
+    "title": "Security Researcher (취약점진단 & 모의해킹)",
+    "organization": "토스뱅크",
+    "url": "https://toss.im/career/job-detail?job_id=5847765003",
+    "version": "게시·마감일 미표기; 2026-10-25 공식 상세 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Direct permanent Security Researcher posting with infrastructure vulnerability assessment across servers, networks, DBMS and security solutions, remediation collaboration, and variable scope between infrastructure assessment and penetration testing. It also combines web/mobile and code review. No numerical minimum experience years are shown; scripting capability is required and named security certifications are preferred."
+  },
+  {
+    "id": "hyundai-autoever-cloud-security-2026",
+    "title": "[Tech] 클라우드 보안성 검토 및 관리",
+    "organization": "현대오토에버",
+    "url": "https://career.hyundai-autoever.com/ko/o/240485",
+    "version": "2026-10-29 23:59 마감 예정, 채용 시 조기 종료 가능; 2026-10-25 상세 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Direct regular senior Service Security Engineer in Seoul, Gangnam, with 8+ years experience. Duties include public-cloud security policy and compliance, CNAPP operation, cloud infrastructure assessment, incident response and automation. AI work improvement and AWS/Azure/GCP operation or security experience are stated in the body; CNAPP/CSPM, CIEM/EASM/CVE work and AWS Security Specialty are preferred. Team-description education is not this position's direct duty."
   }
 ]

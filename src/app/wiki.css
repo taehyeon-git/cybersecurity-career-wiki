@@ -209,6 +209,7 @@ html[data-theme="dark"] .editorial-note { background: #22384b; color: var(--mute
 /* Search, glossary and intro */
 .search-overlay { background: #142334a8; backdrop-filter: none; }
 .search-modal { border: 2px solid #516f8c; border-radius: 2px; box-shadow: 5px 5px 0 #12263e55; }
+.search-modal-heading { margin: 0; padding: 10px 16px 0; background: var(--surface-soft); color: var(--text); font-size: 14px; line-height: 1.4; }
 .search-modal-top, .search-footer { background: var(--surface-soft); }
 .search-hint button { min-height: 40px; }
 .search-result { border-radius: 0; }
@@ -269,6 +270,11 @@ html[data-theme="dark"] .search-result:hover, html[data-theme="dark"] .search-re
   .brand-mark { width: 30px; height: 30px; }
   .brand-name { font-size: 12px; }
   .search-trigger { min-width: 40px; width: 40px; height: 40px; border: 1px solid var(--line); }
+  .search-modal-heading { padding: 10px 12px 0; }
+  .search-modal-top { gap: 8px; padding: 8px 12px 12px; }
+  .search-modal-top input { font-size: 14px; }
+  .search-footer { display: block; padding: 8px 12px; font-size: 11px; line-height: 1.55; }
+  .search-footer span { display: block; }
   .header-actions { gap: 3px; }
   .header-actions .icon-button { width: 40px; height: 40px; }
   .wiki-page, .wiki-home, .wiki-start { padding: 18px 4% 60px; }

@@ -157,8 +157,9 @@ export function SearchDialog() {
       <Search size={18} aria-hidden="true" /><span>직무, 경로, 용어 검색</span><kbd aria-hidden="true">Ctrl K</kbd>
     </button>
     {open && createPortal(<div ref={overlayRef} className="search-overlay" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) closeDialog(); }} onKeyDown={onModalKey}>
-      <div ref={modalRef} className="search-modal" role="dialog" aria-modal="true" aria-label="보안 직무 검색">
-        <div className="search-modal-top"><Search size={21} aria-hidden="true" /><input ref={inputRef} value={query} onChange={(event) => { setQuery(event.target.value); setSelected(0); }} onKeyDown={onInputKey} placeholder="직무, 커리어 경로 또는 용어를 검색하세요" aria-label="검색어" /><button type="button" className="icon-button" aria-label="검색 닫기" onClick={() => closeDialog()}><X size={18} /></button></div>
+      <div ref={modalRef} className="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-dialog-title">
+        <h2 className="search-modal-heading" id="search-dialog-title">직무·경로·용어 검색</h2>
+        <div className="search-modal-top"><Search size={21} aria-hidden="true" /><input ref={inputRef} value={query} onChange={(event) => { setQuery(event.target.value); setSelected(0); }} onKeyDown={onInputKey} placeholder="검색어를 입력하세요" aria-label="검색어" /><button type="button" className="icon-button" aria-label="검색 닫기" onClick={() => closeDialog()}><X size={18} /></button></div>
         <span className="sr-only" role="status" aria-live="polite">{query && results.length ? `전체 ${allResults.length}개 결과 중 ${results.length}개 표시. ${activeIndex + 1}번째 ${results[activeIndex].title}` : query && documents.length ? "검색 결과 없음" : ""}</span>
         <div className="search-results" role="region" aria-label="검색 결과">
           {error ? <p className="search-message">검색 색인을 불러오지 못했습니다. 페이지를 새로고침해 주세요.</p> : !query ? <div className="search-hint"><span>추천 검색어</span><button type="button" onClick={() => setQuery("보안관제")}>보안관제</button><button type="button" onClick={() => setQuery("개인정보")}>개인정보</button><button type="button" onClick={() => setQuery("보안 제품")}>보안 제품</button></div> : !documents.length ? <p className="search-message">검색 자료를 불러오는 중입니다…</p> : !results.length ? <p className="search-message">검색 결과가 없습니다. 다른 직무명이나 영어 약어를 시도해 보세요.</p> : <>
@@ -172,7 +173,7 @@ export function SearchDialog() {
             })}
           </>}
         </div>
-        <div className="search-footer"><span>Tab 결과 탐색</span><span>입력창에서 ↑ ↓ 이동 · Enter 열기</span><span>Esc 닫기</span></div>
+        <div className="search-footer"><span>입력창에서 ↑ ↓ 선택 · Enter 열기</span><span>Tab: 닫기 버튼 다음 {results.length ? "결과" : query ? "입력창" : "추천 검색어"}</span><span>Esc 닫기</span></div>
       </div>
     </div>, document.body)}
   </>;

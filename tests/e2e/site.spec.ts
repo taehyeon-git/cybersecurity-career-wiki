@@ -26,7 +26,7 @@ test("Ctrl+K search focuses the input and restores the actual opener", async ({ 
   await opener.focus();
   await page.keyboard.press(searchShortcut);
 
-  const dialog = page.getByRole("dialog", { name: "보안 직무 검색" });
+  const dialog = page.getByRole("dialog", { name: "직무·경로·용어 검색" });
   await expect(dialog).toBeVisible();
   const input = dialog.getByRole("textbox", { name: "검색어" });
   await expect(input).toBeFocused();
@@ -48,7 +48,7 @@ test("global search combines terms from different parts of a career article", as
   await page.goto("./");
   await page.waitForLoadState("networkidle");
   await page.getByRole("button", { name: "직무, 경로, 용어 검색" }).click();
-  const dialog = page.getByRole("dialog", { name: "보안 직무 검색" });
+  const dialog = page.getByRole("dialog", { name: "직무·경로·용어 검색" });
   await dialog.getByRole("textbox", { name: "검색어" }).fill("보안관제 SIEM");
   const result = dialog.locator('a.search-result[href*="/careers/soc-analyst/"]');
   await expect(result).toBeVisible();
@@ -63,7 +63,7 @@ test("global search reports the full result count and indexes late article secti
   await page.goto("./");
   await page.waitForLoadState("networkidle");
   await page.getByRole("button", { name: "직무, 경로, 용어 검색" }).click();
-  const dialog = page.getByRole("dialog", { name: "보안 직무 검색" });
+  const dialog = page.getByRole("dialog", { name: "직무·경로·용어 검색" });
   const input = dialog.getByRole("textbox", { name: "검색어" });
   await input.fill("보안");
   await expect(dialog.locator(".search-count")).toContainText(/개 결과 중 관련도 높은 10개/);
@@ -83,6 +83,44 @@ test("career index finds a role by its day-to-day responsibility", async ({ page
   await page.goto("./careers/");
   await page.getByRole("textbox", { name: "직무 검색" }).fill("사건 승격");
   await expect(page.locator('.wiki-index a[href*="/careers/soc-analyst/"]')).toBeVisible();
+});
+
+test("career index puts an exact role title ahead of incidental body matches", async ({ page }) => {
+  await page.goto("./careers/");
+  await page.getByRole("textbox", { name: "직무 검색" }).fill("보안관제");
+  const firstFolder = page.locator(".wiki-index .wiki-folder").first();
+  await expect(firstFolder.locator("summary")).toContainText("보안 관제·사고 대응");
+  await expect(firstFolder.locator(".wiki-file").first()).toHaveAttribute("href", /\/careers\/soc-analyst\/$/);
+});
+
+test("specialized career paths are visible without opening another folder", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 720 });
+  await page.goto("./roadmaps/");
+  const specialized = page.locator(".wiki-folder").filter({ has: page.getByText("분야별 준비 경로", { exact: true }) });
+  await expect(specialized).toHaveAttribute("open", "");
+  await expect(specialized.locator('a[href*="/roadmaps/ai-security-career/"]')).toBeVisible();
+});
+
+test("glossary folders follow Korean terms and keep acronyms easy to find", async ({ page }) => {
+  await page.goto("./glossary/");
+  const folders = page.locator(".wiki-index .wiki-folder");
+  await expect(folders.first().locator("summary")).toContainText("ㄱ–ㅁ 용어");
+  await expect(folders.first().locator("#containment")).toBeVisible();
+  const acronyms = folders.filter({ has: page.getByText("영문 약어", { exact: true }) });
+  await acronyms.locator("summary").click();
+  await expect(acronyms.locator("#securityinformationandeventmanagement")).toBeVisible();
+});
+
+test("mobile global search shows its scope and the actual Tab order", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 720 });
+  await page.goto("./");
+  await page.getByRole("button", { name: "직무, 경로, 용어 검색" }).click();
+  const dialog = page.locator(".search-modal");
+  await expect(dialog.getByRole("heading", { name: "직무·경로·용어 검색" })).toBeVisible();
+  await dialog.getByRole("textbox", { name: "검색어" }).fill("보안관제");
+  await expect(dialog.locator(".search-footer")).toContainText("Tab: 닫기 버튼 다음 결과");
+  await dialog.getByRole("textbox", { name: "검색어" }).press("Tab");
+  await expect(dialog.getByRole("button", { name: "검색 닫기" })).toBeFocused();
 });
 
 test("career category selection persists in the page URL", async ({ page }) => {
@@ -164,7 +202,7 @@ test("changing a glossary filter reveals matches in a previously collapsed folde
   await page.goto("./glossary/");
   const input = page.getByRole("textbox", { name: "용어 검색" });
   await input.fill("Security");
-  const folder = page.locator(".wiki-folder").filter({ has: page.getByText("S–Z 용어", { exact: true }) });
+  const folder = page.locator(".wiki-folder").filter({ has: page.getByText("영문 약어", { exact: true }) });
   await folder.locator("summary").click();
   await input.fill("SIEM");
   await expect(folder.locator("#securityinformationandeventmanagement")).toBeVisible();
@@ -194,7 +232,7 @@ test("closing search restores focus inside an open mobile document drawer", asyn
   await page.goto("./");
   await page.getByRole("button", { name: "문서 탐색기 열기" }).click();
   await page.keyboard.press(searchShortcut);
-  await expect(page.getByRole("dialog", { name: "보안 직무 검색" })).toBeVisible();
+  await expect(page.getByRole("dialog", { name: "직무·경로·용어 검색" })).toBeVisible();
   await page.keyboard.press("Escape");
   const drawer = page.getByRole("dialog", { name: "문서 탐색기" });
   await expect(drawer).toBeVisible();
@@ -295,7 +333,7 @@ test("search opens a glossary term inside its folder", async ({ page }) => {
   await page.goto("./glossary/");
   await page.getByRole("textbox", { name: "용어 검색" }).fill("NCS");
   await page.keyboard.press(searchShortcut);
-  const dialog = page.getByRole("dialog", { name: "보안 직무 검색" });
+  const dialog = page.getByRole("dialog", { name: "직무·경로·용어 검색" });
   await dialog.getByRole("textbox", { name: "검색어" }).fill("SIEM");
   await dialog.locator('a.search-result[href*="/glossary/#"]').first().click();
   await expect(page).toHaveURL(/\/glossary\/#securityinformationandeventmanagement$/);
