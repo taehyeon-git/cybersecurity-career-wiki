@@ -1828,5 +1828,103 @@
     "checkedAt": "2026-10-25",
     "kind": "glossary",
     "notes": "사용·전송·저장 중인 데이터의 비인가 사용과 전송 위험을 식별·감시·보호하는 데이터 유출 방지 능력을 정의한다. 직무 전체의 필수 제품이나 채용 자격을 규정하는 자료는 아니다."
+  },
+  {
+    "id": "nist-key-management-guidelines",
+    "title": "Key Management Guidelines",
+    "organization": "NIST Computer Security Resource Center",
+    "url": "https://csrc.nist.gov/Projects/key-management/key-management-guidelines",
+    "version": "SP 800-57 계열 안내",
+    "checkedAt": "2026-10-25",
+    "kind": "domain-guidance",
+    "notes": "암호키 관리의 수명주기와 조직 정책 범위를 설명하는 공식 안내다. 특정 채용 자격이나 기술 구현법의 근거로 사용하지 않는다."
+  },
+  {
+    "id": "nist-sp-800-82r3",
+    "title": "Guide to Operational Technology (OT) Security",
+    "organization": "NIST Computer Security Resource Center",
+    "url": "https://csrc.nist.gov/pubs/sp/800/82/r3/final",
+    "version": "SP 800-82 Rev. 3 (2023); Rev. 4 초안 별도",
+    "checkedAt": "2026-10-25",
+    "kind": "domain-guidance",
+    "notes": "OT의 물리 공정 연계, 성능·가용성·안전 제약을 설명하는 범위 근거다. 문서의 보호 방법을 직무별 필수 자격으로 일반화하지 않는다."
+  },
+  {
+    "id": "nist-iot-8259-series",
+    "title": "NISTIR 8259 Series",
+    "organization": "NIST Cybersecurity for IoT Program",
+    "url": "https://www.nist.gov/itl/applied-cybersecurity/nist-cybersecurity-iot-program/nistir-8259-series",
+    "version": "IR 8259 Rev. 1 및 관련 시리즈",
+    "checkedAt": "2026-10-25",
+    "kind": "domain-guidance",
+    "notes": "연결 기기 제조사의 설계·개발·시험·판매·지원 전주기 책임을 설명한다. 모든 IoT 보안 직무의 공통 채용 조건을 뜻하지 않는다."
+  },
+  {
+    "id": "unece-un-r155",
+    "title": "UN Regulation No. 155: Cyber Security and Cyber Security Management System",
+    "organization": "UNECE",
+    "url": "https://unece.org/transport/documents/2021/03/standards/un-regulation-no-155-cyber-security-and-cyber-security",
+    "version": "공식 규정 페이지",
+    "checkedAt": "2026-10-25",
+    "kind": "domain-guidance",
+    "notes": "차량형식과 제조사 사이버보안 관리체계의 범위를 보여 주는 국제 규정이다. 국가별 적용과 개별 지원 자격은 별도 확인한다."
+  },
+  {
+    "id": "pipc-fixed-video-guidance-2024",
+    "title": "고정형 영상정보처리기기 설치·운영 안내서",
+    "organization": "개인정보보호위원회·개인정보 포털",
+    "url": "https://www.privacy.go.kr/front/bbs/bbsView.do?bbsNo=BBSMSTR_000000000049&bbscttNo=20779",
+    "version": "2024-12 안내서",
+    "checkedAt": "2026-10-25",
+    "kind": "domain-guidance",
+    "notes": "고정형 CCTV 운영과 개인영상정보 보호를 담당자 관점에서 설명한다. 일반 물리 경비 전체의 직무 범위를 뜻하지 않는다."
+  },
+  {
+    "id": "nist-endpoint-glossary",
+    "title": "Endpoint — CSRC Glossary",
+    "organization": "NIST Computer Security Resource Center",
+    "url": "https://csrc.nist.gov/glossary/term/endpoint",
+    "checkedAt": "2026-10-25",
+    "kind": "glossary",
+    "notes": "엔드포인트는 직원 PC로만 제한되지 않고 네트워크에 연결된 기기·시스템을 포함할 수 있다. 직무별 담당 범위는 별도로 확인한다."
+  },
+  {
+    "id": "nist-sp-800-145",
+    "title": "The NIST Definition of Cloud Computing",
+    "organization": "NIST Computer Security Resource Center",
+    "url": "https://csrc.nist.gov/pubs/sp/800/145/final",
+    "version": "SP 800-145",
+    "checkedAt": "2026-10-25",
+    "kind": "domain-guidance",
+    "notes": "공용·사설·혼합 클라우드의 정의와 사설 클라우드의 내부 운영 가능성을 설명한다. 특정 직무의 자격 조건을 정의하지 않는다."
+  },
+  {
+    "id": "nist-ai-rmf-core",
+    "title": "AI Risk Management Framework Core",
+    "organization": "NIST AI Resource Center",
+    "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+    "version": "AI RMF 1.0 (2023); 개정판 준비 중",
+    "checkedAt": "2026-10-25",
+    "kind": "domain-guidance",
+    "notes": "AI 시스템 수명주기의 위험관리와 보안·복원력 평가·문서화를 설명한다. 자발적 프레임워크로, 채용 직무나 필수 자격을 정하지 않는다."
+  },
+  {
+    "id": "nist-hardware-security-program",
+    "title": "Hardware Security",
+    "organization": "NIST Computer Security Resource Center",
+    "url": "https://csrc.nist.gov/Projects/hardware-security",
+    "checkedAt": "2026-10-25",
+    "kind": "domain-guidance",
+    "notes": "반도체 칩 설계·제조·시험·공급망의 보안 과제를 별도 하드웨어 보안 주제로 설명한다. 특정 한국 직무나 채용 수요의 근거가 아니다."
+  },
+  {
+    "id": "mfds-medical-device-cybersecurity-2025",
+    "title": "의료기기의 사이버보안 허가·심사 가이드라인",
+    "organization": "식품의약품안전처",
+    "url": "https://www.mfds.go.kr/brd/m_1060/view.do?seq=15625",
+    "version": "2025-01-10 민원인 안내서",
+    "checkedAt": "2026-10-25",
+    "kind": "domain-guidance",
+    "notes": "의료기기 사이버보안의 허가·심사 맥락을 확인하는 공식 안내다. 제조사·의료기관별 고용 조건이나 모든 IoT 제품의 공통 인증 조건으로 일반화하지 않는다."
   }
 ]

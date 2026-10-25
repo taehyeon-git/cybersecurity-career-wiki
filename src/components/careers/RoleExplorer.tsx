@@ -115,7 +115,7 @@ export function RoleExplorer({ roles }: { roles: RoleSummary[] }) {
   return <section className="wiki-index" aria-label="직무 문서 목록">
     <div className="wiki-toolbar">
       <label className="wiki-search"><Search size={17} aria-hidden="true" /><input value={query} onChange={(event) => changeQuery(event.target.value)} placeholder="직무명이나 키워드로 찾기" aria-label="직무 검색" /></label>
-      <label className="wiki-filter">분야 <select value={category} onChange={(event) => changeCategory(event.target.value)}><option value="all">전체 분야</option>{roleCategories.map((item) => <option key={item.id} value={item.id}>{item.ko}</option>)}</select></label>
+      <label className="wiki-filter">직무군 <select value={category} onChange={(event) => changeCategory(event.target.value)}><option value="all">전체 직무군</option>{roleCategories.map((item) => <option key={item.id} value={item.id}>{item.ko}</option>)}</select></label>
       <span className="wiki-toolbar-count" role="status" aria-live="polite" aria-atomic="true">{count}개 문서</span>
     </div>
     <div className="wiki-folder-list" onClickCapture={(event) => {
@@ -128,6 +128,6 @@ export function RoleExplorer({ roles }: { roles: RoleSummary[] }) {
     }}>{groups.map((group) => <WikiFolder key={`${group.id}-${category}-${query}`} name={group.ko} description={group.description} count={`${group.entries.length}개 문서`} defaultOpen={folderOverrides[group.id] ?? expandMatches}>
       {group.entries.map((role) => <WikiFileRow key={role.id} href={routeFor.role(role.slug)} title={role.titleKo} subtitle={role.titleEn} description={role.summary} context={query ? searchMatchContext(query, [role.titleKo, role.titleEn, role.summary, ...role.aliases, ...role.responsibilities, ...role.typicalTasks, ...role.keyDeliverables], role.body ?? "") : undefined} meta={role.keyDeliverables[0]} />)}
     </WikiFolder>)}</div>
-    {count === 0 && <div className="wiki-empty">조건에 맞는 문서가 없습니다. 다른 검색어 또는 분야를 선택해 보세요.</div>}
+    {count === 0 && <div className="wiki-empty">조건에 맞는 문서가 없습니다. 다른 검색어 또는 직무군을 선택해 보세요.</div>}
   </section>;
 }

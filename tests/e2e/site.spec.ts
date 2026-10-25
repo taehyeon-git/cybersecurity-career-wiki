@@ -5,10 +5,10 @@ const searchShortcut = process.platform === "darwin" ? "Meta+k" : "Control+k";
 test("home shows nine job folders and opens a role article", async ({ page }) => {
   await page.goto("./");
   await expect(page.getByRole("heading", { name: "사이버보안 커리어 위키", exact: true })).toBeVisible();
-  await expect(page.locator(".wiki-home-subfolder")).toHaveCount(9);
   await expect(page.getByRole("link", { name: "사이트맵" })).toHaveAttribute("href", /\/sitemap\.xml$/);
 
   const jobsFolder = page.locator(".wiki-home-folder").filter({ has: page.getByText("보안 직무", { exact: true }) });
+  await expect(jobsFolder.locator(".wiki-home-subfolder")).toHaveCount(9);
   await jobsFolder.locator("summary").first().click();
   const category = jobsFolder.locator(".wiki-home-subfolder").first();
   await category.locator("summary").click();
@@ -20,36 +20,71 @@ test("home shows nine job folders and opens a role article", async ({ page }) =>
   await expect(page.getByRole("heading", { name: title, exact: true })).toBeVisible();
 });
 
-test("field folder explains a work area and leads to its jobs", async ({ page }) => {
+test("home field folder opens system security and links back from its job", async ({ page }) => {
   await page.goto("./");
   const fieldFolder = page.locator(".wiki-home-folder").filter({ has: page.getByText("보안 분야", { exact: true }) });
   await expect(fieldFolder).toHaveCount(1);
   await fieldFolder.locator("summary").first().click();
-  await fieldFolder.locator('a.wiki-home-file[href*="/fields/management/"]').click();
-  await expect(page).toHaveURL(/\/fields\/management\/$/);
-  await expect(page.locator(".document-main h1")).toContainText("보안 전략·관리");
-  await page.locator('.document-main a[href*="/careers/ciso/"]').first().click();
-  await expect(page).toHaveURL(/\/careers\/ciso\/$/);
+  const infrastructure = fieldFolder.locator(".wiki-home-subfolder").filter({ has: page.getByText("인프라·접근", { exact: true }) });
+  await infrastructure.locator("summary").click();
+  await expect(fieldFolder.locator("a.wiki-home-file")).toHaveCount(15);
+  await infrastructure.locator('a.wiki-home-file[href*="/fields/system/"]').click();
+  await expect(page).toHaveURL(/\/fields\/system\/$/);
+  await expect(page.locator(".document-main h1")).toHaveText("시스템·서버 보안");
+  await page.locator('.document-main a[href*="/careers/infrastructure-security-engineer/"]').first().click();
+  await expect(page).toHaveURL(/\/careers\/infrastructure-security-engineer\/$/);
+  await expect(page.locator('.related-section a[href*="/fields/system/"]')).toBeVisible();
 });
 
-test("global search finds a field guide as a distinct result", async ({ page }) => {
+test("field index lists web and OT under protective environments", async ({ page }) => {
+  await page.goto("./fields/");
+  await expect(page.locator(".wiki-folder-list .wiki-folder")).toHaveCount(4);
+  await expect(page.locator('.wiki-folder-list a[href*="/fields/web/"]')).toBeVisible();
+  await expect(page.locator('.wiki-folder-list a[href*="/fields/ot/"]')).toBeVisible();
+  await expect(page.locator('.wiki-folder-list a[href*="/fields/management/"]')).toHaveCount(0);
+});
+
+test("global search finds web security as a distinct field result", async ({ page }) => {
   await page.goto("./");
   await page.getByRole("button", { name: /검색/ }).first().click();
   const dialog = page.getByRole("dialog", { name: /검색/ });
-  await dialog.getByRole("textbox", { name: "검색어" }).fill("보안 전략·관리");
-  const field = dialog.locator('a.search-result[href*="/fields/management/"]');
+  await dialog.getByRole("textbox", { name: "검색어" }).fill("웹 보안");
+  const field = dialog.locator('a.search-result[href*="/fields/web/"]');
   await expect(field).toBeVisible();
   await expect(field.locator(".search-result-side")).toContainText("분야");
 });
 
-test("mobile document explorer opens the field folder", async ({ page }) => {
+test("mobile document explorer opens the OT field from its group", async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 720 });
   await page.goto("./");
   await page.getByRole("button", { name: "문서 탐색기 열기" }).click();
   const sidebar = page.locator("#wiki-sidebar");
   await sidebar.getByRole("button", { name: /보안 분야/ }).click();
-  await sidebar.locator('a[href*="/fields/management/"]').click();
-  await expect(page).toHaveURL(/\/fields\/management\/$/);
+  await sidebar.getByRole("button", { name: /산업·기기/ }).click();
+  await sidebar.locator('a[href*="/fields/ot/"]').click();
+  await expect(page).toHaveURL(/\/fields\/ot\/$/);
+  await expect(page.locator(".document-main h1")).toContainText("OT");
+});
+
+test("jobs show relevant fields without forcing one-to-one categories", async ({ page }) => {
+  await page.goto("./careers/application-security-engineer/");
+  await expect(page.locator('.related-section a[href*="/fields/web/"]')).toBeVisible();
+  await expect(page.locator('.related-section a[href*="/fields/mobile/"]')).toBeVisible();
+  await page.goto("./careers/ot-security-engineer/");
+  await page.locator('.related-section a[href*="/fields/ot/"]').click();
+  await expect(page).toHaveURL(/\/fields\/ot\/$/);
+  await page.goto("./careers/web-penetration-tester/");
+  await page.locator('.related-section a[href*="/fields/web/"]').click();
+  await expect(page).toHaveURL(/\/fields\/web\/$/);
+});
+
+test("legacy work-type field URLs explain the new map and are not indexed", async ({ page }) => {
+  for (const slug of ["management", "development", "product", "operations", "assessment", "response", "investigation", "research", "customer"]) {
+    await page.goto(`./fields/${slug}/`);
+    await expect(page.getByRole("heading", { name: "보안 분야 안내가 바뀌었습니다" })).toBeVisible();
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
+    await expect(page.getByRole("link", { name: "새 보안 분야 목록 보기" })).toBeVisible();
+  }
 });
 
 test("five main navigation links fit between the brand and actions", async ({ page }) => {
@@ -203,7 +238,7 @@ test("mobile global search shows its scope and the actual Tab order", async ({ p
 
 test("career category selection persists in the page URL", async ({ page }) => {
   await page.goto("./careers/");
-  const filter = page.getByRole("combobox", { name: "분야" });
+  const filter = page.getByRole("combobox", { name: "직무군" });
   await filter.selectOption("response");
   await expect(page).toHaveURL(/\/careers\/\?category=response$/);
   await page.reload();
@@ -268,7 +303,7 @@ test("a keyboard-opened career folder survives refining the query and returning 
 test("same-route career navigation keeps the URL and visible filters in sync", async ({ page }) => {
   await page.goto("./careers/");
   const input = page.getByRole("textbox", { name: "직무 검색" });
-  const filter = page.getByRole("combobox", { name: "분야" });
+  const filter = page.getByRole("combobox", { name: "직무군" });
   await input.fill("보안");
   await filter.selectOption("response");
   const folder = page.locator(".wiki-index .wiki-folder");
@@ -290,7 +325,7 @@ test("same-route career navigation keeps the URL and visible filters in sync", a
 
 test("security product work has its own folder and category breadcrumb", async ({ page }) => {
   await page.goto("./careers/?category=product");
-  await expect(page.getByRole("combobox", { name: "분야" })).toHaveValue("product");
+  await expect(page.getByRole("combobox", { name: "직무군" })).toHaveValue("product");
   const folder = page.locator(".wiki-index .wiki-folder");
   await expect(folder).toHaveCount(1);
   await expect(folder.locator('a[href*="/careers/security-product-manager/"]')).toBeVisible();
@@ -303,7 +338,7 @@ test("the customer path sends internal solution operators to the operations fold
   await page.goto("./roadmaps/security-customer-career/");
   await page.getByRole("link", { name: "보안 구축·운영 직무 폴더" }).click();
   await expect(page).toHaveURL(/\/careers\/\?category=operations$/);
-  await expect(page.getByRole("combobox", { name: "분야" })).toHaveValue("operations");
+  await expect(page.getByRole("combobox", { name: "직무군" })).toHaveValue("operations");
   await expect(page.locator(".wiki-index .wiki-folder")).toHaveCount(1);
 });
 
@@ -318,7 +353,7 @@ test("career index shows nine work folders on a narrow screen", async ({ page })
 
 test("police cybercrime investigation has a separate folder and career path", async ({ page }) => {
   await page.goto("./careers/?category=investigation");
-  await expect(page.getByRole("combobox", { name: "분야" })).toHaveValue("investigation");
+  await expect(page.getByRole("combobox", { name: "직무군" })).toHaveValue("investigation");
   const folder = page.locator(".wiki-index .wiki-folder");
   await expect(folder).toHaveCount(1);
   await expect(folder.locator('a[href*="/careers/police-cybercrime-investigator/"]')).toBeVisible();

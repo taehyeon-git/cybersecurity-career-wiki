@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight, ChevronRight, FileText, Folder, Info } from "lucide-react";
 import { publishedFields, publishedRoadmaps, publishedRoles } from "@/lib/content";
-import { roleCategories, routeFor } from "@/lib/site-data";
+import { fieldDomainGroups, roleCategories, routeFor } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "사이버보안 커리어 위키",
@@ -37,7 +37,7 @@ export default function HomePage() {
     <header className="wiki-home-intro">
       <p className="wiki-home-kicker">CYBERSECURITY CAREER WIKI / INDEX</p>
       <h1>사이버보안 커리어 위키</h1>
-      <p className="wiki-home-lede">보안 분야의 큰 그림부터 실제 직무의 책임과 채용 근거까지 살펴보세요. 폴더를 펼쳐 관심 있는 분야와 직무를 찾을 수 있습니다.</p>
+      <p className="wiki-home-lede">시스템·웹·OT처럼 보호하는 대상별 분야를 살펴보고, 실제 직무의 책임과 채용 근거로 이어 가세요. 폴더를 펼쳐 관심 있는 일을 찾을 수 있습니다.</p>
       <div className="wiki-home-meta"><span>분야 <strong>{fields.length}</strong></span><span>직무 <strong>{roles.length}</strong></span><span>커리어 경로 <strong>{roadmaps.length}</strong></span></div>
     </header>
 
@@ -55,19 +55,22 @@ export default function HomePage() {
       </details>
 
       <details className="wiki-home-folder">
-        <FolderSummary name="보안 분야" description="큰 업무 영역 · 하루의 일 · 세부 갈래 · 관련 직무" count={fields.length} />
+        <FolderSummary name="보안 분야" description="보호 대상 · 실제 일 · 관련 직무" count={fields.length} />
         <div className="wiki-home-folder-contents">
-          <p className="wiki-home-folder-help">처음 보는 사람을 위해 업무의 목적과 실제 하루, 함께 일하는 사람, 진입 방법을 분야별로 설명합니다.</p>
-          <div className="wiki-home-file-list">{roleCategories.map((category) => {
-            const field = fields.find((item) => item.category === category.id);
-            return field ? <FileRow key={field.id} href={routeFor.field(field.slug)} name={field.titleKo} description={field.summary} type="분야" /> : null;
-          })}</div>
+          <p className="wiki-home-folder-help">시스템, 웹 서비스, 데이터, 산업 설비 등 무엇을 보호하는지에 따라 읽을 수 있습니다. 분야 설명은 기술 강의 대신 해당 환경에서 일하는 사람의 책임과 진입 방법에 집중합니다.</p>
+          {fieldDomainGroups.map((group) => <details className="wiki-home-subfolder" key={group.id}>
+            <summary className="wiki-home-subfolder-summary"><span><ChevronRight size={14} className="wiki-home-chevron" aria-hidden="true" /><Folder size={17} aria-hidden="true" /><strong>{group.ko}</strong></span><small>{group.domainIds.length}개 분야</small></summary>
+            <div className="wiki-home-file-list">{group.domainIds.map((domainId) => {
+              const field = fields.find((item) => item.id === domainId);
+              return field ? <FileRow key={field.id} href={routeFor.field(field.slug)} name={field.titleKo} description={field.summary} type="분야" /> : null;
+            })}</div>
+          </details>)}
           <Link className="wiki-home-folder-footer" href="/fields/">분야 전체 보기 <ArrowUpRight size={15} aria-hidden="true" /></Link>
         </div>
       </details>
 
       <details className="wiki-home-folder">
-        <FolderSummary name="보안 직무" description="업무 범주 · 책임 · 산출물 · 채용 근거" count={roles.length} />
+        <FolderSummary name="보안 직무" description="직무군 · 책임 · 산출물 · 채용 근거" count={roles.length} />
         <div className="wiki-home-folder-contents">
           <p className="wiki-home-folder-help">국내 정보보호 직무역량체계의 업무 영역을 바탕으로 묶었습니다. 세부 직함은 조직과 채용 공고마다 달라질 수 있습니다.</p>
           {roleCategories.map((category) => {

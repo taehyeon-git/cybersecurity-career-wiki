@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ExternalLinkCue } from "@/components/content/ExternalLinkCue";
 import { WikiFileRow, WikiFolder } from "@/components/wiki/Directory";
 
-export const metadata: Metadata = { title: "직무 찾는 방법", description: "보안 직무 위키의 업무 범주와 채용 근거를 읽는 방법을 안내합니다.", alternates: { canonical: "/start/" } };
+export const metadata: Metadata = { title: "직무 찾는 방법", description: "보호 대상별 보안 분야와 책임별 직무군, 채용 근거를 읽는 방법을 안내합니다.", alternates: { canonical: "/start/" } };
 
 export default function StartPage() {
   return <main className="wiki-page wiki-start">
@@ -16,17 +16,17 @@ export default function StartPage() {
 
     <section className="wiki-start-section">
       <h2>이 순서로 읽으면 됩니다</h2>
-      <div className="wiki-folder-list"><WikiFolder name="첫 탐색 순서" description="분야·직무·입문 경로·용어집" count="4단계" defaultOpen>
-        <WikiFileRow href="/fields/" title="01. 보안 분야 살펴보기" description="각 분야의 목적과 실제 하루를 읽고 관심 있는 일을 찾습니다." />
-        <WikiFileRow href="/careers/" title="02. 분야 안에서 직무 찾기" description="맡는 책임과 대표 산출물로 관심 직무를 좁힙니다." />
+      <div className="wiki-folder-list"><WikiFolder name="첫 탐색 순서" description="보호 대상·직무군·입문 경로·용어집" count="4단계" defaultOpen>
+        <WikiFileRow href="/fields/" title="01. 보호 대상별 보안 분야 보기" description="시스템·웹·OT 등 관심 있는 환경에서 누가 어떤 일을 하는지 살펴봅니다." />
+        <WikiFileRow href="/careers/" title="02. 책임별 직무군에서 직무 찾기" description="맡는 책임과 대표 산출물로 관심 직무를 좁힙니다." />
         <WikiFileRow href="/roadmaps/cybersecurity-fundamentals/" title="03. 입문 경로 읽기" description="채용 공고와 포트폴리오를 연결해 첫 지원 계획을 세웁니다." />
         <WikiFileRow href="/glossary/" title="04. 공고 용어 확인하기" description="낯선 약어만 짧게 확인하고 직무 글로 돌아옵니다." />
       </WikiFolder></div>
     </section>
 
     <section className="wiki-start-section">
-      <h2>분야를 읽고 직무를 고르세요</h2>
-      <p><Link href="/fields/">분야 안내</Link>는 큰 업무의 목적과 실제 하루, 세부 갈래, 관련 직무를 설명합니다. 그다음 직무 글에서 한 사람의 책임과 산출물, 채용 근거를 확인하세요. 이 위키의 분야 폴더는 국내 <a href="https://www.ncs.go.kr/sqf/sqf01/sqf10100201p1.do?iscCd=20&amp;iscNm=%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8" target="_blank" rel="noopener noreferrer">NCS 정보보호 SQF<ExternalLinkCue /></a>를 참고해 실제 역할을 찾기 쉽게 재구성한 것이며 공식 하위산업 분야와 같은 목록은 아닙니다. 조직마다 직함이 다르고 한 공고가 여러 분야의 일을 합칠 수 있으므로 폴더명과 함께 각 글의 책임을 확인하세요.</p>
+      <h2>보호 대상과 맡는 일을 따로 고르세요</h2>
+      <p><Link href="/fields/">보안 분야 안내</Link>는 시스템·웹·클라우드·OT처럼 무엇을 보호하는지에 따라 일을 설명합니다. <Link href="/careers/">보안 직무</Link>는 전략·설계·운영·평가·대응처럼 조직에서 맡는 책임에 따라 묶었습니다. 직무군은 국내 <a href="https://www.ncs.go.kr/sqf/sqf01/sqf10100201p1.do?iscCd=20&amp;iscNm=%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8" target="_blank" rel="noopener noreferrer">NCS 정보보호 SQF<ExternalLinkCue /></a>와 실제 채용 사례를 참고했지만 위키의 탐색 분류입니다. 한 직무가 여러 보호 대상에 걸칠 수 있고, 한 공고가 여러 책임을 묶을 수도 있습니다. 관심 분야를 고른 뒤 직무 글에서 책임·산출물·채용 근거를 확인하세요.</p>
       <div className="wiki-start-definition"><h3>직무 글에서 볼 것</h3><ul><li><b>책임</b> — 어떤 결정을 내리고 어디까지 책임지는가</li><li><b>산출물</b> — 업무 결과를 누가 받아 어떤 결정을 하는가</li><li><b>채용 근거</b> — 어떤 공고에서 실제로 확인했으며 무엇이 미확인인가</li><li><b>진입 경로</b> — 지금 가진 경험으로 무엇을 보여줄 수 있는가</li></ul></div>
     </section>
 

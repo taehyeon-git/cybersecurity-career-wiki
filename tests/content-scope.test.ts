@@ -3,9 +3,8 @@ import fs from "node:fs";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
 import test from "node:test";
-import { publishedRoles, publishedRoadmaps, loadSources } from "../src/lib/content";
-import * as content from "../src/lib/content";
-import { roleCategories, mainNav } from "../src/lib/site-data";
+import { publishedFields, publishedRoles, publishedRoadmaps, loadSources } from "../src/lib/content";
+import { fieldDomains, roleCategories, mainNav } from "../src/lib/site-data";
 import { validateCitationUrls } from "../src/lib/validation";
 import terms from "../src/content/glossary/terms.json";
 
@@ -30,26 +29,32 @@ test("career directory separates investigation from incident response", () => {
   }
 });
 
-test("field guides cover every published job in its primary work area", () => {
-  const fieldCollection = content as typeof content & { publishedFields?: () => Array<{
-    id: string; slug: string; category: string; roleIds: string[]; body: string; sourceIds: string[];
-  }> };
-  assert.ok(fieldCollection.publishedFields, "field guide collection is missing");
-  const fields = fieldCollection.publishedFields();
+test("fifteen asset-based guides have explicit many-to-many job links", () => {
+  const fields = publishedFields();
   const roles = publishedRoles();
-  assert.equal(fields.length, roleCategories.length);
-  assert.deepEqual(new Set(fields.map((field) => field.category)), new Set(roleCategories.map((category) => category.id)));
-  for (const category of roleCategories) {
-    const field = fields.find((item) => item.category === category.id);
-    assert.ok(field, `${category.id} has no field guide`);
-    assert.equal(field.slug, category.id);
-    assert.ok(field.body.length >= 1800, `${category.id} guide is too short to explain the field`);
-    assert.ok(field.sourceIds.length > 0, `${category.id} guide has no sources`);
-    assert.deepEqual(new Set(field.roleIds), new Set(roles.filter((role) => role.category === category.id).map((role) => role.id)), `${category.id} must link every job in that work area once`);
+  const roleById = new Map(roles.map((role) => [role.id, role]));
+  assert.equal(fields.length, 15);
+  assert.deepEqual(new Set(fields.map((field) => field.id)), new Set(fieldDomains));
+  assert.equal(new Set(fields.map((field) => field.slug)).size, fields.length);
+  assert.ok(fields.some((field) => field.roleIds.some((id) => roleById.get(id)?.category === "assessment")), "field guides should connect roles across job groups");
+  for (const domainId of fieldDomains) {
+    const field = fields.find((item) => item.id === domainId);
+    assert.ok(field, `${domainId} has no field guide`);
+    assert.equal(field.slug, domainId);
+    assert.ok(field.body.length >= 1800, `${domainId} guide is too short to explain the field`);
+    assert.ok(field.sourceIds.length > 0, `${domainId} guide has no sources`);
+    assert.ok(field.roleIds.length > 0, `${domainId} guide has no related job`);
+    assert.equal(field.roleIds.length, new Set(field.roleIds).size, `${domainId} repeats roleIds`);
+    for (const id of field.roleIds) assert.ok(roleById.has(id), `${domainId} has an unpublished job ${id}`);
     const linkedRoleSlugs = [...field.body.matchAll(/\]\(\/careers\/([a-z0-9-]+)\/\)/g)].map((match) => match[1]);
-    assert.equal(linkedRoleSlugs.length, new Set(linkedRoleSlugs).size, `${category.id} repeats a job link`);
-    assert.deepEqual(new Set(linkedRoleSlugs), new Set(roles.filter((role) => role.category === category.id).map((role) => role.slug)), `${category.id} guide must link every published job in its area`);
+    assert.equal(linkedRoleSlugs.length, new Set(linkedRoleSlugs).size, `${domainId} repeats a job link`);
+    assert.deepEqual(new Set(linkedRoleSlugs), new Set(field.roleIds.map((id) => roleById.get(id)!.slug)), `${domainId} body links must match explicit roleIds`);
   }
+  assert.ok(fields.find((field) => field.id === "system")?.roleIds.includes("infrastructure-security-engineer"));
+  assert.ok(fields.find((field) => field.id === "web")?.roleIds.includes("web-penetration-tester"));
+  assert.ok(fields.find((field) => field.id === "ot")?.roleIds.includes("ot-security-engineer"));
+  assert.ok(fields.find((field) => field.id === "web")?.roleIds.includes("application-security-engineer"));
+  assert.ok(fields.find((field) => field.id === "mobile")?.roleIds.includes("application-security-engineer"));
 });
 
 test("each role has a reciprocal career path link", () => {
@@ -74,7 +79,7 @@ test("public navigation and content have no removed section paths", () => {
   }
   assert.equal(fs.existsSync(path.join(root, "src", "content", "topics")), false);
   assert.equal(fs.existsSync(path.join(root, "src", "content", "comparisons")), false);
-  for (const article of [...publishedRoles(), ...publishedRoadmaps()]) {
+  for (const article of [...publishedFields(), ...publishedRoles(), ...publishedRoadmaps()]) {
     assert.doesNotMatch(article.body, /\/(?:knowledge|comparisons|knowledge-map)\//);
   }
 });
@@ -89,7 +94,7 @@ test("glossary terms retain valid sources without deleted topic links", () => {
 });
 
 test("every public article's external citation has a registered source", () => {
-  const articles = [...publishedRoles(), ...publishedRoadmaps()];
+  const articles = [...publishedFields(), ...publishedRoles(), ...publishedRoadmaps()];
   assert.deepEqual(validateCitationUrls(articles, loadSources()), []);
 });
 
@@ -97,7 +102,10 @@ test("generated search index includes field guides, career pages and glossary", 
   execFileSync(process.execPath, ["--import", "tsx", "scripts/build-search.ts"], { cwd: process.cwd() });
   const documents = JSON.parse(fs.readFileSync(path.join(process.cwd(), "public", "search-index.json"), "utf8")) as Array<{ type: string; href: string }>;
   assert.ok(documents.length >= 50);
-  assert.equal(documents.filter((item) => item.type === "field").length, roleCategories.length);
+  const fieldHrefs = documents.filter((item) => item.type === "field").map((item) => item.href);
+  assert.equal(fieldHrefs.length, 15);
+  assert.deepEqual(new Set(fieldHrefs), new Set(fieldDomains.map((id) => `/fields/${id}/`)));
+  for (const category of roleCategories) assert.ok(!fieldHrefs.includes(`/fields/${category.id}/`), `${category.id} legacy field is still searchable`);
   for (const item of documents) {
     assert.ok(["field", "role", "roadmap", "glossary"].includes(item.type), `unexpected search type: ${item.type}`);
     assert.doesNotMatch(item.href, /^\/(?:knowledge|comparisons|knowledge-map)\//);

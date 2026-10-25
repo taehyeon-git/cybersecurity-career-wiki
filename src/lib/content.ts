@@ -3,7 +3,7 @@ import path from "node:path";
 import matter from "gray-matter";
 import { z } from "zod";
 import { validateCitationSourceIds, validateCitationUrls, validateGlossaryAnchors, validateGlossaryReferences, validateInternalDocumentLinks, validateReferences, type ReferenceDocument } from "./validation";
-import { roleCategories } from "./site-data";
+import { fieldDomains } from "./site-data";
 
 const slug = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
 const categorySchema = z.enum(["management", "development", "product", "operations", "assessment", "response", "investigation", "research", "customer"]);
@@ -30,11 +30,11 @@ const roleSchema = baseSchema.extend({
 const roadmapSchema = baseSchema.extend({
   roleIds: z.array(slug).default([]),
 }).strict();
-const fieldSchema = baseSchema.extend({ category: categorySchema }).strict();
+const fieldSchema = baseSchema.extend({ roleIds: z.array(slug).min(1) }).strict();
 
 export type Role = z.infer<typeof roleSchema> & { body: string; filePath: string };
 export type Roadmap = z.infer<typeof roadmapSchema> & { body: string; filePath: string };
-export type Field = z.infer<typeof fieldSchema> & { body: string; filePath: string; roleIds: string[] };
+export type Field = z.infer<typeof fieldSchema> & { body: string; filePath: string };
 export type Source = {
   id: string;
   title: string;
@@ -79,14 +79,13 @@ export function publishedRoles() { return loadCollection("roles").filter((item) 
 export function publishedRoadmaps() { return loadCollection("roadmaps").filter((item) => item.publicationStatus === "published"); }
 
 export function loadFields(): Field[] {
-  const roles = publishedRoles();
   return readMdxFiles("fields").map(({ data, body, filePath }) => {
     const parsed = fieldSchema.safeParse(data);
     if (!parsed.success) throw new Error(`${filePath}: ${parsed.error.message}`);
     if (parsed.data.publicationStatus === "published" && body.length < 1800) {
       throw new Error(`${filePath}: published field guide must contain at least 1800 characters`);
     }
-    return { ...parsed.data, body, filePath, roleIds: roles.filter((role) => role.category === parsed.data.category).map((role) => role.id) };
+    return { ...parsed.data, body, filePath };
   });
 }
 
@@ -112,12 +111,27 @@ export function validateContent(): string[] {
     ...fields.map((item) => ({ kind: "field" as const, id: item.id, slug: item.slug, publicationStatus: item.publicationStatus, sourceIds: item.sourceIds, relatedRoleIds: item.roleIds })),
   ];
   const errors = validateReferences(refs, sourceIds);
-  for (const category of roleCategories) {
-    if (fields.filter((field) => field.publicationStatus === "published" && field.category === category.id).length !== 1) {
-      errors.push(`${category.id}: expected one published field guide`);
+  const knownDomains = new Set<string>(fieldDomains);
+  const publishedRoleIds = new Set(roles.filter((role) => role.publicationStatus === "published").map((role) => role.id));
+  const publishedRoleSlugs = new Map(roles.filter((role) => role.publicationStatus === "published").map((role) => [role.id, role.slug]));
+  for (const domain of fieldDomains) {
+    if (fields.filter((field) => field.publicationStatus === "published" && field.id === domain).length !== 1) {
+      errors.push(`${domain}: expected one published domain guide`);
     }
   }
-  for (const field of fields) if (field.id !== field.category || field.slug !== field.category) errors.push(`${field.id}: field id and slug must match its category`);
+  for (const field of fields) {
+    if (!knownDomains.has(field.id)) errors.push(`${field.id}: unknown security domain`);
+    if (field.id !== field.slug) errors.push(`${field.id}: field id and slug must match`);
+    if (field.roleIds.length !== new Set(field.roleIds).size) errors.push(`${field.id}: duplicate roleIds`);
+    if (field.publicationStatus === "published") {
+      for (const roleId of field.roleIds) if (!publishedRoleIds.has(roleId)) errors.push(`${field.id}: related role ${roleId} is not published`);
+      const linkedRoleSlugs = [...field.body.matchAll(/\]\(\/careers\/([a-z0-9-]+)\/\)/g)].map((match) => match[1]);
+      const expectedRoleSlugs = new Set(field.roleIds.map((roleId) => publishedRoleSlugs.get(roleId)).filter((value): value is string => !!value));
+      if (linkedRoleSlugs.length !== new Set(linkedRoleSlugs).size) errors.push(`${field.id}: duplicate career link in field body`);
+      for (const linkedSlug of linkedRoleSlugs) if (!expectedRoleSlugs.has(linkedSlug)) errors.push(`${field.id}: career link ${linkedSlug} is missing from roleIds`);
+      for (const expectedSlug of expectedRoleSlugs) if (!linkedRoleSlugs.includes(expectedSlug)) errors.push(`${field.id}: roleIds entry ${expectedSlug} is not linked in body`);
+    }
+  }
   const roadmapIds = new Set(roadmaps.map((item) => item.id));
   for (const role of roles) for (const roadmapId of role.roadmapIds) if (!roadmapIds.has(roadmapId)) errors.push(`${role.id}: missing roadmap ${roadmapId}`);
   for (const source of sources) if (sources.filter((item) => item.id === source.id).length > 1) errors.push(`duplicate source id: ${source.id}`);

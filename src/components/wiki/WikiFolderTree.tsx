@@ -1,5 +1,5 @@
 import { publishedFields, publishedRoadmaps, publishedRoles } from "@/lib/content";
-import { roleCategories, routeFor } from "@/lib/site-data";
+import { fieldDomainGroups, roleCategories, routeFor } from "@/lib/site-data";
 import { WikiFolderNavigation, type WikiTreeNode } from "./WikiFolderNavigation";
 
 function page(key: string, label: string, href: string): WikiTreeNode {
@@ -27,9 +27,12 @@ export function WikiFolderTree() {
     page("start", "처음 시작하기", "/start/"),
     folder("fields", "보안 분야", fields.length, [
       page("fields-index", "분야 전체 보기", "/fields/"),
-      ...roleCategories.flatMap((category) => {
-        const field = fields.find((item) => item.category === category.id);
-        return field ? [page(`field-${field.id}`, field.titleKo, routeFor.field(field.slug))] : [];
+      ...fieldDomainGroups.map((group) => {
+        const entries = group.domainIds.flatMap((domainId) => {
+          const field = fields.find((item) => item.id === domainId);
+          return field ? [page(`field-${field.id}`, field.titleKo, routeFor.field(field.slug))] : [];
+        });
+        return folder(`fields-${group.id}`, group.ko, entries.length, entries);
       }),
     ]),
     folder("roles", "보안 직무", roles.length, [page("roles-index", "직무 전체 보기", "/careers/"), ...roleFolders]),

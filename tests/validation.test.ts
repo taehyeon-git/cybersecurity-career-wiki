@@ -71,10 +71,10 @@ test("career path links must resolve to published role or path slugs", () => {
   );
 });
 
-test("field links resolve to a published field guide", () => {
-  const docs = [{ id: "soc-analyst", body: "[분야](/fields/response/) [없는 분야](/fields/missing/)" }];
+test("field links resolve to a published asset-based guide, not a legacy category", () => {
+  const docs = [{ id: "web-penetration-tester", body: "[웹](/fields/web/) [옛 업무 분류](/fields/assessment/) [없는 분야](/fields/missing/)" }];
   assert.deepEqual(
-    validateInternalDocumentLinks(docs, new Set(["soc-analyst"]), new Set(), new Set(["response"])),
-    ["soc-analyst: unknown internal link /fields/missing/"],
+    validateInternalDocumentLinks(docs, new Set(["web-penetration-tester"]), new Set(), new Set(["web"])),
+    ["web-penetration-tester: unknown internal link /fields/assessment/", "web-penetration-tester: unknown internal link /fields/missing/"],
   );
 });
