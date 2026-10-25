@@ -14,6 +14,6 @@ export function ArticleBody({ body }: { body: string }) {
   return <div className="article-prose"><MDXRemote source={body} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} components={{
     h2: ({ children }) => <h2 id={headingId(headingText(children))}>{children}</h2>,
     h3: ({ children }) => <h3 id={headingId(headingText(children))}>{children}</h3>,
-    a: ({ href, children }) => href?.startsWith("/") ? <Link href={href}>{children}</Link> : <a href={href} target="_blank" rel="noopener noreferrer">{children}</a>,
+    a: ({ href, children }) => href?.startsWith("/") ? <Link href={href}>{children}</Link> : <a href={href} target="_blank" rel="noopener noreferrer">{children}<span className="external-link-cue" aria-hidden="true">↗</span><span className="sr-only"> (새 탭에서 열림)</span></a>,
   }} /></div>;
 }

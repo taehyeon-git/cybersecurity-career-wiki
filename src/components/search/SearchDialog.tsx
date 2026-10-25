@@ -66,6 +66,7 @@ export function SearchDialog() {
   const [selected, setSelected] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
+  const resultsRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
   const openerRef = useRef<HTMLElement | null>(null);
   const restoreFocusRef = useRef(true);
@@ -124,6 +125,17 @@ export function SearchDialog() {
     };
   }, [open]);
 
+  useEffect(() => {
+    if (!open || !query || !results.length) return;
+    const container = resultsRef.current;
+    const active = container?.querySelector<HTMLElement>(".search-result.selected");
+    if (!container || !active) return;
+    const viewport = container.getBoundingClientRect();
+    const item = active.getBoundingClientRect();
+    if (item.top < viewport.top) container.scrollTop -= viewport.top - item.top;
+    else if (item.bottom > viewport.bottom) container.scrollTop += item.bottom - viewport.bottom;
+  }, [open, query, activeIndex, results.length]);
+
   function onInputKey(event: ReactKeyboardEvent<HTMLInputElement>) {
     if (event.key === "ArrowDown" && results.length) { event.preventDefault(); setSelected((value) => Math.min(value + 1, results.length - 1)); }
     if (event.key === "ArrowUp" && results.length) { event.preventDefault(); setSelected((value) => Math.max(value - 1, 0)); }
@@ -161,7 +173,7 @@ export function SearchDialog() {
         <h2 className="search-modal-heading" id="search-dialog-title">직무·경로·용어 검색</h2>
         <div className="search-modal-top"><Search size={21} aria-hidden="true" /><input ref={inputRef} value={query} onChange={(event) => { setQuery(event.target.value); setSelected(0); }} onKeyDown={onInputKey} placeholder="검색어를 입력하세요" aria-label="검색어" /><button type="button" className="icon-button" aria-label="검색 닫기" onClick={() => closeDialog()}><X size={18} /></button></div>
         <span className="sr-only" role="status" aria-live="polite">{query && results.length ? `전체 ${allResults.length}개 결과 중 ${results.length}개 표시. ${activeIndex + 1}번째 ${results[activeIndex].title}` : query && documents.length ? "검색 결과 없음" : ""}</span>
-        <div className="search-results" role="region" aria-label="검색 결과">
+        <div ref={resultsRef} className="search-results" role="region" aria-label="검색 결과">
           {error ? <p className="search-message">검색 색인을 불러오지 못했습니다. 페이지를 새로고침해 주세요.</p> : !query ? <div className="search-hint"><span>추천 검색어</span><button type="button" onClick={() => setQuery("보안관제")}>보안관제</button><button type="button" onClick={() => setQuery("개인정보")}>개인정보</button><button type="button" onClick={() => setQuery("보안 제품")}>보안 제품</button></div> : !documents.length ? <p className="search-message">검색 자료를 불러오는 중입니다…</p> : !results.length ? <p className="search-message">검색 결과가 없습니다. 다른 직무명이나 영어 약어를 시도해 보세요.</p> : <>
             <p className="search-count">{allResults.length}개 결과{allResults.length > results.length ? ` 중 관련도 높은 ${results.length}개를 보여줍니다. 검색어를 더 구체적으로 입력해 보세요.` : ""}</p>
             {results.map((item, index) => {

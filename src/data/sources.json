@@ -1638,5 +1638,55 @@
     "checkedAt": "2026-10-25",
     "kind": "job-posting",
     "notes": "Direct regular Seoul Yeoksam privacy-manager posting with a three-month probation. Requires 6+ years privacy work, lifecycle/notice/vendor operations and understanding of applicable law and ISMS-P. Duties include processing lifecycle, marketing consent, processors, third-party transfer and cross-border transfer, and CPO organization support. Certification-audit experience, listed certificates and automation/e-commerce experience are preferred. Apply button visible; present vacancy and deadline not separately verified."
+  },
+  {
+    "id": "coupang-privacy-ai-legal-counsel-2026",
+    "title": "[쿠팡] 사내변호사(ICT부문/Data, Privacy & AI Legal팀)",
+    "organization": "쿠팡",
+    "url": "https://www.coupang.jobs/kr/jobs/7975742/%EC%BF%A0%ED%8C%A1-%EC%82%AC%EB%82%B4%EB%B3%80%ED%98%B8%EC%82%AC-ict%EB%B6%80%EB%AC%B8data-privacy-ai-legal%ED%8C%80/?gh_jid=7975742",
+    "version": "2026-10-01 갱신; 2026-10-25 한국어 원문 확인, 모집 완료 시 조기 마감 가능",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Direct Korean in-house legal counsel posting for privacy/data/AI and ICT regulatory advice. Requires Korean lawyer qualification and at least five years after qualification for this senior position. Regular employment includes 12-week probation; location Seoul. Team description discusses security-system risk, disputes and regulator response, but the candidate's enumerated duties specifically list data and ICT legal advice. Do not infer that this counsel directly operates security systems or leads every team-described task. The English locale showed a different older threshold; Korean page is the cited version."
+  },
+  {
+    "id": "kait-isms-p-auditor-recruitment-2023",
+    "title": "2023년 하반기 한국정보통신진흥협회 직원 채용 공고: 정보보호인증심사",
+    "organization": "한국정보통신진흥협회(KAIT)",
+    "url": "https://isms.kait.or.kr/user/bbs/view.do?artclSeq=18",
+    "version": "2023-07-24~08-02 접수, 모집 종료; 2026-10-25 공식 원문 재확인",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "Standalone information-security certification audit field, five people, requiring ISMS-P certification auditor credential in this 2023 posting. Prior audit experience and other credentials were preferred. General contract employment with a three-month probation and suitability review within two years before possible indefinite employment; no automatic conversion guaranteed. Distinct from the same posting's consulting and network certification audit fields."
+  },
+  {
+    "id": "kait-isms-p-auditor-recruitment-2021",
+    "title": "정보보호인증심사팀 전문계약직 채용 공고",
+    "organization": "한국정보통신진흥협회(KAIT)",
+    "url": "https://isms.kait.or.kr/pop/file.pdf",
+    "version": "2021-06-18~06-26 공고, 모집 종료; 2026-10-25 PDF 원문 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "job-posting",
+    "notes": "One specialist contract opening in information-security certification audit team; direct ISMS-P audit duty plus ISO training-center and team support. This old position required five years in information-security/ICT work and a bachelor degree; ISMS-P auditor credential was listed as preferred, unlike the 2023 posting. One-year contract with possible one-year extension. Not evidence of current hiring."
+  },
+  {
+    "id": "kisa-isms-p-process",
+    "title": "ISMS-P 인증 절차 안내",
+    "organization": "한국인터넷진흥원(KISA)",
+    "url": "https://www.isms-p.or.kr/cert/aply/selectCertPrcdDetail.do",
+    "version": "공식 인증 절차 웹페이지; 2026-10-25 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "guidance",
+    "notes": "Official current certification process page explains auditor team review, deficiency report, corrective-action submission, audit report to KISA, certification committee decision, and certificate issuance by the institution. It describes process rather than qualifications for every auditor job."
+  },
+  {
+    "id": "kisa-isms-p-portal",
+    "title": "ISMS-P 공식 누리집",
+    "organization": "한국인터넷진흥원(KISA)",
+    "url": "https://www.isms-p.or.kr/",
+    "version": "공식 인증제도·자격검정 포털; 2026-10-25 검색 결과 확인",
+    "checkedAt": "2026-10-25",
+    "kind": "guidance",
+    "notes": "Official portal provides certification scheme and auditor qualification-exam announcements. Current admission requirements must be checked against the latest specific exam notice; homepage does not itself establish universal entry requirements."
   }
 ]

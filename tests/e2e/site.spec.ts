@@ -44,6 +44,25 @@ test("Ctrl+K search focuses the input and restores the actual opener", async ({ 
   await expect(page).toHaveURL(/\/careers\/[^/]+\/$/);
 });
 
+test("mobile keyboard search keeps the selected result in view", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 720 });
+  await page.goto("./");
+  await page.getByRole("button", { name: "직무, 경로, 용어 검색" }).click();
+  const dialog = page.getByRole("dialog", { name: "직무·경로·용어 검색" });
+  const input = dialog.getByRole("textbox", { name: "검색어" });
+  await input.fill("보안");
+  await expect(dialog.locator("a.search-result")).toHaveCount(10);
+  for (let index = 0; index < 8; index++) await input.press("ArrowDown");
+
+  await expect.poll(() => dialog.locator(".search-results").evaluate((container) => {
+    const selected = container.querySelector(".search-result.selected");
+    if (!selected) return false;
+    const viewport = container.getBoundingClientRect();
+    const item = selected.getBoundingClientRect();
+    return container.scrollTop > 0 && item.top >= viewport.top && item.bottom <= viewport.bottom;
+  })).toBe(true);
+});
+
 test("global search combines terms from different parts of a career article", async ({ page }) => {
   await page.goto("./");
   await page.waitForLoadState("networkidle");
@@ -239,6 +258,24 @@ test("closing search restores focus inside an open mobile document drawer", asyn
   await expect(drawer.getByRole("button", { name: "닫기" })).toBeFocused();
 });
 
+test("document tree scrolls its current article into view", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 720 });
+  await page.goto("./careers/incident-responder/");
+  const sidebar = page.locator("#wiki-sidebar");
+  const currentIsVisible = () => sidebar.evaluate((element) => {
+    const current = element.querySelector('[aria-current="page"]');
+    if (!current) return false;
+    const viewport = element.getBoundingClientRect();
+    const item = current.getBoundingClientRect();
+    return item.top >= viewport.top && item.bottom <= viewport.bottom;
+  });
+  await expect.poll(currentIsVisible).toBe(true);
+
+  await page.setViewportSize({ width: 390, height: 720 });
+  await page.getByRole("button", { name: "문서 탐색기 열기" }).click();
+  await expect.poll(currentIsVisible).toBe(true);
+});
+
 test("a mobile role article lists its work area and links back to that folder", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("./careers/soc-analyst/");
@@ -327,6 +364,15 @@ test("glossary entries show their sources", async ({ page }) => {
   const source = page.locator(".wiki-glossary-sources a").first();
   await expect(source).toBeVisible();
   await expect(source).toHaveAttribute("href", /^https:\/\//);
+});
+
+test("article source links show and announce that they open a new tab", async ({ page }) => {
+  await page.goto("./careers/incident-responder/");
+  const citation = page.locator('.article-prose a[target="_blank"]').first();
+  await expect(citation.locator(".external-link-cue")).toBeVisible();
+  await expect(citation).toContainText("새 탭에서 열림");
+  const reference = page.locator('.source-section a[target="_blank"]').first();
+  await expect(reference).toContainText("새 탭에서 열림");
 });
 
 test("search opens a glossary term inside its folder", async ({ page }) => {

@@ -8,11 +8,11 @@ import { roleCategories, mainNav } from "../src/lib/site-data";
 import { validateCitationUrls } from "../src/lib/validation";
 import terms from "../src/content/glossary/terms.json";
 
-test("career directory separates security product work from security design and retains 52 roles", () => {
+test("career directory separates security product work from security design and retains 54 roles", () => {
   assert.deepEqual(roleCategories.map((item) => item.id), ["management", "development", "product", "operations", "assessment", "response", "customer"]);
   const roles = publishedRoles();
-  assert.equal(roles.length, 52);
-  assert.equal(new Set(roles.map((role) => role.slug)).size, 52);
+  assert.equal(roles.length, 54);
+  assert.equal(new Set(roles.map((role) => role.slug)).size, 54);
   assert.deepEqual(
     roles.filter((role) => role.category === "product").map((role) => role.id).sort(),
     ["security-product-developer", "security-product-manager", "security-product-qa", "security-product-technical-writer"],

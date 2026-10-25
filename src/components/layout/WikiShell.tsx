@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type ReactNode } from "react";
 import { X } from "lucide-react";
 import { SiteHeader } from "./SiteHeader";
@@ -7,6 +8,7 @@ import { SiteHeader } from "./SiteHeader";
 const focusableSelector = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
 export function WikiShell({ sidebar, footer, children }: { sidebar: ReactNode; footer: ReactNode; children: ReactNode }) {
+  const pathname = usePathname();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const sidebarRef = useRef<HTMLElement>(null);
@@ -26,6 +28,21 @@ export function WikiShell({ sidebar, footer, children }: { sidebar: ReactNode; f
   }, []);
 
   useEffect(() => {
+    if (isMobile && !sidebarOpen) return;
+    const frame = requestAnimationFrame(() => {
+      const sidebar = sidebarRef.current;
+      const current = sidebar?.querySelector<HTMLElement>('.wiki-tree-link[aria-current="page"]');
+      if (!sidebar || !current) return;
+      const viewport = sidebar.getBoundingClientRect();
+      const item = current.getBoundingClientRect();
+      const padding = 8;
+      if (item.top < viewport.top + padding) sidebar.scrollTop -= viewport.top + padding - item.top;
+      else if (item.bottom > viewport.bottom - padding) sidebar.scrollTop += item.bottom - viewport.bottom + padding;
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [pathname, isMobile, sidebarOpen]);
+
+  useEffect(() => {
     if (!isMobile || !sidebarOpen) return;
     const targets = [document.querySelector<HTMLElement>(".site-header"), stageRef.current, document.querySelector<HTMLElement>(".site-footer"), document.querySelector<HTMLElement>(".skip-link")]
       .filter((element): element is HTMLElement => !!element);
@@ -33,7 +50,7 @@ export function WikiShell({ sidebar, footer, children }: { sidebar: ReactNode; f
     const priorOverflow = document.body.style.overflow;
     targets.forEach((element) => { element.inert = true; });
     document.body.style.overflow = "hidden";
-    const frame = requestAnimationFrame(() => closeRef.current?.focus());
+    const frame = requestAnimationFrame(() => closeRef.current?.focus({ preventScroll: true }));
     function onKey(event: KeyboardEvent) {
       if (event.key === "Escape") { event.preventDefault(); setSidebarOpen(false); }
     }

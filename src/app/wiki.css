@@ -187,6 +187,7 @@ html[data-theme="dark"] .editorial-note { background: #22384b; color: var(--mute
 .article-prose h3 { margin: 25px 0 8px; font-size: 15px; }
 .article-prose p { margin-bottom: 13px; }
 .article-prose a { color: var(--blue-ink); }
+.article-prose a .external-link-cue { display: inline-block; margin-left: 3px; font-size: .8em; line-height: 1; vertical-align: .08em; text-decoration: none; }
 .article-prose blockquote { border-left-width: 2px; border-radius: 0; }
 .article-prose pre { border-radius: 2px; }
 .article-prose table { font-size: 14px; }
@@ -234,7 +235,7 @@ html[data-theme="dark"] .search-result:hover, html[data-theme="dark"] .search-re
 .wiki-start-section p, .wiki-start-section li { font-size: 15px; line-height: 1.75; }
 .wiki-start-section > p, .wiki-start-definition { max-width: 760px; }
 .wiki-start-section p a { text-decoration: underline; text-underline-offset: 2px; }
-.wiki-start-section ul { margin: 8px 0 0; padding-left: 20px; }
+.wiki-start-section ul, .wiki-start-section ol { margin: 8px 0 0; padding-left: 20px; }
 .wiki-start-definition { border: 1px solid var(--line); background: var(--surface-soft); padding: 10px 12px; }
 .wiki-start-definition h3 { margin: 0 0 7px; font-size: 15px; }
 .wiki-not-found { min-height: 65vh; }
