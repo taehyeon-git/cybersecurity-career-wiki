@@ -1,0 +1,951 @@
+{
+  "schemaVersion": 1,
+  "sharedDirection": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific.",
+  "images": [
+    {
+      "key": "index:start",
+      "route": "/start/",
+      "output": "public/images/pages/index/start.webp",
+      "titleKo": "직무 찾는 방법",
+      "titleEn": null,
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: An early-career reader and mentor comparing several cybersecurity job listings and a small work sample at a quiet library table.",
+      "altKo": "직무 찾는 방법 주제를 보여주는 실제 업무 공간의 사진형 이미지"
+    },
+    {
+      "key": "index:fields",
+      "route": "/fields/",
+      "output": "public/images/pages/index/fields.webp",
+      "titleKo": "보안 분야",
+      "titleEn": null,
+      "prompt": "Create one standalone photorealistic editorial photograph for a Korean cybersecurity career wiki's SECURITY FIELDS directory. A real multidisciplinary security lab in one coherent physical space, not a collage: two cybersecurity professionals (one woman, one man) at a broad workbench with a laptop, smartphone under test, small vehicle control module, and industrial controller hardware; a network rack is visible softly in the background. The scene should visually communicate that security work spans software, infrastructure, devices and industry, not merely a data center. Warm understated natural light, dark blue and muted copper palette, premium documentary photography, restrained composition with clear centered focal point that remains legible in a 320 by 200 thumbnail. No legible text, no logos, no lock icons, no hooded figures, no floating graphics, no cyber neon, no diagrams. Landscape 3:2.",
+      "altKo": "보안 분야 주제를 보여주는 실제 업무 공간의 사진형 이미지"
+    },
+    {
+      "key": "index:careers",
+      "route": "/careers/",
+      "output": "public/images/pages/index/careers.webp",
+      "titleKo": "보안 직무",
+      "titleEn": null,
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A diverse security team in a real office reviewing responsibilities and handoff notes around a shared table.",
+      "altKo": "보안 직무 주제를 보여주는 실제 업무 공간의 사진형 이미지"
+    },
+    {
+      "key": "index:roadmaps",
+      "route": "/roadmaps/",
+      "output": "public/images/pages/index/roadmaps.webp",
+      "titleKo": "커리어 경로",
+      "titleEn": null,
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A mentor and learner planning a cybersecurity career with a notebook, portfolio work samples and a laptop at a sunlit desk.",
+      "altKo": "커리어 경로 주제를 보여주는 실제 업무 공간의 사진형 이미지"
+    },
+    {
+      "key": "index:glossary",
+      "route": "/glossary/",
+      "output": "public/images/pages/index/glossary.webp",
+      "titleKo": "보안 용어집",
+      "titleEn": null,
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A reader consulting a printed cybersecurity reference book and a laptop at a warmly lit library desk.",
+      "altKo": "보안 용어집 주제를 보여주는 실제 업무 공간의 사진형 이미지"
+    },
+    {
+      "key": "field:ai",
+      "route": "/fields/ai/",
+      "output": "public/images/pages/field/ai.webp",
+      "titleKo": "AI 시스템 보안",
+      "titleEn": "AI System Security",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: An engineer and evaluator checking a deployed AI service in a realistic product review meeting, with the interface softly out of focus.",
+      "altKo": "AI 시스템 보안: AI 서비스 화면과 평가 기록을 함께 검토하는 장면"
+    },
+    {
+      "key": "field:automotive",
+      "route": "/fields/automotive/",
+      "output": "public/images/pages/field/automotive.webp",
+      "titleKo": "차량·모빌리티 보안",
+      "titleEn": "Automotive & Mobility Security",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: Automotive security engineers inspecting a vehicle electronics bench beside a real car in a modern workshop.",
+      "altKo": "차량·모빌리티 보안: 차량의 전자 장치와 연결 서비스를 함께 살피는 장면"
+    },
+    {
+      "key": "field:cloud",
+      "route": "/fields/cloud/",
+      "output": "public/images/pages/field/cloud.webp",
+      "titleKo": "클라우드·컨테이너 보안",
+      "titleEn": "Cloud & Container Security",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A cloud operations engineer reviewing infrastructure with colleagues in a glass-walled office overlooking server racks.",
+      "altKo": "클라우드·컨테이너 보안: 클라우드 안의 계정, 서비스, 저장소 책임을 나누는 장면"
+    },
+    {
+      "key": "field:cryptography",
+      "route": "/fields/cryptography/",
+      "output": "public/images/pages/field/cryptography.webp",
+      "titleKo": "암호·키 관리 보안",
+      "titleEn": "Cryptography & Key Management Security",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A security engineer handling a hardware key management device inside a controlled data center work area.",
+      "altKo": "암호·키 관리 보안: 암호 키를 보관하고 교체하며 사용을 확인하는 장면"
+    },
+    {
+      "key": "field:data",
+      "route": "/fields/data/",
+      "output": "public/images/pages/field/data.webp",
+      "titleKo": "데이터 보안",
+      "titleEn": "Data Security",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A data security specialist reviewing access controls beside secured storage equipment in an enterprise data center.",
+      "altKo": "데이터 보안: 데이터 보관과 승인된 공유 경로를 살피는 장면"
+    },
+    {
+      "key": "field:endpoint",
+      "route": "/fields/endpoint/",
+      "output": "public/images/pages/field/endpoint.webp",
+      "titleKo": "단말·엔드포인트 보안",
+      "titleEn": "Endpoint & Workplace Security",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: An IT security engineer checking a row of employee laptops in a normal office equipment area.",
+      "altKo": "단말·엔드포인트 보안: 직원의 업무용 단말 여러 대를 관리하는 장면"
+    },
+    {
+      "key": "field:identity",
+      "route": "/fields/identity/",
+      "output": "public/images/pages/field/identity.webp",
+      "titleKo": "신원·접근 보안",
+      "titleEn": "Identity & Access Security",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A security team member reviewing employee badge access and account approval with a colleague at an office reception area.",
+      "altKo": "신원·접근 보안: 직원 계정의 접근 신청과 만료를 확인하는 장면"
+    },
+    {
+      "key": "field:iot-embedded",
+      "route": "/fields/iot-embedded/",
+      "output": "public/images/pages/field/iot-embedded.webp",
+      "titleKo": "IoT·임베디드 보안",
+      "titleEn": "IoT & Embedded Product Security",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: An embedded security engineer examining a connected sensor and its circuit board on a clean electronics lab bench.",
+      "altKo": "IoT·임베디드 보안: 연결 기기의 회로와 소프트웨어 갱신을 살피는 장면"
+    },
+    {
+      "key": "field:mobile",
+      "route": "/fields/mobile/",
+      "output": "public/images/pages/field/mobile.webp",
+      "titleKo": "모바일 앱 보안",
+      "titleEn": "Mobile Application Security",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A mobile application security engineer testing a phone and tablet at a practical product workbench.",
+      "altKo": "모바일 앱 보안: 모바일 앱의 배포와 갱신, 서비스 연결을 살피는 장면"
+    },
+    {
+      "key": "field:network",
+      "route": "/fields/network/",
+      "output": "public/images/pages/field/network.webp",
+      "titleKo": "네트워크 보안",
+      "titleEn": "Network Security",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A network security engineer inspecting patch panels and network equipment in an active server room.",
+      "altKo": "네트워크 보안: 두 업무 공간 사이 통신 경로와 경계 장치를 살피는 장면"
+    },
+    {
+      "key": "field:ot",
+      "route": "/fields/ot/",
+      "output": "public/images/pages/field/ot.webp",
+      "titleKo": "OT·산업제어 보안",
+      "titleEn": "Operational Technology Security",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: An OT security engineer standing with an operations colleague in a working factory control room overlooking the production floor.",
+      "altKo": "OT·산업제어 보안: 가동 중인 공장 설비와 현장 제어 화면을 함께 살피는 장면"
+    },
+    {
+      "key": "field:software-supply-chain",
+      "route": "/fields/software-supply-chain/",
+      "output": "public/images/pages/field/software-supply-chain.webp",
+      "titleKo": "소프트웨어 공급망·오픈소스 보안",
+      "titleEn": "Software Supply Chain & Open Source Security",
+      "prompt": "Create one standalone photorealistic editorial photograph for a Korean cybersecurity career wiki page about SOFTWARE SUPPLY CHAIN AND OPEN SOURCE SECURITY. A small software release team at a modern real workplace performing a dependency and third-party component review. Foreground: close focused view of an engineer's hands on laptop with a realistic repository dependency list and build status dashboard on adjacent monitor, with tiny unreadable interface text; a colleague points to the exact package entry on screen. Include a paper review checklist and a small physical electronics device being prepared for product release on the desk. Make the external code component review and release gate obvious through realistic screens and human action, not a generic meeting. Rich but natural daylight, warm sophisticated editorial photography, clear composition readable as a 320 by 200 thumbnail. No legible text, no logos, no lock icons, no diagrams, no neon, no floating interfaces. Landscape 3:2.",
+      "altKo": "소프트웨어 공급망·오픈소스 보안: 외부 코드가 제작과 출시 과정으로 들어오는 흐름을 확인하는 장면"
+    },
+    {
+      "key": "field:system",
+      "route": "/fields/system/",
+      "output": "public/images/pages/field/system.webp",
+      "titleKo": "시스템·서버 보안",
+      "titleEn": "System & Server Security",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A systems security engineer checking server racks and maintenance equipment in a real enterprise server room.",
+      "altKo": "시스템·서버 보안: 서버실의 여러 시스템과 점검 일정을 관리하는 장면"
+    },
+    {
+      "key": "field:video-physical",
+      "route": "/fields/video-physical/",
+      "output": "public/images/pages/field/video-physical.webp",
+      "titleKo": "영상정보 시스템 보안",
+      "titleEn": "Video Information System Security",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A privacy and security specialist reviewing camera placement and video storage controls inside a building security operations room.",
+      "altKo": "영상정보 시스템 보안: 카메라 촬영 구역과 영상 보관, 열람 기록을 확인하는 장면"
+    },
+    {
+      "key": "field:web",
+      "route": "/fields/web/",
+      "output": "public/images/pages/field/web.webp",
+      "titleKo": "웹·애플리케이션 보안",
+      "titleEn": "Web & Application Security",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A web application security engineer discussing a service review with a developer beside a laptop in a modern product office.",
+      "altKo": "웹·애플리케이션 보안: 웹 화면과 서비스 연결, 데이터 취급을 검토하는 장면"
+    },
+    {
+      "key": "role:ai-security-engineer",
+      "route": "/roles/ai-security-engineer/",
+      "output": "public/images/pages/role/ai-security-engineer.webp",
+      "titleKo": "AI 보안 엔지니어",
+      "titleEn": "AI Security Engineer",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: An AI security engineer reviewing an AI service evaluation with a product teammate at a modern office workstation.",
+      "altKo": "AI 보안 엔지니어: AI 서비스 평가 화면에서 실패 사례를 확인하고 보호 요구를 정리하는 장면"
+    },
+    {
+      "key": "role:application-security-engineer",
+      "route": "/roles/application-security-engineer/",
+      "output": "public/images/pages/role/application-security-engineer.webp",
+      "titleKo": "애플리케이션 보안 엔지니어",
+      "titleEn": "Application Security Engineer",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: An application security engineer and developer examining a web service design during a collaborative code review.",
+      "altKo": "애플리케이션 보안 엔지니어: 웹 서비스 설계도와 코드 검토 결과를 개발 작업에 연결하는 장면"
+    },
+    {
+      "key": "role:automotive-security-engineer",
+      "route": "/roles/automotive-security-engineer/",
+      "output": "public/images/pages/role/automotive-security-engineer.webp",
+      "titleKo": "차량·모빌리티 보안 엔지니어",
+      "titleEn": "Automotive Security Engineer",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: An automotive security engineer testing vehicle electronics with a laptop beside a car in a workshop.",
+      "altKo": "차량·모빌리티 보안 엔지니어: 차량과 연결 서비스의 보안 요구를 점검표로 검증하는 장면"
+    },
+    {
+      "key": "role:chief-privacy-officer",
+      "route": "/roles/chief-privacy-officer/",
+      "output": "public/images/pages/role/chief-privacy-officer.webp",
+      "titleKo": "개인정보 보호책임자(CPO)",
+      "titleEn": "Chief Privacy Officer",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A senior privacy leader discussing organization-wide data handling decisions with executives in a boardroom.",
+      "altKo": "개인정보 보호책임자(CPO): 개인정보 보호 현황과 자원을 경영진 회의에서 결정하는 장면"
+    },
+    {
+      "key": "role:ciso",
+      "route": "/roles/ciso/",
+      "output": "public/images/pages/role/ciso.webp",
+      "titleKo": "최고정보보호책임자",
+      "titleEn": "Chief Information Security Officer",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A CISO leading an executive discussion about security priorities and risk in a real boardroom.",
+      "altKo": "최고정보보호책임자: 조직 위험 지도와 투자 우선순위를 경영진과 논의하는 장면"
+    },
+    {
+      "key": "role:cloud-security-engineer",
+      "route": "/roles/cloud-security-engineer/",
+      "output": "public/images/pages/role/cloud-security-engineer.webp",
+      "titleKo": "클라우드 보안 엔지니어",
+      "titleEn": "Cloud Security Engineer",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A cloud security engineer and operations colleague reviewing account access across real cloud infrastructure at a desk.",
+      "altKo": "클라우드 보안 엔지니어: 클라우드 계정과 워크로드 연결도에서 접근 권한을 조정하는 장면"
+    },
+    {
+      "key": "role:cryptography-engineer",
+      "route": "/roles/cryptography-engineer/",
+      "output": "public/images/pages/role/cryptography-engineer.webp",
+      "titleKo": "암호기술 엔지니어",
+      "titleEn": "Cryptography Engineer",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A cryptography engineer testing a hardware security module and key management workflow at an electronics workbench.",
+      "altKo": "암호기술 엔지니어: 제품의 암호 기능과 키 생애주기를 설계하고 검증하는 장면"
+    },
+    {
+      "key": "role:cyber-threat-intelligence-analyst",
+      "route": "/roles/cyber-threat-intelligence-analyst/",
+      "output": "public/images/pages/role/cyber-threat-intelligence-analyst.webp",
+      "titleKo": "사이버 위협 인텔리전스 분석가",
+      "titleEn": "Cyber Threat Intelligence Analyst",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A threat intelligence analyst comparing several source reports and incident context at an investigations desk.",
+      "altKo": "사이버 위협 인텔리전스 분석가: 여러 위협 정보의 출처를 대조해 조직의 대응 우선순위를 정리하는 장면"
+    },
+    {
+      "key": "role:cybersecurity-policy-researcher",
+      "route": "/roles/cybersecurity-policy-researcher/",
+      "output": "public/images/pages/role/cybersecurity-policy-researcher.webp",
+      "titleKo": "사이버보안 정책연구원",
+      "titleEn": "Cybersecurity Policy Researcher",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A cybersecurity policy researcher studying public policy documents and preparing a report at a university library desk.",
+      "altKo": "사이버보안 정책연구원: 법과 정책 자료를 비교해 공공 의사결정용 연구 보고서를 만드는 장면"
+    },
+    {
+      "key": "role:cybersecurity-privacy-legal-counsel",
+      "route": "/roles/cybersecurity-privacy-legal-counsel/",
+      "output": "public/images/pages/role/cybersecurity-privacy-legal-counsel.webp",
+      "titleKo": "정보보호·개인정보 법무 변호사",
+      "titleEn": "Cybersecurity & Privacy Legal Counsel",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A privacy lawyer and security lead reviewing a contract and regulatory obligations across a conference table.",
+      "altKo": "정보보호·개인정보 법무 변호사: 법령과 계약 문서를 검토해 정보보호 선택지를 제시하는 장면"
+    },
+    {
+      "key": "role:cybersecurity-researcher",
+      "route": "/roles/cybersecurity-researcher/",
+      "output": "public/images/pages/role/cybersecurity-researcher.webp",
+      "titleKo": "사이버보안 연구원(R&D)",
+      "titleEn": "Cybersecurity Researcher",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A cybersecurity researcher documenting an experiment inside a quiet university technology laboratory.",
+      "altKo": "사이버보안 연구원(R&D): 보안 연구 질문을 실험으로 검증하고 결과를 기록하는 장면"
+    },
+    {
+      "key": "role:cybersecurity-training-program-manager",
+      "route": "/roles/cybersecurity-training-program-manager/",
+      "output": "public/images/pages/role/cybersecurity-training-program-manager.webp",
+      "titleKo": "정보보호 인재양성 교육기획·운영자",
+      "titleEn": "Cybersecurity Training Program Manager",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A security training program manager coordinating an instructor and learners before a practical workshop.",
+      "altKo": "정보보호 인재양성 교육기획·운영자: 학습자와 강사, 교육 일정을 연결해 보안 교육과정을 운영하는 장면"
+    },
+    {
+      "key": "role:data-security-engineer",
+      "route": "/roles/data-security-engineer/",
+      "output": "public/images/pages/role/data-security-engineer.webp",
+      "titleKo": "데이터 보안 엔지니어",
+      "titleEn": "Data Security Engineer",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A data security engineer checking approved data-sharing controls with a colleague in an enterprise data environment.",
+      "altKo": "데이터 보안 엔지니어: 저장과 공유를 오가는 중요 데이터의 접근 범위를 보호하는 장면"
+    },
+    {
+      "key": "role:detection-engineer",
+      "route": "/roles/detection-engineer/",
+      "output": "public/images/pages/role/detection-engineer.webp",
+      "titleKo": "보안 탐지 엔지니어",
+      "titleEn": "Detection Engineer",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A detection engineer refining alert quality with a SOC analyst at dual monitors in a security operations room.",
+      "altKo": "보안 탐지 엔지니어: 로그 신호를 검토해 탐지 규칙과 경보의 정확도를 다듬는 장면"
+    },
+    {
+      "key": "role:devsecops-engineer",
+      "route": "/roles/devsecops-engineer/",
+      "output": "public/images/pages/role/devsecops-engineer.webp",
+      "titleKo": "데브섹옵스 엔지니어",
+      "titleEn": "DevSecOps Engineer",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A DevSecOps engineer and developer reviewing release checks together in a software team workspace.",
+      "altKo": "데브섹옵스 엔지니어: 개발과 배포 사이에 보안 검사와 예외 처리를 연결하는 장면"
+    },
+    {
+      "key": "role:digital-forensics-specialist",
+      "route": "/roles/digital-forensics-specialist/",
+      "output": "public/images/pages/role/digital-forensics-specialist.webp",
+      "titleKo": "디지털 포렌식 전문가",
+      "titleEn": "Digital Forensics Specialist",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A digital forensics specialist wearing evidence gloves examining a sealed storage device in a clean forensic laboratory.",
+      "altKo": "디지털 포렌식 전문가: 봉인된 디지털 증거를 분석해 사건의 시간순 기록을 재구성하는 장면"
+    },
+    {
+      "key": "role:endpoint-security-engineer",
+      "route": "/roles/endpoint-security-engineer/",
+      "output": "public/images/pages/role/endpoint-security-engineer.webp",
+      "titleKo": "엔드포인트 보안 엔지니어",
+      "titleEn": "Endpoint Security Engineer",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: An endpoint security engineer reviewing protection status across a row of workplace laptops and device inventory.",
+      "altKo": "엔드포인트 보안 엔지니어: 여러 업무 단말의 보호 상태와 변경 기록을 관리하는 장면"
+    },
+    {
+      "key": "role:firmware-security-engineer",
+      "route": "/roles/firmware-security-engineer/",
+      "output": "public/images/pages/role/firmware-security-engineer.webp",
+      "titleKo": "펌웨어 보안 엔지니어",
+      "titleEn": "Firmware Security Engineer",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A firmware security engineer inspecting a circuit board and update test device on an electronics laboratory bench.",
+      "altKo": "펌웨어 보안 엔지니어: 기기 펌웨어의 출시와 업데이트 단계를 따라 보호 요구를 관리하는 장면"
+    },
+    {
+      "key": "role:grc-analyst",
+      "route": "/roles/grc-analyst/",
+      "output": "public/images/pages/role/grc-analyst.webp",
+      "titleKo": "보안 거버넌스·위험·컴플라이언스 분석가",
+      "titleEn": "GRC Analyst",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A GRC analyst connecting risk evidence and control records with a colleague at a meeting table.",
+      "altKo": "보안 거버넌스·위험·컴플라이언스 분석가: 조직의 위험, 통제와 증거를 한 평가표에서 연결하는 장면"
+    },
+    {
+      "key": "role:iam-engineer",
+      "route": "/roles/iam-engineer/",
+      "output": "public/images/pages/role/iam-engineer.webp",
+      "titleKo": "신원·접근관리 엔지니어",
+      "titleEn": "IAM Engineer",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: An identity and access engineer reviewing an employee account approval request with an HR partner in an office.",
+      "altKo": "신원·접근관리 엔지니어: 입사부터 퇴사까지 계정 권한의 부여와 회수를 관리하는 장면"
+    },
+    {
+      "key": "role:incident-responder",
+      "route": "/roles/incident-responder/",
+      "output": "public/images/pages/role/incident-responder.webp",
+      "titleKo": "침해사고 대응 담당자",
+      "titleEn": "Incident Responder",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: An incident response team calmly coordinating scope, containment and recovery in a real operations meeting room.",
+      "altKo": "침해사고 대응 담당자: 보안 사건의 범위를 파악하고 격리와 복구를 이어가는 장면"
+    },
+    {
+      "key": "role:infrastructure-security-assessor",
+      "route": "/roles/infrastructure-security-assessor/",
+      "output": "public/images/pages/role/infrastructure-security-assessor.webp",
+      "titleKo": "인프라 보안 진단 담당자",
+      "titleEn": "Infrastructure Security Assessor",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: An authorized infrastructure assessor checking server configuration against a paper checklist in a data center.",
+      "altKo": "인프라 보안 진단 담당자: 승인된 서버와 네트워크의 보안 상태를 검증하고 재점검하는 장면"
+    },
+    {
+      "key": "role:infrastructure-security-engineer",
+      "route": "/roles/infrastructure-security-engineer/",
+      "output": "public/images/pages/role/infrastructure-security-engineer.webp",
+      "titleKo": "시스템·인프라 보안 엔지니어",
+      "titleEn": "Infrastructure Security Engineer",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: An infrastructure security engineer adjusting server protection equipment in an enterprise server room.",
+      "altKo": "시스템·인프라 보안 엔지니어: 서버 묶음에 공통 보안 기준을 설계하고 운영하는 장면"
+    },
+    {
+      "key": "role:insider-threat-analyst",
+      "route": "/roles/insider-threat-analyst/",
+      "output": "public/images/pages/role/insider-threat-analyst.webp",
+      "titleKo": "내부자 위협 분석가",
+      "titleEn": "Insider Threat Analyst",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: An insider-threat analyst and privacy partner carefully reviewing unusual access records at a private investigations desk.",
+      "altKo": "내부자 위협 분석가: 내부 접근 흔적을 절차에 따라 평가하고 대응 부서에 전달하는 장면"
+    },
+    {
+      "key": "role:isms-p-certification-auditor",
+      "route": "/roles/isms-p-certification-auditor/",
+      "output": "public/images/pages/role/isms-p-certification-auditor.webp",
+      "titleKo": "ISMS-P 인증심사원",
+      "titleEn": "ISMS-P Certification Auditor",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: An ISMS-P certification auditor comparing operational evidence folders with a control checklist in an office review room.",
+      "altKo": "ISMS-P 인증심사원: ISMS-P 심사 기준과 운영 증빙을 대조해 결함을 기록하는 장면"
+    },
+    {
+      "key": "role:malware-analyst",
+      "route": "/roles/malware-analyst/",
+      "output": "public/images/pages/role/malware-analyst.webp",
+      "titleKo": "악성코드 분석가",
+      "titleEn": "Malware Analyst",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A malware analyst observing a safely isolated test workstation in a controlled research lab.",
+      "altKo": "악성코드 분석가: 격리된 의심 파일의 행동을 관찰하고 분석 결과를 남기는 장면"
+    },
+    {
+      "key": "role:mobile-security-engineer",
+      "route": "/roles/mobile-security-engineer/",
+      "output": "public/images/pages/role/mobile-security-engineer.webp",
+      "titleKo": "모바일 보안 엔지니어",
+      "titleEn": "Mobile Security Engineer",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A mobile security engineer testing a smartphone app release on several phones at a product workbench.",
+      "altKo": "모바일 보안 엔지니어: 모바일 앱의 출시와 업데이트 화면을 검증하는 장면"
+    },
+    {
+      "key": "role:network-security-engineer",
+      "route": "/roles/network-security-engineer/",
+      "output": "public/images/pages/role/network-security-engineer.webp",
+      "titleKo": "네트워크 보안 엔지니어",
+      "titleEn": "Network Security Engineer",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A network security engineer tracing approved connections along patch panels and firewall equipment in a data center.",
+      "altKo": "네트워크 보안 엔지니어: 네트워크 경계와 통신 경로의 접근 정책을 설계하는 장면"
+    },
+    {
+      "key": "role:open-source-security-engineer",
+      "route": "/roles/open-source-security-engineer/",
+      "output": "public/images/pages/role/open-source-security-engineer.webp",
+      "titleKo": "오픈소스 보안 엔지니어",
+      "titleEn": "Open Source Security Engineer",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: An open-source security engineer discussing a dependency update and release with a development team.",
+      "altKo": "오픈소스 보안 엔지니어: 오픈소스 구성요소의 제보와 수정 버전 배포를 이어가는 장면"
+    },
+    {
+      "key": "role:ot-security-engineer",
+      "route": "/roles/ot-security-engineer/",
+      "output": "public/images/pages/role/ot-security-engineer.webp",
+      "titleKo": "OT·산업제어 보안 엔지니어",
+      "titleEn": "OT Security Engineer",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: An OT security engineer discussing safe maintenance changes with a plant operator beside active industrial control equipment.",
+      "altKo": "OT·산업제어 보안 엔지니어: 가동 중인 공장 설비의 안전과 연속성을 고려해 보호 조치를 점검하는 장면"
+    },
+    {
+      "key": "role:police-cybercrime-investigator",
+      "route": "/roles/police-cybercrime-investigator/",
+      "output": "public/images/pages/role/police-cybercrime-investigator.webp",
+      "titleKo": "경찰 사이버범죄 수사관",
+      "titleEn": "Police Cybercrime Investigator",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A public-sector cybercrime investigator cataloguing sealed digital evidence at a forensic desk without identifiable insignia.",
+      "altKo": "경찰 사이버범죄 수사관: 사이버범죄 사건 파일에 디지털 증거와 조사 기록을 연결하는 장면"
+    },
+    {
+      "key": "role:privacy-engineer",
+      "route": "/roles/privacy-engineer/",
+      "output": "public/images/pages/role/privacy-engineer.webp",
+      "titleKo": "개인정보보호 엔지니어",
+      "titleEn": "Privacy Engineer",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A privacy engineer and product designer reviewing data handling decisions at a whiteboard in a real product office.",
+      "altKo": "개인정보보호 엔지니어: 제품의 개인정보 처리 흐름을 설계 변경과 검증에 반영하는 장면"
+    },
+    {
+      "key": "role:privacy-impact-assessment-specialist",
+      "route": "/roles/privacy-impact-assessment-specialist/",
+      "output": "public/images/pages/role/privacy-impact-assessment-specialist.webp",
+      "titleKo": "개인정보 영향평가 수행자",
+      "titleEn": "Privacy Impact Assessment Specialist",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A privacy impact assessor reviewing a data-flow map and improvement notes with project owners around a table.",
+      "altKo": "개인정보 영향평가 수행자: 개인정보 처리 흐름의 침해 위험을 표시하고 개선 계획을 만드는 장면"
+    },
+    {
+      "key": "role:privacy-manager",
+      "route": "/roles/privacy-manager/",
+      "output": "public/images/pages/role/privacy-manager.webp",
+      "titleKo": "개인정보보호 담당자",
+      "titleEn": "Privacy Manager",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A privacy manager reviewing consent and data-retention procedures with a service colleague at a workplace desk.",
+      "altKo": "개인정보보호 담당자: 개인정보의 수집부터 파기까지 처리 책임과 이용자 권리를 관리하는 장면"
+    },
+    {
+      "key": "role:product-security-engineer",
+      "route": "/roles/product-security-engineer/",
+      "output": "public/images/pages/role/product-security-engineer.webp",
+      "titleKo": "제품 보안 엔지니어",
+      "titleEn": "Product Security Engineer",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A product security engineer testing a connected device and discussing release safeguards with the product team.",
+      "altKo": "제품 보안 엔지니어: 제품 설계와 출시, 취약점 처리를 하나의 보안 책임으로 연결하는 장면"
+    },
+    {
+      "key": "role:red-team-operator",
+      "route": "/roles/red-team-operator/",
+      "output": "public/images/pages/role/red-team-operator.webp",
+      "titleKo": "레드팀 운영자",
+      "titleEn": "Red Team Operator",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: An authorized red-team practitioner reviewing an exercise scope and reporting plan with a defender colleague, no attack execution shown.",
+      "altKo": "레드팀 운영자: 승인된 모의 공격 경로로 조직의 탐지와 대응 능력을 시험하는 장면"
+    },
+    {
+      "key": "role:security-account-manager",
+      "route": "/roles/security-account-manager/",
+      "output": "public/images/pages/role/security-account-manager.webp",
+      "titleKo": "보안 솔루션 영업 담당자",
+      "titleEn": "Security Solutions Account Manager",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A security solutions account manager listening to a customer's business needs during a consultative office meeting.",
+      "altKo": "보안 솔루션 영업 담당자: 고객의 보안 과제와 제안, 계약, 갱신 일정을 조율하는 장면"
+    },
+    {
+      "key": "role:security-architect",
+      "route": "/roles/security-architect/",
+      "output": "public/images/pages/role/security-architect.webp",
+      "titleKo": "보안 아키텍트",
+      "titleEn": "Security Architect",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A security architect explaining a network and service design to engineers beside a whiteboard in a project room.",
+      "altKo": "보안 아키텍트: 여러 시스템을 가로지르는 공통 보안 구조를 설계도에 그리는 장면"
+    },
+    {
+      "key": "role:security-auditor",
+      "route": "/roles/security-auditor/",
+      "output": "public/images/pages/role/security-auditor.webp",
+      "titleKo": "보안 감사자",
+      "titleEn": "Security Auditor",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: An independent security auditor verifying operational evidence in a quiet review room with a staff liaison.",
+      "altKo": "보안 감사자: 보안 통제의 운영 증거를 독립적으로 확인해 감사 보고를 만드는 장면"
+    },
+    {
+      "key": "role:security-awareness-specialist",
+      "route": "/roles/security-awareness-specialist/",
+      "output": "public/images/pages/role/security-awareness-specialist.webp",
+      "titleKo": "보안 인식·교육 담당자",
+      "titleEn": "Security Awareness Specialist",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A security awareness specialist leading an interactive employee training session in a bright classroom.",
+      "altKo": "보안 인식·교육 담당자: 직원의 실제 업무 상황을 교육 사례로 바꾸고 행동 변화를 확인하는 장면"
+    },
+    {
+      "key": "role:security-certification-evaluator",
+      "route": "/roles/security-certification-evaluator/",
+      "output": "public/images/pages/role/security-certification-evaluator.webp",
+      "titleKo": "보안제품 인증·평가 담당자",
+      "titleEn": "Security Product Certification Evaluator",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A security product certification evaluator examining test equipment and results in an accredited-style laboratory.",
+      "altKo": "보안제품 인증·평가 담당자: 보안제품 기능을 정해진 기준으로 시험해 인증 기록을 남기는 장면"
+    },
+    {
+      "key": "role:security-consultant",
+      "route": "/roles/security-consultant/",
+      "output": "public/images/pages/role/security-consultant.webp",
+      "titleKo": "보안 컨설턴트",
+      "titleEn": "Security Consultant",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A security consultant interviewing a client operations team about priorities in their normal workplace.",
+      "altKo": "보안 컨설턴트: 고객 조직의 현재 상태를 듣고 개선 우선순위를 제안하는 장면"
+    },
+    {
+      "key": "role:security-policy-manager",
+      "route": "/roles/security-policy-manager/",
+      "output": "public/images/pages/role/security-policy-manager.webp",
+      "titleKo": "정보보호 정책 담당자",
+      "titleEn": "Information Security Policy Manager",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A security policy manager discussing policy exceptions with business owners at a conference table.",
+      "altKo": "정보보호 정책 담당자: 법과 계약 요구를 사내 보안 정책과 운영 예외에 연결하는 장면"
+    },
+    {
+      "key": "role:security-product-developer",
+      "route": "/roles/security-product-developer/",
+      "output": "public/images/pages/role/security-product-developer.webp",
+      "titleKo": "보안 제품 개발자",
+      "titleEn": "Security Product Developer",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A security product developer working with a teammate on a real software product at a modest development desk.",
+      "altKo": "보안 제품 개발자: 고객이 쓰는 보안제품 기능을 구현하고 유지보수하는 장면"
+    },
+    {
+      "key": "role:security-product-manager",
+      "route": "/roles/security-product-manager/",
+      "output": "public/images/pages/role/security-product-manager.webp",
+      "titleKo": "보안 제품 관리자",
+      "titleEn": "Security Product Manager",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A security product manager prioritizing customer needs with design and engineering colleagues in a planning meeting.",
+      "altKo": "보안 제품 관리자: 고객 요구를 제품 우선순위와 출시 결정으로 연결하는 장면"
+    },
+    {
+      "key": "role:security-product-qa",
+      "route": "/roles/security-product-qa/",
+      "output": "public/images/pages/role/security-product-qa.webp",
+      "titleKo": "보안 제품 품질 검증 담당자",
+      "titleEn": "Security Product QA Engineer",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A security product QA engineer testing a hardware appliance and documenting defects in a product lab.",
+      "altKo": "보안 제품 품질 검증 담당자: 고객 환경과 비슷한 조건에서 보안제품의 실패 사례를 시험하는 장면"
+    },
+    {
+      "key": "role:security-product-technical-writer",
+      "route": "/roles/security-product-technical-writer/",
+      "output": "public/images/pages/role/security-product-technical-writer.webp",
+      "titleKo": "보안제품 기술문서 작성자",
+      "titleEn": "Security Product Technical Writer",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A security product technical writer preparing user guidance beside a device and a blurred product interface.",
+      "altKo": "보안제품 기술문서 작성자: 보안제품 화면 옆에 고객용 도움말과 설명서를 작성하는 장면"
+    },
+    {
+      "key": "role:security-program-manager",
+      "route": "/roles/security-program-manager/",
+      "output": "public/images/pages/role/security-program-manager.webp",
+      "titleKo": "보안 프로그램 관리자",
+      "titleEn": "Security Program Manager",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A security program manager coordinating cross-team owners and milestones around a project meeting table.",
+      "altKo": "보안 프로그램 관리자: 여러 팀의 보안 과제 일정과 책임을 진행판에서 조율하는 장면"
+    },
+    {
+      "key": "role:security-sales-engineer",
+      "route": "/roles/security-sales-engineer/",
+      "output": "public/images/pages/role/security-sales-engineer.webp",
+      "titleKo": "보안 솔루션 프리세일즈 엔지니어",
+      "titleEn": "Security Sales Engineer",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A security sales engineer demonstrating a security appliance to a customer's technical team in a meeting room.",
+      "altKo": "보안 솔루션 프리세일즈 엔지니어: 고객 요구에 맞춘 보안제품 시연과 적용 가능성을 검증하는 장면"
+    },
+    {
+      "key": "role:security-solution-engineer",
+      "route": "/roles/security-solution-engineer/",
+      "output": "public/images/pages/role/security-solution-engineer.webp",
+      "titleKo": "보안 솔루션 구축·운영 엔지니어",
+      "titleEn": "Security Solution Engineer",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A security solution engineer configuring a newly installed security appliance with a client IT colleague.",
+      "altKo": "보안 솔루션 구축·운영 엔지니어: 보안제품 설정을 실제 조직의 운영 절차에 맞춰 적용하는 장면"
+    },
+    {
+      "key": "role:security-supply-chain-risk-manager",
+      "route": "/roles/security-supply-chain-risk-manager/",
+      "output": "public/images/pages/role/security-supply-chain-risk-manager.webp",
+      "titleKo": "보안 공급망·제3자 위험 관리자",
+      "titleEn": "Cybersecurity Supply Chain Risk Manager",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A supply-chain risk manager reviewing a technology vendor's assurance evidence with procurement colleagues.",
+      "altKo": "보안 공급망·제3자 위험 관리자: 공급업체와 외부 기술 서비스의 도입부터 종료까지 위험을 추적하는 장면"
+    },
+    {
+      "key": "role:security-support-engineer",
+      "route": "/roles/security-support-engineer/",
+      "output": "public/images/pages/role/security-support-engineer.webp",
+      "titleKo": "보안제품 기술지원 엔지니어",
+      "titleEn": "Security Technical Support Engineer",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A security product support engineer with a headset assisting a customer from a professional support desk.",
+      "altKo": "보안제품 기술지원 엔지니어: 고객의 보안제품 장애 티켓을 조사하고 해결 과정을 기록하는 장면"
+    },
+    {
+      "key": "role:siem-platform-engineer",
+      "route": "/roles/siem-platform-engineer/",
+      "output": "public/images/pages/role/siem-platform-engineer.webp",
+      "titleKo": "SIEM·보안 분석 플랫폼 엔지니어",
+      "titleEn": "SIEM Platform Engineer",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A SIEM platform engineer maintaining monitoring infrastructure with an operations teammate in a SOC.",
+      "altKo": "SIEM·보안 분석 플랫폼 엔지니어: 여러 로그 공급원을 분석 플랫폼에 연결하고 데이터 품질을 점검하는 장면"
+    },
+    {
+      "key": "role:soc-analyst",
+      "route": "/roles/soc-analyst/",
+      "output": "public/images/pages/role/soc-analyst.webp",
+      "titleKo": "보안관제 분석가",
+      "titleEn": "SOC Analyst",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A SOC analyst triaging an alert and recording a careful handoff at a multi-monitor security operations desk.",
+      "altKo": "보안관제 분석가: 보안 경보를 로그와 자산 정보에 대조해 사고 여부를 분류하는 장면"
+    },
+    {
+      "key": "role:soc-manager",
+      "route": "/roles/soc-manager/",
+      "output": "public/images/pages/role/soc-manager.webp",
+      "titleKo": "보안관제센터 운영 관리자",
+      "titleEn": "Security Operations Center Manager",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A SOC manager briefing an analyst shift and checking staffing coverage in an operations center.",
+      "altKo": "보안관제센터 운영 관리자: 관제 인력의 교대표와 경보 승격 기준을 운영하는 장면"
+    },
+    {
+      "key": "role:threat-hunter",
+      "route": "/roles/threat-hunter/",
+      "output": "public/images/pages/role/threat-hunter.webp",
+      "titleKo": "위협 헌터",
+      "titleEn": "Threat Hunter",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A threat hunter developing an investigation hypothesis with a teammate at a focused operations desk.",
+      "altKo": "위협 헌터: 기존 경보 밖의 공격 흔적을 가설과 데이터 탐색으로 찾는 장면"
+    },
+    {
+      "key": "role:video-security-specialist",
+      "route": "/roles/video-security-specialist/",
+      "output": "public/images/pages/role/video-security-specialist.webp",
+      "titleKo": "영상정보 보안·운영 담당자",
+      "titleEn": "Video Information Security Specialist",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A video security specialist checking access to surveillance footage in a building control room.",
+      "altKo": "영상정보 보안·운영 담당자: 카메라 영상의 저장과 열람 권한, 이용 기록을 관리하는 장면"
+    },
+    {
+      "key": "role:vulnerability-management-specialist",
+      "route": "/roles/vulnerability-management-specialist/",
+      "output": "public/images/pages/role/vulnerability-management-specialist.webp",
+      "titleKo": "취약점 관리 담당자",
+      "titleEn": "Vulnerability Management Specialist",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A vulnerability management specialist leading a remediation-priority discussion with system owners.",
+      "altKo": "취약점 관리 담당자: 자산별 취약점의 담당자와 수정 기한, 재검증을 추적하는 장면"
+    },
+    {
+      "key": "role:vulnerability-researcher",
+      "route": "/roles/vulnerability-researcher/",
+      "output": "public/images/pages/role/vulnerability-researcher.webp",
+      "titleKo": "취약점 연구원",
+      "titleEn": "Vulnerability Researcher",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A vulnerability researcher testing an isolated device in a controlled technology laboratory.",
+      "altKo": "취약점 연구원: 소프트웨어 결함을 재현해 원인과 수정 근거를 설명하는 장면"
+    },
+    {
+      "key": "role:web-penetration-tester",
+      "route": "/roles/web-penetration-tester/",
+      "output": "public/images/pages/role/web-penetration-tester.webp",
+      "titleKo": "웹 모의침투 테스터",
+      "titleEn": "Web Penetration Tester",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: An authorized web penetration tester reviewing scope and documenting findings with a teammate at a workstation, no attack execution shown.",
+      "altKo": "웹 모의침투 테스터: 허가된 웹 서비스 범위에서 공격 가능성을 검증해 수정 보고서를 만드는 장면"
+    },
+    {
+      "key": "roadmap:ai-security-career",
+      "route": "/roadmaps/ai-security-career/",
+      "output": "public/images/pages/roadmap/ai-security-career.webp",
+      "titleKo": "AI 서비스 보안 커리어 경로",
+      "titleEn": "AI Service Security Career Path",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: An early-career engineer and mentor preparing an AI service evaluation portfolio at a product team desk.",
+      "altKo": "AI 서비스 보안 커리어 경로: AI 제품 기획, 평가, 출시 판단의 업무 기록을 준비하는 경로"
+    },
+    {
+      "key": "roadmap:application-security",
+      "route": "/roadmaps/application-security/",
+      "output": "public/images/pages/roadmap/application-security.webp",
+      "titleKo": "애플리케이션 보안 커리어 경로",
+      "titleEn": "Application Security Career Path",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A learner and application security mentor discussing a service design review and a sample report in a development office.",
+      "altKo": "애플리케이션 보안 커리어 경로: 서비스 설계 검토에서 평가와 수정 인계로 이어지는 경로"
+    },
+    {
+      "key": "roadmap:cloud-security",
+      "route": "/roadmaps/cloud-security/",
+      "output": "public/images/pages/roadmap/cloud-security.webp",
+      "titleKo": "클라우드 보안 커리어 경로",
+      "titleEn": "Cloud Security Career Path",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A cloud security mentor and learner reviewing practical operations work samples beside a server-room window.",
+      "altKo": "클라우드 보안 커리어 경로: 클라우드 책임 구분에서 운영 기록과 판단 자료로 이어지는 경로"
+    },
+    {
+      "key": "roadmap:cybersecurity-fundamentals",
+      "route": "/roadmaps/cybersecurity-fundamentals/",
+      "output": "public/images/pages/roadmap/cybersecurity-fundamentals.webp",
+      "titleKo": "보안 직무 탐색·진입 경로",
+      "titleEn": "Cybersecurity Career Entry Path",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A newcomer comparing a cybersecurity job listing with a small portfolio project and notes at a quiet desk.",
+      "altKo": "보안 직무 탐색·진입 경로: 채용 공고를 읽고 작은 업무 샘플과 지원서를 만드는 경로"
+    },
+    {
+      "key": "roadmap:devsecops",
+      "route": "/roadmaps/devsecops/",
+      "output": "public/images/pages/roadmap/devsecops.webp",
+      "titleKo": "DevSecOps 커리어 경로",
+      "titleEn": "DevSecOps Career Path",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: An early-career engineer learning secure software release checks with a DevSecOps mentor in a development team workspace.",
+      "altKo": "DevSecOps 커리어 경로: 개발 흐름의 경고를 검토하고 예외와 출시를 조율하는 경로"
+    },
+    {
+      "key": "roadmap:grc-security-management",
+      "route": "/roadmaps/grc-security-management/",
+      "output": "public/images/pages/roadmap/grc-security-management.webp",
+      "titleKo": "GRC·보안 관리 커리어 경로",
+      "titleEn": "GRC and Security Management Career Path",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A GRC mentor helping a learner organize policy, risk and control evidence into a portfolio at a meeting table.",
+      "altKo": "GRC·보안 관리 커리어 경로: 정책, 통제 증거, 위험 판단 자료를 이어 만드는 경로"
+    },
+    {
+      "key": "roadmap:industrial-mobility-security",
+      "route": "/roadmaps/industrial-mobility-security/",
+      "output": "public/images/pages/roadmap/industrial-mobility-security.webp",
+      "titleKo": "산업제어·모빌리티 보안 커리어 경로",
+      "titleEn": "Industrial and Mobility Security Career Path",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A mentor introducing a learner to industrial equipment and vehicle electronics in a realistic engineering facility.",
+      "altKo": "산업제어·모빌리티 보안 커리어 경로: 산업 설비와 차량 중 목표 환경을 골라 안전과 변경 기록을 준비하는 경로"
+    },
+    {
+      "key": "roadmap:penetration-testing",
+      "route": "/roadmaps/penetration-testing/",
+      "output": "public/images/pages/roadmap/penetration-testing.webp",
+      "titleKo": "보안 평가·침투 테스트 커리어 경로",
+      "titleEn": "Security Assessment Career Path",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: An authorized security assessment mentor reviewing a scoped test plan and report with a learner, no attack execution shown.",
+      "altKo": "보안 평가·침투 테스트 커리어 경로: 허가된 평가 범위를 정하고 결과 보고서를 인계하는 경로"
+    },
+    {
+      "key": "roadmap:police-cybercrime-career",
+      "route": "/roadmaps/police-cybercrime-career/",
+      "output": "public/images/pages/roadmap/police-cybercrime-career.webp",
+      "titleKo": "경찰 사이버범죄 수사 커리어 경로",
+      "titleEn": "Police Cybercrime Investigation Career Path",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A candidate preparing public-sector cybercrime investigation application materials at a library desk, with generic documents only.",
+      "altKo": "경찰 사이버범죄 수사 커리어 경로: 경찰 채용 공고와 자격 서류, 전형을 확인하는 경로"
+    },
+    {
+      "key": "roadmap:privacy-security-leadership",
+      "route": "/roadmaps/privacy-security-leadership/",
+      "output": "public/images/pages/roadmap/privacy-security-leadership.webp",
+      "titleKo": "개인정보·보안 기획 커리어 경로",
+      "titleEn": "Privacy and Security Leadership Career Path",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A privacy leadership mentor discussing organizational decisions and a career portfolio with a younger colleague.",
+      "altKo": "개인정보·보안 기획 커리어 경로: 개인정보 처리 검토에서 조직 운영과 리더십 판단으로 이어지는 경로"
+    },
+    {
+      "key": "roadmap:security-customer-career",
+      "route": "/roadmaps/security-customer-career/",
+      "output": "public/images/pages/roadmap/security-customer-career.webp",
+      "titleKo": "보안 솔루션 영업·도입·지원 커리어 경로",
+      "titleEn": "Security Solutions Customer Career Path",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A learner shadowing a security solutions consultant during a customer needs discussion in a conference room.",
+      "altKo": "보안 솔루션 영업·도입·지원 커리어 경로: 고객 과제 확인에서 제안, 도입, 지원으로 이어지는 경로"
+    },
+    {
+      "key": "roadmap:security-education-career",
+      "route": "/roadmaps/security-education-career/",
+      "output": "public/images/pages/roadmap/security-education-career.webp",
+      "titleKo": "보안 교육·인재양성 커리어 경로",
+      "titleEn": "Cybersecurity Education Career Path",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A training mentor helping a learner plan and rehearse a cybersecurity workshop in a classroom.",
+      "altKo": "보안 교육·인재양성 커리어 경로: 교육 대상을 정하고 과정을 운영한 뒤 피드백을 반영하는 경로"
+    },
+    {
+      "key": "roadmap:security-operations",
+      "route": "/roadmaps/security-operations/",
+      "output": "public/images/pages/roadmap/security-operations.webp",
+      "titleKo": "보안 운영·사고 대응 커리어 경로",
+      "titleEn": "Security Operations Career Path",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A junior analyst learning alert handoffs from a SOC mentor during a calm operations center shift.",
+      "altKo": "보안 운영·사고 대응 커리어 경로: 경보 판단, 사고 인계, 사후 개선으로 이어지는 경로"
+    },
+    {
+      "key": "roadmap:security-product-customer",
+      "route": "/roadmaps/security-product-customer/",
+      "output": "public/images/pages/roadmap/security-product-customer.webp",
+      "titleKo": "보안제품 기획·개발·품질 커리어 경로",
+      "titleEn": "Security Product Planning, Development, and Quality Career Path",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A learner observing a security product team move from planning to device testing in a real product laboratory.",
+      "altKo": "보안제품 기획·개발·품질 커리어 경로: 보안 제품 요구, 구현, 품질 검증과 사용 설명으로 이어지는 경로"
+    },
+    {
+      "key": "roadmap:security-research-career",
+      "route": "/roadmaps/security-research-career/",
+      "output": "public/images/pages/roadmap/security-research-career.webp",
+      "titleKo": "사이버보안 기술·정책 연구 커리어 경로",
+      "titleEn": "Cybersecurity Research Career Path",
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A mentor and young researcher reviewing a security study notebook and experimental setup in a technology lab.",
+      "altKo": "사이버보안 기술·정책 연구 커리어 경로: 연구 질문, 근거 정리, 발표와 공유로 이어지는 경로"
+    },
+    {
+      "key": "legacy:management",
+      "route": "/fields/management/",
+      "output": "public/images/pages/legacy/management.webp",
+      "titleKo": "보안 분야 안내가 바뀌었습니다",
+      "titleEn": null,
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: An archive curator helping a security manager locate updated strategy and governance career folders at an office reference desk.",
+      "altKo": "보안 전략·관리 안내가 새 분야와 직무 폴더로 옮겨진 상황을 표현한 사진형 이미지"
+    },
+    {
+      "key": "legacy:development",
+      "route": "/fields/development/",
+      "output": "public/images/pages/legacy/development.webp",
+      "titleKo": "보안 분야 안내가 바뀌었습니다",
+      "titleEn": null,
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A developer and security engineer locating updated design and development career folders at a software office desk.",
+      "altKo": "보안 설계·개발 안내가 새 분야와 직무 폴더로 옮겨진 상황을 표현한 사진형 이미지"
+    },
+    {
+      "key": "legacy:product",
+      "route": "/fields/product/",
+      "output": "public/images/pages/legacy/product.webp",
+      "titleKo": "보안 분야 안내가 바뀌었습니다",
+      "titleEn": null,
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A product team locating updated security product career folders beside a lab workbench.",
+      "altKo": "보안제품 기획·개발·품질 안내가 새 분야와 직무 폴더로 옮겨진 상황을 표현한 사진형 이미지"
+    },
+    {
+      "key": "legacy:operations",
+      "route": "/fields/operations/",
+      "output": "public/images/pages/legacy/operations.webp",
+      "titleKo": "보안 분야 안내가 바뀌었습니다",
+      "titleEn": null,
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: An operations engineer locating updated implementation and operations career folders in a data center office.",
+      "altKo": "보안 구축·운영 안내가 새 분야와 직무 폴더로 옮겨진 상황을 표현한 사진형 이미지"
+    },
+    {
+      "key": "legacy:assessment",
+      "route": "/fields/assessment/",
+      "output": "public/images/pages/legacy/assessment.webp",
+      "titleKo": "보안 분야 안내가 바뀌었습니다",
+      "titleEn": null,
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: An assessor locating updated security assessment career folders at a review table.",
+      "altKo": "보안 진단·평가 안내가 새 분야와 직무 폴더로 옮겨진 상황을 표현한 사진형 이미지"
+    },
+    {
+      "key": "legacy:response",
+      "route": "/fields/response/",
+      "output": "public/images/pages/legacy/response.webp",
+      "titleKo": "보안 분야 안내가 바뀌었습니다",
+      "titleEn": null,
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A SOC analyst locating updated monitoring and response career folders at an operations desk.",
+      "altKo": "보안 관제·사고 대응 안내가 새 분야와 직무 폴더로 옮겨진 상황을 표현한 사진형 이미지"
+    },
+    {
+      "key": "legacy:investigation",
+      "route": "/fields/investigation/",
+      "output": "public/images/pages/legacy/investigation.webp",
+      "titleKo": "보안 분야 안내가 바뀌었습니다",
+      "titleEn": null,
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A digital investigator locating updated investigation career folders in a forensic office.",
+      "altKo": "디지털 조사·사이버 수사 안내가 새 분야와 직무 폴더로 옮겨진 상황을 표현한 사진형 이미지"
+    },
+    {
+      "key": "legacy:research",
+      "route": "/fields/research/",
+      "output": "public/images/pages/legacy/research.webp",
+      "titleKo": "보안 분야 안내가 바뀌었습니다",
+      "titleEn": null,
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A researcher locating updated security research and education career folders at a library table.",
+      "altKo": "보안 연구·교육 안내가 새 분야와 직무 폴더로 옮겨진 상황을 표현한 사진형 이미지"
+    },
+    {
+      "key": "legacy:customer",
+      "route": "/fields/customer/",
+      "output": "public/images/pages/legacy/customer.webp",
+      "titleKo": "보안 분야 안내가 바뀌었습니다",
+      "titleEn": null,
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A customer-facing engineer locating updated sales and support career folders at a professional office desk.",
+      "altKo": "보안 기술영업·고객지원 안내가 새 분야와 직무 폴더로 옮겨진 상황을 표현한 사진형 이미지"
+    },
+    {
+      "key": "index:not-found",
+      "route": "/404",
+      "output": "public/images/pages/index/not-found.webp",
+      "titleKo": "문서를 찾지 못했습니다",
+      "titleEn": null,
+      "prompt": "Horizontal 16:10 photorealistic editorial documentary photograph for a Korean cybersecurity career wiki. Believable people, equipment and workplace; natural texture, restrained warm amber and deep navy color, clear focal subject with room around it for a small article thumbnail. No illustration, diagram, hologram, stock-photo handshake pose, brand, logo, watermark, words, legible screen or paper text. Any computer displays are softly defocused and nonspecific. Scene: A person looking at an empty archive shelf and a laptop at a quiet library help desk.",
+      "altKo": "찾던 문서가 없는 자료실을 표현한 사진형 이미지"
+    }
+  ]
+}

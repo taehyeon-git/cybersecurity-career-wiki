@@ -1,13 +1,17 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
+import { existsSync, readFileSync } from "node:fs";
+import path from "node:path";
 import test from "node:test";
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { PageIllustration, type PageIllustrationKind } from "../src/components/illustration/PageIllustration";
 import { publishedFields, publishedRoadmaps, publishedRoles } from "../src/lib/content";
+import { roleCategories } from "../src/lib/site-data";
 
-type IllustratedPage = { kind: PageIllustrationKind; id?: string; title: string };
+type PhotoPage = { kind: PageIllustrationKind; id?: string; title: string };
 
-const pages: IllustratedPage[] = [
+const pages: PhotoPage[] = [
   { kind: "home", title: "Cybersecurity Career Wiki" },
   { kind: "start", title: "직무 찾는 방법" },
   { kind: "fields", title: "보안 분야" },
@@ -17,63 +21,70 @@ const pages: IllustratedPage[] = [
   ...publishedFields().map((page) => ({ kind: "field" as const, id: page.slug, title: page.titleKo })),
   ...publishedRoles().map((page) => ({ kind: "role" as const, id: page.slug, title: page.titleKo })),
   ...publishedRoadmaps().map((page) => ({ kind: "roadmap" as const, id: page.slug, title: page.titleKo })),
+  { kind: "start", id: "not-found", title: "문서를 찾지 못했습니다" },
+  ...roleCategories.map((category) => ({ kind: "fields" as const, id: `legacy-${category.id}`, title: "보안 분야 안내가 바뀌었습니다" })),
 ];
 
 function attribute(markup: string, name: string): string | undefined {
   return markup.match(new RegExp(`\\b${name}="([^"]*)"`))?.[1];
 }
 
-function sceneFocus(markup: string): string | undefined {
-  const opening = /<g\b[^>]*\bdata-scene-focus(?:="[^"]*")?[^>]*>/g;
-  const match = opening.exec(markup);
-  if (!match) return undefined;
-  const start = match.index + match[0].length;
-  const groups = /<\/?g\b[^>]*>/g;
-  groups.lastIndex = start;
-  let depth = 1;
-  for (const group of markup.matchAll(groups)) {
-    depth += group[0].startsWith("</") ? -1 : 1;
-    if (depth === 0) {
-      return markup.slice(start, group.index)
-        .replace(/\s(?:fill|stroke|opacity|stroke-width|strokeWidth|class|style)="[^"]*"/g, "");
-    }
-  }
-  return undefined;
+function photoMarkup(page: PhotoPage) {
+  return renderToStaticMarkup(createElement(PageIllustration, page));
 }
 
-test("all public pages have a specific, uniquely described illustration scene", () => {
-  assert.ok(pages.length >= 96, "the published wiki pages should all be checked");
+test("a career article renders its own local photograph", () => {
+  const markup = photoMarkup({ kind: "role", id: "soc-analyst", title: "보안관제 분석가" });
+  assert.match(markup, /<img\b[^>]*data-wiki-photo="role:soc-analyst"/);
+  assert.match(markup, /src="[^"]*\/images\/pages\/role\/soc-analyst\.webp"/);
+  assert.match(markup, /alt="[^"]*보안관제 분석가[^"]*"/);
+  assert.doesNotMatch(markup, /<svg\b/);
+});
+
+test("index and missing pages use their explicit photo identities", () => {
+  assert.match(photoMarkup({ kind: "start", title: "직무 찾는 방법" }), /data-wiki-photo="index:start"/);
+  assert.match(photoMarkup({ kind: "start", id: "not-found", title: "문서를 찾지 못했습니다" }), /data-wiki-photo="index:not-found"/);
+});
+
+test("every public, legacy, and missing page renders a distinct described photograph", () => {
+  assert.equal(pages.length, 106);
+  const sources = new Set<string>();
   const descriptions = new Set<string>();
 
   for (const page of pages) {
-    const markup = renderToStaticMarkup(createElement(PageIllustration, page));
-    const scene = attribute(markup, "data-scene-description");
-    const label = attribute(markup, "aria-label");
-
-    assert.ok(scene && scene.length >= 12, `${page.kind}:${page.id ?? page.title} needs a concrete scene description`);
-    assert.match(scene, /[가-힣]/, `${page.kind}:${page.id ?? page.title} needs a Korean scene description`);
-    assert.ok(label?.includes(scene), `${page.kind}:${page.id ?? page.title} needs the scene in its image label`);
-    assert.ok(sceneFocus(markup), `${page.kind}:${page.id ?? page.title} needs visible focal artwork`);
-    assert.ok(!descriptions.has(scene), `${page.kind}:${page.id ?? page.title} repeats an illustration scene`);
-    descriptions.add(scene);
+    const markup = photoMarkup(page);
+    const source = attribute(markup, "src");
+    const description = attribute(markup, "data-photo-description");
+    const alt = attribute(markup, "alt");
+    assert.match(markup, /<img\b/, `${page.kind}:${page.id ?? page.title} must render an image`);
+    assert.doesNotMatch(markup, /<svg\b/, `${page.kind}:${page.id ?? page.title} still renders drawn artwork`);
+    assert.ok(source, `${page.kind}:${page.id ?? page.title} needs a local photo source`);
+    assert.ok(source.endsWith(".webp"), `${page.kind}:${page.id ?? page.title} needs a local WebP`);
+    assert.ok(source.startsWith("/images/"), `${page.kind}:${page.id ?? page.title} must be served locally`);
+    assert.ok(description && description.length >= 20 && /[가-힣]/.test(description), `${page.kind}:${page.id ?? page.title} needs a specific Korean photo description`);
+    assert.ok(alt?.includes(page.title.replaceAll("&", "&amp;")) && alt.includes(description), `${page.kind}:${page.id ?? page.title} needs a descriptive alt`);
+    assert.equal(attribute(markup, "width"), page.kind === "home" ? "1993" : "960");
+    assert.equal(attribute(markup, "height"), page.kind === "home" ? "789" : "600");
+    assert.ok(!sources.has(source), `${page.kind}:${page.id ?? page.title} shares a photo path`);
+    assert.ok(!descriptions.has(description), `${page.kind}:${page.id ?? page.title} repeats a photo description`);
+    sources.add(source);
+    descriptions.add(description);
   }
 });
 
-test("roles that previously shared generic icons have different focal artwork", () => {
-  const oldDuplicates = [
-    ["soc-analyst", "cyber-threat-intelligence-analyst"],
-    ["red-team-operator", "web-penetration-tester"],
-    ["chief-privacy-officer", "privacy-manager"],
-    ["grc-analyst", "security-auditor"],
-  ];
-
-  for (const [first, second] of oldDuplicates) {
-    const firstPage = pages.find((page) => page.kind === "role" && page.id === first);
-    const secondPage = pages.find((page) => page.kind === "role" && page.id === second);
-    assert.ok(firstPage && secondPage);
-    const firstFocus = sceneFocus(renderToStaticMarkup(createElement(PageIllustration, firstPage)));
-    const secondFocus = sceneFocus(renderToStaticMarkup(createElement(PageIllustration, secondPage)));
-    assert.ok(firstFocus && secondFocus, `${first} and ${second} need focal artwork`);
-    assert.notEqual(firstFocus, secondFocus, `${first} and ${second} still share the same visual scene`);
+test("every page photo is a distinct, local WebP asset", () => {
+  const hashes = new Set<string>();
+  for (const page of pages) {
+    const source = attribute(photoMarkup(page), "src");
+    assert.ok(source);
+    const file = path.join(process.cwd(), "public", source.replace(/^\//, ""));
+    assert.ok(existsSync(file), `${page.kind}:${page.id ?? page.title} is missing ${file}`);
+    const bytes = readFileSync(file);
+    assert.ok(bytes.length >= 20_000, `${file} is too small for a useful photograph`);
+    assert.equal(bytes.toString("ascii", 0, 4), "RIFF", `${file} is not a WebP RIFF image`);
+    assert.equal(bytes.toString("ascii", 8, 12), "WEBP", `${file} is not a WebP image`);
+    const digest = createHash("sha256").update(bytes).digest("hex");
+    assert.ok(!hashes.has(digest), `${file} repeats another page's photograph`);
+    hashes.add(digest);
   }
 });

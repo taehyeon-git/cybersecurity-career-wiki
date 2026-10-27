@@ -10,19 +10,21 @@ test("representative wiki pages show a descriptive visual without mobile overflo
     for (const route of routes) {
       await page.goto(route);
       const title = await page.getByRole("heading", { level: 1 }).innerText();
-      const visual = route === "./" ? page.locator(".home-hero-visual img") : page.locator('svg[data-wiki-illustration]');
+      const visual = route === "./" ? page.locator(".home-hero-visual img") : page.locator('img[data-wiki-photo]');
       await expect(visual).toHaveCount(1);
+      await visual.scrollIntoViewIfNeeded();
+      await expect.poll(() => visual.evaluate((node) => (node as HTMLImageElement).complete && (node as HTMLImageElement).naturalWidth > 0)).toBe(true);
       if (route === "./") {
         const alt = await visual.getAttribute("alt");
         expect(alt?.length ?? 0).toBeGreaterThanOrEqual(12);
         expect(alt).toContain("보안");
       } else {
-        await expect(visual).toHaveAttribute("role", "img");
-        expect(await visual.getAttribute("aria-label")).toContain(title);
-        const scene = await visual.getAttribute("data-scene-description");
-        expect(scene?.length ?? 0).toBeGreaterThanOrEqual(12);
-        expect(await visual.getAttribute("aria-label")).toContain(scene);
-        await expect(visual.locator("[data-scene-focus]")).toHaveCount(1);
+        const alt = await visual.getAttribute("alt");
+        const description = await visual.getAttribute("data-photo-description");
+        expect(alt).toContain(title);
+        expect(description?.length ?? 0).toBeGreaterThanOrEqual(20);
+        expect(alt).toContain(description);
+        await expect(visual).toHaveAttribute("src", /\/images\/pages\/.+\.webp$/);
       }
       const bounds = await visual.boundingBox();
       expect(bounds?.width ?? 0).toBeGreaterThan(60);
@@ -33,11 +35,10 @@ test("representative wiki pages show a descriptive visual without mobile overflo
   }
 });
 
-test("field, role, and roadmap artwork remains distinct in light and dark layouts", async ({ page }) => {
+test("field, role, and roadmap photos remain distinct and decoded in light and dark layouts", async ({ page }) => {
   test.setTimeout(90_000);
   const routes = ["./fields/ot/", "./careers/soc-analyst/", "./roadmaps/cybersecurity-fundamentals/"];
-  const sceneDescriptions = new Set<string>();
-  const artworkShapes = new Set<string>();
+  const photoSources = new Set<string>();
   await page.goto("./");
 
   for (const theme of ["light", "dark"] as const) {
@@ -47,17 +48,13 @@ test("field, role, and roadmap artwork remains distinct in light and dark layout
       for (const route of routes) {
         await page.goto(route);
         await expect(page.locator("html")).toHaveAttribute("data-theme", theme);
-        const illustration = page.locator('svg[data-wiki-illustration]');
-        await expect(illustration).toBeVisible();
-        const description = await illustration.getAttribute("data-scene-description");
-        expect(description?.length ?? 0).toBeGreaterThanOrEqual(12);
-        sceneDescriptions.add(description ?? "");
-        const artwork = await illustration.locator("[data-scene-focus]").innerHTML();
-        expect(artwork.length).toBeGreaterThan(100);
-        if (theme === "light" && width === 375) {
-          artworkShapes.add(artwork.replace(/\s(?:fill|stroke|opacity|data-[\w-]+)="[^"]*"/g, ""));
-        }
-        const bounds = await illustration.boundingBox();
+        const photo = page.locator('img[data-wiki-photo]');
+        await photo.scrollIntoViewIfNeeded();
+        await expect.poll(() => photo.evaluate((node) => (node as HTMLImageElement).complete && (node as HTMLImageElement).naturalWidth > 0)).toBe(true);
+        await expect(photo).toHaveAttribute("src", /\/images\/pages\/.+\.webp$/);
+        photoSources.add((await photo.getAttribute("src")) ?? "");
+        expect(await photo.evaluate((node) => getComputedStyle(node).objectFit)).toBe("cover");
+        const bounds = await photo.boundingBox();
         expect(bounds?.height ?? 0).toBeGreaterThan(60);
         expect(bounds?.width ?? 0).toBeLessThanOrEqual(width);
         expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
@@ -65,8 +62,7 @@ test("field, role, and roadmap artwork remains distinct in light and dark layout
     }
   }
 
-  expect(sceneDescriptions.size).toBe(routes.length);
-  expect(artworkShapes.size).toBe(routes.length);
+  expect(photoSources.size).toBe(routes.length);
 });
 
 test("home shows nine job folders and opens a role article", async ({ page }) => {

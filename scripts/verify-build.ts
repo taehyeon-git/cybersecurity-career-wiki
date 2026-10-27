@@ -1,7 +1,9 @@
 import fs from "node:fs";
 import path from "node:path";
+import { pagePhotoManifest } from "../src/components/illustration/PagePhotoManifest";
 import { publishedFields, publishedRoadmaps, publishedRoles } from "../src/lib/content";
 import { fieldDomains, roleCategories } from "../src/lib/site-data";
+import { assetUrl } from "../src/lib/urls";
 import { validateExportedLinks } from "./lib/export-links";
 
 const out = path.join(process.cwd(), "out");
@@ -74,16 +76,22 @@ function collectExportedFiles(directory: string) {
   }
 }
 collectExportedFiles("");
-const illustratedPages = [
-  "index.html", "start/index.html", "fields/index.html", "careers/index.html", "roadmaps/index.html", "glossary/index.html",
-  ...publishedFields().map((field) => `fields/${field.slug}/index.html`),
-  ...publishedRoles().map((role) => `careers/${role.slug}/index.html`),
-  ...publishedRoadmaps().map((roadmap) => `roadmaps/${roadmap.slug}/index.html`),
+const photoPages = [
+  { file: "index.html", key: "home" },
+  { file: "start/index.html", key: "index:start" },
+  { file: "fields/index.html", key: "index:fields" },
+  { file: "careers/index.html", key: "index:careers" },
+  { file: "roadmaps/index.html", key: "index:roadmaps" },
+  { file: "glossary/index.html", key: "index:glossary" },
+  ...publishedFields().map((field) => ({ file: `fields/${field.slug}/index.html`, key: `field:${field.slug}` })),
+  ...publishedRoles().map((role) => ({ file: `careers/${role.slug}/index.html`, key: `role:${role.slug}` })),
+  ...publishedRoadmaps().map((roadmap) => ({ file: `roadmaps/${roadmap.slug}/index.html`, key: `roadmap:${roadmap.slug}` })),
+  ...roleCategories.map((category) => ({ file: `fields/${category.id}/index.html`, key: `legacy:${category.id}` })),
+  { file: "404.html", key: "index:not-found" },
 ];
-const illustrationIds = new Set<string>();
-const illustrationScenes = new Set<string>();
+const photoSources = new Set<string>();
 let homePhotoVerified = false;
-for (const file of illustratedPages) {
+for (const { file, key } of photoPages) {
   const html = htmlPages.get(file);
   if (file === "index.html") {
     const photos = html ? [...html.matchAll(/<img\b[^>]*\bsrc="[^"]*\/images\/security-operations-hero\.webp"[^>]*>/g)] : [];
@@ -94,28 +102,28 @@ for (const file of illustratedPages) {
     } else homePhotoVerified = true;
     continue;
   }
-  const images = html ? [...html.matchAll(/<svg\b[^>]*\bdata-wiki-illustration="([^"]+)"[^>]*>/g)] : [];
+  const images = html ? [...html.matchAll(/<img\b[^>]*\bdata-wiki-photo="([^"]+)"[^>]*>/g)] : [];
   const imageTag = images[0]?.[0] ?? "";
-  const scene = imageTag.match(/\bdata-scene-description="([^"]+)"/)?.[1];
-  const label = imageTag.match(/\baria-label="([^"]+)"/)?.[1];
-  if (images.length !== 1 || !/\brole="img"/.test(imageTag) || !scene || scene.length < 12 || !label?.includes(scene) || !html?.includes("data-scene-focus")) {
-    console.error(`Expected one descriptive wiki scene in ${file}; found ${images.length} illustration(s)`);
+  const photo = pagePhotoManifest[key];
+  const description = imageTag.match(/\bdata-photo-description="([^"]+)"/)?.[1];
+  const alt = imageTag.match(/\balt="([^"]+)"/)?.[1];
+  const src = imageTag.match(/\bsrc="([^"]+)"/)?.[1];
+  if (images.length !== 1 || images[0][1] !== key || !photo || !description || description !== photo.description || !alt?.includes(description) || src !== assetUrl(photo.src) || html?.includes("data-wiki-illustration")) {
+    console.error(`Expected one descriptive local photograph in ${file}; found ${images.length} photo(s)`);
     process.exitCode = 1;
     continue;
   }
-  const id = images[0][1];
-  if (illustrationIds.has(id)) {
-    console.error(`Illustration identity repeated across pages: ${id}`);
+  if (!exportedFiles.has(photo.src.replace(/^\/+/, ""))) {
+    console.error(`Missing exported photo for ${file}: ${photo.src}`);
     process.exitCode = 1;
   }
-  illustrationIds.add(id);
-  if (illustrationScenes.has(scene)) {
-    console.error(`Illustration scene description repeated across pages: ${file}`);
+  if (photoSources.has(src)) {
+    console.error(`Photo source repeated across pages: ${src}`);
     process.exitCode = 1;
   }
-  illustrationScenes.add(scene);
+  photoSources.add(src);
 }
-if (homePhotoVerified && illustrationIds.size === illustratedPages.length - 1 && illustrationScenes.size === illustratedPages.length - 1) console.log(`Descriptive visuals verified across ${illustratedPages.length} public pages`);
+if (homePhotoVerified && photoSources.size === photoPages.length - 1 && !process.exitCode) console.log(`Photographs verified across ${photoPages.length} public, legacy, and missing pages`);
 const brokenLinks = validateExportedLinks(htmlPages, exportedFiles, process.env.NEXT_PUBLIC_BASE_PATH ?? "");
 if (brokenLinks.length) {
   console.error(`Broken static links (${brokenLinks.length}):\n${brokenLinks.slice(0, 20).join("\n")}`);

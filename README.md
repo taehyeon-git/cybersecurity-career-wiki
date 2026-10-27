@@ -6,6 +6,8 @@
 
 이 위키는 [NCS 정보보호 SQF](https://www.ncs.go.kr/sqf/sqf01/sqf10100201p1.do?iscCd=20&iscNm=%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8), [NIST NICE](https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/nice-framework-current-versions), [ENISA ECSF](https://www.enisa.europa.eu/topics/skills-and-competences/skills-development/european-cybersecurity-skills-framework-ecsf), 보호 대상별 공식 자료와 기업의 공식 채용공고를 참고합니다. **15개 분야와 네 묶음은 이 위키의 편집 분류**이며, 어느 한 기관의 공식 분류를 그대로 옮긴 것이 아닙니다. 프레임워크의 업무 역할과 기업의 채용 직함도 같지 않습니다. 국내 공고 표본은 시장 전체를 대표하지 않으므로, 개별 기업의 경력·자격 요건을 업계 공통 조건으로 제시하지 않습니다.
 
+각 문서는 주제에 맞는 **개별 사진형 이미지**를 사용합니다. 이미지는 생성된 연출 이미지이며 실제 조직, 인물 또는 보안 사고를 촬영한 기록이 아닙니다. 이미지 경로와 대체 텍스트 설명은 [`PagePhotoManifest.ts`](src/components/illustration/PagePhotoManifest.ts), 제작 장면 지시는 [`page-photo-prompts.json`](scripts/page-photo-prompts.json), 배포 자산은 [`public/images/pages/`](public/images/pages/)에서 관리합니다.
+
 ## 보안 분야: 보호 대상과 기술 환경
 
 | 묶음 | 분야 |

@@ -91,7 +91,7 @@ html[data-theme="dark"] .wiki-tree-page.is-current > .wiki-tree-link { backgroun
 .wiki-page-title { max-width: 710px; margin: 16px 0 15px; font-family: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; font-size: clamp(36px, 4vw, 56px); font-weight: 760; line-height: 1.2; letter-spacing: -.055em; }
 .wiki-page-intro { max-width: 720px; color: var(--muted); font-size: 16px; line-height: 1.8; }
 .wiki-page-meta { margin-top: 20px; font-size: 12px; }
-.page-illustration { border: 1px solid var(--line); border-radius: 20px; background: var(--surface-soft); box-shadow: var(--shadow); }
+.page-illustration { border: 1px solid var(--line); border-radius: 20px; background: var(--surface-soft); box-shadow: var(--shadow); object-fit: cover; object-position: center; }
 .wiki-page-header > .page-illustration { width: 320px; top: 0; }
 
 /* A photographic opening, with the expandable archive immediately after it. */
