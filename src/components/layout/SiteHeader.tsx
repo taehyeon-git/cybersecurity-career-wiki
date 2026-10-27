@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BookOpenText, FolderTree, X } from "lucide-react";
+import { ArrowUpRight, BookOpenText, FolderTree, X } from "lucide-react";
 import { mainNav } from "@/lib/site-data";
 import { SearchDialog } from "@/components/search/SearchDialog";
 import { ThemeToggle } from "./ThemeToggle";
@@ -19,7 +19,7 @@ export function SiteHeader({ sidebarOpen, onToggleSidebar, onCloseSidebar }: { s
         const currentSection = currentPage || path.startsWith(`${sectionPath}/`);
         return <Link key={item.href} className={currentSection ? "active" : ""} href={item.href} aria-current={currentPage ? "page" : currentSection ? "location" : undefined}>{item.label}</Link>;
       })}</nav>
-      <div className="header-actions"><SearchDialog /><ThemeToggle /><button className="icon-button menu-button" type="button" onClick={onToggleSidebar} aria-expanded={sidebarOpen} aria-controls="wiki-sidebar" aria-label={sidebarOpen ? "문서 탐색기 닫기" : "문서 탐색기 열기"}>{sidebarOpen ? <X size={20} /> : <FolderTree size={20} />}</button></div>
+      <div className="header-actions"><SearchDialog /><ThemeToggle /><Link className="header-cta" href="/fields/">분야 탐색 <ArrowUpRight size={15} aria-hidden="true" /></Link><button className="icon-button menu-button" type="button" onClick={onToggleSidebar} aria-expanded={sidebarOpen} aria-controls="wiki-sidebar" aria-label={sidebarOpen ? "문서 탐색기 닫기" : "문서 탐색기 열기"}>{sidebarOpen ? <X size={20} /> : <FolderTree size={20} />}</button></div>
     </div>
   </header>;
 }

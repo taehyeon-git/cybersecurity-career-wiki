@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 
 const searchShortcut = process.platform === "darwin" ? "Meta+k" : "Control+k";
 
-test("representative wiki pages show one named illustration without mobile overflow", async ({ page }) => {
+test("representative wiki pages show a descriptive visual without mobile overflow", async ({ page }) => {
   test.setTimeout(90_000);
   const routes = ["./", "./start/", "./fields/", "./fields/ot/", "./careers/", "./careers/soc-analyst/", "./roadmaps/", "./roadmaps/cybersecurity-fundamentals/", "./glossary/"];
   for (const width of [320, 390]) {
@@ -10,15 +10,21 @@ test("representative wiki pages show one named illustration without mobile overf
     for (const route of routes) {
       await page.goto(route);
       const title = await page.getByRole("heading", { level: 1 }).innerText();
-      const illustration = page.locator('svg[data-wiki-illustration]');
-      await expect(illustration).toHaveCount(1);
-      await expect(illustration).toHaveAttribute("role", "img");
-      expect(await illustration.getAttribute("aria-label")).toContain(title);
-      const scene = await illustration.getAttribute("data-scene-description");
-      expect(scene?.length ?? 0).toBeGreaterThanOrEqual(12);
-      expect(await illustration.getAttribute("aria-label")).toContain(scene);
-      await expect(illustration.locator("[data-scene-focus]")).toHaveCount(1);
-      const bounds = await illustration.boundingBox();
+      const visual = route === "./" ? page.locator(".home-hero-visual img") : page.locator('svg[data-wiki-illustration]');
+      await expect(visual).toHaveCount(1);
+      if (route === "./") {
+        const alt = await visual.getAttribute("alt");
+        expect(alt?.length ?? 0).toBeGreaterThanOrEqual(12);
+        expect(alt).toContain("보안");
+      } else {
+        await expect(visual).toHaveAttribute("role", "img");
+        expect(await visual.getAttribute("aria-label")).toContain(title);
+        const scene = await visual.getAttribute("data-scene-description");
+        expect(scene?.length ?? 0).toBeGreaterThanOrEqual(12);
+        expect(await visual.getAttribute("aria-label")).toContain(scene);
+        await expect(visual.locator("[data-scene-focus]")).toHaveCount(1);
+      }
+      const bounds = await visual.boundingBox();
       expect(bounds?.width ?? 0).toBeGreaterThan(60);
       expect(bounds?.width ?? 0).toBeLessThanOrEqual(width);
       await expect(page.getByRole("heading", { level: 1 })).toBeVisible();

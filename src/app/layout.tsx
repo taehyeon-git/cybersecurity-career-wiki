@@ -4,6 +4,7 @@ import { WikiShell } from "@/components/layout/WikiShell";
 import { WikiFolderTree } from "@/components/wiki/WikiFolderTree";
 import "./globals.css";
 import "./wiki.css";
+import "./editorial.css";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
