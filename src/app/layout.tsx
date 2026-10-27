@@ -5,12 +5,13 @@ import { WikiFolderTree } from "@/components/wiki/WikiFolderTree";
 import "./globals.css";
 import "./wiki.css";
 import "./editorial.css";
+import "./sidebar-premium.css";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: { default: "Cybersecurity Career Wiki | 보안 직무 커리어", template: "%s | Cybersecurity Career Wiki" },
+  title: { default: "Cybersecurity Career Wiki", template: "%s | Cybersecurity Career Wiki" },
   description: "사이버보안 분야와 직무의 실제 업무, 산출물, 채용 사례와 커리어 준비 경로를 정리한 한국어 위키입니다.",
   openGraph: { title: "Cybersecurity Career Wiki", description: "보안 분야와 직무, 커리어 준비를 위한 한국어 공개 위키", type: "website", locale: "ko_KR" },
 };

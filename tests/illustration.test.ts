@@ -8,7 +8,7 @@ import { publishedFields, publishedRoadmaps, publishedRoles } from "../src/lib/c
 type IllustratedPage = { kind: PageIllustrationKind; id?: string; title: string };
 
 const pages: IllustratedPage[] = [
-  { kind: "home", title: "사이버보안 커리어 위키" },
+  { kind: "home", title: "Cybersecurity Career Wiki" },
   { kind: "start", title: "직무 찾는 방법" },
   { kind: "fields", title: "보안 분야" },
   { kind: "careers", title: "보안 직무" },

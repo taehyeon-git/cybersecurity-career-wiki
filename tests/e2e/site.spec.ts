@@ -71,7 +71,7 @@ test("field, role, and roadmap artwork remains distinct in light and dark layout
 
 test("home shows nine job folders and opens a role article", async ({ page }) => {
   await page.goto("./");
-  await expect(page.getByRole("heading", { name: "사이버보안 커리어 위키", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Cybersecurity Career Wiki", exact: true })).toBeVisible();
   await expect(page.getByRole("link", { name: "사이트맵" })).toHaveAttribute("href", /\/sitemap\.xml$/);
 
   const jobsFolder = page.locator(".wiki-home-folder").filter({ has: page.getByText("보안 직무", { exact: true }) });
@@ -578,7 +578,7 @@ test("mobile home heading stays below the sticky header after leaving a scrolled
   await page.mouse.wheel(0, 900);
   await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(300);
   await page.locator(".site-header .brand").click();
-  await expect(page.locator(".wiki-home h1")).toHaveText("사이버보안 커리어 위키");
+  await expect(page.locator(".wiki-home h1")).toHaveText("Cybersecurity Career Wiki");
 
   await expect.poll(() => page.evaluate(() => {
     const headerBottom = document.querySelector(".site-header")!.getBoundingClientRect().bottom;

@@ -5,7 +5,7 @@ import { fieldDomains, roleCategories } from "../src/lib/site-data";
 import { validateExportedLinks } from "./lib/export-links";
 
 const out = path.join(process.cwd(), "out");
-const required = ["index.html", "404.html", "icon.svg", "images/security-workspace-hero.webp", "search-index.json", "sitemap.xml", "robots.txt", ".nojekyll", "fields/index.html"];
+const required = ["index.html", "404.html", "icon.svg", "images/security-operations-hero.webp", "search-index.json", "sitemap.xml", "robots.txt", ".nojekyll", "fields/index.html"];
 for (const field of publishedFields()) required.push(`fields/${field.slug}/index.html`, `fields/${field.slug}/__next.fields.$d$slug.__PAGE__.txt`);
 for (const category of roleCategories) required.push(`fields/${category.id}/index.html`, `fields/${category.id}/__next.fields.$d$slug.__PAGE__.txt`);
 for (const role of publishedRoles()) required.push(`careers/${role.slug}/index.html`, `careers/${role.slug}/__next.careers.$d$slug.__PAGE__.txt`);
@@ -86,7 +86,7 @@ let homePhotoVerified = false;
 for (const file of illustratedPages) {
   const html = htmlPages.get(file);
   if (file === "index.html") {
-    const photos = html ? [...html.matchAll(/<img\b[^>]*\bsrc="[^"]*\/images\/security-workspace-hero\.webp"[^>]*>/g)] : [];
+    const photos = html ? [...html.matchAll(/<img\b[^>]*\bsrc="[^"]*\/images\/security-operations-hero\.webp"[^>]*>/g)] : [];
     const alt = photos[0]?.[0].match(/\balt="([^"]+)"/)?.[1];
     if (photos.length !== 1 || !alt || alt.length < 12 || !alt.includes("보안")) {
       console.error(`Expected one descriptive career-wiki hero photo in ${file}; found ${photos.length}`);

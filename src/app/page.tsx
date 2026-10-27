@@ -7,7 +7,7 @@ import { fieldDomainGroups, roadmapGroups, roleCategories, routeFor } from "@/li
 import { assetUrl } from "@/lib/urls";
 
 export const metadata: Metadata = {
-  title: "사이버보안 커리어 위키",
+  title: { absolute: "Cybersecurity Career Wiki" },
   description: "사이버보안 분야와 직무의 실제 업무, 채용 근거, 진입 경로를 폴더별로 찾아보는 한국어 위키입니다.",
   alternates: { canonical: "/" },
 };
@@ -38,15 +38,15 @@ export default function HomePage() {
 
     <header className="wiki-home-intro home-hero">
       <p className="wiki-home-kicker">THE CYBERSECURITY CAREER ARCHIVE</p>
-      <h1>사이버보안 <em>커리어</em> 위키</h1>
+      <h1>Cybersecurity <em>Career</em> Wiki</h1>
       <p className="wiki-home-lede">어떤 환경을 지키고, 어떤 일을 하게 될까요? 보안 분야에서 실제 직무의 책임과 채용 근거, 준비 경로까지 차근차근 살펴보세요.</p>
       <div className="home-hero-actions">
         <a className="home-hero-primary" href="#wiki-home-index-title">폴더 펼쳐 보기 <ArrowUpRight size={18} aria-hidden="true" /></a>
         <Link className="home-hero-secondary" href="/careers/">직무 둘러보기 <ArrowRight size={18} aria-hidden="true" /></Link>
       </div>
       <figure className="home-hero-visual">
-        <Image src={assetUrl("/images/security-workspace-hero.webp")} alt="야간 보안 업무 공간의 조명과 책상, 서버실을 담은 사진형 이미지" width={1536} height={1024} sizes="(max-width: 900px) 100vw, 1100px" unoptimized loading="eager" />
-        <figcaption className="home-hero-photo-caption"><span>EXPLORE THE FIELD</span><strong>보안의 일을 더 선명하게</strong></figcaption>
+        <Image src={assetUrl("/images/security-operations-hero.webp")} alt="야간 보안관제실에서 분석가들이 화면을 살피고 있는 사진형 이미지" width={1993} height={789} sizes="(max-width: 900px) 100vw, 1100px" unoptimized loading="eager" />
+        <figcaption className="home-hero-photo-caption"><span>FIND YOUR PLACE IN SECURITY</span><strong>“A career in security begins with what you choose to protect.”</strong></figcaption>
       </figure>
       <div className="wiki-home-meta home-hero-stats"><span>보안 분야 <strong>{fields.length}</strong></span><span>실제 직무 <strong>{roles.length}</strong></span><span>커리어 경로 <strong>{roadmaps.length}</strong></span></div>
     </header>

@@ -1,8 +1,8 @@
-# 사이버보안 커리어 위키
+# Cybersecurity Career Wiki
 
 보안 분야에서 어떤 일을 하는지, 어떻게 진입하고 경력을 넓힐지 살펴보는 한국어 위키입니다. 고전 위키처럼 폴더를 펼쳐 **15개 보안 분야 안내**, **60개 직무**, **15개 커리어 준비 경로**, **63개 커리어 용어**를 탐색할 수 있습니다. 분야 안내는 시스템·웹·OT처럼 **무엇을 보호하는지**를 기준으로, 직무 목록은 **어떤 일을 맡는지**를 기준으로 찾습니다. 독립적인 기술 강의, 직무 비교, 지식 지도는 제공하지 않습니다.
 
-**공개 사이트:** [사이버보안 커리어 위키](https://taehyeon-git.github.io/cybersecurity-career-wiki/)
+**공개 사이트:** [Cybersecurity Career Wiki](https://taehyeon-git.github.io/cybersecurity-career-wiki/)
 
 이 위키는 [NCS 정보보호 SQF](https://www.ncs.go.kr/sqf/sqf01/sqf10100201p1.do?iscCd=20&iscNm=%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8), [NIST NICE](https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/nice-framework-current-versions), [ENISA ECSF](https://www.enisa.europa.eu/topics/skills-and-competences/skills-development/european-cybersecurity-skills-framework-ecsf), 보호 대상별 공식 자료와 기업의 공식 채용공고를 참고합니다. **15개 분야와 네 묶음은 이 위키의 편집 분류**이며, 어느 한 기관의 공식 분류를 그대로 옮긴 것이 아닙니다. 프레임워크의 업무 역할과 기업의 채용 직함도 같지 않습니다. 국내 공고 표본은 시장 전체를 대표하지 않으므로, 개별 기업의 경력·자격 요건을 업계 공통 조건으로 제시하지 않습니다.
 
