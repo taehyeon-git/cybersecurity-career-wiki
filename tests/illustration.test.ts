@@ -33,6 +33,13 @@ function photoMarkup(page: PhotoPage) {
   return renderToStaticMarkup(createElement(PageIllustration, page));
 }
 
+function localPhotoSource(source: string): string {
+  const configuredBasePath = (process.env.NEXT_PUBLIC_BASE_PATH ?? "").replace(/^\/+|\/+$/g, "");
+  const sitePrefix = configuredBasePath ? `/${configuredBasePath}` : "";
+  assert.ok(source.startsWith(`${sitePrefix}/images/`), `${source} must use the local images path after the site prefix`);
+  return source.slice(sitePrefix.length);
+}
+
 test("a career article renders its own local photograph", () => {
   const markup = photoMarkup({ kind: "role", id: "soc-analyst", title: "보안관제 분석가" });
   assert.match(markup, /<img\b[^>]*data-wiki-photo="role:soc-analyst"/);
@@ -60,7 +67,7 @@ test("every public, legacy, and missing page renders a distinct described photog
     assert.doesNotMatch(markup, /<svg\b/, `${page.kind}:${page.id ?? page.title} still renders drawn artwork`);
     assert.ok(source, `${page.kind}:${page.id ?? page.title} needs a local photo source`);
     assert.ok(source.endsWith(".webp"), `${page.kind}:${page.id ?? page.title} needs a local WebP`);
-    assert.ok(source.startsWith("/images/"), `${page.kind}:${page.id ?? page.title} must be served locally`);
+    localPhotoSource(source);
     assert.ok(description && description.length >= 20 && /[가-힣]/.test(description), `${page.kind}:${page.id ?? page.title} needs a specific Korean photo description`);
     assert.ok(alt?.includes(page.title.replaceAll("&", "&amp;")) && alt.includes(description), `${page.kind}:${page.id ?? page.title} needs a descriptive alt`);
     assert.equal(attribute(markup, "width"), page.kind === "home" ? "1993" : "960");
@@ -77,7 +84,7 @@ test("every page photo is a distinct, local WebP asset", () => {
   for (const page of pages) {
     const source = attribute(photoMarkup(page), "src");
     assert.ok(source);
-    const file = path.join(process.cwd(), "public", source.replace(/^\//, ""));
+    const file = path.join(process.cwd(), "public", localPhotoSource(source).replace(/^\//, ""));
     assert.ok(existsSync(file), `${page.kind}:${page.id ?? page.title} is missing ${file}`);
     const bytes = readFileSync(file);
     assert.ok(bytes.length >= 20_000, `${file} is too small for a useful photograph`);
